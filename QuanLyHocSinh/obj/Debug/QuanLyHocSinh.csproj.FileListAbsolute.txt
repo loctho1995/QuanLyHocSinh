@@ -1,2 +1,1 @@
 F:\CODE\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\QuanLyHocSinh.exe.config
-E:\visual studio 2012\đồ án quản lý học sinh\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\QuanLyHocSinh.exe.config
