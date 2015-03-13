@@ -1,6 +1,6 @@
 ﻿namespace QuanLyHocSinh
 {
-    partial class Form1
+    partial class FrmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,7 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(12, 129);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(121, 338);
+            this.treeView1.Size = new System.Drawing.Size(131, 338);
             this.treeView1.TabIndex = 0;
             // 
             // panel1
@@ -49,6 +49,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(886, 111);
