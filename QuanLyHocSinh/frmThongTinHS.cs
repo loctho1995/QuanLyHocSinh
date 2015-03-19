@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace QuanLyHocSinh
 {
-    public partial class FrnThongTinHS : Form
+    public partial class frmThongTinHS : Form
     {
-        public FrnThongTinHS()
+        public frmThongTinHS()
         {
             InitializeComponent();
+        }
+
+        private void frmThongTinHS_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
