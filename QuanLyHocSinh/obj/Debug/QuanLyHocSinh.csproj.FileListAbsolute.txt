@@ -12,3 +12,4 @@ F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\QuanLyHocSinh.pdb
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.exe
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.pdb
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.csprojResolveAssemblyReference.cache
+F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.frmThongTinHS.resources

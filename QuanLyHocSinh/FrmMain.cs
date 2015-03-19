@@ -16,6 +16,7 @@ namespace QuanLyHocSinh
         public FrmMain()
         {
             InitializeComponent();
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
             m_treeViewKhoi.ExpandAll();
             
         }
@@ -39,7 +40,9 @@ namespace QuanLyHocSinh
             switch ((sender as Button).Name)
             {
                 case "m_btclose":
-                   this.Close();
+                    if (MessageBox.Show("Sure Mother fucker?", "Quit", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                        this.Close();
+
                     break;
 
                 case "m_btSuaDiem":
@@ -57,7 +60,66 @@ namespace QuanLyHocSinh
 
         private void m_treeViewKhoi_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            MessageBox.Show((e.Node.Name));
+            switch (e.Node.Name)
+            {
+                //Click vào node khối
+                case "m_nodeKhoi":
+                    break;
+
+                //Click vào Node Khối 10
+                case "m_nodeKhoi10":
+
+                    break;
+
+                //Click vào Node khối 11
+                case "m_nodeKhoi11":
+
+                    break;
+
+                //Click vào Node khối 11
+                case "m_nodeKhoi12":
+
+                    break;
+
+                case "m_node10A1":
+                    break;
+
+                case "m_node10A2":
+                    break;
+
+                case "m_node10A3":
+                    break;
+
+                case "m_node10A4":
+                    break;
+
+                case "m_node11A1":
+                    break;
+
+                case "m_node11A2":
+                    break;
+
+                case "m_node11A3":
+                    break;
+
+                case "m_node12A1":
+                    break;
+
+                case "m_node12A2":
+                    break;
+
+                default:
+                    break;
+            }
+
+            //MessageBox.Show((e.Node.Name));
+        }
+
+        //Resize control khi form Resize
+        private void FrmMain_Resize(object sender, EventArgs e)
+        {
+            //m_treeViewKhoi.Size = new Size(m_treeViewKhoi.Width, this.Height - m_treeViewKhoi.Location.Y);
+            //m_dgwMain.Size = new Size(this.Width - m_dgwMain.Location.X, this.Height - m_dgwMain.Location.Y);
         } 
     }
 }
