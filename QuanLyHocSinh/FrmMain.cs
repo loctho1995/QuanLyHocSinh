@@ -8,11 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS;
 
 namespace QuanLyHocSinh
 {
     public partial class FrmMain : Form
     {
+        HocSinh_BUS hs = new HocSinh_BUS();
+        int m_count = 0;
         public FrmMain()
         {
             InitializeComponent();
@@ -49,15 +52,13 @@ namespace QuanLyHocSinh
                     break;
 
                 case "m_btXemThongTin":
-                    frmThongTinHS frmTT = new frmThongTinHS();
-                    frmTT.Show();
+                    this.XemThongTin();
                     break;
 
                 default:
                     break;
             }
-        }
-
+        }       
         private void m_treeViewKhoi_AfterSelect(object sender, TreeViewEventArgs e)
         {
             switch (e.Node.Name)
@@ -68,44 +69,53 @@ namespace QuanLyHocSinh
 
                 //Click vào Node Khối 10
                 case "m_nodeKhoi10":
-
+                    DesignDataGridView(m_dgvMain,"10");
                     break;
 
                 //Click vào Node khối 11
                 case "m_nodeKhoi11":
-
+                    DesignDataGridView(m_dgvMain, "11");
                     break;
 
                 //Click vào Node khối 11
                 case "m_nodeKhoi12":
-
+                    DesignDataGridView(m_dgvMain, "12");
                     break;
 
                 case "m_node10A1":
+                    DesignDataGridView(m_dgvMain, "10a1");
                     break;
 
                 case "m_node10A2":
+                    DesignDataGridView(m_dgvMain, "10a2");
                     break;
 
                 case "m_node10A3":
+                    DesignDataGridView(m_dgvMain, "10a3");
                     break;
 
                 case "m_node10A4":
+                    DesignDataGridView(m_dgvMain, "10a4");
                     break;
 
                 case "m_node11A1":
+                    DesignDataGridView(m_dgvMain, "11a1");
                     break;
 
                 case "m_node11A2":
+                    DesignDataGridView(m_dgvMain, "11a2");
                     break;
 
                 case "m_node11A3":
+                    DesignDataGridView(m_dgvMain, "11a3");
                     break;
 
                 case "m_node12A1":
+                    DesignDataGridView(m_dgvMain, "12a1");
                     break;
 
                 case "m_node12A2":
+                    DesignDataGridView(m_dgvMain, "12a2");
                     break;
 
                 default:
@@ -114,12 +124,63 @@ namespace QuanLyHocSinh
 
             //MessageBox.Show((e.Node.Name));
         }
+        private void DesignDataGridView(DataGridView dgv, string ma)
+        {
+            if (ma.Length == 2)
+                dgv.DataSource = hs.LayHocSinh_Khoi(ma);
+            else dgv.DataSource = hs.LayHocSinh_Lop(ma);
+            dgv.Columns["STT"].Width = 40;
+            dgv.Columns["MAHS"].Width = 50;
+            dgv.Columns["HOTEN"].Width = 120;
+            dgv.Columns["GIOITINH"].Width = 50;
+            dgv.Columns["EMAIL"].Width = 120;
+            dgv.Columns["MALOP"].Width = 50;
+            dgv.Columns["MAKHOILOP"].Width = 40;
+
+            dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
+            dgv.Columns["HOTEN"].HeaderText = "Họ và tện";
+            dgv.Columns["GIOITINH"].HeaderText = "Giới tính";
+            dgv.Columns["EMAIL"].HeaderText = "Email";
+            dgv.Columns["DIACHI"].HeaderText = "Địa chỉ";
+            dgv.Columns["MALOP"].HeaderText = "Mã lớp";
+            dgv.Columns["MAKHOILOP"].HeaderText = "Mã khối";
+        }
+
+        private void ShowHocSinh_Khoi()
+        {
+            //
+            m_dgvMain.DataSource = hs.LayTatCa();
+        }
 
         //Resize control khi form Resize
         private void FrmMain_Resize(object sender, EventArgs e)
         {
             //m_treeViewKhoi.Size = new Size(m_treeViewKhoi.Width, this.Height - m_treeViewKhoi.Location.Y);
             //m_dgwMain.Size = new Size(this.Width - m_dgwMain.Location.X, this.Height - m_dgwMain.Location.Y);
-        } 
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void m_dgvMain_Click(object sender, EventArgs e)
+        {
+            m_count++;
+            if(m_count==2)
+             this.XemThongTin();
+        }
+        private void XemThongTin()
+        {
+            if (m_dgvMain.DataSource == null)
+                MessageBox.Show("Chọn học sinh cần xem thông tin");
+            else
+            {
+                frmThongTinHS frmTT = new frmThongTinHS();
+                frmThongTinHS.m_Row = m_dgvMain.SelectedRows[0];
+                frmTT.Show();
+            }
+            m_count = 0;
+        }
     }
 }

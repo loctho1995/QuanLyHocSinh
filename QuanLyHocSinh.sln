@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyHocSinh", "QuanLyHocSinh\QuanLyHocSinh.csproj", "{1759015B-CCAD-4BF4-8F6D-F9FD6A4498D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{731ECE46-EA1B-4592-8B44-04F47DAEC1BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BUS", "BUS\BUS.csproj", "{21ED7B70-CBE6-4BC0-A390-65FA16D17AAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{1759015B-CCAD-4BF4-8F6D-F9FD6A4498D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1759015B-CCAD-4BF4-8F6D-F9FD6A4498D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1759015B-CCAD-4BF4-8F6D-F9FD6A4498D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{731ECE46-EA1B-4592-8B44-04F47DAEC1BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{731ECE46-EA1B-4592-8B44-04F47DAEC1BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{731ECE46-EA1B-4592-8B44-04F47DAEC1BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{731ECE46-EA1B-4592-8B44-04F47DAEC1BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21ED7B70-CBE6-4BC0-A390-65FA16D17AAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21ED7B70-CBE6-4BC0-A390-65FA16D17AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21ED7B70-CBE6-4BC0-A390-65FA16D17AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21ED7B70-CBE6-4BC0-A390-65FA16D17AAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

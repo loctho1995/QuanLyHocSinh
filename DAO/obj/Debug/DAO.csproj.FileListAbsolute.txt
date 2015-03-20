@@ -1,0 +1,6 @@
+E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\DAO\bin\Debug\DAO.dll.config
+E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\DAO\bin\Debug\DAO.dll
+E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\DAO\bin\Debug\DAO.pdb
+E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\DAO\obj\Debug\DAO.dll
+E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\DAO\obj\Debug\DAO.pdb

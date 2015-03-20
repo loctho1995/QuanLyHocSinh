@@ -1,0 +1,7 @@
+E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\BUS\bin\Debug\BUS.dll
+E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\BUS\bin\Debug\BUS.pdb
+E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\BUS\bin\Debug\DAO.dll
+E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\BUS\bin\Debug\DAO.pdb
+E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
+E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\BUS\obj\Debug\BUS.dll
+E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\BUS\obj\Debug\BUS.pdb
