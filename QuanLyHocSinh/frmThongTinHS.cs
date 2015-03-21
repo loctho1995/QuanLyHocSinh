@@ -12,11 +12,14 @@ namespace QuanLyHocSinh
 {
     public partial class frmThongTinHS : Form
     {
-        public static DataGridViewRow m_Row;
-        public frmThongTinHS()
+        DataGridViewRow m_row;
+
+        public frmThongTinHS(DataGridViewRow row)
         {
+            m_row = row;
             InitializeComponent();
         }
+
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
@@ -34,22 +37,17 @@ namespace QuanLyHocSinh
         
         private void frmThongTinHS_Load(object sender, EventArgs e)
         {
-            m_lblName.Text = m_Row.Cells["HOTEN"].Value.ToString();
-            m_lblNgaysinh.Text = m_Row.Cells["NGAYSINH"].Value.ToString();
-            m_lblGioitinh.Text = m_Row.Cells["GIOITINH"].Value.ToString();
-            m_lblDiachi.Text = m_Row.Cells["DIACHI"].Value.ToString();
-            m_lblEmail.Text = m_Row.Cells["EMAIL"].Value.ToString();
-            m_lblLop.Text = m_Row.Cells["MALOP"].Value.ToString();
+            m_lblName.Text = m_row.Cells["HOTEN"].Value.ToString();
+            m_lblNgaysinh.Text = m_row.Cells["NGAYSINH"].Value.ToString();
+            m_lblGioitinh.Text = m_row.Cells["GIOITINH"].Value.ToString();
+            m_lblDiachi.Text = m_row.Cells["DIACHI"].Value.ToString();
+            m_lblEmail.Text = m_row.Cells["EMAIL"].Value.ToString();
+            m_lblLop.Text = m_row.Cells["MALOP"].Value.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

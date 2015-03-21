@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\HocSinh.cs" />
     <Compile Include="Form1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -61,6 +60,12 @@
     </Compile>
     <Compile Include="frmSuaDiem.Designer.cs">
       <DependentUpon>frmSuaDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSuaNhapHS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSuaNhapHS.Designer.cs">
+      <DependentUpon>frmSuaNhapHS.cs</DependentUpon>
     </Compile>
     <Compile Include="frmThongTinHS.cs">
       <SubType>Form</SubType>
@@ -88,6 +93,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSuaDiem.resx">
+      <DependentUpon>frmSuaDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSuaNhapHS.resx">
+      <DependentUpon>frmSuaNhapHS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThongTinHS.resx">
       <DependentUpon>frmThongTinHS.cs</DependentUpon>

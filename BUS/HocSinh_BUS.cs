@@ -9,19 +9,22 @@ using System.Threading.Tasks;
 using DAO;
 using System.Data;
 
-
 namespace BUS
 {
     public class HocSinh_BUS
     {
         SQL_QUANLYHOCSINHDataContext DB = new SQL_QUANLYHOCSINHDataContext();
+
         public List<HOCSINH> LayTatCa()
         {
             return DB.HOCSINHs.ToList();
         }
+
         public DataTable LayHocSinh_Khoi(string makhoilop)
-        {
+        {            
             DataTable dt = new DataTable();
+            //dt.Clear();
+
             dt.Columns.Add("STT", typeof(int));
             dt.Columns.Add("MAHS", typeof(int));
             dt.Columns.Add("HOTEN", typeof(string));
@@ -31,6 +34,7 @@ namespace BUS
             dt.Columns.Add("EMAIL", typeof(string));
             dt.Columns.Add("MALOP", typeof(string));
             dt.Columns.Add("MAKHOILOP", typeof(int));
+
             var hocsinh = (from hs in DB.HOCSINHs
                             join pl in DB.PHANLOPs.Where(p => p.MAKHOILOP == makhoilop)
                             on hs.MAHS equals pl.MAHS
@@ -46,9 +50,11 @@ namespace BUS
                                 pl.MAKHOILOP
                             }).ToList();
             int c = 1;
+
             foreach (var i in hocsinh)
             {
                 DataRow r = dt.NewRow();
+
                 r["STT"] = c++;
                 r["MAHS"] = i.MAHS;
                 r["HOTEN"] = i.HOTEN;
@@ -58,13 +64,17 @@ namespace BUS
                 r["EMAIL"] = i.EMAIL;
                 r["MALOP"] = i.MALOP;
                 r["MAKHOILOP"] = i.MAKHOILOP;
+
                 dt.Rows.Add(r);
             }
+
             return dt;
         }
+
         public DataTable LayHocSinh_Lop(string malop)
         {
             DataTable dt = new DataTable();
+
             dt.Columns.Add("STT", typeof(int));
             dt.Columns.Add("MAHS", typeof(int));
             dt.Columns.Add("HOTEN", typeof(string));
@@ -73,7 +83,8 @@ namespace BUS
             dt.Columns.Add("DIACHI", typeof(string));
             dt.Columns.Add("EMAIL", typeof(string));
             dt.Columns.Add("MALOP", typeof(string));
-            dt.Columns.Add("MAKHOILOP", typeof(int));
+            dt.Columns.Add("MAKHOILOP", typeof(int));            
+
             var hocsinh = (from hs in DB.HOCSINHs
                            join pl in DB.PHANLOPs.Where( p => p.MALOP == malop)
                            on hs.MAHS equals pl.MAHS
@@ -89,9 +100,13 @@ namespace BUS
                                pl.MAKHOILOP
                            }).ToList();
             int c = 1;
+
+
+
             foreach (var i in hocsinh)
             {
                 DataRow r = dt.NewRow();
+
                 r["STT"] = c++;
                 r["MAHS"] = i.MAHS;
                 r["HOTEN"] = i.HOTEN;
@@ -101,9 +116,23 @@ namespace BUS
                 r["EMAIL"] = i.EMAIL;
                 r["MALOP"] = i.MALOP;
                 r["MAKHOILOP"] = i.MAKHOILOP;
+
                 dt.Rows.Add(r);
             }
+
             return dt;
+        }
+
+        public void DeleteHocSinh(string key)
+        {
+            var hocsinh = from data in DB.HOCSINHs
+                          where data.MAHS.ToString() == key
+                          select data;
+
+            foreach (var item in hocsinh)
+                DB.HOCSINHs.DeleteOnSubmit(item);
+
+            //DB.SubmitChanges();
         }
     }
 }

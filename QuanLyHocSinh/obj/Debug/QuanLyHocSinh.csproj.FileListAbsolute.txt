@@ -28,3 +28,9 @@ E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\QuanL
 E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\DAO.dll
 E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\BUS.pdb
 E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\DAO.pdb
+F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\BUS.dll
+F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\DAO.dll
+F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\BUS.pdb
+F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\DAO.pdb
+F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.frmSuaDiem.resources
+F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.frmSuaNhapHS.resources

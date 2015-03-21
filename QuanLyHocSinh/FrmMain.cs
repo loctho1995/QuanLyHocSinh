@@ -1,4 +1,4 @@
-﻿using QuanLyHocSinh.Classes;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,12 +16,15 @@ namespace QuanLyHocSinh
     {
         HocSinh_BUS hs = new HocSinh_BUS();
         int m_count = 0;
+
         public FrmMain()
         {
-            InitializeComponent();
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
+
+            InitializeComponent();
             m_treeViewKhoi.ExpandAll();
-            
+
+            m_dgvMain.BorderStyle = BorderStyle.None;
         }
 
         protected override void WndProc(ref Message m)
@@ -45,14 +48,25 @@ namespace QuanLyHocSinh
                 case "m_btclose":
                     if (MessageBox.Show("Sure Mother fucker?", "Quit", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                         this.Close();
+                    break;
 
+                case "m_btXoaHS":
+                    XoaHocSinh();
                     break;
 
                 case "m_btSuaDiem":
                     break;
 
                 case "m_btXemThongTin":
-                    this.XemThongTin();
+                    XemThongTin();
+                    break;
+
+                case "m_btThemHS":
+                    ThemHocSinh();
+                    break;
+
+                case "m_btSuaHS":
+                    SuaHocSinh();
                     break;
 
                 default:
@@ -124,6 +138,7 @@ namespace QuanLyHocSinh
 
             //MessageBox.Show((e.Node.Name));
         }
+
         private void DesignDataGridView(DataGridView dgv, string ma)
         {
             if (ma.Length == 2)
@@ -167,19 +182,51 @@ namespace QuanLyHocSinh
         private void m_dgvMain_Click(object sender, EventArgs e)
         {
             m_count++;
+
             if(m_count==2)
              this.XemThongTin();
         }
+
+        private void ThemHocSinh()
+        {
+            frmSuaNhapHS frmNhap = new frmSuaNhapHS();
+            frmNhap.Show();
+        }
+
+        private void SuaHocSinh()
+        {
+            if (m_dgvMain.DataSource == null)
+                MessageBox.Show("Chọn học sinh cần sửa");
+            else
+            {
+                frmSuaNhapHS frmSua = new frmSuaNhapHS(m_dgvMain.SelectedRows[0]);
+                frmSua.Show();
+            }
+        }
+
+        private void XoaHocSinh()
+        {
+            if (m_dgvMain.DataSource == null)
+                MessageBox.Show("chọn học sinh cần xóa");
+            else
+            {
+                string key = m_dgvMain.SelectedRows[0].Cells["MAHS"].Value.ToString();
+                m_dgvMain.Rows.RemoveAt(m_dgvMain.SelectedRows[0].Index);
+                hs.DeleteHocSinh(key);
+            }
+        }
+
+
         private void XemThongTin()
         {
             if (m_dgvMain.DataSource == null)
                 MessageBox.Show("Chọn học sinh cần xem thông tin");
             else
             {
-                frmThongTinHS frmTT = new frmThongTinHS();
-                frmThongTinHS.m_Row = m_dgvMain.SelectedRows[0];
+                frmThongTinHS frmTT = new frmThongTinHS(m_dgvMain.SelectedRows[0]);
                 frmTT.Show();
             }
+
             m_count = 0;
         }
     }
