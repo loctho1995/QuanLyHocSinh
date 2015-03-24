@@ -42,7 +42,7 @@ namespace QuanLyHocSinh
             m_tbHoVaTen.Text = row.Cells["HOTEN"].Value.ToString();
             m_ccbLop.ValueMember = row.Cells["MALOP"].Value.ToString();
             m_ccbLop.DisplayMember = row.Cells["MALOP"].Value.ToString();
-            m_tbNgaySinh.Text = row.Cells["NGAYSINH"].Value.ToString();
+            m_dtpNgaysinh.Value =  DateTime.Parse(row.Cells["NGAYSINH"].Value.ToString());
             m_tbTonGiao.Text = row.Cells["TONGIAO"].Value.ToString();
             m_tbHotencha.Text = row.Cells["HOTENCHA"].Value.ToString();
             m_tbHotenme.Text = row.Cells["NGHENGHIEPCHA"].Value.ToString();
@@ -81,7 +81,7 @@ namespace QuanLyHocSinh
             hs.HOTEN = m_tbHoVaTen.Text;
             pl.MALOP = m_ccbLop.SelectedValue.ToString();
             pl.MALOP = pl.MALOP.Substring(0, 4);
-            hs.NGAYSINH = DateTime.Parse(m_tbNgaySinh.Text);
+            hs.NGAYSINH = m_dtpNgaysinh.Value;
             hs.TONGIAO = m_tbTonGiao.Text;
             hs.HOTENCHAC = m_tbHotencha.Text;
             hs.HOTENME = m_tbHotenme.Text;

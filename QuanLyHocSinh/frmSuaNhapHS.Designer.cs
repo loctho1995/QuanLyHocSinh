@@ -39,7 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.m_tbHoVaTen = new System.Windows.Forms.TextBox();
-            this.m_tbNgaySinh = new System.Windows.Forms.TextBox();
             this.m_tbGioiTinh = new System.Windows.Forms.TextBox();
             this.m_tbDiaChi = new System.Windows.Forms.TextBox();
             this.m_tbEmail = new System.Windows.Forms.TextBox();
@@ -59,6 +58,7 @@
             this.m_tbHotenme = new System.Windows.Forms.TextBox();
             this.m_txtMahs = new System.Windows.Forms.TextBox();
             this.m_ccbLop = new System.Windows.Forms.ComboBox();
+            this.m_dtpNgaysinh = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -180,15 +180,6 @@
             this.m_tbHoVaTen.Name = "m_tbHoVaTen";
             this.m_tbHoVaTen.Size = new System.Drawing.Size(207, 24);
             this.m_tbHoVaTen.TabIndex = 36;
-            // 
-            // m_tbNgaySinh
-            // 
-            this.m_tbNgaySinh.Location = new System.Drawing.Point(350, 194);
-            this.m_tbNgaySinh.Margin = new System.Windows.Forms.Padding(4);
-            this.m_tbNgaySinh.Multiline = true;
-            this.m_tbNgaySinh.Name = "m_tbNgaySinh";
-            this.m_tbNgaySinh.Size = new System.Drawing.Size(207, 24);
-            this.m_tbNgaySinh.TabIndex = 37;
             // 
             // m_tbGioiTinh
             // 
@@ -377,12 +368,20 @@
             this.m_ccbLop.Size = new System.Drawing.Size(206, 24);
             this.m_ccbLop.TabIndex = 54;
             // 
+            // m_dtpNgaysinh
+            // 
+            this.m_dtpNgaysinh.Location = new System.Drawing.Point(350, 189);
+            this.m_dtpNgaysinh.Name = "m_dtpNgaysinh";
+            this.m_dtpNgaysinh.Size = new System.Drawing.Size(207, 22);
+            this.m_dtpNgaysinh.TabIndex = 55;
+            // 
             // frmSuaNhapHS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1223, 449);
+            this.Controls.Add(this.m_dtpNgaysinh);
             this.Controls.Add(this.m_ccbLop);
             this.Controls.Add(this.m_tbHotenme);
             this.Controls.Add(this.m_tbNghenghiepme);
@@ -400,7 +399,6 @@
             this.Controls.Add(this.m_tbEmail);
             this.Controls.Add(this.m_tbDiaChi);
             this.Controls.Add(this.m_tbGioiTinh);
-            this.Controls.Add(this.m_tbNgaySinh);
             this.Controls.Add(this.m_txtMahs);
             this.Controls.Add(this.m_tbHoVaTen);
             this.Controls.Add(this.label6);
@@ -438,7 +436,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox m_tbHoVaTen;
-        private System.Windows.Forms.TextBox m_tbNgaySinh;
         private System.Windows.Forms.TextBox m_tbGioiTinh;
         private System.Windows.Forms.TextBox m_tbDiaChi;
         private System.Windows.Forms.TextBox m_tbEmail;
@@ -458,6 +455,7 @@
         private System.Windows.Forms.TextBox m_tbHotenme;
         private System.Windows.Forms.TextBox m_txtMahs;
         private System.Windows.Forms.ComboBox m_ccbLop;
+        private System.Windows.Forms.DateTimePicker m_dtpNgaysinh;
 
     }
 }
