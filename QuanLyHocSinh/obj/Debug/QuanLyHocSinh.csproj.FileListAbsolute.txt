@@ -34,3 +34,5 @@ F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\BUS.pdb
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\DAO.pdb
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.frmSuaDiem.resources
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.frmSuaNhapHS.resources
+E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.frmSuaDiem.resources
+E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.frmSuaNhapHS.resources

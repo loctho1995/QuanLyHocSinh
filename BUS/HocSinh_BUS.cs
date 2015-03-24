@@ -31,24 +31,16 @@ namespace BUS
             dt.Columns.Add("GIOITINH", typeof(string));
             dt.Columns.Add("NGAYSINH", typeof(string));
             dt.Columns.Add("DIACHI", typeof(string));
+            dt.Columns.Add("TONGIAO", typeof(string));
             dt.Columns.Add("EMAIL", typeof(string));
+            dt.Columns.Add("HOTENCHA", typeof(string));
+            dt.Columns.Add("NGHENGHIEPCHA", typeof(string));
+            dt.Columns.Add("HOTENME", typeof(string));
+            dt.Columns.Add("NGHENGHIEPME", typeof(string));
             dt.Columns.Add("MALOP", typeof(string));
             dt.Columns.Add("MAKHOILOP", typeof(int));
 
-            var hocsinh = (from hs in DB.HOCSINHs
-                            join pl in DB.PHANLOPs.Where(p => p.MAKHOILOP == makhoilop)
-                            on hs.MAHS equals pl.MAHS
-                            select new
-                            {
-                                hs.MAHS,
-                                hs.HOTEN,
-                                hs.GIOITINH,
-                                hs.NGAYSINH,
-                                hs.DIACHI,
-                                hs.EMAIL,
-                                pl.MALOP,
-                                pl.MAKHOILOP
-                            }).ToList();
+            var hocsinh = DB.sp_ThongtinHocSinhtheoKhoi(makhoilop);
             int c = 1;
 
             foreach (var i in hocsinh)
@@ -61,7 +53,12 @@ namespace BUS
                 r["GIOITINH"] = i.GIOITINH;
                 r["NGAYSINH"] = i.NGAYSINH;
                 r["DIACHI"] = i.DIACHI;
+                r["TONGIAO"] = i.TONGIAO;
                 r["EMAIL"] = i.EMAIL;
+                r["HOTENCHA"] = i.HOTENCHAC;
+                r["NGHENGHIEPCHA"] = i.NGHENGHIEPCHA;
+                r["HOTENME"] = i.HOTENME;
+                r["NGHENGHIEPME"] = i.NGHENGHIEPME;
                 r["MALOP"] = i.MALOP;
                 r["MAKHOILOP"] = i.MAKHOILOP;
 
@@ -81,27 +78,17 @@ namespace BUS
             dt.Columns.Add("GIOITINH", typeof(string));
             dt.Columns.Add("NGAYSINH", typeof(string));
             dt.Columns.Add("DIACHI", typeof(string));
+            dt.Columns.Add("TONGIAO", typeof(string));
             dt.Columns.Add("EMAIL", typeof(string));
+            dt.Columns.Add("HOTENCHA", typeof(string));
+            dt.Columns.Add("NGHENGHIEPCHA", typeof(string));
+            dt.Columns.Add("HOTENME", typeof(string));
+            dt.Columns.Add("NGHENGHIEPME", typeof(string));
             dt.Columns.Add("MALOP", typeof(string));
-            dt.Columns.Add("MAKHOILOP", typeof(int));            
+            dt.Columns.Add("MAKHOILOP", typeof(int));
 
-            var hocsinh = (from hs in DB.HOCSINHs
-                           join pl in DB.PHANLOPs.Where( p => p.MALOP == malop)
-                           on hs.MAHS equals pl.MAHS
-                           select new
-                           {
-                               hs.MAHS,
-                               hs.HOTEN,
-                               hs.GIOITINH,
-                               hs.NGAYSINH,
-                               hs.DIACHI,
-                               hs.EMAIL,
-                               pl.MALOP,
-                               pl.MAKHOILOP
-                           }).ToList();
+            var hocsinh = DB.sp_ThongtinHocSinhtheoLop(malop);
             int c = 1;
-
-
 
             foreach (var i in hocsinh)
             {
@@ -113,7 +100,12 @@ namespace BUS
                 r["GIOITINH"] = i.GIOITINH;
                 r["NGAYSINH"] = i.NGAYSINH;
                 r["DIACHI"] = i.DIACHI;
+                r["TONGIAO"] = i.TONGIAO;
                 r["EMAIL"] = i.EMAIL;
+                r["HOTENCHA"] = i.HOTENCHAC;
+                r["NGHENGHIEPCHA"] = i.NGHENGHIEPCHA;
+                r["HOTENME"] = i.HOTENME;
+                r["NGHENGHIEPME"] = i.NGHENGHIEPME;
                 r["MALOP"] = i.MALOP;
                 r["MAKHOILOP"] = i.MAKHOILOP;
 
@@ -123,16 +115,48 @@ namespace BUS
             return dt;
         }
 
-        public void DeleteHocSinh(string key)
+        public bool DeleteHocSinh(int mahs)
         {
-            var hocsinh = from data in DB.HOCSINHs
-                          where data.MAHS.ToString() == key
-                          select data;
+            try
+            {
+                DB.sp_XoathongtinHocSinh(mahs);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
 
-            foreach (var item in hocsinh)
-                DB.HOCSINHs.DeleteOnSubmit(item);
-
-            //DB.SubmitChanges();
+        }
+        public bool UpdateHocSinh(HOCSINH hs, PHANLOP pl)
+        {
+            try
+            {
+                DB.sp_SuaThongtinHocSinh(hs.MAHS, hs.HOTEN, hs.GIOITINH, hs.NGAYSINH, hs.DIACHI, hs.EMAIL, hs.TONGIAO, hs.HOTENCHAC, hs.NGHENGHIEPCHA, hs.HOTENME, hs.NGHENGHIEPME, pl.MALOP);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public List<LOP> LayDuLieuLop()
+        {
+            List<LOP> l = new List<LOP>();
+            return DB.LOPs.ToList();
+        }
+        public int ThemHocSinh(HOCSINH hs, PHANLOP pl)
+        {
+            try
+            {
+                
+                var a = DB.sp_ThemHocSinh(hs.MAHS, hs.HOTEN, hs.GIOITINH, hs.NGAYSINH, hs.DIACHI, hs.EMAIL, hs.TONGIAO, hs.HOTENCHAC, hs.NGHENGHIEPCHA, hs.HOTENME, hs.NGHENGHIEPME, pl.MALOP, pl.MANAMHOC, pl.MAKHOILOP);
+                return int.Parse(a.ToString()) ;
+            }
+            catch
+            {
+                return 10;
+            }
         }
     }
 }

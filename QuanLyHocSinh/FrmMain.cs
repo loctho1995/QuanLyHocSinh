@@ -19,7 +19,7 @@ namespace QuanLyHocSinh
 
         public FrmMain()
         {
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.CacheText, true);
 
             InitializeComponent();
             m_treeViewKhoi.ExpandAll();
@@ -46,7 +46,7 @@ namespace QuanLyHocSinh
             switch ((sender as Button).Name)
             {
                 case "m_btclose":
-                    if (MessageBox.Show("Sure Mother fucker?", "Quit", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                  //  if (MessageBox.Show("Sure Mother fucker?", "Quit", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                         this.Close();
                     break;
 
@@ -210,9 +210,11 @@ namespace QuanLyHocSinh
                 MessageBox.Show("chọn học sinh cần xóa");
             else
             {
-                string key = m_dgvMain.SelectedRows[0].Cells["MAHS"].Value.ToString();
+                int key = int.Parse(m_dgvMain.SelectedRows[0].Cells["MAHS"].Value.ToString());
                 m_dgvMain.Rows.RemoveAt(m_dgvMain.SelectedRows[0].Index);
-                hs.DeleteHocSinh(key);
+                if (hs.DeleteHocSinh(key))
+                    MessageBox.Show("Xoá thành công");
+                else MessageBox.Show("Thất bại");
             }
         }
 
