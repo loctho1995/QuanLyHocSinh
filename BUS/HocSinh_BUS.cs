@@ -155,7 +155,7 @@ namespace BUS
             }
             catch
             {
-                return 10;
+                return 1;
             }
         }
     }
