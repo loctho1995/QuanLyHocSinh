@@ -19,7 +19,7 @@ namespace QuanLyHocSinh
 
         public FrmMain()
         {
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.CacheText, true);
 
             InitializeComponent();
             m_treeViewKhoi.ExpandAll();
@@ -46,15 +46,12 @@ namespace QuanLyHocSinh
             switch ((sender as Button).Name)
             {
                 case "m_btclose":
-                    if (MessageBox.Show("Sure Mother fucker?", "Quit", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                  //  if (MessageBox.Show("Sure Mother fucker?", "Quit", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                         this.Close();
                     break;
 
                 case "m_btXoaHS":
                     XoaHocSinh();
-                    break;
-
-                case "m_btSuaDiem":
                     break;
 
                 case "m_btXemThongTin":
@@ -67,6 +64,12 @@ namespace QuanLyHocSinh
 
                 case "m_btSuaHS":
                     SuaHocSinh();
+                    break;
+                    
+                case "m_btSuaDiem":
+                    break;
+
+                case "m_btXemDiem":
                     break;
 
                 default:
@@ -159,6 +162,10 @@ namespace QuanLyHocSinh
             dgv.Columns["DIACHI"].HeaderText = "Địa chỉ";
             dgv.Columns["MALOP"].HeaderText = "Mã lớp";
             dgv.Columns["MAKHOILOP"].HeaderText = "Mã khối";
+            dgv.Columns["HOTENCHA"].HeaderText = "Họ tên cha";
+            dgv.Columns["HOTENME"].HeaderText = "Họ tên mẹ";
+            dgv.Columns["NGHENGHIEPCHA"].HeaderText = "Nghề nghiệp cha";
+            dgv.Columns["NGHENGHIEPME"].HeaderText = "Nghề nghiệp mẹ";
         }
 
         private void ShowHocSinh_Khoi()
@@ -210,12 +217,13 @@ namespace QuanLyHocSinh
                 MessageBox.Show("chọn học sinh cần xóa");
             else
             {
-                string key = m_dgvMain.SelectedRows[0].Cells["MAHS"].Value.ToString();
+                int key = int.Parse(m_dgvMain.SelectedRows[0].Cells["MAHS"].Value.ToString());
                 m_dgvMain.Rows.RemoveAt(m_dgvMain.SelectedRows[0].Index);
-                hs.DeleteHocSinh(key);
+                if (hs.DeleteHocSinh(key))
+                    MessageBox.Show("Xoá thành công");
+                else MessageBox.Show("Thất bại");
             }
         }
-
 
         private void XemThongTin()
         {
@@ -228,6 +236,41 @@ namespace QuanLyHocSinh
             }
 
             m_count = 0;
+        }
+
+        private void XemDiem()
+        {
+            
+        }
+
+        private void searchControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void m_dgvMain_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void m_tbHoSo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchControl1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchControl2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchControl1_Load_2(object sender, EventArgs e)
+        {
+
         }
     }
 }

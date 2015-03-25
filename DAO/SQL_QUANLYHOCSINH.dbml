@@ -18,16 +18,23 @@
       <Association Name="NAMHOC_DIEM" Member="NAMHOC" ThisKey="MANAMHOC" OtherKey="MANAMHOC" Type="NAMHOC" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.PHANLOP" Member="PHANLOPs">
-    <Type Name="PHANLOP">
-      <Column Name="MAHS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MALOP" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MANAMHOC" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MAKHOILOP" Type="System.String" DbType="Char(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="HOCSINH_PHANLOP" Member="HOCSINH" ThisKey="MAHS" OtherKey="MAHS" Type="HOCSINH" IsForeignKey="true" />
-      <Association Name="KHOI_PHANLOP" Member="KHOI" ThisKey="MAKHOILOP" OtherKey="MAKHOILOP" Type="KHOI" IsForeignKey="true" />
-      <Association Name="LOP_PHANLOP" Member="LOP" ThisKey="MALOP" OtherKey="MALOP" Type="LOP" IsForeignKey="true" />
-      <Association Name="NAMHOC_PHANLOP" Member="NAMHOC" ThisKey="MANAMHOC" OtherKey="MANAMHOC" Type="NAMHOC" IsForeignKey="true" />
+  <Table Name="dbo.QUIDINH" Member="QUIDINHs">
+    <Type Name="QUIDINH">
+      <Column Name="TUOITOITHIEU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TUOITOIDA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SISOTOITHIEU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SISOTOIDA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DIEMTOITHIEU" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIEMTOIDA" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GIAOVIEN" Member="GIAOVIENs">
+    <Type Name="GIAOVIEN">
+      <Column Name="MAGV" Type="System.String" DbType="Char(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="GIOITINH" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="SODT" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Association Name="GIAOVIEN_LOP" Member="LOPs" ThisKey="MAGV" OtherKey="MAGVCN" Type="LOP" />
     </Type>
   </Table>
   <Table Name="dbo.GIAOVIEN" Member="GIAOVIENs">
@@ -61,6 +68,7 @@
       <Column Name="NGHENGHIEPME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="NGHENGHIEPCHA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Association Name="HOCSINH_DIEM" Member="DIEMs" ThisKey="MAHS" OtherKey="MAHS" Type="DIEM" />
+      <Association Name="HOCSINH_LOP" Member="LOPs" ThisKey="MAHS" OtherKey="MATRGLOP" Type="LOP" />
       <Association Name="HOCSINH_PHANLOP" Member="PHANLOPs" ThisKey="MAHS" OtherKey="MAHS" Type="PHANLOP" />
       <Association Name="HOCSINH_LOP" Member="LOPs" ThisKey="MAHS" OtherKey="MATRGLOP" Type="LOP" />
     </Type>
@@ -69,8 +77,8 @@
     <Type Name="KHOI">
       <Column Name="MAKHOILOP" Type="System.String" DbType="Char(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TENKHOILOP" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Association Name="KHOI_PHANLOP" Member="PHANLOPs" ThisKey="MAKHOILOP" OtherKey="MAKHOILOP" Type="PHANLOP" />
       <Association Name="KHOI_LOP" Member="LOPs" ThisKey="MAKHOILOP" OtherKey="MAKHOILOP" Type="LOP" />
+      <Association Name="KHOI_PHANLOP" Member="PHANLOPs" ThisKey="MAKHOILOP" OtherKey="MAKHOILOP" Type="PHANLOP" />
     </Type>
   </Table>
   <Table Name="dbo.LOAIDIEM" Member="LOAIDIEMs">
@@ -111,6 +119,21 @@
       <Association Name="NAMHOC_PHANLOP" Member="PHANLOPs" ThisKey="MANAMHOC" OtherKey="MANAMHOC" Type="PHANLOP" />
     </Type>
   </Table>
+<<<<<<< HEAD
+=======
+  <Table Name="dbo.PHANLOP" Member="PHANLOPs">
+    <Type Name="PHANLOP">
+      <Column Name="MAHS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MALOP" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MANAMHOC" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MAKHOILOP" Type="System.String" DbType="Char(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="HOCSINH_PHANLOP" Member="HOCSINH" ThisKey="MAHS" OtherKey="MAHS" Type="HOCSINH" IsForeignKey="true" />
+      <Association Name="KHOI_PHANLOP" Member="KHOI" ThisKey="MAKHOILOP" OtherKey="MAKHOILOP" Type="KHOI" IsForeignKey="true" />
+      <Association Name="LOP_PHANLOP" Member="LOP" ThisKey="MALOP" OtherKey="MALOP" Type="LOP" IsForeignKey="true" />
+      <Association Name="NAMHOC_PHANLOP" Member="NAMHOC" ThisKey="MANAMHOC" OtherKey="MANAMHOC" Type="NAMHOC" IsForeignKey="true" />
+    </Type>
+  </Table>
+>>>>>>> origin/master
   <Function Name="dbo.sp_SuaThongtinHocSinh" Method="sp_SuaThongtinHocSinh">
     <Parameter Name="mahs" Type="System.Int32" DbType="Int" />
     <Parameter Name="hoten" Type="System.String" DbType="NVarChar(50)" />
@@ -130,6 +153,26 @@
     <Parameter Name="mahs" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+<<<<<<< HEAD
+=======
+  <Function Name="dbo.sp_ThemHocSinh" Method="sp_ThemHocSinh">
+    <Parameter Name="mahs" Type="System.Int32" DbType="Int" />
+    <Parameter Name="hoten" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="gioitinh" Type="System.String" DbType="Char(3)" />
+    <Parameter Name="ngaysinh" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="diachi" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="tongiao" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="hotencha" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="nghenghiepcha" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="hotenme" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="nghenghiepme" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="malop" Type="System.String" DbType="Char(5)" />
+    <Parameter Name="manamhoc" Type="System.Int32" DbType="Int" />
+    <Parameter Name="makhoilop" Type="System.String" DbType="Char(2)" />
+    <Return Type="System.Int32" />
+  </Function>
+>>>>>>> origin/master
   <Function Name="dbo.sp_ThongtinHocSinhtheoKhoi" Method="sp_ThongtinHocSinhtheoKhoi">
     <Parameter Name="makhoi" Type="System.String" DbType="Char(2)" />
     <ElementType Name="sp_ThongtinHocSinhtheoKhoiResult">
