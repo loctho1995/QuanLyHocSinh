@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomTabControl.Designer.cs">
+      <DependentUpon>CustomTabControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -79,6 +85,12 @@
     <Compile Include="FrmTraCuu.Designer.cs">
       <DependentUpon>FrmTraCuu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmXemDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXemDiem.Designer.cs">
+      <DependentUpon>frmXemDiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuGroup.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -87,6 +99,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SearchControl.Designer.cs">
+      <DependentUpon>SearchControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Form1.Designer.cs</LastGenOutput>
@@ -103,6 +121,9 @@
     <EmbeddedResource Include="frmThongTinHS.resx">
       <DependentUpon>frmThongTinHS.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmXemDiem.resx">
+      <DependentUpon>frmXemDiem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -113,6 +134,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SearchControl.resx">
+      <DependentUpon>SearchControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -141,6 +165,9 @@
       <Project>{731ece46-ea1b-4592-8b44-04f47daec1ba}</Project>
       <Name>DAO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\showButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

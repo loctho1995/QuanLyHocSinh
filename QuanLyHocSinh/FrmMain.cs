@@ -54,9 +54,6 @@ namespace QuanLyHocSinh
                     XoaHocSinh();
                     break;
 
-                case "m_btSuaDiem":
-                    break;
-
                 case "m_btXemThongTin":
                     XemThongTin();
                     break;
@@ -67,6 +64,12 @@ namespace QuanLyHocSinh
 
                 case "m_btSuaHS":
                     SuaHocSinh();
+                    break;
+                    
+                case "m_btSuaDiem":
+                    break;
+
+                case "m_btXemDiem":
                     break;
 
                 default:
@@ -159,6 +162,10 @@ namespace QuanLyHocSinh
             dgv.Columns["DIACHI"].HeaderText = "Địa chỉ";
             dgv.Columns["MALOP"].HeaderText = "Mã lớp";
             dgv.Columns["MAKHOILOP"].HeaderText = "Mã khối";
+            dgv.Columns["HOTENCHA"].HeaderText = "Họ tên cha";
+            dgv.Columns["HOTENME"].HeaderText = "Họ tên mẹ";
+            dgv.Columns["NGHENGHIEPCHA"].HeaderText = "Nghề nghiệp cha";
+            dgv.Columns["NGHENGHIEPME"].HeaderText = "Nghề nghiệp mẹ";
         }
 
         private void ShowHocSinh_Khoi()
@@ -218,7 +225,6 @@ namespace QuanLyHocSinh
             }
         }
 
-
         private void XemThongTin()
         {
             if (m_dgvMain.DataSource == null)
@@ -230,6 +236,41 @@ namespace QuanLyHocSinh
             }
 
             m_count = 0;
+        }
+
+        private void XemDiem()
+        {
+            
+        }
+
+        private void searchControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void m_dgvMain_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void m_tbHoSo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchControl1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchControl2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchControl1_Load_2(object sender, EventArgs e)
+        {
+
         }
     }
 }

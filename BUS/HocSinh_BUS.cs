@@ -145,6 +145,7 @@ namespace BUS
             List<LOP> l = new List<LOP>();
             return DB.LOPs.ToList();
         }
+
         public int ThemHocSinh(HOCSINH hs, PHANLOP pl)
         {
             try
@@ -158,5 +159,7 @@ namespace BUS
                 return 1;
             }
         }
+
+        
     }
 }

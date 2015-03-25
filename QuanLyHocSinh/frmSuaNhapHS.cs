@@ -87,7 +87,8 @@ namespace QuanLyHocSinh
             hs.HOTENME = m_tbHotenme.Text;
             hs.NGHENGHIEPCHA = m_tbNghenghiepcha.Text;
             hs.NGHENGHIEPME = m_tbNghenghiepme.Text;
-            pl.MANAMHOC = 2014;
+            pl.MANAMHOC = int.Parse(m_tbNamHoc.Text);
+
             if (m_check)
                 pl.MAKHOILOP = pl.MALOP.Substring(0, 2);
             if (hs_bus.UpdateHocSinh(hs, pl)&&m_check ==false)
