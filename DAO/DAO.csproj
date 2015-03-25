@@ -70,6 +70,7 @@
   <ItemGroup>
     <None Include="SQL_QUANLYHOCSINH.dbml.layout">
       <DependentUpon>SQL_QUANLYHOCSINH.dbml</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

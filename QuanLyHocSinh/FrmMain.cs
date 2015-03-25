@@ -19,12 +19,12 @@ namespace QuanLyHocSinh
 
         public FrmMain()
         {
+            
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.CacheText, true);
-
             InitializeComponent();
             m_treeViewKhoi.ExpandAll();
-
             m_dgvMain.BorderStyle = BorderStyle.None;
+
         }
 
         protected override void WndProc(ref Message m)
@@ -185,15 +185,6 @@ namespace QuanLyHocSinh
         {
             //
         }
-
-        private void m_dgvMain_Click(object sender, EventArgs e)
-        {
-            m_count++;
-
-            if(m_count==2)
-             this.XemThongTin();
-        }
-
         private void ThemHocSinh()
         {
             frmSuaNhapHS frmNhap = new frmSuaNhapHS();
@@ -248,11 +239,6 @@ namespace QuanLyHocSinh
 
         }
 
-        private void m_dgvMain_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void m_tbHoSo_Click(object sender, EventArgs e)
         {
 
@@ -271,6 +257,23 @@ namespace QuanLyHocSinh
         private void searchControl1_Load_2(object sender, EventArgs e)
         {
 
+        }
+
+        private void m_dgvMain_DoubleClick(object sender, EventArgs e)
+        {
+            this.XemThongTin();
+        }
+
+        private void m_dangXuatbtn_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Dang Xuat?", "Thong Bao", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            {
+                this.Close();
+                frmDangNhap frmdangNhap = new frmDangNhap();
+                frmdangNhap.ShowDialog();
+            }
+                
+            
         }
     }
 }

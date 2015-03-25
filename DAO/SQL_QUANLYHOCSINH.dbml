@@ -37,15 +37,6 @@
       <Association Name="GIAOVIEN_LOP" Member="LOPs" ThisKey="MAGV" OtherKey="MAGVCN" Type="LOP" />
     </Type>
   </Table>
-  <Table Name="dbo.GIAOVIEN" Member="GIAOVIENs">
-    <Type Name="GIAOVIEN">
-      <Column Name="MAGV" Type="System.String" DbType="Char(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="GIOITINH" Type="System.String" DbType="Char(3)" CanBeNull="true" />
-      <Column Name="SODT" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Association Name="GIAOVIEN_LOP" Member="LOPs" ThisKey="MAGV" OtherKey="MAGVCN" Type="LOP" />
-    </Type>
-  </Table>
   <Table Name="dbo.HOCKY" Member="HOCKies">
     <Type Name="HOCKY">
       <Column Name="MAHOCKY" Type="System.String" DbType="Char(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -70,7 +61,6 @@
       <Association Name="HOCSINH_DIEM" Member="DIEMs" ThisKey="MAHS" OtherKey="MAHS" Type="DIEM" />
       <Association Name="HOCSINH_LOP" Member="LOPs" ThisKey="MAHS" OtherKey="MATRGLOP" Type="LOP" />
       <Association Name="HOCSINH_PHANLOP" Member="PHANLOPs" ThisKey="MAHS" OtherKey="MAHS" Type="PHANLOP" />
-      <Association Name="HOCSINH_LOP" Member="LOPs" ThisKey="MAHS" OtherKey="MATRGLOP" Type="LOP" />
     </Type>
   </Table>
   <Table Name="dbo.KHOI" Member="KHOIs">
@@ -119,8 +109,6 @@
       <Association Name="NAMHOC_PHANLOP" Member="PHANLOPs" ThisKey="MANAMHOC" OtherKey="MANAMHOC" Type="PHANLOP" />
     </Type>
   </Table>
-<<<<<<< HEAD
-=======
   <Table Name="dbo.PHANLOP" Member="PHANLOPs">
     <Type Name="PHANLOP">
       <Column Name="MAHS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -133,7 +121,6 @@
       <Association Name="NAMHOC_PHANLOP" Member="NAMHOC" ThisKey="MANAMHOC" OtherKey="MANAMHOC" Type="NAMHOC" IsForeignKey="true" />
     </Type>
   </Table>
->>>>>>> origin/master
   <Function Name="dbo.sp_SuaThongtinHocSinh" Method="sp_SuaThongtinHocSinh">
     <Parameter Name="mahs" Type="System.Int32" DbType="Int" />
     <Parameter Name="hoten" Type="System.String" DbType="NVarChar(50)" />
@@ -153,8 +140,6 @@
     <Parameter Name="mahs" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-<<<<<<< HEAD
-=======
   <Function Name="dbo.sp_ThemHocSinh" Method="sp_ThemHocSinh">
     <Parameter Name="mahs" Type="System.Int32" DbType="Int" />
     <Parameter Name="hoten" Type="System.String" DbType="NVarChar(50)" />
@@ -172,7 +157,6 @@
     <Parameter Name="makhoilop" Type="System.String" DbType="Char(2)" />
     <Return Type="System.Int32" />
   </Function>
->>>>>>> origin/master
   <Function Name="dbo.sp_ThongtinHocSinhtheoKhoi" Method="sp_ThongtinHocSinhtheoKhoi">
     <Parameter Name="makhoi" Type="System.String" DbType="Char(2)" />
     <ElementType Name="sp_ThongtinHocSinhtheoKhoiResult">

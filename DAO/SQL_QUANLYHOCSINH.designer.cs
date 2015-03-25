@@ -33,12 +33,6 @@ namespace DAO
     partial void InsertDIEM(DIEM instance);
     partial void UpdateDIEM(DIEM instance);
     partial void DeleteDIEM(DIEM instance);
-<<<<<<< HEAD
-    partial void InsertPHANLOP(PHANLOP instance);
-    partial void UpdatePHANLOP(PHANLOP instance);
-    partial void DeletePHANLOP(PHANLOP instance);
-=======
->>>>>>> origin/master
     partial void InsertGIAOVIEN(GIAOVIEN instance);
     partial void UpdateGIAOVIEN(GIAOVIEN instance);
     partial void DeleteGIAOVIEN(GIAOVIEN instance);
@@ -122,14 +116,6 @@ namespace DAO
 			}
 		}
 		
-		public System.Data.Linq.Table<GIAOVIEN> GIAOVIENs
-		{
-			get
-			{
-				return this.GetTable<GIAOVIEN>();
-			}
-		}
-		
 		public System.Data.Linq.Table<HOCKY> HOCKies
 		{
 			get
@@ -186,8 +172,6 @@ namespace DAO
 			}
 		}
 		
-<<<<<<< HEAD
-=======
 		public System.Data.Linq.Table<PHANLOP> PHANLOPs
 		{
 			get
@@ -196,7 +180,6 @@ namespace DAO
 			}
 		}
 		
->>>>>>> origin/master
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_SuaThongtinHocSinh")]
 		public int sp_SuaThongtinHocSinh([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> mahs, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string hoten, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(3)")] string gioitinh, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallDateTime")] System.Nullable<System.DateTime> ngaysinh, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string diachi, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string tongiao, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string hotencha, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string nghenghiepcha, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string hotenme, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string nghenghiepme, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string malop)
 		{
@@ -211,8 +194,6 @@ namespace DAO
 			return ((int)(result.ReturnValue));
 		}
 		
-<<<<<<< HEAD
-=======
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ThemHocSinh")]
 		public int sp_ThemHocSinh([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> mahs, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string hoten, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(3)")] string gioitinh, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallDateTime")] System.Nullable<System.DateTime> ngaysinh, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string diachi, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string tongiao, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string hotencha, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string nghenghiepcha, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string hotenme, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string nghenghiepme, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string malop, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> manamhoc, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(2)")] string makhoilop)
 		{
@@ -220,7 +201,6 @@ namespace DAO
 			return ((int)(result.ReturnValue));
 		}
 		
->>>>>>> origin/master
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ThongtinHocSinhtheoKhoi")]
 		public ISingleResult<sp_ThongtinHocSinhtheoKhoiResult> sp_ThongtinHocSinhtheoKhoi([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(2)")] string makhoi)
 		{
@@ -991,168 +971,6 @@ namespace DAO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GIAOVIEN")]
-	public partial class GIAOVIEN : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MAGV;
-		
-		private string _HOTEN;
-		
-		private string _GIOITINH;
-		
-		private string _SODT;
-		
-		private EntitySet<LOP> _LOPs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMAGVChanging(string value);
-    partial void OnMAGVChanged();
-    partial void OnHOTENChanging(string value);
-    partial void OnHOTENChanged();
-    partial void OnGIOITINHChanging(string value);
-    partial void OnGIOITINHChanged();
-    partial void OnSODTChanging(string value);
-    partial void OnSODTChanged();
-    #endregion
-		
-		public GIAOVIEN()
-		{
-			this._LOPs = new EntitySet<LOP>(new Action<LOP>(this.attach_LOPs), new Action<LOP>(this.detach_LOPs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAGV", DbType="Char(4) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MAGV
-		{
-			get
-			{
-				return this._MAGV;
-			}
-			set
-			{
-				if ((this._MAGV != value))
-				{
-					this.OnMAGVChanging(value);
-					this.SendPropertyChanging();
-					this._MAGV = value;
-					this.SendPropertyChanged("MAGV");
-					this.OnMAGVChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOTEN", DbType="NVarChar(20)")]
-		public string HOTEN
-		{
-			get
-			{
-				return this._HOTEN;
-			}
-			set
-			{
-				if ((this._HOTEN != value))
-				{
-					this.OnHOTENChanging(value);
-					this.SendPropertyChanging();
-					this._HOTEN = value;
-					this.SendPropertyChanged("HOTEN");
-					this.OnHOTENChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GIOITINH", DbType="Char(3)")]
-		public string GIOITINH
-		{
-			get
-			{
-				return this._GIOITINH;
-			}
-			set
-			{
-				if ((this._GIOITINH != value))
-				{
-					this.OnGIOITINHChanging(value);
-					this.SendPropertyChanging();
-					this._GIOITINH = value;
-					this.SendPropertyChanged("GIOITINH");
-					this.OnGIOITINHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SODT", DbType="VarChar(11)")]
-		public string SODT
-		{
-			get
-			{
-				return this._SODT;
-			}
-			set
-			{
-				if ((this._SODT != value))
-				{
-					this.OnSODTChanging(value);
-					this.SendPropertyChanging();
-					this._SODT = value;
-					this.SendPropertyChanged("SODT");
-					this.OnSODTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GIAOVIEN_LOP", Storage="_LOPs", ThisKey="MAGV", OtherKey="MAGVCN")]
-		public EntitySet<LOP> LOPs
-		{
-			get
-			{
-				return this._LOPs;
-			}
-			set
-			{
-				this._LOPs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_LOPs(LOP entity)
-		{
-			this.SendPropertyChanging();
-			entity.GIAOVIEN = this;
-		}
-		
-		private void detach_LOPs(LOP entity)
-		{
-			this.SendPropertyChanging();
-			entity.GIAOVIEN = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HOCKY")]
 	public partial class HOCKY : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1325,8 +1143,6 @@ namespace DAO
 		
 		private EntitySet<PHANLOP> _PHANLOPs;
 		
-		private EntitySet<LOP> _LOPs;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1360,7 +1176,6 @@ namespace DAO
 			this._DIEMs = new EntitySet<DIEM>(new Action<DIEM>(this.attach_DIEMs), new Action<DIEM>(this.detach_DIEMs));
 			this._LOPs = new EntitySet<LOP>(new Action<LOP>(this.attach_LOPs), new Action<LOP>(this.detach_LOPs));
 			this._PHANLOPs = new EntitySet<PHANLOP>(new Action<PHANLOP>(this.attach_PHANLOPs), new Action<PHANLOP>(this.detach_PHANLOPs));
-			this._LOPs = new EntitySet<LOP>(new Action<LOP>(this.attach_LOPs), new Action<LOP>(this.detach_LOPs));
 			OnCreated();
 		}
 		
@@ -1623,19 +1438,6 @@ namespace DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HOCSINH_LOP", Storage="_LOPs", ThisKey="MAHS", OtherKey="MATRGLOP")]
-		public EntitySet<LOP> LOPs
-		{
-			get
-			{
-				return this._LOPs;
-			}
-			set
-			{
-				this._LOPs.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1687,18 +1489,6 @@ namespace DAO
 		}
 		
 		private void detach_PHANLOPs(PHANLOP entity)
-		{
-			this.SendPropertyChanging();
-			entity.HOCSINH = null;
-		}
-		
-		private void attach_LOPs(LOP entity)
-		{
-			this.SendPropertyChanging();
-			entity.HOCSINH = this;
-		}
-		
-		private void detach_LOPs(LOP entity)
 		{
 			this.SendPropertyChanging();
 			entity.HOCSINH = null;
@@ -2127,57 +1917,6 @@ namespace DAO
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATRGLOP", DbType="Int")]
 		public System.Nullable<int> MATRGLOP
-<<<<<<< HEAD
-=======
-		{
-			get
-			{
-				return this._MATRGLOP;
-			}
-			set
-			{
-				if ((this._MATRGLOP != value))
-				{
-					if (this._HOCSINH.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMATRGLOPChanging(value);
-					this.SendPropertyChanging();
-					this._MATRGLOP = value;
-					this.SendPropertyChanged("MATRGLOP");
-					this.OnMATRGLOPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAGVCN", DbType="Char(4)")]
-		public string MAGVCN
-		{
-			get
-			{
-				return this._MAGVCN;
-			}
-			set
-			{
-				if ((this._MAGVCN != value))
-				{
-					if (this._GIAOVIEN.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMAGVCNChanging(value);
-					this.SendPropertyChanging();
-					this._MAGVCN = value;
-					this.SendPropertyChanged("MAGVCN");
-					this.OnMAGVCNChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LOP_DIEM", Storage="_DIEMs", ThisKey="MALOP", OtherKey="MALOP")]
-		public EntitySet<DIEM> DIEMs
->>>>>>> origin/master
 		{
 			get
 			{
@@ -2320,46 +2059,6 @@ namespace DAO
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HOCSINH_LOP", Storage="_HOCSINH", ThisKey="MATRGLOP", OtherKey="MAHS", IsForeignKey=true)]
 		public HOCSINH HOCSINH
-<<<<<<< HEAD
-		{
-			get
-			{
-				return this._HOCSINH.Entity;
-			}
-			set
-			{
-				HOCSINH previousValue = this._HOCSINH.Entity;
-				if (((previousValue != value) 
-							|| (this._HOCSINH.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._HOCSINH.Entity = null;
-						previousValue.LOPs.Remove(this);
-					}
-					this._HOCSINH.Entity = value;
-					if ((value != null))
-					{
-						value.LOPs.Add(this);
-						this._MATRGLOP = value.MAHS;
-					}
-					else
-					{
-						this._MATRGLOP = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("HOCSINH");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-=======
->>>>>>> origin/master
 		{
 			get
 			{
@@ -2693,8 +2392,6 @@ namespace DAO
 		}
 	}
 	
-<<<<<<< HEAD
-=======
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PHANLOP")]
 	public partial class PHANLOP : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2993,7 +2690,6 @@ namespace DAO
 		}
 	}
 	
->>>>>>> origin/master
 	public partial class sp_ThongtinHocSinhtheoKhoiResult
 	{
 		
