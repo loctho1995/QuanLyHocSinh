@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using DAO;
 using System.Data;
 
+
 namespace BUS
 {
     public class HocSinh_BUS
     {
         SQL_QUANLYHOCSINHDataContext DB = new SQL_QUANLYHOCSINHDataContext();
+        
 
         public List<HOCSINH> LayTatCa()
         {

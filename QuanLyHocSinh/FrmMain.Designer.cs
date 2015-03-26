@@ -60,9 +60,13 @@
             this.m_dgwMain = new System.Windows.Forms.DataGridView();
             this.m_btclose = new System.Windows.Forms.Button();
             this.m_dgvMain = new System.Windows.Forms.DataGridView();
+<<<<<<< HEAD
             this.m_scMain = new QuanLyHocSinh.SearchControl();
+=======
+>>>>>>> origin/master
             this.m_tcMain = new QuanLyHocSinh.CustomTabControl();
             this.m_tbHoSo = new System.Windows.Forms.TabPage();
+            this.searchControl1 = new QuanLyHocSinh.SearchControl();
             this.m_btXemThongTin = new System.Windows.Forms.Button();
             this.m_btThemHS = new System.Windows.Forms.Button();
             this.m_btSuaHS = new System.Windows.Forms.Button();
@@ -72,6 +76,7 @@
             this.m_btSuaDiem = new System.Windows.Forms.Button();
             this.m_tbBaoCao = new System.Windows.Forms.TabPage();
             this.m_tbTraCuu = new System.Windows.Forms.TabPage();
+            this.m_dangXuatbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.m_dgwMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_dgvMain)).BeginInit();
             this.m_tcMain.SuspendLayout();
@@ -87,7 +92,11 @@
             this.m_treeViewKhoi.ImageIndex = 0;
             this.m_treeViewKhoi.ImageList = this.imageList1;
             this.m_treeViewKhoi.Location = new System.Drawing.Point(1, 154);
+<<<<<<< HEAD
             this.m_treeViewKhoi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.m_treeViewKhoi.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> origin/master
             this.m_treeViewKhoi.Name = "m_treeViewKhoi";
             treeNode1.Name = "m_node10A1";
             treeNode1.Text = "Lớp 10A1";
@@ -147,7 +156,11 @@
             // 
             this.m_btclose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.m_btclose.Location = new System.Drawing.Point(1103, -1);
+<<<<<<< HEAD
             this.m_btclose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.m_btclose.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> origin/master
             this.m_btclose.Name = "m_btclose";
             this.m_btclose.Size = new System.Drawing.Size(112, 26);
             this.m_btclose.TabIndex = 3;
@@ -166,12 +179,17 @@
             this.m_dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.m_dgvMain.GridColor = System.Drawing.Color.SandyBrown;
             this.m_dgvMain.Location = new System.Drawing.Point(257, 154);
+<<<<<<< HEAD
             this.m_dgvMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.m_dgvMain.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> origin/master
             this.m_dgvMain.Name = "m_dgvMain";
             this.m_dgvMain.ReadOnly = true;
             this.m_dgvMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.m_dgvMain.Size = new System.Drawing.Size(948, 448);
             this.m_dgvMain.TabIndex = 5;
+<<<<<<< HEAD
             this.m_dgvMain.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_dgvMain_CellContentClick);
             this.m_dgvMain.Click += new System.EventHandler(this.m_dgvMain_Click);
             // 
@@ -189,6 +207,9 @@
             this.m_scMain.State = QuanLyHocSinh.SearchControl.States.Hide;
             this.m_scMain.TabIndex = 6;
             this.m_scMain.Load += new System.EventHandler(this.searchControl1_Load_2);
+=======
+            this.m_dgvMain.DoubleClick += new System.EventHandler(this.m_dgvMain_DoubleClick);
+>>>>>>> origin/master
             // 
             // m_tcMain
             // 
@@ -207,6 +228,7 @@
             // 
             // m_tbHoSo
             // 
+            this.m_tbHoSo.Controls.Add(this.searchControl1);
             this.m_tbHoSo.Controls.Add(this.m_btXemThongTin);
             this.m_tbHoSo.Controls.Add(this.m_btThemHS);
             this.m_tbHoSo.Controls.Add(this.m_btSuaHS);
@@ -220,6 +242,22 @@
             this.m_tbHoSo.Text = "Hồ Sơ";
             this.m_tbHoSo.UseVisualStyleBackColor = true;
             this.m_tbHoSo.Click += new System.EventHandler(this.m_tbHoSo_Click);
+            // 
+            // searchControl1
+            // 
+            this.searchControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchControl1.BackColor = System.Drawing.Color.GhostWhite;
+            this.searchControl1.DeltaSpeed = 10;
+            this.searchControl1.HideSize = new System.Drawing.Size(30, 81);
+            this.searchControl1.Location = new System.Drawing.Point(1137, 2);
+            this.searchControl1.Margin = new System.Windows.Forms.Padding(5);
+            this.searchControl1.Name = "searchControl1";
+            this.searchControl1.ShowSize = new System.Drawing.Size(250, 81);
+            this.searchControl1.Size = new System.Drawing.Size(30, 100);
+            this.searchControl1.Speed = 1;
+            this.searchControl1.State = QuanLyHocSinh.SearchControl.States.Hide;
+            this.searchControl1.TabIndex = 6;
+            this.searchControl1.Load += new System.EventHandler(this.searchControl1_Load_2);
             // 
             // m_btXemThongTin
             // 
@@ -323,19 +361,39 @@
             this.m_tbTraCuu.Text = "Tra Cứu";
             this.m_tbTraCuu.UseVisualStyleBackColor = true;
             // 
+            // m_dangXuatbtn
+            // 
+            this.m_dangXuatbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.m_dangXuatbtn.Location = new System.Drawing.Point(966, -1);
+            this.m_dangXuatbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.m_dangXuatbtn.Name = "m_dangXuatbtn";
+            this.m_dangXuatbtn.Size = new System.Drawing.Size(112, 26);
+            this.m_dangXuatbtn.TabIndex = 7;
+            this.m_dangXuatbtn.Text = "Đăng Xuất";
+            this.m_dangXuatbtn.UseVisualStyleBackColor = true;
+            this.m_dangXuatbtn.Click += new System.EventHandler(this.m_dangXuatbtn_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1213, 620);
+<<<<<<< HEAD
             this.Controls.Add(this.m_scMain);
+=======
+            this.Controls.Add(this.m_dangXuatbtn);
+>>>>>>> origin/master
             this.Controls.Add(this.m_dgvMain);
             this.Controls.Add(this.m_tcMain);
             this.Controls.Add(this.m_btclose);
             this.Controls.Add(this.m_treeViewKhoi);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+<<<<<<< HEAD
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> origin/master
             this.Name = "FrmMain";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FrmMain_Load);
@@ -367,7 +425,12 @@
         private System.Windows.Forms.Button m_btSuaHS;
         private System.Windows.Forms.Button m_btXoaHS;
         private CustomTabControl m_tcMain;
+<<<<<<< HEAD
         private SearchControl m_scMain;
+=======
+        private SearchControl searchControl1;
+        private System.Windows.Forms.Button m_dangXuatbtn;
+>>>>>>> origin/master
     }
 }
 

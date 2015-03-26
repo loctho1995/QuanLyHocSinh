@@ -57,6 +57,15 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <None Include="SQL_QUANLYHOCSINH.dbml.layout">
+      <DependentUpon>SQL_QUANLYHOCSINH.dbml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+>>>>>>> origin/master
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
