@@ -38,3 +38,5 @@ F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.SearchControl.reso
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.csproj.GenerateResource.Cache
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.exe
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.pdb
+E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.frmXemDiem.resources
+E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.SearchControl.resources

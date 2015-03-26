@@ -19,6 +19,57 @@ namespace BUS
         {
             return DB.HOCSINHs.ToList();
         }
+        public List<NAMHOC> LayNamHoc()
+        {
+            return DB.NAMHOCs.ToList();
+        }
+        public DataTable TimKiemThongTinHocSinh(string hoten)
+        {
+            DataTable dt = new DataTable();
+            //dt.Clear();
+
+            dt.Columns.Add("STT", typeof(int));
+            dt.Columns.Add("MAHS", typeof(int));
+            dt.Columns.Add("HOTEN", typeof(string));
+            dt.Columns.Add("GIOITINH", typeof(string));
+            dt.Columns.Add("NGAYSINH", typeof(string));
+            dt.Columns.Add("DIACHI", typeof(string));
+            dt.Columns.Add("TONGIAO", typeof(string));
+            dt.Columns.Add("EMAIL", typeof(string));
+            dt.Columns.Add("HOTENCHA", typeof(string));
+            dt.Columns.Add("NGHENGHIEPCHA", typeof(string));
+            dt.Columns.Add("HOTENME", typeof(string));
+            dt.Columns.Add("NGHENGHIEPME", typeof(string));
+            dt.Columns.Add("MALOP", typeof(string));
+            dt.Columns.Add("MAKHOILOP", typeof(int));
+
+            var hocsinh = DB.sp_TiemKiemHocSinh(hoten);
+            int c = 1;
+
+            foreach (var i in hocsinh)
+            {
+                DataRow r = dt.NewRow();
+
+                r["STT"] = c++;
+                r["MAHS"] = i.MAHS;
+                r["HOTEN"] = i.HOTEN;
+                r["GIOITINH"] = i.GIOITINH;
+                r["NGAYSINH"] = i.NGAYSINH;
+                r["DIACHI"] = i.DIACHI;
+                r["TONGIAO"] = i.TONGIAO;
+                r["EMAIL"] = i.EMAIL;
+                r["HOTENCHA"] = i.HOTENCHAC;
+                r["NGHENGHIEPCHA"] = i.NGHENGHIEPCHA;
+                r["HOTENME"] = i.HOTENME;
+                r["NGHENGHIEPME"] = i.NGHENGHIEPME;
+                r["MALOP"] = i.MALOP;
+                r["MAKHOILOP"] = i.MAKHOILOP;
+
+                dt.Rows.Add(r);
+            }
+
+            return dt;
+        }
 
         public DataTable LayHocSinh_Khoi(string makhoilop)
         {            

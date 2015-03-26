@@ -29,6 +29,11 @@ namespace QuanLyHocSinh
             m_ccbLop.ValueMember = "MALOP";
             m_ccbLop.DisplayMember = "TENLOP";
             m_check = true;
+            m_ccbManamhoc.DataSource = hs_bus.LayNamHoc();
+            m_ccbManamhoc.ValueMember = "MANAMHOC";
+            m_ccbManamhoc.DisplayMember = "TENNAMHOC";
+            m_ccbManamhoc.Visible = true;
+            m_lblManamhoc.Visible = true;
 
         }
         //sua
@@ -87,7 +92,7 @@ namespace QuanLyHocSinh
             hs.HOTENME = m_tbHotenme.Text;
             hs.NGHENGHIEPCHA = m_tbNghenghiepcha.Text;
             hs.NGHENGHIEPME = m_tbNghenghiepme.Text;
-            pl.MANAMHOC = int.Parse(m_tbNamHoc.Text);
+            pl.MANAMHOC = int.Parse(m_ccbManamhoc.SelectedValue.ToString());
 
             if (m_check)
                 pl.MAKHOILOP = pl.MALOP.Substring(0, 2);

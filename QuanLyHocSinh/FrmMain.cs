@@ -16,15 +16,29 @@ namespace QuanLyHocSinh
     {
         HocSinh_BUS hs = new HocSinh_BUS();
         int m_count = 0;
+        bool m_checkseach = false;
 
         public FrmMain()
         {
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.CacheText, true);
 
             InitializeComponent();
-            m_treeViewKhoi.ExpandAll();
+            m_treeViewKhoi.ExpandAll(); 
 
+            m_scMain.TextBoxSearch.TextChanged += TextBoxSearch_TextChanged;
             m_dgvMain.BorderStyle = BorderStyle.None;
+        }
+
+        private void TextBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            m_checkseach = true;
+            if (m_scMain.TextBoxSearch.Text == "")
+            {
+                m_dgvMain.DataSource = null;
+                m_checkseach = false;
+            }
+            else
+                DesignDataGridView(m_dgvMain, m_scMain.TextBoxSearch.Text);
         }
 
         protected override void WndProc(ref Message m)
@@ -86,7 +100,7 @@ namespace QuanLyHocSinh
 
                 //Click vào Node Khối 10
                 case "m_nodeKhoi10":
-                    DesignDataGridView(m_dgvMain,"10");
+                    DesignDataGridView(m_dgvMain, "10");
                     break;
 
                 //Click vào Node khối 11
@@ -144,7 +158,9 @@ namespace QuanLyHocSinh
 
         private void DesignDataGridView(DataGridView dgv, string ma)
         {
-            if (ma.Length == 2)
+            if (m_checkseach)
+                dgv.DataSource = hs.TimKiemThongTinHocSinh(ma);
+            else if (ma.Length == 2)
                 dgv.DataSource = hs.LayHocSinh_Khoi(ma);
             else dgv.DataSource = hs.LayHocSinh_Lop(ma);
             dgv.Columns["STT"].Width = 40;
@@ -166,6 +182,7 @@ namespace QuanLyHocSinh
             dgv.Columns["HOTENME"].HeaderText = "Họ tên mẹ";
             dgv.Columns["NGHENGHIEPCHA"].HeaderText = "Nghề nghiệp cha";
             dgv.Columns["NGHENGHIEPME"].HeaderText = "Nghề nghiệp mẹ";
+            m_checkseach = false;
         }
 
         private void ShowHocSinh_Khoi()
@@ -245,7 +262,7 @@ namespace QuanLyHocSinh
 
         private void searchControl1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void m_dgvMain_CellContentClick(object sender, DataGridViewCellEventArgs e)
