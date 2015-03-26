@@ -13,6 +13,7 @@ namespace QuanLyHocSinh
 {
     public partial class SearchControl : UserControl
     {
+        #region - Attributes and Properties -
         //size khi hien len
         Size m_hideSize;
         /// <summary>
@@ -71,7 +72,14 @@ namespace QuanLyHocSinh
             Leave, Hover
         }
         MouseStates m_mouseState;
-        
+
+        float m_opacity;
+        public float Opacity
+        {
+            get { return m_opacity; }
+            set { m_opacity = value; }
+        }
+
         int m_speed;
         /// <summary>
         /// Tốc độ di chuyển của Control khi hiện / ẩn
@@ -92,31 +100,36 @@ namespace QuanLyHocSinh
             set { m_deltaSpeed = value; }
         }
 
-        Timer m_timer, m_timerImageGlow; //timer hide/ show form và timer làm ảnh mập mờ
-        Point m_oldLocation;
-        bool m_firstTimeChange; //lần đầu thay đổi postion để set old position
-        float m_controlAlpha; // tốc đọ tăng, giảm độ trong suốt cua control
+        Timer   m_timer, m_timerGlowAlpha; //timer hide/ show form và timer làm ảnh mập mờ
+        Point   m_oldLocation; //vị trí của Control trước khi di chuyển ta sẽ dùng vị trí này làm chuẩn setposition cho control
+        bool    m_firstTimeChange,//lần đầu thay đổi postion để set old position
+                m_btClick; //cho biết kếu button click thì sẽ không set đến mousemove để có thể đóng control
 
         private enum AlphaStates
         {
             GlowUp, GlowDown
         }
         AlphaStates m_controlGlowState;
+        #endregion
 
+        #region - Methods -
         public SearchControl()
         {
+            #region -Init-
             InitializeComponent();
 
+            #region -Init Attributes-
             m_controlGlowState = AlphaStates.GlowDown;
-            m_controlAlpha = 1.5f;
             m_speed = 1; //tốc độ di chuyển hiện tại
             m_deltaSpeed = 2; //tốc độ biến thiên
-
+            m_opacity = 1;
             m_firstTimeChange = true;
 
             m_hideSize = new System.Drawing.Size(30, this.Height);
             m_showSize = new System.Drawing.Size(250, this.Height);
+            #endregion
 
+            #region -Button Search-
             m_bt = new Button();
             m_bt.Size = new System.Drawing.Size(30, m_showSize.Height);
             m_bt.Location = this.Location;// new Point(0, 0);
@@ -124,109 +137,89 @@ namespace QuanLyHocSinh
             m_bt.Anchor = AnchorStyles.Left;
             m_bt.FlatStyle = FlatStyle.Flat;
             m_bt.FlatAppearance.BorderSize = 0;
-            m_bt.MouseHover += m_MouseHover;
-            m_bt.Click += (o, e) =>
+            m_bt.MouseMove += m_MouseMove;
+            m_bt.MouseClick += (o, e) =>
                 {
-                    //MessageBox.Show("BT Size:" + m_bt.Height + "\nForm: " + this.Height);
-                    //MessageBox.Show(this.Location.ToString());
+                    if(m_state == States.Show)
+                    {
+                        m_btClick = true;
+                        m_mouseState = MouseStates.Leave;
+                        m_timer.Start();
+                    }
                 };
+            #endregion
 
+            #region -TextBox Search-
             m_tb = new TextBox();
             m_tb.Size = new System.Drawing.Size(this.Width - m_bt.Width - 10, this.Height * 2 / 3);
             m_tb.Location = new Point(m_bt.Location.X + m_bt.Width + 5, this.Height / 2 - m_tb.Height / 2);
             m_tb.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Italic);
             m_tb.Text = "Nhập tên học sinh";
             m_tb.Anchor = AnchorStyles.Left;
-            m_tb.MouseHover += m_MouseHover;         
+            m_tb.MouseMove += m_MouseMove;     
+            //khi TextBox được Focus thì xóa text để cho người dùng nhập text
             m_tb.GotFocus += (o, e) =>
                 {
                     m_tb.Text = "";
                 };
+            //khi TextBox không còn được focus thì đóng control lại
+            m_tb.LostFocus += (o, e) =>
+                {
+                    m_mouseState = MouseStates.Leave;
+                    m_timer.Start();
+                };
+            #endregion
 
+            #region -Label-
             m_lb = new Label();
             m_lb.AutoSize = true;
             m_lb.Font = new System.Drawing.Font("Tahoma", 12, FontStyle.Bold);
             m_lb.Text = "Tìm kiếm học sinh";
             m_lb.Location = new Point(m_tb.Location.X + (m_showSize.Width / 2 - m_lb.Width), this.Location.Y + 5);//this.Location;
             m_lb.ForeColor = Color.Red;
-            m_lb.MouseHover += m_MouseHover;
+            #endregion
 
+            #region -Add controls-
             this.Controls.Add(m_bt);
             this.Controls.Add(m_tb);
             this.Controls.Add(m_lb);
+            #endregion
 
+            #region -Timers-
             m_timer = new Timer();
             m_timer.Interval = 100;
             m_timer.Tick += m_timer_Tick;
             m_timer.Enabled = true;
             m_timer.Stop();
 
-            m_timerImageGlow = new Timer();
-            m_timerImageGlow.Interval = 100;
-            m_timerImageGlow.Tick += m_timerImageGlow_Tick;
-            m_timer.Enabled = true;
-            m_timer.Start();
+            m_timerGlowAlpha = new Timer();
+            m_timerGlowAlpha.Interval = 100;
+            m_timerGlowAlpha.Tick += m_timer_Tick;
+            m_timerGlowAlpha.Enabled = true;
+            m_timerGlowAlpha.Stop();
+            #endregion
 
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.ContainerControl | ControlStyles.AllPaintingInWmPaint, true);
+            #endregion
         }
 
-        void m_timerImageGlow_Tick(object sender, EventArgs e)
+        private void m_MouseMove(object sender, MouseEventArgs e)
         {
-            switch (m_controlGlowState)
-            {
-                case AlphaStates.GlowUp:
-                    break;
+            if (m_btClick)
+                return;
 
-                case AlphaStates.GlowDown:
-                    break;
+            if (e.X < this.Location.X || e.X > this.Location.X + this.Width || e.Y < this.Location.Y
+                || e.Y > this.Location.Y + this.Height)
+            {
+                //khi vào control, cho chạy timmer lúc này sẽ kéo dài control ra
+                m_mouseState = MouseStates.Hover;
+                m_timer.Start();
             }
-        }
-
-        void m_MouseHover(object sender, EventArgs e)
-        {
-            m_mouseState = MouseStates.Hover;
-            m_timer.Start();
-        }
-
-        void m_timer_Tick(object sender, EventArgs e)
-        {
-            switch (m_mouseState)
+            else
             {
-                case MouseStates.Leave:
-                    if (this.Width - m_speed <= m_hideSize.Width)
-                    {
-                        this.Width = m_hideSize.Width;
-                        this.Location = m_oldLocation;
-                        this.Invalidate();
-
-                        m_speed = 1;
-                        m_timer.Stop();
-                        break;
-                    }
-
-                    this.Width -= m_speed;//new Size(this.Width - 5, this.Height);
-                    this.Location = new Point(this.Location.X + m_speed, this.Location.Y);
-                    m_speed += m_deltaSpeed;
-                    this.Invalidate();
-                    break;
-
-                case MouseStates.Hover:                    
-                    if (this.Width + m_speed >= m_showSize.Width)
-                    {
-                        this.Width = m_showSize.Width;
-                        this.Location = new Point(m_oldLocation.X - m_showSize.Width + m_hideSize.Width, m_oldLocation.Y);
-                        this.Invalidate();
-
-                        m_speed = 1;
-                        m_timer.Stop();
-                        break;
-                    }  
-
-                    this.Width += m_speed;// new Size(this.Width + 5, this.Height);
-                    this.Location = new Point(this.Location.X - m_speed, this.Location.Y);
-                    m_speed += m_deltaSpeed;
-                    this.Invalidate();
-                    break;
+                //ngược lại với trên
+                //m_mouseState = MouseStates.Leave;
+                //m_timer.Start();
             }
         }
 
@@ -253,20 +246,82 @@ namespace QuanLyHocSinh
             base.OnPaint(e);
         }
 
-        protected override void OnMouseHover(EventArgs e)
-        {            
-            m_mouseState = MouseStates.Hover;
-            m_timer.Start();
-            //MessageBox.Show(m_bt.Location.ToString());
-            base.OnMouseHover(e);
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            if (m_btClick)
+                return;
+
+            //kiểm tra nếu rê chuột vào trong vùng thì lúc này thực hiện Show/Hide
+            if (e.X < this.Location.X || e.X > this.Location.X + this.Width || e.Y < this.Location.Y 
+                || e.Y > this.Location.Y + this.Height)
+            {
+                m_mouseState = MouseStates.Hover;
+                m_timer.Start();
+            }
+            else
+            {
+                m_mouseState = MouseStates.Leave;
+                m_timer.Start();
+            }
+
+            base.OnMouseMove(e);
         }
 
-        protected override void OnMouseLeave(EventArgs e)
+        void m_timer_Tick(object sender, EventArgs e)
         {
-            //MessageBox.Show("BT Size:" + m_bt.Height + "\nForm: " + this.Height);
-            m_mouseState = MouseStates.Leave;
-            m_timer.Start();
-            base.OnMouseLeave(e);
+            switch (m_mouseState)
+            {
+                case MouseStates.Leave:
+                    if (this.Width - m_speed <= m_hideSize.Width)
+                    {
+                        //nguyên tẵng của việc đóng control là ta thu nhỏ độ dài và chuyển position dịch sang phải vì ta lấy điểm vẽ là
+                        //góc trái trên. Tương tự với việc kéo control ra
+                        this.Width = m_hideSize.Width;
+                        this.Location = m_oldLocation;
+                        this.Invalidate();
+                        
+                        Bitmap bm = new Bitmap(QuanLyHocSinh.Properties.Resources.showButton,
+                                                    new Size((int)(m_bt.Width * 0.8), m_bt.Height));
+                        m_state = States.Hide;
+                        m_bt.Image = bm;
+                        m_btClick = false;
+                        m_speed = 1;
+                        m_timer.Stop();
+                        break;
+                    }
+
+                    this.Width -= m_speed;//new Size(this.Width - 5, this.Height);
+                    this.Location = new Point(this.Location.X + m_speed, this.Location.Y);
+                    m_speed += m_deltaSpeed;
+                    this.Invalidate(); //gọi hàm này để vẽ lại form
+
+                    break;
+
+                case MouseStates.Hover:
+                    if (this.Width + m_speed >= m_showSize.Width)
+                    {
+                        this.Width = m_showSize.Width;
+                        this.Location = new Point(m_oldLocation.X - m_showSize.Width + m_hideSize.Width, m_oldLocation.Y);
+                        this.Invalidate();
+
+                        //lật ngược ảnh khi đủ size
+                        Bitmap bm = new Bitmap(QuanLyHocSinh.Properties.Resources.showButton,
+                                                 new Size((int)(m_bt.Width * 0.8), m_bt.Height));
+                        bm.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                        m_bt.Image = bm;
+                        m_state = States.Show;
+                        m_speed = 1;
+                        m_timer.Stop();
+                        break;
+                    }
+
+                    this.Width += m_speed;// new Size(this.Width + 5, this.Height);
+                    this.Location = new Point(this.Location.X - m_speed, this.Location.Y);
+                    m_speed += m_deltaSpeed;
+                    this.Invalidate();
+                    break;
+            }
         }
+        #endregion
     }
 }

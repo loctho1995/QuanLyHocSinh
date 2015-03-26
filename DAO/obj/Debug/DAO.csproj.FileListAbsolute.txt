@@ -1,17 +1,5 @@
-E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\DAO\bin\Debug\DAO.dll.config
-E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\DAO\bin\Debug\DAO.dll
-E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\DAO\bin\Debug\DAO.pdb
-E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
-E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\DAO\obj\Debug\DAO.dll
-E:\visual studio 2012\đồ án quản lý học sinh - Copy\QuanLyHocSinh\DAO\obj\Debug\DAO.pdb
-F:\Github\QuanLyHocSinh\DAO\bin\Debug\DAO.dll.config
-F:\Github\QuanLyHocSinh\DAO\bin\Debug\DAO.dll
-F:\Github\QuanLyHocSinh\DAO\bin\Debug\DAO.pdb
-F:\Github\QuanLyHocSinh\DAO\obj\Debug\DAO.dll
-F:\Github\QuanLyHocSinh\DAO\obj\Debug\DAO.pdb
-C:\Users\Sky\Documents\GitHub\QuanLyHocSinh\DAO\bin\Debug\DAO.dll.config
-C:\Users\Sky\Documents\GitHub\QuanLyHocSinh\DAO\bin\Debug\DAO.dll
-C:\Users\Sky\Documents\GitHub\QuanLyHocSinh\DAO\bin\Debug\DAO.pdb
-C:\Users\Sky\Documents\GitHub\QuanLyHocSinh\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
-C:\Users\Sky\Documents\GitHub\QuanLyHocSinh\DAO\obj\Debug\DAO.dll
-C:\Users\Sky\Documents\GitHub\QuanLyHocSinh\DAO\obj\Debug\DAO.pdb
+C:\Users\DELL\Desktop\quanlyhocsinh\DAO\bin\Debug\DAO.dll.config
+C:\Users\DELL\Desktop\quanlyhocsinh\DAO\bin\Debug\DAO.dll
+C:\Users\DELL\Desktop\quanlyhocsinh\DAO\bin\Debug\DAO.pdb
+C:\Users\DELL\Desktop\quanlyhocsinh\DAO\obj\Debug\DAO.dll
+C:\Users\DELL\Desktop\quanlyhocsinh\DAO\obj\Debug\DAO.pdb

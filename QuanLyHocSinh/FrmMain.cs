@@ -23,13 +23,10 @@ namespace QuanLyHocSinh
             
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.CacheText, true);
             InitializeComponent();
-<<<<<<< HEAD
             m_treeViewKhoi.ExpandAll(); 
 
             m_scMain.TextBoxSearch.TextChanged += TextBoxSearch_TextChanged;
-=======
             m_treeViewKhoi.ExpandAll();
->>>>>>> origin/master
             m_dgvMain.BorderStyle = BorderStyle.None;
 
         }
@@ -164,7 +161,7 @@ namespace QuanLyHocSinh
         private void DesignDataGridView(DataGridView dgv, string ma)
         {
             if (m_checkseach)
-                dgv.DataSource = hs.TimKiemThongTinHocSinh(ma);
+                dgv.DataSource = hs.TimKiemThongTinHocSinh(ma);//hs.TimKiemThongTinHocSinh(ma);
             else if (ma.Length == 2)
                 dgv.DataSource = hs.LayHocSinh_Khoi(ma);
             else dgv.DataSource = hs.LayHocSinh_Lop(ma);

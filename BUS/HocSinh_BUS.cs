@@ -21,10 +21,12 @@ namespace BUS
         {
             return DB.HOCSINHs.ToList();
         }
+
         public List<NAMHOC> LayNamHoc()
         {
             return DB.NAMHOCs.ToList();
         }
+
         public DataTable TimKiemThongTinHocSinh(string hoten)
         {
             DataTable dt = new DataTable();
@@ -211,8 +213,6 @@ namespace BUS
             {
                 return 1;
             }
-        }
-
-        
+        }        
     }
 }

@@ -22,6 +22,7 @@ namespace QuanLyHocSinh
         List<LOP> ll = new List<LOP>();
         HocSinh_BUS hs_bus= new HocSinh_BUS();
         bool m_check = true;
+
         public frmSuaNhapHS()
         {
             InitializeComponent();
@@ -29,10 +30,10 @@ namespace QuanLyHocSinh
             m_ccbLop.ValueMember = "MALOP";
             m_ccbLop.DisplayMember = "TENLOP";
             m_check = true;
-            m_ccbManamhoc.DataSource = hs_bus.LayNamHoc();
-            m_ccbManamhoc.ValueMember = "MANAMHOC";
-            m_ccbManamhoc.DisplayMember = "TENNAMHOC";
-            m_ccbManamhoc.Visible = true;
+            //m_ccbManamhoc.DataSource = hs_bus.LayNamHoc();
+            //m_ccbManamhoc.ValueMember = "MANAMHOC";
+            //m_ccbManamhoc.DisplayMember = "TENNAMHOC";
+            //m_ccbManamhoc.Visible = true;
             m_lblManamhoc.Visible = true;
 
         }
