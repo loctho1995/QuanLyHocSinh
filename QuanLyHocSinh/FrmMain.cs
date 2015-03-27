@@ -19,8 +19,7 @@ namespace QuanLyHocSinh
         bool m_checkseach = false;
 
         public FrmMain()
-        {
-            
+        {            
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.CacheText, true);
             InitializeComponent();
             m_treeViewKhoi.ExpandAll(); 

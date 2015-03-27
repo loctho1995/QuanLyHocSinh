@@ -12,9 +12,14 @@ namespace QuanLyHocSinh
 {
     public partial class frmXemDiem : Form
     {
-        public frmXemDiem()
+        int m_maHS;
+        string m_maGV;
+
+        public frmXemDiem(int maHS, string maGV)
         {
             InitializeComponent();
+            m_maHS = maHS;
+            m_maGV = maGV;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

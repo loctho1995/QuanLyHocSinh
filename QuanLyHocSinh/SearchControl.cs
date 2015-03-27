@@ -58,7 +58,7 @@ namespace QuanLyHocSinh
 
         public enum States
         {
-            Show, Hide
+            Show, Hide, Moving
         }
         States m_state;
         public States State
@@ -123,7 +123,7 @@ namespace QuanLyHocSinh
             m_speed = 1; //tốc độ di chuyển hiện tại
             m_deltaSpeed = 2; //tốc độ biến thiên
             m_opacity = 1;
-            m_firstTimeChange = true;
+            m_firstTimeChange = false;
 
             m_hideSize = new System.Drawing.Size(30, this.Height);
             m_showSize = new System.Drawing.Size(250, this.Height);
@@ -199,6 +199,16 @@ namespace QuanLyHocSinh
             m_timerGlowAlpha.Stop();
             #endregion
 
+            this.LocationChanged += (o, e) =>
+                {
+                    if (m_state != States.Moving)
+                    {
+                        //kiểm tra trường hợp thay đổi Location của control ta phải cập nhật lại để khi control di chuyển thì dừng
+                        //đúng vị trí không bị lệch
+                        m_oldLocation = this.Location;
+                    }
+                };
+
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.ContainerControl | ControlStyles.AllPaintingInWmPaint, true);
             #endregion
         }
@@ -227,12 +237,6 @@ namespace QuanLyHocSinh
         {
             m_bt.Location = new Point(0, 0);
             m_bt.Height = this.Height;
-
-            if (m_firstTimeChange)
-            {
-                m_firstTimeChange = false;
-                m_oldLocation = this.Location;
-            }
 
             switch (State)
             {
@@ -272,14 +276,18 @@ namespace QuanLyHocSinh
             switch (m_mouseState)
             {
                 case MouseStates.Leave:
-                    if (this.Width - m_speed <= m_hideSize.Width)
+                    if (m_state == States.Hide)
+                        break;
+
+                    if (this.Width - m_speed < m_hideSize.Width)
                     {
                         //nguyên tẵng của việc đóng control là ta thu nhỏ độ dài và chuyển position dịch sang phải vì ta lấy điểm vẽ là
                         //góc trái trên. Tương tự với việc kéo control ra
                         this.Width = m_hideSize.Width;
                         this.Location = m_oldLocation;
                         this.Invalidate();
-                        
+
+                        m_firstTimeChange = true;
                         Bitmap bm = new Bitmap(QuanLyHocSinh.Properties.Resources.showButton,
                                                     new Size((int)(m_bt.Width * 0.8), m_bt.Height));
                         m_state = States.Hide;
@@ -290,6 +298,15 @@ namespace QuanLyHocSinh
                         break;
                     }
 
+                    if (m_firstTimeChange)
+                    {
+                        //phải xử lý hàm này vì nếu không có khi Control ở state Show mà phóng to form sẽ bị lỗi chỗ Location
+                        //khi phóng to form thì location của control sẽ bị sai lệch (m_oldLocation)
+                        m_firstTimeChange = false;
+                        m_oldLocation = new Point(this.Location.X + this.ShowSize.Width - m_hideSize.Width, this.Location.Y);
+                    }
+
+                    m_state = States.Moving;
                     this.Width -= m_speed;//new Size(this.Width - 5, this.Height);
                     this.Location = new Point(this.Location.X + m_speed, this.Location.Y);
                     m_speed += m_deltaSpeed;
@@ -298,13 +315,17 @@ namespace QuanLyHocSinh
                     break;
 
                 case MouseStates.Hover:
-                    if (this.Width + m_speed >= m_showSize.Width)
+                    if (m_state == States.Show)
+                        break;
+
+                    if (this.Width + m_speed > m_showSize.Width)
                     {
                         this.Width = m_showSize.Width;
                         this.Location = new Point(m_oldLocation.X - m_showSize.Width + m_hideSize.Width, m_oldLocation.Y);
                         this.Invalidate();
 
                         //lật ngược ảnh khi đủ size
+                        m_firstTimeChange = true;
                         Bitmap bm = new Bitmap(QuanLyHocSinh.Properties.Resources.showButton,
                                                  new Size((int)(m_bt.Width * 0.8), m_bt.Height));
                         bm.RotateFlip(RotateFlipType.RotateNoneFlipX);
@@ -313,8 +334,15 @@ namespace QuanLyHocSinh
                         m_speed = 1;
                         m_timer.Stop();
                         break;
+                    }                                                 
+
+                    if(m_firstTimeChange)
+                    {
+                        m_firstTimeChange = false;
+                        m_oldLocation = this.Location;
                     }
 
+                    m_state = States.Moving;
                     this.Width += m_speed;// new Size(this.Width + 5, this.Height);
                     this.Location = new Point(this.Location.X - m_speed, this.Location.Y);
                     m_speed += m_deltaSpeed;

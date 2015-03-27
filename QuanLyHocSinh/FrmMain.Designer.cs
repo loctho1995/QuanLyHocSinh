@@ -122,7 +122,7 @@
             this.m_treeViewKhoi.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode13});
             this.m_treeViewKhoi.SelectedImageIndex = 0;
-            this.m_treeViewKhoi.Size = new System.Drawing.Size(186, 365);
+            this.m_treeViewKhoi.Size = new System.Drawing.Size(187, 376);
             this.m_treeViewKhoi.TabIndex = 0;
             this.m_treeViewKhoi.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.m_treeViewKhoi_AfterSelect);
             // 
@@ -161,11 +161,11 @@
             this.m_dgvMain.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.m_dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.m_dgvMain.GridColor = System.Drawing.Color.SandyBrown;
-            this.m_dgvMain.Location = new System.Drawing.Point(193, 125);
+            this.m_dgvMain.Location = new System.Drawing.Point(191, 125);
             this.m_dgvMain.Name = "m_dgvMain";
             this.m_dgvMain.ReadOnly = true;
             this.m_dgvMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.m_dgvMain.Size = new System.Drawing.Size(711, 364);
+            this.m_dgvMain.Size = new System.Drawing.Size(717, 376);
             this.m_dgvMain.TabIndex = 5;
             this.m_dgvMain.DoubleClick += new System.EventHandler(this.m_dgvMain_DoubleClick);
             // 
@@ -182,15 +182,16 @@
             // 
             // m_scMain
             // 
+            this.m_scMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.m_scMain.BackColor = System.Drawing.Color.GhostWhite;
             this.m_scMain.DeltaSpeed = 10;
-            this.m_scMain.HideSize = new System.Drawing.Size(30, 81);
-            this.m_scMain.Location = new System.Drawing.Point(879, 42);
+            this.m_scMain.HideSize = new System.Drawing.Size(32, 81);
+            this.m_scMain.Location = new System.Drawing.Point(876, 42);
             this.m_scMain.Margin = new System.Windows.Forms.Padding(4);
             this.m_scMain.Name = "m_scMain";
             this.m_scMain.Opacity = 1F;
             this.m_scMain.ShowSize = new System.Drawing.Size(250, 81);
-            this.m_scMain.Size = new System.Drawing.Size(25, 81);
+            this.m_scMain.Size = new System.Drawing.Size(32, 81);
             this.m_scMain.Speed = 1;
             this.m_scMain.State = QuanLyHocSinh.SearchControl.States.Hide;
             this.m_scMain.TabIndex = 6;
@@ -362,8 +363,8 @@
         private System.Windows.Forms.Button m_btSuaHS;
         private System.Windows.Forms.Button m_btXoaHS;
         private CustomTabControl m_tcMain;
-        private SearchControl m_scMain;
         private System.Windows.Forms.Button m_dangXuatbtn;
+        private SearchControl m_scMain;
     }
 }
 
