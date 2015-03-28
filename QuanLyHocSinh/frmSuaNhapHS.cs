@@ -26,14 +26,14 @@ namespace QuanLyHocSinh
         public frmSuaNhapHS()
         {
             InitializeComponent();
-            m_ccbLop.DataSource = hs_bus.LayDuLieuLop();
+            m_ccbLop.DataSource = hs_bus.LayDuLieuLop(FrmMain.m_phanquyen.ID);
             m_ccbLop.ValueMember = "MALOP";
             m_ccbLop.DisplayMember = "TENLOP";
             m_check = true;
-            //m_ccbManamhoc.DataSource = hs_bus.LayNamHoc();
-            //m_ccbManamhoc.ValueMember = "MANAMHOC";
-            //m_ccbManamhoc.DisplayMember = "TENNAMHOC";
-            //m_ccbManamhoc.Visible = true;
+            m_ccbManamhoc.DataSource = hs_bus.LayNamHoc();
+            m_ccbManamhoc.ValueMember = "MANAMHOC";
+            m_ccbManamhoc.DisplayMember = "TENNAMHOC";
+            m_ccbManamhoc.Visible = true;
             m_lblManamhoc.Visible = true;
 
         }
@@ -59,6 +59,7 @@ namespace QuanLyHocSinh
             l.MALOP = row.Cells["MALOP"].Value.ToString();
             ll.Add(l);
             m_ccbLop.DataSource = ll;
+            m_ccbLop.ValueMember = "MALOP";
             m_ccbLop.DisplayMember = "MALOP";
             m_check = false;
         }
@@ -86,26 +87,24 @@ namespace QuanLyHocSinh
             hs.GIOITINH = m_tbGioiTinh.Text;
             hs.HOTEN = m_tbHoVaTen.Text;
             pl.MALOP = m_ccbLop.SelectedValue.ToString();
-            pl.MALOP = pl.MALOP.Substring(0, 4);
             hs.NGAYSINH = m_dtpNgaysinh.Value;
             hs.TONGIAO = m_tbTonGiao.Text;
             hs.HOTENCHAC = m_tbHotencha.Text;
             hs.HOTENME = m_tbHotenme.Text;
             hs.NGHENGHIEPCHA = m_tbNghenghiepcha.Text;
             hs.NGHENGHIEPME = m_tbNghenghiepme.Text;
-            pl.MANAMHOC = int.Parse(m_ccbManamhoc.SelectedValue.ToString());
 
             if (m_check)
+            {
+                pl.MANAMHOC = int.Parse(m_ccbManamhoc.SelectedValue.ToString());
                 pl.MAKHOILOP = pl.MALOP.Substring(0, 2);
-            if (hs_bus.UpdateHocSinh(hs, pl)&&m_check ==false)
-            {
-                MessageBox.Show("Thanh cong");
+                MessageBox.Show("Thanh cong" + " " + hs_bus.ThemHocSinh(hs, pl).ToString());
             }
-            else if(m_check)
+            else if (hs_bus.UpdateHocSinh(hs, pl)&&m_check ==false)
             {
-                MessageBox.Show("Thanh cong" + " "+ hs_bus.ThemHocSinh(hs, pl).ToString());
+                MessageBox.Show("Thanh cong" + m_ccbLop.SelectedValue.ToString());
             }
-            else MessageBox.Show("That bai" + pl.MAKHOILOP.ToString());
+            else MessageBox.Show("That bai" + pl.MALOP);
         }
 
         private bool CheckEmail(string input)

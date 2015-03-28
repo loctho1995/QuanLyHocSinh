@@ -75,7 +75,7 @@ namespace BUS
             return dt;
         }
 
-        public DataTable LayHocSinh_Khoi(string makhoilop)
+        public DataTable LayHocSinh_Khoi(string makhoilop, string magvcn, int phanquyen)
         {            
             DataTable dt = new DataTable();
             //dt.Clear();
@@ -95,7 +95,7 @@ namespace BUS
             dt.Columns.Add("MALOP", typeof(string));
             dt.Columns.Add("MAKHOILOP", typeof(int));
 
-            var hocsinh = DB.sp_ThongtinHocSinhtheoKhoi(makhoilop);
+            var hocsinh = DB.sp_ThongtinHocSinhtheoKhoi(makhoilop, magvcn, phanquyen);
             int c = 1;
 
             foreach (var i in hocsinh)
@@ -119,11 +119,12 @@ namespace BUS
 
                 dt.Rows.Add(r);
             }
-
+            if (dt.Rows.Count == 0)
+                return null;
             return dt;
         }
 
-        public DataTable LayHocSinh_Lop(string malop)
+        public DataTable LayHocSinh_Lop(string malop, string magvcn, int phanquyen)
         {
             DataTable dt = new DataTable();
 
@@ -142,7 +143,7 @@ namespace BUS
             dt.Columns.Add("MALOP", typeof(string));
             dt.Columns.Add("MAKHOILOP", typeof(int));
 
-            var hocsinh = DB.sp_ThongtinHocSinhtheoLop(malop);
+            var hocsinh = DB.sp_ThongtinHocSinhtheoLop(malop,magvcn,phanquyen);
             int c = 1;
 
             foreach (var i in hocsinh)
@@ -166,7 +167,8 @@ namespace BUS
 
                 dt.Rows.Add(r);
             }
-
+            if (dt.Rows.Count == 0)
+                return null;
             return dt;
         }
 
@@ -195,10 +197,10 @@ namespace BUS
                 return false;
             }
         }
-        public List<LOP> LayDuLieuLop()
+        public List<LOP> LayDuLieuLop(string magvcn)
         {
             List<LOP> l = new List<LOP>();
-            return DB.LOPs.ToList();
+            return DB.LOPs.Where(a => a.MAGVCN == magvcn).ToList();
         }
 
         public int ThemHocSinh(HOCSINH hs, PHANLOP pl)
@@ -214,5 +216,20 @@ namespace BUS
                 return 1;
             }
         }        
+        //phân quyền đăng nhập
+        public int DangNhap(string user, string pass,ref string name, ref string malop)
+        {
+            int? m_check = 2;
+            try
+            {
+                DB.sp_DangNhap(user, pass, ref m_check, ref name, ref malop);
+                return int.Parse(m_check.ToString());
+            }
+            catch
+            {
+                return int.Parse(m_check.ToString());
+            }
+        }
+
     }
 }

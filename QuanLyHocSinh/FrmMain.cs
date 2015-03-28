@@ -15,9 +15,9 @@ namespace QuanLyHocSinh
     public partial class FrmMain : Form
     {
         HocSinh_BUS hs = new HocSinh_BUS();
+        public static PhanQuyenDangNhap m_phanquyen = new PhanQuyenDangNhap();
         int m_count = 0;
         bool m_checkseach = false;
-
         public FrmMain()
         {            
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.CacheText, true);
@@ -27,6 +27,9 @@ namespace QuanLyHocSinh
             m_scMain.TextBoxSearch.TextChanged += TextBoxSearch_TextChanged;
             m_treeViewKhoi.ExpandAll();
             m_dgvMain.BorderStyle = BorderStyle.None;
+            m_lblID.Text = m_phanquyen.ID;
+            m_lblName.Text = m_phanquyen.Username;
+            m_lblLopCN.Text = m_phanquyen.LopCN;
 
         }
 
@@ -162,8 +165,9 @@ namespace QuanLyHocSinh
             if (m_checkseach)
                 dgv.DataSource = hs.TimKiemThongTinHocSinh(ma);//hs.TimKiemThongTinHocSinh(ma);
             else if (ma.Length == 2)
-                dgv.DataSource = hs.LayHocSinh_Khoi(ma);
-            else dgv.DataSource = hs.LayHocSinh_Lop(ma);
+                dgv.DataSource = hs.LayHocSinh_Khoi(ma, m_phanquyen.ID, 0);
+            else dgv.DataSource = hs.LayHocSinh_Lop(ma,m_phanquyen.ID,0);
+            if (dgv.DataSource == null) return;
             dgv.Columns["STT"].Width = 40;
             dgv.Columns["MAHS"].Width = 50;
             dgv.Columns["HOTEN"].Width = 120;
@@ -226,9 +230,10 @@ namespace QuanLyHocSinh
                 MessageBox.Show("chọn học sinh cần xóa");
             else
             {
-                int key = int.Parse(m_dgvMain.SelectedRows[0].Cells["MAHS"].Value.ToString());
-                m_dgvMain.Rows.RemoveAt(m_dgvMain.SelectedRows[0].Index);
-                if (hs.DeleteHocSinh(key))
+                int key = 0;
+                if(m_dgvMain.SelectedRows[0].Cells["MAHS"] != null)
+                  key = int.Parse(m_dgvMain.SelectedRows[0].Cells["MAHS"].Value.ToString());
+                if (hs.DeleteHocSinh(key)&&key!=0)
                     MessageBox.Show("Xoá thành công");
                 else MessageBox.Show("Thất bại");
             }
@@ -287,6 +292,8 @@ namespace QuanLyHocSinh
             if (MessageBox.Show("Dang Xuat?", "Thong Bao", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
                 this.Close();
+                m_lblID.Text = null;
+                m_lblName.Text = null;
                 frmDangNhap frmdangNhap = new frmDangNhap();
                 frmdangNhap.ShowDialog();
             }
