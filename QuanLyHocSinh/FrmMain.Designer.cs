@@ -164,9 +164,6 @@
             // m_dgvMain
             // 
             this.m_dgvMain.AllowUserToAddRows = false;
-            this.m_dgvMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.m_dgvMain.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.m_dgvMain.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.m_dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -256,9 +253,8 @@
             this.m_lblLopBoMon.AutoSize = true;
             this.m_lblLopBoMon.Location = new System.Drawing.Point(555, 622);
             this.m_lblLopBoMon.Name = "m_lblLopBoMon";
-            this.m_lblLopBoMon.Size = new System.Drawing.Size(27, 17);
+            this.m_lblLopBoMon.Size = new System.Drawing.Size(0, 17);
             this.m_lblLopBoMon.TabIndex = 8;
-            this.m_lblLopBoMon.Text = "lớp";
             // 
             // label4
             // 
@@ -333,7 +329,7 @@
             // 
             // m_btThemHS
             // 
-            this.m_btThemHS.Location = new System.Drawing.Point(537, 7);
+            this.m_btThemHS.Location = new System.Drawing.Point(541, 8);
             this.m_btThemHS.Margin = new System.Windows.Forms.Padding(4);
             this.m_btThemHS.Name = "m_btThemHS";
             this.m_btThemHS.Size = new System.Drawing.Size(148, 76);
@@ -408,7 +404,6 @@
             this.m_tbBaoCao.TabIndex = 2;
             this.m_tbBaoCao.Text = "Báo Cáo";
             this.m_tbBaoCao.UseVisualStyleBackColor = true;
-            this.m_tbBaoCao.Click += new System.EventHandler(this.button_Click);
             // 
             // m_tbTraCuu
             // 

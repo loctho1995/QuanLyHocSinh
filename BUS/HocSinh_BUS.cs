@@ -217,17 +217,38 @@ namespace BUS
             }
         }        
         //phân quyền đăng nhập
-        public int DangNhap(string user, string pass,ref string name, ref string malop)
+        public int DangNhap(string user, string pass,ref string name, ref string malop,ref int phanquyen)
         {
-            int? m_check = 2;
+            int? m_check = 2, m_temp = 0;
             try
             {
-                DB.sp_DangNhap(user, pass, ref m_check, ref name, ref malop);
+                DB.sp_DangNhap(user, pass, ref m_check, ref name, ref malop, ref m_temp);
+                phanquyen = int.Parse(m_temp.ToString());
                 return int.Parse(m_check.ToString());
             }
             catch
             {
                 return int.Parse(m_check.ToString());
+            }
+        }
+        public void LayGVBoMon(ref string[] malop, string id)
+        {
+            int m_count = 0;
+            string[] malopbomon = new string[10];
+            try
+            {
+                var malopgvbomon = DB.sp_LayGVBoMon(id);
+                foreach (var i in malopgvbomon)
+                    malopbomon[m_count++] = i.MALOP;
+                malop = new string[m_count];
+                for (int i = 0; i <= m_count; i++)
+                    malop[i] = malopbomon[i];
+                    if (m_count == 0)
+                        malopbomon = null;
+            }
+            catch
+            {
+                return;
             }
         }
 

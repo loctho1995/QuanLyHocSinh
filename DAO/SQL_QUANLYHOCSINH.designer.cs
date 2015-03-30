@@ -208,16 +208,6 @@ namespace DAO
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DangNhap")]
-		public int sp_DangNhap([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> check, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] ref string name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] ref string malop)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, password, check, name, malop);
-			check = ((System.Nullable<int>)(result.GetParameterValue(2)));
-			name = ((string)(result.GetParameterValue(3)));
-			malop = ((string)(result.GetParameterValue(4)));
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ThongtinHocSinhtheoLop")]
 		public ISingleResult<sp_ThongtinHocSinhtheoLopResult> sp_ThongtinHocSinhtheoLop([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string malop, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string magvcn, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> maphanquyen)
 		{
@@ -230,6 +220,24 @@ namespace DAO
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), makhoi, magvcn, phanquyen);
 			return ((ISingleResult<sp_ThongtinHocSinhtheoKhoiResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DangNhap")]
+		public int sp_DangNhap([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> check, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] ref string name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] ref string malop, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> phanquyen)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, password, check, name, malop, phanquyen);
+			check = ((System.Nullable<int>)(result.GetParameterValue(2)));
+			name = ((string)(result.GetParameterValue(3)));
+			malop = ((string)(result.GetParameterValue(4)));
+			phanquyen = ((System.Nullable<int>)(result.GetParameterValue(5)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_LayGVBoMon")]
+		public ISingleResult<sp_LayGVBoMonResult> sp_LayGVBoMon([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string magv)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), magv);
+			return ((ISingleResult<sp_LayGVBoMonResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -3414,6 +3422,32 @@ namespace DAO
 					this._MAKHOILOP = value;
 				}
 			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MALOP", DbType="Char(5) NOT NULL", CanBeNull=false)]
+		public string MALOP
+		{
+			get
+			{
+				return this._MALOP;
+			}
+			set
+			{
+				if ((this._MALOP != value))
+				{
+					this._MALOP = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_LayGVBoMonResult
+	{
+		
+		private string _MALOP;
+		
+		public sp_LayGVBoMonResult()
+		{
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MALOP", DbType="Char(5) NOT NULL", CanBeNull=false)]

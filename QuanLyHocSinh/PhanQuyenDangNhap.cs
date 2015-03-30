@@ -35,5 +35,12 @@ namespace QuanLyHocSinh
             get { return lopbomon; }
             set { lopbomon = value; }
         }
+
+        private int phanquyen;
+        public int PhanQuyen
+        {
+            get { return phanquyen; }
+            set { phanquyen = value; }
+        }
     }
 }

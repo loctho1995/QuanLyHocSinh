@@ -30,6 +30,8 @@ namespace QuanLyHocSinh
             m_lblID.Text = m_phanquyen.ID;
             m_lblName.Text = m_phanquyen.Username;
             m_lblLopCN.Text = m_phanquyen.LopCN;
+            for (int i = 0; i < m_phanquyen.LopBM.Count(); i++)
+                m_lblLopBoMon.Text += m_phanquyen.LopBM[i];
 
         }
 
@@ -165,8 +167,8 @@ namespace QuanLyHocSinh
             if (m_checkseach)
                 dgv.DataSource = hs.TimKiemThongTinHocSinh(ma);//hs.TimKiemThongTinHocSinh(ma);
             else if (ma.Length == 2)
-                dgv.DataSource = hs.LayHocSinh_Khoi(ma, m_phanquyen.ID, 0);
-            else dgv.DataSource = hs.LayHocSinh_Lop(ma,m_phanquyen.ID,0);
+                dgv.DataSource = hs.LayHocSinh_Khoi(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
+            else dgv.DataSource = hs.LayHocSinh_Lop(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
             if (dgv.DataSource == null) return;
             dgv.Columns["STT"].Width = 40;
             dgv.Columns["MAHS"].Width = 50;

@@ -14,6 +14,8 @@ namespace QuanLyHocSinh
     {
         HocSinh_BUS hs = new HocSinh_BUS();
         string name = null, malop = null;
+        string[] malopbomon = null;
+        int phanquyen = 0;
         public frmDangNhap()
         {
             InitializeComponent();
@@ -27,9 +29,13 @@ namespace QuanLyHocSinh
         {
             if (Check() == true)
             {
+                hs.LayGVBoMon(ref malopbomon, m_tbID.Text.ToUpper());
+                this.Visible = false;
                 FrmMain.m_phanquyen.ID = m_tbID.Text.ToUpper();
                 FrmMain.m_phanquyen.Username = name;
                 FrmMain.m_phanquyen.LopCN = malop.ToUpper();
+                FrmMain.m_phanquyen.PhanQuyen = phanquyen;
+                FrmMain.m_phanquyen.LopBM = malopbomon;
                 FrmMain frmMain = new FrmMain();
                 frmMain.ShowDialog();
                 this.Close();
@@ -40,9 +46,10 @@ namespace QuanLyHocSinh
                
             }
         }
+        //
         private bool Check()
         {
-            int x = hs.DangNhap(m_tbID.Text, m_tbPass.Text,ref name, ref malop);
+            int x = hs.DangNhap(m_tbID.Text, m_tbPass.Text,ref name, ref malop, ref phanquyen);
             if (x == 1)
                 return true;
             else if (x == 2)

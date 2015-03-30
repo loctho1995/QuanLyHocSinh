@@ -175,14 +175,6 @@
     <Parameter Name="mahs" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.sp_DangNhap" Method="sp_DangNhap">
-    <Parameter Name="username" Type="System.String" DbType="Char(5)" />
-    <Parameter Name="password" Type="System.String" DbType="VarChar(30)" />
-    <Parameter Name="check" Type="System.Int32" DbType="Int" Direction="InOut" />
-    <Parameter Name="name" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
-    <Parameter Name="malop" Type="System.String" DbType="Char(5)" Direction="InOut" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.sp_ThongtinHocSinhtheoLop" Method="sp_ThongtinHocSinhtheoLop">
     <Parameter Name="malop" Type="System.String" DbType="Char(5)" />
     <Parameter Name="magvcn" Type="System.String" DbType="Char(5)" />
@@ -220,6 +212,21 @@
       <Column Name="HOTENME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="NGHENGHIEPME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="MAKHOILOP" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="MALOP" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_DangNhap" Method="sp_DangNhap">
+    <Parameter Name="username" Type="System.String" DbType="Char(5)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="check" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
+    <Parameter Name="malop" Type="System.String" DbType="Char(5)" Direction="InOut" />
+    <Parameter Name="phanquyen" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_LayGVBoMon" Method="sp_LayGVBoMon">
+    <Parameter Name="magv" Type="System.String" DbType="Char(5)" />
+    <ElementType Name="sp_LayGVBoMonResult">
       <Column Name="MALOP" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
