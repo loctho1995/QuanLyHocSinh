@@ -92,9 +92,10 @@
             this.m_treeViewKhoi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.m_treeViewKhoi.BackColor = System.Drawing.Color.GhostWhite;
+            this.m_treeViewKhoi.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.m_treeViewKhoi.ImageIndex = 0;
             this.m_treeViewKhoi.ImageList = this.imageList1;
-            this.m_treeViewKhoi.Location = new System.Drawing.Point(1, 125);
+            this.m_treeViewKhoi.Location = new System.Drawing.Point(2, 125);
             this.m_treeViewKhoi.Name = "m_treeViewKhoi";
             treeNode1.Name = "m_node10A1";
             treeNode1.Text = "Lớp 10A1";
@@ -278,13 +279,13 @@
             this.m_scMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.m_scMain.BackColor = System.Drawing.Color.GhostWhite;
             this.m_scMain.DeltaSpeed = 20;
-            this.m_scMain.HideSize = new System.Drawing.Size(32, 81);
-            this.m_scMain.Location = new System.Drawing.Point(876, 42);
+            this.m_scMain.HideSize = new System.Drawing.Size(35, 81);
+            this.m_scMain.Location = new System.Drawing.Point(873, 42);
             this.m_scMain.Margin = new System.Windows.Forms.Padding(4);
             this.m_scMain.Name = "m_scMain";
             this.m_scMain.Opacity = 1F;
             this.m_scMain.ShowSize = new System.Drawing.Size(250, 81);
-            this.m_scMain.Size = new System.Drawing.Size(32, 81);
+            this.m_scMain.Size = new System.Drawing.Size(35, 81);
             this.m_scMain.Speed = 1;
             this.m_scMain.State = QuanLyHocSinh.SearchControl.States.Hide;
             this.m_scMain.TabIndex = 6;
@@ -298,10 +299,10 @@
             this.m_tcMain.Controls.Add(this.m_tbHocTap);
             this.m_tcMain.Controls.Add(this.m_tbBaoCao);
             this.m_tcMain.Controls.Add(this.m_tbTraCuu);
-            this.m_tcMain.Location = new System.Drawing.Point(1, 23);
+            this.m_tcMain.Location = new System.Drawing.Point(2, 23);
             this.m_tcMain.Name = "m_tcMain";
             this.m_tcMain.SelectedIndex = 0;
-            this.m_tcMain.Size = new System.Drawing.Size(875, 100);
+            this.m_tcMain.Size = new System.Drawing.Size(875, 99);
             this.m_tcMain.TabIndex = 4;
             // 
             // m_tbHoSo
@@ -310,10 +311,10 @@
             this.m_tbHoSo.Controls.Add(this.m_btThemHS);
             this.m_tbHoSo.Controls.Add(this.m_btSuaHS);
             this.m_tbHoSo.Controls.Add(this.m_btXoaHS);
-            this.m_tbHoSo.Location = new System.Drawing.Point(1, 19);
+            this.m_tbHoSo.Location = new System.Drawing.Point(1, 20);
             this.m_tbHoSo.Name = "m_tbHoSo";
             this.m_tbHoSo.Padding = new System.Windows.Forms.Padding(3);
-            this.m_tbHoSo.Size = new System.Drawing.Size(873, 80);
+            this.m_tbHoSo.Size = new System.Drawing.Size(873, 79);
             this.m_tbHoSo.TabIndex = 0;
             this.m_tbHoSo.Text = "Hồ Sơ";
             this.m_tbHoSo.UseVisualStyleBackColor = true;
@@ -321,11 +322,9 @@
             // 
             // m_btXemThongTin
             // 
-            this.m_btXemThongTin.Dock = System.Windows.Forms.DockStyle.Left;
-            this.m_btXemThongTin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.m_btXemThongTin.Location = new System.Drawing.Point(3, 3);
+            this.m_btXemThongTin.Location = new System.Drawing.Point(6, 6);
             this.m_btXemThongTin.Name = "m_btXemThongTin";
-            this.m_btXemThongTin.Size = new System.Drawing.Size(111, 74);
+            this.m_btXemThongTin.Size = new System.Drawing.Size(108, 62);
             this.m_btXemThongTin.TabIndex = 7;
             this.m_btXemThongTin.Text = "Xem Thông Tin";
             this.m_btXemThongTin.UseVisualStyleBackColor = true;
@@ -365,10 +364,10 @@
             // 
             this.m_tbHocTap.Controls.Add(this.m_btXemDiem);
             this.m_tbHocTap.Controls.Add(this.m_btSuaDiem);
-            this.m_tbHocTap.Location = new System.Drawing.Point(1, 19);
+            this.m_tbHocTap.Location = new System.Drawing.Point(1, 20);
             this.m_tbHocTap.Name = "m_tbHocTap";
             this.m_tbHocTap.Padding = new System.Windows.Forms.Padding(3);
-            this.m_tbHocTap.Size = new System.Drawing.Size(873, 80);
+            this.m_tbHocTap.Size = new System.Drawing.Size(873, 75);
             this.m_tbHocTap.TabIndex = 1;
             this.m_tbHocTap.Text = "Học Tập";
             this.m_tbHocTap.UseVisualStyleBackColor = true;
@@ -395,18 +394,18 @@
             // 
             // m_tbBaoCao
             // 
-            this.m_tbBaoCao.Location = new System.Drawing.Point(1, 19);
+            this.m_tbBaoCao.Location = new System.Drawing.Point(1, 20);
             this.m_tbBaoCao.Name = "m_tbBaoCao";
-            this.m_tbBaoCao.Size = new System.Drawing.Size(873, 80);
+            this.m_tbBaoCao.Size = new System.Drawing.Size(873, 75);
             this.m_tbBaoCao.TabIndex = 2;
             this.m_tbBaoCao.Text = "Báo Cáo";
             this.m_tbBaoCao.UseVisualStyleBackColor = true;
             // 
             // m_tbTraCuu
             // 
-            this.m_tbTraCuu.Location = new System.Drawing.Point(1, 19);
+            this.m_tbTraCuu.Location = new System.Drawing.Point(1, 20);
             this.m_tbTraCuu.Name = "m_tbTraCuu";
-            this.m_tbTraCuu.Size = new System.Drawing.Size(873, 80);
+            this.m_tbTraCuu.Size = new System.Drawing.Size(873, 75);
             this.m_tbTraCuu.TabIndex = 3;
             this.m_tbTraCuu.Text = "Tra Cứu";
             this.m_tbTraCuu.UseVisualStyleBackColor = true;

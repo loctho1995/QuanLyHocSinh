@@ -8,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing.Drawing2D;
 
 namespace QuanLyHocSinh
 {
@@ -131,8 +132,8 @@ namespace QuanLyHocSinh
 
             #region -Button Search-
             m_bt = new Button();
-            m_bt.Size = new System.Drawing.Size(30, m_showSize.Height);
-            m_bt.Location = this.Location;// new Point(0, 0);
+            m_bt.Size = new System.Drawing.Size(25, m_showSize.Height);
+            m_bt.Location = new System.Drawing.Point(this.Location.X, this.Location.Y);
             m_bt.Image = new Bitmap(QuanLyHocSinh.Properties.Resources.showButton, new Size((int)(m_bt.Width * 0.8), m_bt.Height));
             m_bt.Anchor = AnchorStyles.Left;
             m_bt.FlatStyle = FlatStyle.Flat;
@@ -235,18 +236,15 @@ namespace QuanLyHocSinh
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            m_bt.Location = new Point(0, 0);
+            m_bt.Location = new Point(this.HideSize.Width - m_bt.Width, 0);
+            m_tb.Location = new Point(m_bt.Location.X + m_bt.Width + 5, this.Height / 2 - m_tb.Height / 2);
             m_bt.Height = this.Height;
 
-            switch (State)
-            {
-                case States.Show:
-                    break;
-
-                case States.Hide:
-                    break;
-            }
-
+            LinearGradientBrush brush = new LinearGradientBrush(new System.Drawing.Point(0, 0), new System.Drawing.Point(this.HideSize.Width - m_bt.Width, 0),
+                                                                    Color.FromArgb(120, 63, 159, 63), Color.FromArgb(180, 20, 20, 20));
+            
+            e.Graphics.FillRectangle(brush, new Rectangle(0, 0, (this.HideSize.Width - m_bt.Width), this.Height));
+            
             base.OnPaint(e);
         }
 

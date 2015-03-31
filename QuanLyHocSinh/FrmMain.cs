@@ -16,7 +16,6 @@ namespace QuanLyHocSinh
     {
         HocSinh_BUS hs = new HocSinh_BUS();
         public static PhanQuyenDangNhap m_phanquyen = new PhanQuyenDangNhap();
-        int m_count = 0;
         bool m_checkseach = false;
 
         //cho phép resize góc dưới bên phải
@@ -28,6 +27,15 @@ namespace QuanLyHocSinh
             this.DoubleBuffered = true;
 
             InitializeComponent();
+            this.BackColor = Color.FromArgb(63, 159, 63);
+            //m_btXemThongTin.BackColor = Color.FromArgb(63, 159, 63);
+
+            m_tbHoSo.BackColor = Color.FromArgb(105, 213, 105);
+            m_tbHocTap.UseVisualStyleBackColor = true;
+            m_tbBaoCao.BackColor = Color.FromArgb(123, 241, 123);
+            m_tbHocTap.BackColor = Color.FromArgb(123, 241, 123);
+            m_scMain.BackColor = Color.FromArgb(142, 252, 142);
+            m_scMain.LabelSearch.ForeColor = Color.FromArgb(92, 92, 92);
             m_treeViewKhoi.ExpandAll(); 
 
             m_scMain.TextBoxSearch.TextChanged += TextBoxSearch_TextChanged;
@@ -135,13 +143,6 @@ namespace QuanLyHocSinh
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            //e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-
-            //Rectangle rc = new Rectangle(this.ClientSize.Width - cGrip, this.ClientSize.Height - cGrip, cGrip, cGrip);
-            //ControlPaint.DrawSizeGrip(e.Graphics, this.BackColor, rc);
-            //rc = new Rectangle(0, 0, this.ClientSize.Width, cCaption);
-            //e.Graphics.FillRectangle(new SolidBrush(this.BackColor), rc);
-
             base.OnPaint(e);
         }
 
@@ -334,8 +335,6 @@ namespace QuanLyHocSinh
                 frmThongTinHS frmTT = new frmThongTinHS(m_dgvMain.SelectedRows[0]);
                 frmTT.Show();
             }
-
-            m_count = 0;
         }
 
         private void XemDiem()
