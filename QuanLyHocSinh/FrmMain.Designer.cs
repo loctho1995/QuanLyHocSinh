@@ -94,8 +94,7 @@
             this.m_treeViewKhoi.BackColor = System.Drawing.Color.GhostWhite;
             this.m_treeViewKhoi.ImageIndex = 0;
             this.m_treeViewKhoi.ImageList = this.imageList1;
-            this.m_treeViewKhoi.Location = new System.Drawing.Point(1, 154);
-            this.m_treeViewKhoi.Margin = new System.Windows.Forms.Padding(4);
+            this.m_treeViewKhoi.Location = new System.Drawing.Point(1, 125);
             this.m_treeViewKhoi.Name = "m_treeViewKhoi";
             treeNode1.Name = "m_node10A1";
             treeNode1.Text = "Lớp 10A1";
@@ -131,7 +130,7 @@
             this.m_treeViewKhoi.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode13});
             this.m_treeViewKhoi.SelectedImageIndex = 0;
-            this.m_treeViewKhoi.Size = new System.Drawing.Size(248, 460);
+            this.m_treeViewKhoi.Size = new System.Drawing.Size(187, 374);
             this.m_treeViewKhoi.TabIndex = 0;
             this.m_treeViewKhoi.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.m_treeViewKhoi_AfterSelect);
             // 
@@ -152,10 +151,9 @@
             // m_btclose
             // 
             this.m_btclose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_btclose.Location = new System.Drawing.Point(1103, -1);
-            this.m_btclose.Margin = new System.Windows.Forms.Padding(4);
+            this.m_btclose.Location = new System.Drawing.Point(827, -1);
             this.m_btclose.Name = "m_btclose";
-            this.m_btclose.Size = new System.Drawing.Size(112, 26);
+            this.m_btclose.Size = new System.Drawing.Size(84, 21);
             this.m_btclose.TabIndex = 3;
             this.m_btclose.Text = "Close";
             this.m_btclose.UseVisualStyleBackColor = true;
@@ -164,26 +162,27 @@
             // m_dgvMain
             // 
             this.m_dgvMain.AllowUserToAddRows = false;
+            this.m_dgvMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.m_dgvMain.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.m_dgvMain.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.m_dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.m_dgvMain.GridColor = System.Drawing.Color.SandyBrown;
-            this.m_dgvMain.Location = new System.Drawing.Point(255, 154);
-            this.m_dgvMain.Margin = new System.Windows.Forms.Padding(4);
+            this.m_dgvMain.Location = new System.Drawing.Point(191, 125);
             this.m_dgvMain.Name = "m_dgvMain";
             this.m_dgvMain.ReadOnly = true;
             this.m_dgvMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.m_dgvMain.Size = new System.Drawing.Size(956, 460);
+            this.m_dgvMain.Size = new System.Drawing.Size(717, 374);
             this.m_dgvMain.TabIndex = 5;
             this.m_dgvMain.DoubleClick += new System.EventHandler(this.m_dgvMain_DoubleClick);
             // 
             // m_dangXuatbtn
             // 
             this.m_dangXuatbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_dangXuatbtn.Location = new System.Drawing.Point(965, -1);
-            this.m_dangXuatbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.m_dangXuatbtn.Location = new System.Drawing.Point(724, -1);
             this.m_dangXuatbtn.Name = "m_dangXuatbtn";
-            this.m_dangXuatbtn.Size = new System.Drawing.Size(112, 26);
+            this.m_dangXuatbtn.Size = new System.Drawing.Size(84, 21);
             this.m_dangXuatbtn.TabIndex = 7;
             this.m_dangXuatbtn.Text = "Đăng Xuất";
             this.m_dangXuatbtn.UseVisualStyleBackColor = true;
@@ -193,9 +192,10 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 622);
+            this.label1.Location = new System.Drawing.Point(9, 505);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 17);
+            this.label1.Size = new System.Drawing.Size(21, 13);
             this.label1.TabIndex = 8;
             this.label1.Text = "ID:";
             // 
@@ -203,18 +203,20 @@
             // 
             this.m_lblID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.m_lblID.AutoSize = true;
-            this.m_lblID.Location = new System.Drawing.Point(43, 622);
+            this.m_lblID.Location = new System.Drawing.Point(32, 505);
+            this.m_lblID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.m_lblID.Name = "m_lblID";
-            this.m_lblID.Size = new System.Drawing.Size(0, 17);
+            this.m_lblID.Size = new System.Drawing.Size(0, 13);
             this.m_lblID.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(127, 622);
+            this.label3.Location = new System.Drawing.Point(95, 505);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 17);
+            this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Họ tên:";
             // 
@@ -222,18 +224,20 @@
             // 
             this.m_lblName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.m_lblName.AutoSize = true;
-            this.m_lblName.Location = new System.Drawing.Point(184, 622);
+            this.m_lblName.Location = new System.Drawing.Point(138, 505);
+            this.m_lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.m_lblName.Name = "m_lblName";
-            this.m_lblName.Size = new System.Drawing.Size(0, 17);
+            this.m_lblName.Size = new System.Drawing.Size(0, 13);
             this.m_lblName.TabIndex = 8;
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(368, 622);
+            this.label2.Location = new System.Drawing.Point(276, 505);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 17);
+            this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Lớp CN:";
             // 
@@ -241,9 +245,10 @@
             // 
             this.m_lblLopCN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.m_lblLopCN.AutoSize = true;
-            this.m_lblLopCN.Location = new System.Drawing.Point(433, 622);
+            this.m_lblLopCN.Location = new System.Drawing.Point(325, 505);
+            this.m_lblLopCN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.m_lblLopCN.Name = "m_lblLopCN";
-            this.m_lblLopCN.Size = new System.Drawing.Size(27, 17);
+            this.m_lblLopCN.Size = new System.Drawing.Size(21, 13);
             this.m_lblLopCN.TabIndex = 8;
             this.m_lblLopCN.Text = "lớp";
             // 
@@ -251,18 +256,20 @@
             // 
             this.m_lblLopBoMon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.m_lblLopBoMon.AutoSize = true;
-            this.m_lblLopBoMon.Location = new System.Drawing.Point(555, 622);
+            this.m_lblLopBoMon.Location = new System.Drawing.Point(416, 505);
+            this.m_lblLopBoMon.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.m_lblLopBoMon.Name = "m_lblLopBoMon";
-            this.m_lblLopBoMon.Size = new System.Drawing.Size(0, 17);
+            this.m_lblLopBoMon.Size = new System.Drawing.Size(0, 13);
             this.m_lblLopBoMon.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(493, 622);
+            this.label4.Location = new System.Drawing.Point(370, 505);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 17);
+            this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Lớp BM:";
             // 
@@ -270,14 +277,14 @@
             // 
             this.m_scMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.m_scMain.BackColor = System.Drawing.Color.GhostWhite;
-            this.m_scMain.DeltaSpeed = 10;
+            this.m_scMain.DeltaSpeed = 20;
             this.m_scMain.HideSize = new System.Drawing.Size(32, 81);
-            this.m_scMain.Location = new System.Drawing.Point(1168, 52);
-            this.m_scMain.Margin = new System.Windows.Forms.Padding(5);
+            this.m_scMain.Location = new System.Drawing.Point(876, 42);
+            this.m_scMain.Margin = new System.Windows.Forms.Padding(4);
             this.m_scMain.Name = "m_scMain";
             this.m_scMain.Opacity = 1F;
             this.m_scMain.ShowSize = new System.Drawing.Size(250, 81);
-            this.m_scMain.Size = new System.Drawing.Size(43, 100);
+            this.m_scMain.Size = new System.Drawing.Size(32, 81);
             this.m_scMain.Speed = 1;
             this.m_scMain.State = QuanLyHocSinh.SearchControl.States.Hide;
             this.m_scMain.TabIndex = 6;
@@ -291,11 +298,10 @@
             this.m_tcMain.Controls.Add(this.m_tbHocTap);
             this.m_tcMain.Controls.Add(this.m_tbBaoCao);
             this.m_tcMain.Controls.Add(this.m_tbTraCuu);
-            this.m_tcMain.Location = new System.Drawing.Point(1, 28);
-            this.m_tcMain.Margin = new System.Windows.Forms.Padding(4);
+            this.m_tcMain.Location = new System.Drawing.Point(1, 23);
             this.m_tcMain.Name = "m_tcMain";
             this.m_tcMain.SelectedIndex = 0;
-            this.m_tcMain.Size = new System.Drawing.Size(1167, 123);
+            this.m_tcMain.Size = new System.Drawing.Size(875, 100);
             this.m_tcMain.TabIndex = 4;
             // 
             // m_tbHoSo
@@ -304,11 +310,10 @@
             this.m_tbHoSo.Controls.Add(this.m_btThemHS);
             this.m_tbHoSo.Controls.Add(this.m_btSuaHS);
             this.m_tbHoSo.Controls.Add(this.m_btXoaHS);
-            this.m_tbHoSo.Location = new System.Drawing.Point(0, 21);
-            this.m_tbHoSo.Margin = new System.Windows.Forms.Padding(4);
+            this.m_tbHoSo.Location = new System.Drawing.Point(1, 19);
             this.m_tbHoSo.Name = "m_tbHoSo";
-            this.m_tbHoSo.Padding = new System.Windows.Forms.Padding(4);
-            this.m_tbHoSo.Size = new System.Drawing.Size(1167, 102);
+            this.m_tbHoSo.Padding = new System.Windows.Forms.Padding(3);
+            this.m_tbHoSo.Size = new System.Drawing.Size(873, 80);
             this.m_tbHoSo.TabIndex = 0;
             this.m_tbHoSo.Text = "Hồ Sơ";
             this.m_tbHoSo.UseVisualStyleBackColor = true;
@@ -318,10 +323,9 @@
             // 
             this.m_btXemThongTin.Dock = System.Windows.Forms.DockStyle.Left;
             this.m_btXemThongTin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.m_btXemThongTin.Location = new System.Drawing.Point(4, 4);
-            this.m_btXemThongTin.Margin = new System.Windows.Forms.Padding(4);
+            this.m_btXemThongTin.Location = new System.Drawing.Point(3, 3);
             this.m_btXemThongTin.Name = "m_btXemThongTin";
-            this.m_btXemThongTin.Size = new System.Drawing.Size(148, 94);
+            this.m_btXemThongTin.Size = new System.Drawing.Size(111, 74);
             this.m_btXemThongTin.TabIndex = 7;
             this.m_btXemThongTin.Text = "Xem Thông Tin";
             this.m_btXemThongTin.UseVisualStyleBackColor = true;
@@ -329,10 +333,9 @@
             // 
             // m_btThemHS
             // 
-            this.m_btThemHS.Location = new System.Drawing.Point(541, 8);
-            this.m_btThemHS.Margin = new System.Windows.Forms.Padding(4);
+            this.m_btThemHS.Location = new System.Drawing.Point(406, 6);
             this.m_btThemHS.Name = "m_btThemHS";
-            this.m_btThemHS.Size = new System.Drawing.Size(148, 76);
+            this.m_btThemHS.Size = new System.Drawing.Size(111, 62);
             this.m_btThemHS.TabIndex = 6;
             this.m_btThemHS.Text = "Thêm";
             this.m_btThemHS.UseVisualStyleBackColor = true;
@@ -340,10 +343,9 @@
             // 
             // m_btSuaHS
             // 
-            this.m_btSuaHS.Location = new System.Drawing.Point(180, 7);
-            this.m_btSuaHS.Margin = new System.Windows.Forms.Padding(4);
+            this.m_btSuaHS.Location = new System.Drawing.Point(135, 6);
             this.m_btSuaHS.Name = "m_btSuaHS";
-            this.m_btSuaHS.Size = new System.Drawing.Size(148, 76);
+            this.m_btSuaHS.Size = new System.Drawing.Size(111, 62);
             this.m_btSuaHS.TabIndex = 4;
             this.m_btSuaHS.Text = "Sửa";
             this.m_btSuaHS.UseVisualStyleBackColor = true;
@@ -351,10 +353,9 @@
             // 
             // m_btXoaHS
             // 
-            this.m_btXoaHS.Location = new System.Drawing.Point(355, 7);
-            this.m_btXoaHS.Margin = new System.Windows.Forms.Padding(4);
+            this.m_btXoaHS.Location = new System.Drawing.Point(266, 6);
             this.m_btXoaHS.Name = "m_btXoaHS";
-            this.m_btXoaHS.Size = new System.Drawing.Size(148, 76);
+            this.m_btXoaHS.Size = new System.Drawing.Size(111, 62);
             this.m_btXoaHS.TabIndex = 5;
             this.m_btXoaHS.Text = "Xóa";
             this.m_btXoaHS.UseVisualStyleBackColor = true;
@@ -364,21 +365,19 @@
             // 
             this.m_tbHocTap.Controls.Add(this.m_btXemDiem);
             this.m_tbHocTap.Controls.Add(this.m_btSuaDiem);
-            this.m_tbHocTap.Location = new System.Drawing.Point(0, 21);
-            this.m_tbHocTap.Margin = new System.Windows.Forms.Padding(4);
+            this.m_tbHocTap.Location = new System.Drawing.Point(1, 19);
             this.m_tbHocTap.Name = "m_tbHocTap";
-            this.m_tbHocTap.Padding = new System.Windows.Forms.Padding(4);
-            this.m_tbHocTap.Size = new System.Drawing.Size(1167, 102);
+            this.m_tbHocTap.Padding = new System.Windows.Forms.Padding(3);
+            this.m_tbHocTap.Size = new System.Drawing.Size(873, 80);
             this.m_tbHocTap.TabIndex = 1;
             this.m_tbHocTap.Text = "Học Tập";
             this.m_tbHocTap.UseVisualStyleBackColor = true;
             // 
             // m_btXemDiem
             // 
-            this.m_btXemDiem.Location = new System.Drawing.Point(8, 7);
-            this.m_btXemDiem.Margin = new System.Windows.Forms.Padding(4);
+            this.m_btXemDiem.Location = new System.Drawing.Point(6, 6);
             this.m_btXemDiem.Name = "m_btXemDiem";
-            this.m_btXemDiem.Size = new System.Drawing.Size(148, 76);
+            this.m_btXemDiem.Size = new System.Drawing.Size(111, 62);
             this.m_btXemDiem.TabIndex = 7;
             this.m_btXemDiem.Text = "Xem Điểm";
             this.m_btXemDiem.UseVisualStyleBackColor = true;
@@ -386,10 +385,9 @@
             // 
             // m_btSuaDiem
             // 
-            this.m_btSuaDiem.Location = new System.Drawing.Point(180, 7);
-            this.m_btSuaDiem.Margin = new System.Windows.Forms.Padding(4);
+            this.m_btSuaDiem.Location = new System.Drawing.Point(135, 6);
             this.m_btSuaDiem.Name = "m_btSuaDiem";
-            this.m_btSuaDiem.Size = new System.Drawing.Size(148, 76);
+            this.m_btSuaDiem.Size = new System.Drawing.Size(111, 62);
             this.m_btSuaDiem.TabIndex = 4;
             this.m_btSuaDiem.Text = "Sửa Điểm";
             this.m_btSuaDiem.UseVisualStyleBackColor = true;
@@ -397,30 +395,28 @@
             // 
             // m_tbBaoCao
             // 
-            this.m_tbBaoCao.Location = new System.Drawing.Point(0, 21);
-            this.m_tbBaoCao.Margin = new System.Windows.Forms.Padding(4);
+            this.m_tbBaoCao.Location = new System.Drawing.Point(1, 19);
             this.m_tbBaoCao.Name = "m_tbBaoCao";
-            this.m_tbBaoCao.Size = new System.Drawing.Size(1167, 102);
+            this.m_tbBaoCao.Size = new System.Drawing.Size(873, 80);
             this.m_tbBaoCao.TabIndex = 2;
             this.m_tbBaoCao.Text = "Báo Cáo";
             this.m_tbBaoCao.UseVisualStyleBackColor = true;
             // 
             // m_tbTraCuu
             // 
-            this.m_tbTraCuu.Location = new System.Drawing.Point(0, 21);
-            this.m_tbTraCuu.Margin = new System.Windows.Forms.Padding(4);
+            this.m_tbTraCuu.Location = new System.Drawing.Point(1, 19);
             this.m_tbTraCuu.Name = "m_tbTraCuu";
-            this.m_tbTraCuu.Size = new System.Drawing.Size(1167, 102);
+            this.m_tbTraCuu.Size = new System.Drawing.Size(873, 80);
             this.m_tbTraCuu.TabIndex = 3;
             this.m_tbTraCuu.Text = "Tra Cứu";
             this.m_tbTraCuu.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1213, 645);
+            this.ClientSize = new System.Drawing.Size(910, 524);
             this.Controls.Add(this.m_lblName);
             this.Controls.Add(this.m_lblLopBoMon);
             this.Controls.Add(this.m_lblLopCN);
@@ -436,7 +432,6 @@
             this.Controls.Add(this.m_btclose);
             this.Controls.Add(this.m_treeViewKhoi);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FrmMain_Load);

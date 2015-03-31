@@ -18,9 +18,15 @@ namespace QuanLyHocSinh
         public static PhanQuyenDangNhap m_phanquyen = new PhanQuyenDangNhap();
         int m_count = 0;
         bool m_checkseach = false;
+
+        //cho phép resize góc dưới bên phải
+        private const int cGrip = 5;      // Grip size, khoảng range để xác định cho việc resize form xem thêm ở WndPrc
+
         public FrmMain()
         {            
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.CacheText, true);
+            //this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.CacheText, true);
+            this.DoubleBuffered = true;
+
             InitializeComponent();
             m_treeViewKhoi.ExpandAll(); 
 
@@ -53,12 +59,90 @@ namespace QuanLyHocSinh
             {
                 case 0x84:
                     base.WndProc(ref m);
+
                     if ((int)m.Result == 0x1)
                         m.Result = (IntPtr)0x2;
+
+                    Point pos = new Point(m.LParam.ToInt32() & 0xffff, m.LParam.ToInt32() >> 16);
+                    pos = this.PointToClient(pos);
+
+                    /*
+                    const int htLeft = 10;
+                    const int htRight = 11;
+                    const int htTop = 12;
+                    const int htTopLeft = 13;
+                    const int htTopRight = 14;
+                    const int htBottom = 15;            
+                    const int htBottomLeft = 16;
+                    const int htBottomRight = 17;  
+                     */
+
+                    //if (pos.Y < cCaption)
+                    //{
+                    //    m.Result = (IntPtr)2;  // HTCAPTION
+                    //    return;
+                    //}
+
+                    //rê chuột vào phía cạnh bên trái
+                    if (pos.X <= cGrip && pos.Y < this.ClientSize.Height - cGrip && pos.Y > cGrip)
+                    {
+                        m.Result = (IntPtr)10;  // HTCAPTION
+                        return;
+                    }
+
+                    //rê chuột vào phía cạnh bên phải
+                    if (pos.X >= this.ClientSize.Width - cGrip && pos.Y < this.ClientSize.Height - cGrip && pos.Y > cGrip)
+                    {
+                        m.Result = (IntPtr)11;
+                        return;
+                    }
+
+                    //rê chuột vào góc dưới bên phải
+                    if (pos.X >= this.ClientSize.Width - cGrip && pos.Y >= this.ClientSize.Height - cGrip)
+                    {
+                        m.Result = (IntPtr)17; // HTBOTTOMRIGHT
+                        return;
+                    }
+
+                    //rê chuột vào góc dưới bên trái
+                    if (pos.X <= cGrip && pos.Y >= this.ClientSize.Height - cGrip)
+                    {
+                        m.Result = (IntPtr)16;
+                        return;
+                    }
+
+                    //rê chuột bên phía trên top
+                    if (pos.Y < cGrip)
+                    {
+                        m.Result = (IntPtr)12;
+                        return;
+                    }
+
+
+                    //rê chuột xuông dưới bottom
+                    if (pos.Y > this.ClientSize.Height - cGrip)
+                    {
+                        m.Result = (IntPtr)15;
+                        return;
+                    }
+
+                    this.Invalidate();
                     return;
             }
 
             base.WndProc(ref m);
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            //e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+
+            //Rectangle rc = new Rectangle(this.ClientSize.Width - cGrip, this.ClientSize.Height - cGrip, cGrip, cGrip);
+            //ControlPaint.DrawSizeGrip(e.Graphics, this.BackColor, rc);
+            //rc = new Rectangle(0, 0, this.ClientSize.Width, cCaption);
+            //e.Graphics.FillRectangle(new SolidBrush(this.BackColor), rc);
+
+            base.OnPaint(e);
         }
 
         private void button_Click(object sender, EventArgs e)
