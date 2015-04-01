@@ -36,7 +36,7 @@ namespace QuanLyHocSinh
             m_tbHocTap.BackColor = Color.FromArgb(123, 241, 123);
             m_scMain.BackColor = Color.FromArgb(142, 252, 142);
             m_scMain.LabelSearch.ForeColor = Color.FromArgb(92, 92, 92);
-            m_treeViewKhoi.ExpandAll(); 
+            //m_treeViewKhoi.ExpandAll(); 
 
             m_scMain.TextBoxSearch.TextChanged += TextBoxSearch_TextChanged;
             m_treeViewKhoi.ExpandAll();
@@ -46,7 +46,7 @@ namespace QuanLyHocSinh
             m_lblLopCN.Text = m_phanquyen.LopCN;
             for (int i = 0; i < m_phanquyen.LopBM.Count(); i++)
                 m_lblLopBoMon.Text += m_phanquyen.LopBM[i];
-
+            //m_btBaoCao.Enabled = false;
         }
 
         private void TextBoxSearch_TextChanged(object sender, EventArgs e)
@@ -183,6 +183,16 @@ namespace QuanLyHocSinh
         }       
         private void m_treeViewKhoi_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            //Viet ham check cho button baocao
+            //m_btBaoCao.Enabled = false;
+            //for (int i = 0; i < m_phanquyen.LopBM.Count(); i++)
+            //{
+            //    if (e.Node.Text == m_phanquyen.LopBM[i])
+            //    {
+            //        m_btBaoCao.Enabled = true;
+            //        break;
+            //    }
+            //}
             switch (e.Node.Name)
             {
                 //Click vào node khối
@@ -239,12 +249,11 @@ namespace QuanLyHocSinh
                 case "m_node12A2":
                     DesignDataGridView(m_dgvMain, "12a2");
                     break;
-
                 default:
                     break;
             }
 
-            //MessageBox.Show((e.Node.Name));
+           // MessageBox.Show((e.Node.Name));
         }
 
         private void DesignDataGridView(DataGridView dgv, string ma)
@@ -342,6 +351,12 @@ namespace QuanLyHocSinh
             
         }
 
+        private void XuatBaoCao()
+        {
+            frmBaoCao frmBC = new frmBaoCao(m_treeViewKhoi.SelectedNode.Text);
+            frmBC.ShowDialog();
+        }
+
         private void searchControl1_Load(object sender, EventArgs e)
         {
             
@@ -384,6 +399,11 @@ namespace QuanLyHocSinh
             }
                 
             
+        }
+
+        private void m_btBaoCao_Click(object sender, EventArgs e)
+        {
+            XuatBaoCao();
         }
     }
 }

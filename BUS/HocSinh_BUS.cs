@@ -68,7 +68,6 @@ namespace BUS
                 r["NGHENGHIEPME"] = i.NGHENGHIEPME;
                 r["MALOP"] = i.MALOP;
                 r["MAKHOILOP"] = i.MAKHOILOP;
-
                 dt.Rows.Add(r);
             }
 

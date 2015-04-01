@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAO
+namespace BUS
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -72,7 +72,7 @@ namespace DAO
     #endregion
 		
 		public SQL_QUANLYHOCSINHDataContext() : 
-				base(global::DAO.Properties.Settings.Default.SQL_QUANLYHOCSINHConnectionString1, mappingSource)
+				base(global::BUS.Properties.Settings.Default.SQL_QUANLYHOCSINHConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

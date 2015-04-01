@@ -30,7 +30,7 @@ namespace QuanLyHocSinh
             if (Check() == true)
             {
                 hs.LayGVBoMon(ref malopbomon, m_tbID.Text.ToUpper());
-                this.Visible = false;
+                this.Hide();
                 FrmMain.m_phanquyen.ID = m_tbID.Text.ToUpper();
                 FrmMain.m_phanquyen.Username = name;
                 FrmMain.m_phanquyen.LopCN = malop.ToUpper();
@@ -42,8 +42,7 @@ namespace QuanLyHocSinh
             }
             else 
             {
-                MessageBox.Show("Wrong hole Mother Fucker!!!");
-               
+                MessageBox.Show("Wrong hole Mother Fucker!!!"); 
             }
         }
         //
@@ -62,10 +61,46 @@ namespace QuanLyHocSinh
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Hide();
             FrmMain frmMain = new FrmMain();
             frmMain.ShowDialog();
             this.Close();
         }
+
+      protected override bool ProcessCmdKey(ref Message msg, Keys keydata) 
+        {
+            if (keydata == Keys.Enter)
+            {
+                if (Check() == true)
+                {
+                    hs.LayGVBoMon(ref malopbomon, m_tbID.Text.ToUpper());
+                    this.Hide();
+                    FrmMain.m_phanquyen.ID = m_tbID.Text.ToUpper();
+                    FrmMain.m_phanquyen.Username = name;
+                    FrmMain.m_phanquyen.LopCN = malop.ToUpper();
+                    FrmMain.m_phanquyen.PhanQuyen = phanquyen;
+                    FrmMain.m_phanquyen.LopBM = malopbomon;
+                    FrmMain frmMain = new FrmMain();
+                    frmMain.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Wrong hole Mother Fucker!!!");
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        } 
+
+
+
+
+
+
     }
 }
