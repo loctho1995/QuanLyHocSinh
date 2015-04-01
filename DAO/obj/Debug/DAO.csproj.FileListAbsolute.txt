@@ -20,3 +20,9 @@ C:\Users\Sky\Documents\GitHub\QuanLyHocSinh\DAO\bin\Debug\DAO.pdb
 C:\Users\Sky\Documents\GitHub\QuanLyHocSinh\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
 C:\Users\Sky\Documents\GitHub\QuanLyHocSinh\DAO\obj\Debug\DAO.dll
 C:\Users\Sky\Documents\GitHub\QuanLyHocSinh\DAO\obj\Debug\DAO.pdb
+C:\Users\thinh_000\Documents\GitHub\QuanLyHocSinh\DAO\bin\Debug\DAO.dll.config
+C:\Users\thinh_000\Documents\GitHub\QuanLyHocSinh\DAO\bin\Debug\DAO.dll
+C:\Users\thinh_000\Documents\GitHub\QuanLyHocSinh\DAO\bin\Debug\DAO.pdb
+C:\Users\thinh_000\Documents\GitHub\QuanLyHocSinh\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+C:\Users\thinh_000\Documents\GitHub\QuanLyHocSinh\DAO\obj\Debug\DAO.dll
+C:\Users\thinh_000\Documents\GitHub\QuanLyHocSinh\DAO\obj\Debug\DAO.pdb

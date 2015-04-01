@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SQL_QUANLYHOCSINH" Class="SQL_QUANLYHOCSINHDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=sky;Initial Catalog=SQL_QUANLYHOCSINH;Integrated Security=True" SettingsObjectName="BUS.Properties.Settings" SettingsPropertyName="SQL_QUANLYHOCSINHConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=THINH;Initial Catalog=SQL_QUANLYHOCSINH;Integrated Security=True" SettingsObjectName="DAO.Properties.Settings" SettingsPropertyName="SQL_QUANLYHOCSINHConnectionString3" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DIEMHOCKY1" Member="DIEMHOCKY1s">
     <Type Name="DIEMHOCKY1">
       <Column Name="MAHS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -199,6 +199,34 @@
   <Function Name="dbo.sp_XoathongtinHocSinh" Method="sp_XoathongtinHocSinh">
     <Parameter Name="mahs" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_DiemHocSinh" Method="sp_DiemHocSinh">
+    <Parameter Name="mahs" Type="System.String" DbType="Char(5)" />
+    <Parameter Name="namhoc" Type="System.String" DbType="Char(5)" />
+    <Parameter Name="hocky" Type="System.String" DbType="Char(2)" />
+    <Parameter Name="magvcn" Type="System.String" DbType="Char(5)" />
+    <Parameter Name="phanquyen" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_DiemHocSinhResult">
+      <Column Name="TENMONHOC" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DIEMMIENG" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIEM15P" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIEM1TIET" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIEMTHI" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIEMTBMON" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_DiemHocSinhTheoLopChuNhiem" Method="sp_DiemHocSinhTheoLopChuNhiem">
+    <Parameter Name="malop" Type="System.String" DbType="Char(5)" />
+    <Parameter Name="magvcn" Type="System.String" DbType="Char(5)" />
+    <Parameter Name="phanquyen" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_DiemHocSinhTheoLopChuNhiemResult">
+      <Column Name="MAHS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DIEMTBHKI" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIEMTBHKII" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIEMTBCANAM" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MANAMHOC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
   </Function>
   <Function Name="dbo.sp_LayGVBoMon" Method="sp_LayGVBoMon">
     <Parameter Name="magv" Type="System.String" DbType="Char(5)" />

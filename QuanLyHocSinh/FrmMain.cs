@@ -17,6 +17,7 @@ namespace QuanLyHocSinh
         HocSinh_BUS hs = new HocSinh_BUS();
         public static PhanQuyenDangNhap m_phanquyen = new PhanQuyenDangNhap();
         bool m_checkseach = false;
+        int tabpage = 0; //them 1 bien de xac dinh dang o tab nao, su dung cho treeview ( 0 = Ho So, 1 = Hoc Tap, 2 = Bao Cao, 3 = Tra Cuu)
 
         //cho phép resize góc dưới bên phải
         private const int cGrip = 5;      // Grip size, khoảng range để xác định cho việc resize form xem thêm ở WndPrc
@@ -47,6 +48,29 @@ namespace QuanLyHocSinh
             for (int i = 0; i < m_phanquyen.LopBM.Count(); i++)
                 m_lblLopBoMon.Text += m_phanquyen.LopBM[i];
             //m_btBaoCao.Enabled = false;
+
+            m_tcMain.SelectedIndexChanged += m_tcMain_SelectedIndexChanged;//them su kien chuyen tabpage trong tabcontrol
+        }
+
+        //ham bat su kien chuyen tabpage
+        void m_tcMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //cac cau lenh dung de xac dinh tabpage nao dang duoc chon de gan cho bien static tab gia tri tuong ung
+            if (m_tcMain.TabPages[0].Focus() == true)
+                tabpage = 0;
+
+            if (m_tcMain.TabPages[1].Focus() == true)
+                tabpage = 1;
+
+            if (m_tcMain.TabPages[2].Focus() == true)
+                tabpage = 2;
+
+            if (m_tcMain.TabPages[3].Focus() == true)
+                tabpage = 3;
+
+            //cau lenh lam mat datagridview khi chuyen tab
+            m_dgvMain.DataSource = null;
+            
         }
 
         private void TextBoxSearch_TextChanged(object sender, EventArgs e)
@@ -256,34 +280,103 @@ namespace QuanLyHocSinh
            // MessageBox.Show((e.Node.Name));
         }
 
+        //private void DesignDataGridView(DataGridView dgv, string ma)
+        //{
+        //    if (m_checkseach)
+        //        dgv.DataSource = hs.TimKiemThongTinHocSinh(ma);//hs.TimKiemThongTinHocSinh(ma);
+        //    else if (ma.Length == 2)
+        //        dgv.DataSource = hs.LayHocSinh_Khoi(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
+        //    else dgv.DataSource = hs.LayHocSinh_Lop(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
+        //    if (dgv.DataSource == null) return;
+        //    dgv.Columns["STT"].Width = 40;
+        //    dgv.Columns["MAHS"].Width = 50;
+        //    dgv.Columns["HOTEN"].Width = 120;
+        //    dgv.Columns["GIOITINH"].Width = 50;
+        //    dgv.Columns["EMAIL"].Width = 120;
+        //    dgv.Columns["MALOP"].Width = 50;
+        //    dgv.Columns["MAKHOILOP"].Width = 40;
+
+        //    dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
+        //    dgv.Columns["HOTEN"].HeaderText = "Họ và tện";
+        //    dgv.Columns["GIOITINH"].HeaderText = "Giới tính";
+        //    dgv.Columns["EMAIL"].HeaderText = "Email";
+        //    dgv.Columns["DIACHI"].HeaderText = "Địa chỉ";
+        //    dgv.Columns["MALOP"].HeaderText = "Mã lớp";
+        //    dgv.Columns["MAKHOILOP"].HeaderText = "Mã khối";
+        //    dgv.Columns["HOTENCHA"].HeaderText = "Họ tên cha";
+        //    dgv.Columns["HOTENME"].HeaderText = "Họ tên mẹ";
+        //    dgv.Columns["NGHENGHIEPCHA"].HeaderText = "Nghề nghiệp cha";
+        //    dgv.Columns["NGHENGHIEPME"].HeaderText = "Nghề nghiệp mẹ";
+        //    m_checkseach = false;
+        //}
+        //them vao ham DesignDataGridView switch de xu ly tab
         private void DesignDataGridView(DataGridView dgv, string ma)
         {
-            if (m_checkseach)
+            if (m_checkseach)//m_checkseach = true -> dang tim kiem hoc sinh
+            {
                 dgv.DataSource = hs.TimKiemThongTinHocSinh(ma);//hs.TimKiemThongTinHocSinh(ma);
-            else if (ma.Length == 2)
-                dgv.DataSource = hs.LayHocSinh_Khoi(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
-            else dgv.DataSource = hs.LayHocSinh_Lop(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
-            if (dgv.DataSource == null) return;
-            dgv.Columns["STT"].Width = 40;
-            dgv.Columns["MAHS"].Width = 50;
-            dgv.Columns["HOTEN"].Width = 120;
-            dgv.Columns["GIOITINH"].Width = 50;
-            dgv.Columns["EMAIL"].Width = 120;
-            dgv.Columns["MALOP"].Width = 50;
-            dgv.Columns["MAKHOILOP"].Width = 40;
+                m_checkseach = false;
+            }
 
-            dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
-            dgv.Columns["HOTEN"].HeaderText = "Họ và tện";
-            dgv.Columns["GIOITINH"].HeaderText = "Giới tính";
-            dgv.Columns["EMAIL"].HeaderText = "Email";
-            dgv.Columns["DIACHI"].HeaderText = "Địa chỉ";
-            dgv.Columns["MALOP"].HeaderText = "Mã lớp";
-            dgv.Columns["MAKHOILOP"].HeaderText = "Mã khối";
-            dgv.Columns["HOTENCHA"].HeaderText = "Họ tên cha";
-            dgv.Columns["HOTENME"].HeaderText = "Họ tên mẹ";
-            dgv.Columns["NGHENGHIEPCHA"].HeaderText = "Nghề nghiệp cha";
-            dgv.Columns["NGHENGHIEPME"].HeaderText = "Nghề nghiệp mẹ";
-            m_checkseach = false;
+            else//m_checkseach = false -> dang su dung tree view
+            {
+                switch (tabpage)//tabpage se cho biet tabpage nao dang duoc chon
+                {
+                    case 0://tabpage Ho So
+
+                        if (ma.Length == 2)
+                            dgv.DataSource = hs.LayHocSinh_Khoi(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                        else dgv.DataSource = hs.LayHocSinh_Lop(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                        if (dgv.DataSource == null) return;
+                        dgv.Columns["STT"].Width = 40;
+                        dgv.Columns["MAHS"].Width = 50;
+                        dgv.Columns["HOTEN"].Width = 120;
+                        dgv.Columns["GIOITINH"].Width = 50;
+                        dgv.Columns["EMAIL"].Width = 120;
+                        dgv.Columns["MALOP"].Width = 50;
+                        dgv.Columns["MAKHOILOP"].Width = 40;
+
+                        dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
+                        dgv.Columns["HOTEN"].HeaderText = "Họ và tên";
+                        dgv.Columns["GIOITINH"].HeaderText = "Giới tính";
+                        dgv.Columns["EMAIL"].HeaderText = "Email";
+                        dgv.Columns["DIACHI"].HeaderText = "Địa chỉ";
+                        dgv.Columns["MALOP"].HeaderText = "Mã lớp";
+                        dgv.Columns["MAKHOILOP"].HeaderText = "Mã khối";
+                        dgv.Columns["HOTENCHA"].HeaderText = "Họ tên cha";
+                        dgv.Columns["HOTENME"].HeaderText = "Họ tên mẹ";
+                        dgv.Columns["NGHENGHIEPCHA"].HeaderText = "Nghề nghiệp cha";
+                        dgv.Columns["NGHENGHIEPME"].HeaderText = "Nghề nghiệp mẹ";
+
+                        break;
+
+                    case 1://tabpage Hoc tap
+                        //dgv.DataSource = hs.LayDiemHocSinh_LopChuNhiem(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                        //if (dgv.DataSource == null) return;
+                        //dgv.Columns["STT"].Width = 40;
+                        //dgv.Columns["MAHS"].Width = 50;
+                        //dgv.Columns["HOTEN"].Width = 120;
+                        //dgv.Columns["DIEMTBHKI"].Width = 120;
+                        //dgv.Columns["DIEMTBHKII"].Width = 120;
+                        //dgv.Columns["DIEMTBCANAM"].Width = 120;
+                        //dgv.Columns["MANAMHOC"].Width = 40;
+
+                        //dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
+                        //dgv.Columns["HOTEN"].HeaderText = "Họ và tên";
+                        //dgv.Columns["DIEMTBHKI"].HeaderText = "Điểm TB HKI";
+                        //dgv.Columns["DIEMTBHKII"].HeaderText = "Điểm TB HKII";
+                        //dgv.Columns["DIEMTBCANAM"].HeaderText = "Điểm TB Cả năm";
+                        //dgv.Columns["MANAMHOC"].HeaderText = "Năm học";
+
+                        break;
+
+                    case 2://tabpage Bao Cao
+                        break;
+
+                    case 3://tabpage Tra Cuu
+                        break;
+                }
+            }
         }
 
         private void ShowHocSinh_Khoi()
