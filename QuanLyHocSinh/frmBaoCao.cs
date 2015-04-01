@@ -72,6 +72,21 @@ namespace QuanLyHocSinh
             WriteData();
         }
 
+        private void m_cbbHocKi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            WriteData();
+        }
+
+        private void m_cbbNamHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            WriteData();
+        }
+
+        private void m_cbbMonHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            WriteData();
+        }
+
 
     }
 }

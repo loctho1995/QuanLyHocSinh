@@ -87,6 +87,7 @@
             this.m_cbbMonHoc.Name = "m_cbbMonHoc";
             this.m_cbbMonHoc.Size = new System.Drawing.Size(182, 24);
             this.m_cbbMonHoc.TabIndex = 4;
+            this.m_cbbMonHoc.SelectedIndexChanged += new System.EventHandler(this.m_cbbMonHoc_SelectedIndexChanged);
             // 
             // m_cbbNamHoc
             // 
@@ -98,6 +99,7 @@
             this.m_cbbNamHoc.Name = "m_cbbNamHoc";
             this.m_cbbNamHoc.Size = new System.Drawing.Size(182, 24);
             this.m_cbbNamHoc.TabIndex = 5;
+            this.m_cbbNamHoc.SelectedIndexChanged += new System.EventHandler(this.m_cbbNamHoc_SelectedIndexChanged);
             // 
             // m_cbbHocKi
             // 
@@ -111,6 +113,7 @@
             this.m_cbbHocKi.Name = "m_cbbHocKi";
             this.m_cbbHocKi.Size = new System.Drawing.Size(182, 24);
             this.m_cbbHocKi.TabIndex = 6;
+            this.m_cbbHocKi.SelectedIndexChanged += new System.EventHandler(this.m_cbbHocKi_SelectedIndexChanged);
             // 
             // label1
             // 
