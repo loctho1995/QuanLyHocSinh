@@ -239,13 +239,6 @@ namespace DAO
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DiemHocSinh")]
-		public ISingleResult<sp_DiemHocSinhResult> sp_DiemHocSinh([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string mahs, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string namhoc, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(2)")] string hocky, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string magvcn, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> phanquyen)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mahs, namhoc, hocky, magvcn, phanquyen);
-			return ((ISingleResult<sp_DiemHocSinhResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DiemHocSinhTheoLopChuNhiem")]
 		public ISingleResult<sp_DiemHocSinhTheoLopChuNhiemResult> sp_DiemHocSinhTheoLopChuNhiem([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string malop, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string magvcn, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> phanquyen)
 		{
@@ -293,6 +286,13 @@ namespace DAO
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), hoten);
 			return ((ISingleResult<sp_TiemKiemHocSinhResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DiemHocSinh")]
+		public ISingleResult<sp_DiemHocSinhResult> sp_DiemHocSinh([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string mahs, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string namhoc, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(2)")] string hocky)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mahs, namhoc, hocky);
+			return ((ISingleResult<sp_DiemHocSinhResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -4079,122 +4079,6 @@ namespace DAO
 		}
 	}
 	
-	public partial class sp_DiemHocSinhResult
-	{
-		
-		private string _TENMONHOC;
-		
-		private System.Nullable<double> _DIEMMIENG;
-		
-		private System.Nullable<double> _DIEM15P;
-		
-		private System.Nullable<double> _DIEM1TIET;
-		
-		private System.Nullable<double> _DIEMTHI;
-		
-		private System.Nullable<double> _DIEMTBMON;
-		
-		public sp_DiemHocSinhResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENMONHOC", DbType="NVarChar(30)")]
-		public string TENMONHOC
-		{
-			get
-			{
-				return this._TENMONHOC;
-			}
-			set
-			{
-				if ((this._TENMONHOC != value))
-				{
-					this._TENMONHOC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIEMMIENG", DbType="Float")]
-		public System.Nullable<double> DIEMMIENG
-		{
-			get
-			{
-				return this._DIEMMIENG;
-			}
-			set
-			{
-				if ((this._DIEMMIENG != value))
-				{
-					this._DIEMMIENG = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIEM15P", DbType="Float")]
-		public System.Nullable<double> DIEM15P
-		{
-			get
-			{
-				return this._DIEM15P;
-			}
-			set
-			{
-				if ((this._DIEM15P != value))
-				{
-					this._DIEM15P = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIEM1TIET", DbType="Float")]
-		public System.Nullable<double> DIEM1TIET
-		{
-			get
-			{
-				return this._DIEM1TIET;
-			}
-			set
-			{
-				if ((this._DIEM1TIET != value))
-				{
-					this._DIEM1TIET = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIEMTHI", DbType="Float")]
-		public System.Nullable<double> DIEMTHI
-		{
-			get
-			{
-				return this._DIEMTHI;
-			}
-			set
-			{
-				if ((this._DIEMTHI != value))
-				{
-					this._DIEMTHI = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIEMTBMON", DbType="Float")]
-		public System.Nullable<double> DIEMTBMON
-		{
-			get
-			{
-				return this._DIEMTBMON;
-			}
-			set
-			{
-				if ((this._DIEMTBMON != value))
-				{
-					this._DIEMTBMON = value;
-				}
-			}
-		}
-	}
-	
 	public partial class sp_DiemHocSinhTheoLopChuNhiemResult
 	{
 		
@@ -5058,6 +4942,122 @@ namespace DAO
 				if ((this._MALOP != value))
 				{
 					this._MALOP = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_DiemHocSinhResult
+	{
+		
+		private string _TENMONHOC;
+		
+		private System.Nullable<double> _DIEMMIENG;
+		
+		private System.Nullable<double> _DIEM15P;
+		
+		private System.Nullable<double> _DIEM1TIET;
+		
+		private System.Nullable<double> _DIEMTHI;
+		
+		private System.Nullable<double> _DIEMTBMON;
+		
+		public sp_DiemHocSinhResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENMONHOC", DbType="NVarChar(30)")]
+		public string TENMONHOC
+		{
+			get
+			{
+				return this._TENMONHOC;
+			}
+			set
+			{
+				if ((this._TENMONHOC != value))
+				{
+					this._TENMONHOC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIEMMIENG", DbType="Float")]
+		public System.Nullable<double> DIEMMIENG
+		{
+			get
+			{
+				return this._DIEMMIENG;
+			}
+			set
+			{
+				if ((this._DIEMMIENG != value))
+				{
+					this._DIEMMIENG = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIEM15P", DbType="Float")]
+		public System.Nullable<double> DIEM15P
+		{
+			get
+			{
+				return this._DIEM15P;
+			}
+			set
+			{
+				if ((this._DIEM15P != value))
+				{
+					this._DIEM15P = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIEM1TIET", DbType="Float")]
+		public System.Nullable<double> DIEM1TIET
+		{
+			get
+			{
+				return this._DIEM1TIET;
+			}
+			set
+			{
+				if ((this._DIEM1TIET != value))
+				{
+					this._DIEM1TIET = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIEMTHI", DbType="Float")]
+		public System.Nullable<double> DIEMTHI
+		{
+			get
+			{
+				return this._DIEMTHI;
+			}
+			set
+			{
+				if ((this._DIEMTHI != value))
+				{
+					this._DIEMTHI = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIEMTBMON", DbType="Float")]
+		public System.Nullable<double> DIEMTBMON
+		{
+			get
+			{
+				return this._DIEMTBMON;
+			}
+			set
+			{
+				if ((this._DIEMTBMON != value))
+				{
+					this._DIEMTBMON = value;
 				}
 			}
 		}

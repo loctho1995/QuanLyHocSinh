@@ -70,6 +70,7 @@ namespace QuanLyHocSinh
 
             //cau lenh lam mat datagridview khi chuyen tab
             m_dgvMain.DataSource = null;
+
             
         }
 
@@ -199,6 +200,7 @@ namespace QuanLyHocSinh
                     break;
 
                 case "m_btXemDiem":
+                    XemDiem();
                     break;
 
                 default:
@@ -275,6 +277,7 @@ namespace QuanLyHocSinh
                     break;
                 default:
                     break;
+
             }
 
            // MessageBox.Show((e.Node.Name));
@@ -351,22 +354,22 @@ namespace QuanLyHocSinh
                         break;
 
                     case 1://tabpage Hoc tap
-                        //dgv.DataSource = hs.LayDiemHocSinh_LopChuNhiem(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
-                        //if (dgv.DataSource == null) return;
-                        //dgv.Columns["STT"].Width = 40;
-                        //dgv.Columns["MAHS"].Width = 50;
-                        //dgv.Columns["HOTEN"].Width = 120;
-                        //dgv.Columns["DIEMTBHKI"].Width = 120;
-                        //dgv.Columns["DIEMTBHKII"].Width = 120;
-                        //dgv.Columns["DIEMTBCANAM"].Width = 120;
-                        //dgv.Columns["MANAMHOC"].Width = 40;
+                        dgv.DataSource = hs.LayDiemHocSinh_LopChuNhiem(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                        if (dgv.DataSource == null) return;
+                        dgv.Columns["STT"].Width = 40;
+                        dgv.Columns["MAHS"].Width = 50;
+                        dgv.Columns["HOTEN"].Width = 120;
+                        dgv.Columns["DIEMTBHKI"].Width = 120;
+                        dgv.Columns["DIEMTBHKII"].Width = 120;
+                        dgv.Columns["DIEMTBCANAM"].Width = 120;
+                        dgv.Columns["MANAMHOC"].Width = 40;
 
-                        //dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
-                        //dgv.Columns["HOTEN"].HeaderText = "Họ và tên";
-                        //dgv.Columns["DIEMTBHKI"].HeaderText = "Điểm TB HKI";
-                        //dgv.Columns["DIEMTBHKII"].HeaderText = "Điểm TB HKII";
-                        //dgv.Columns["DIEMTBCANAM"].HeaderText = "Điểm TB Cả năm";
-                        //dgv.Columns["MANAMHOC"].HeaderText = "Năm học";
+                        dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
+                        dgv.Columns["HOTEN"].HeaderText = "Họ và tên";
+                        dgv.Columns["DIEMTBHKI"].HeaderText = "Điểm TB HKI";
+                        dgv.Columns["DIEMTBHKII"].HeaderText = "Điểm TB HKII";
+                        dgv.Columns["DIEMTBCANAM"].HeaderText = "Điểm TB Cả năm";
+                        dgv.Columns["MANAMHOC"].HeaderText = "Năm học";
 
                         break;
 
@@ -441,6 +444,13 @@ namespace QuanLyHocSinh
 
         private void XemDiem()
         {
+            if (m_dgvMain.DataSource == null)
+                MessageBox.Show("Chọn học sinh cần xem thông tin");
+            else
+            {
+                frmXemDiem frmXD = new frmXemDiem(m_dgvMain.SelectedRows[0]);
+                frmXD.Show();
+            }
             
         }
 

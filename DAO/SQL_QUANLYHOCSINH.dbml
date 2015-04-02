@@ -200,21 +200,6 @@
     <Parameter Name="mahs" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.sp_DiemHocSinh" Method="sp_DiemHocSinh">
-    <Parameter Name="mahs" Type="System.String" DbType="Char(5)" />
-    <Parameter Name="namhoc" Type="System.String" DbType="Char(5)" />
-    <Parameter Name="hocky" Type="System.String" DbType="Char(2)" />
-    <Parameter Name="magvcn" Type="System.String" DbType="Char(5)" />
-    <Parameter Name="phanquyen" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_DiemHocSinhResult">
-      <Column Name="TENMONHOC" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="DIEMMIENG" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="DIEM15P" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="DIEM1TIET" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="DIEMTHI" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="DIEMTBMON" Type="System.Double" DbType="Float" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.sp_DiemHocSinhTheoLopChuNhiem" Method="sp_DiemHocSinhTheoLopChuNhiem">
     <Parameter Name="malop" Type="System.String" DbType="Char(5)" />
     <Parameter Name="magvcn" Type="System.String" DbType="Char(5)" />
@@ -322,6 +307,19 @@
       <Column Name="NGHENGHIEPME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="MAKHOILOP" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
       <Column Name="MALOP" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_DiemHocSinh" Method="sp_DiemHocSinh">
+    <Parameter Name="mahs" Type="System.String" DbType="Char(5)" />
+    <Parameter Name="namhoc" Type="System.String" DbType="Char(5)" />
+    <Parameter Name="hocky" Type="System.String" DbType="Char(2)" />
+    <ElementType Name="sp_DiemHocSinhResult">
+      <Column Name="TENMONHOC" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DIEMMIENG" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIEM15P" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIEM1TIET" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIEMTHI" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIEMTBMON" Type="System.Double" DbType="Float" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

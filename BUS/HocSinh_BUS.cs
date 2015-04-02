@@ -171,6 +171,74 @@ namespace BUS
             return dt;
         }
 
+        //Lay diem hoc sinh theo lop chu nhiem
+        public DataTable LayDiemHocSinh_LopChuNhiem(string malop, string magvcn, int phanquyen)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("STT", typeof(int));
+            dt.Columns.Add("MAHS", typeof(int));
+            dt.Columns.Add("HOTEN", typeof(string));
+            dt.Columns.Add("DIEMTBHKI", typeof(float));
+            dt.Columns.Add("DIEMTBHKII", typeof(float));
+            dt.Columns.Add("DIEMTBCANAM", typeof(float));
+            dt.Columns.Add("MANAMHOC", typeof(int));
+
+            var hocsinh = DB.sp_DiemHocSinhTheoLopChuNhiem(malop, magvcn, phanquyen);
+            int c = 1;
+
+            foreach (var i in hocsinh)
+            {
+                DataRow r = dt.NewRow();
+                r["STT"] = c++;
+                r["MAHS"] = i.MAHS;
+                r["HOTEN"] = i.HOTEN;
+                r["DIEMTBHKI"] = i.DIEMTBHKI;
+                r["DIEMTBHKII"] = i.DIEMTBHKII;
+                r["DIEMTBCANAM"] = i.DIEMTBCANAM;
+                r["MANAMHOC"] = i.MANAMHOC;
+
+                dt.Rows.Add(r);
+            }
+
+            if (dt.Rows.Count == 0)
+                return null;
+            return dt;
+
+        }
+
+        //lay diem 1 hoc sinh tren tat ca cac mon
+        public DataTable LayDiemHocSinh_Mon(string mahs, string namhoc, string hocky)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("MON", typeof(string));
+            dt.Columns.Add("DIEMMIENG", typeof(float));
+            dt.Columns.Add("DIEM15P", typeof(float));
+            dt.Columns.Add("DIEM1TIET", typeof(float));
+            dt.Columns.Add("DIEMTHI", typeof(float));
+            dt.Columns.Add("DIEMTBMON", typeof(float));
+
+            var diem = DB.sp_DiemHocSinh(mahs, namhoc, hocky);
+
+            foreach (var i in diem)
+            {
+                DataRow r = dt.NewRow();
+                r["MON"] = i.TENMONHOC;
+                r["DIEMMIENG"] = i.DIEMMIENG;
+                r["DIEM15P"] = i.DIEM15P;
+                r["DIEM1TIET"] = i.DIEM1TIET;
+                r["DIEMTHI"] = i.DIEMTHI;
+                r["DIEMTBMON"] = i.DIEMTBMON;
+
+                dt.Rows.Add(r);
+            }
+
+            if (dt.Rows.Count == 0)
+                return null;
+            return dt;
+        }
+
+
         public bool DeleteHocSinh(int mahs)
         {
             try
