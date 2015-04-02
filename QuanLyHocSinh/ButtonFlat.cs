@@ -293,7 +293,11 @@ namespace QuanLyHocSinh
             switch (m_textAlignment)
             {
                 case BTTextAlignment.Center:
+                    SizeF textSize1 = e.Graphics.MeasureString(m_text, this.Font);
+                    e.Graphics.DrawString(m_text, this.Font,new SolidBrush(m_textColor),
+                                            new PointF(this.Width / 2 - textSize1.Width / 2, this.Height / 2 - textSize1.Height / 2));
                     break;
+
                 case BTTextAlignment.Top:
                     break;
 
