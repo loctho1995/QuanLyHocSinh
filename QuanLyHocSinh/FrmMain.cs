@@ -32,8 +32,8 @@ namespace QuanLyHocSinh
             m_tbHoSo.BackColor = Color.FromArgb(35, 168, 111);
             m_scMain.BackColor = Color.FromArgb(44, 208, 136);
             m_scMain.ShadowColor = m_tbHoSo.BackColor;
-            //m_btflat.BackColor = Color.FromArgb(54, 190, 130);
-            m_scMain.LabelSearch.ForeColor = Color.FromArgb(49, 52, 55);
+            //m_scMain.LabelSearch.ForeColor = Color.FromArgb(49, 52, 55);
+            m_scMain.LabelSearch.ForeColor = Color.White;
             //m_btflat.ButtonText = "button flat";
 
             /* Mau xanh la
@@ -184,7 +184,7 @@ namespace QuanLyHocSinh
 
         private void button_Click(object sender, EventArgs e)
         {
-            switch ((sender as Button).Name)
+            switch ((sender as Control).Name)
             {
                 case "m_btclose":
                   //  if (MessageBox.Show("Sure Mother fucker?", "Quit", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
@@ -518,6 +518,16 @@ namespace QuanLyHocSinh
         private void m_btBaoCao_Click(object sender, EventArgs e)
         {
             XuatBaoCao();
+        }
+
+        private void m_dgvMain_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void BtMouseHover(object sender, EventArgs e)
+        {
+           
         }
     }
 }
