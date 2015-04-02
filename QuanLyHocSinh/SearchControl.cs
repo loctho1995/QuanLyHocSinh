@@ -101,6 +101,13 @@ namespace QuanLyHocSinh
             set { m_deltaSpeed = value; }
         }
 
+        public Color m_shadowColor;
+        public Color ShadowColor
+        {
+            get { return m_shadowColor; }
+            set { m_shadowColor = value; }
+        }
+
         Timer   m_timer, m_timerGlowAlpha; //timer hide/ show form và timer làm ảnh mập mờ
         Point   m_oldLocation; //vị trí của Control trước khi di chuyển ta sẽ dùng vị trí này làm chuẩn setposition cho control
         bool    m_firstTimeChange,//lần đầu thay đổi postion để set old position
@@ -241,7 +248,7 @@ namespace QuanLyHocSinh
             m_bt.Height = this.Height;
 
             LinearGradientBrush brush = new LinearGradientBrush(new System.Drawing.Point(0, 0), new System.Drawing.Point(this.HideSize.Width - m_bt.Width, 0),
-                                                                    Color.FromArgb(120, 63, 159, 63), Color.FromArgb(180, 20, 20, 20));
+                                                                    ShadowColor, Color.FromArgb(180, 20, 20, 20));
             
             e.Graphics.FillRectangle(brush, new Rectangle(0, 0, (this.HideSize.Width - m_bt.Width), this.Height));
             

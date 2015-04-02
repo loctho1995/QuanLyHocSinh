@@ -28,16 +28,27 @@ namespace QuanLyHocSinh
             this.DoubleBuffered = true;
 
             InitializeComponent();
-            this.BackColor = Color.FromArgb(63, 159, 63);
-            //m_btXemThongTin.BackColor = Color.FromArgb(63, 159, 63);
+            this.BackColor = Color.FromArgb(62, 70, 73);
+            m_tbHoSo.BackColor = Color.FromArgb(35, 168, 111);
+            m_scMain.BackColor = Color.FromArgb(44, 208, 136);
+            m_scMain.ShadowColor = m_tbHoSo.BackColor;
+            //m_btflat.BackColor = Color.FromArgb(54, 190, 130);
+            m_scMain.LabelSearch.ForeColor = Color.FromArgb(49, 52, 55);
+            //m_btflat.ButtonText = "button flat";
 
+            /* Mau xanh la
+            this.BackColor = Color.FromArgb(63, 159, 63);
             m_tbHoSo.BackColor = Color.FromArgb(105, 213, 105);
             m_tbHocTap.UseVisualStyleBackColor = true;
             m_tbBaoCao.BackColor = Color.FromArgb(123, 241, 123);
             m_tbHocTap.BackColor = Color.FromArgb(123, 241, 123);
             m_scMain.BackColor = Color.FromArgb(142, 252, 142);
+            m_scMain.ShadowColor = m_tbHoSo.BackColor;
             m_scMain.LabelSearch.ForeColor = Color.FromArgb(92, 92, 92);
-            //m_treeViewKhoi.ExpandAll(); 
+            m_btflat.BackColor = Color.FromArgb(232, 76, 61);
+            */
+
+            m_treeViewKhoi.ExpandAll(); 
 
             m_scMain.TextBoxSearch.TextChanged += TextBoxSearch_TextChanged;
             m_treeViewKhoi.ExpandAll();

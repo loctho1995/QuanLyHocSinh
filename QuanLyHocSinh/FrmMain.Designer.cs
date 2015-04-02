@@ -97,7 +97,7 @@
             this.m_treeViewKhoi.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.m_treeViewKhoi.ImageIndex = 0;
             this.m_treeViewKhoi.ImageList = this.imageList1;
-            this.m_treeViewKhoi.Location = new System.Drawing.Point(2, 125);
+            this.m_treeViewKhoi.Location = new System.Drawing.Point(2, 124);
             this.m_treeViewKhoi.Name = "m_treeViewKhoi";
             treeNode1.Name = "m_node10A1";
             treeNode1.Text = "Lớp 10A1";
@@ -172,7 +172,7 @@
             this.m_dgvMain.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.m_dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.m_dgvMain.GridColor = System.Drawing.Color.SandyBrown;
-            this.m_dgvMain.Location = new System.Drawing.Point(191, 125);
+            this.m_dgvMain.Location = new System.Drawing.Point(191, 124);
             this.m_dgvMain.Name = "m_dgvMain";
             this.m_dgvMain.ReadOnly = true;
             this.m_dgvMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -281,13 +281,14 @@
             this.m_scMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.m_scMain.BackColor = System.Drawing.Color.GhostWhite;
             this.m_scMain.DeltaSpeed = 20;
-            this.m_scMain.HideSize = new System.Drawing.Size(35, 81);
-            this.m_scMain.Location = new System.Drawing.Point(873, 42);
-            this.m_scMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_scMain.HideSize = new System.Drawing.Size(35, 80);
+            this.m_scMain.Location = new System.Drawing.Point(873, 43);
+            this.m_scMain.Margin = new System.Windows.Forms.Padding(4);
             this.m_scMain.Name = "m_scMain";
             this.m_scMain.Opacity = 1F;
-            this.m_scMain.ShowSize = new System.Drawing.Size(250, 81);
-            this.m_scMain.Size = new System.Drawing.Size(35, 81);
+            this.m_scMain.ShadowColor = System.Drawing.Color.Empty;
+            this.m_scMain.ShowSize = new System.Drawing.Size(250, 80);
+            this.m_scMain.Size = new System.Drawing.Size(35, 80);
             this.m_scMain.Speed = 1;
             this.m_scMain.State = QuanLyHocSinh.SearchControl.States.Hide;
             this.m_scMain.TabIndex = 6;
@@ -315,7 +316,7 @@
             this.m_tbHoSo.Controls.Add(this.m_btXoaHS);
             this.m_tbHoSo.Location = new System.Drawing.Point(1, 20);
             this.m_tbHoSo.Name = "m_tbHoSo";
-            this.m_tbHoSo.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.m_tbHoSo.Padding = new System.Windows.Forms.Padding(3);
             this.m_tbHoSo.Size = new System.Drawing.Size(873, 79);
             this.m_tbHoSo.TabIndex = 0;
             this.m_tbHoSo.Text = "Hồ Sơ";
@@ -368,7 +369,7 @@
             this.m_tbHocTap.Controls.Add(this.m_btSuaDiem);
             this.m_tbHocTap.Location = new System.Drawing.Point(1, 20);
             this.m_tbHocTap.Name = "m_tbHocTap";
-            this.m_tbHocTap.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.m_tbHocTap.Padding = new System.Windows.Forms.Padding(3);
             this.m_tbHocTap.Size = new System.Drawing.Size(873, 79);
             this.m_tbHocTap.TabIndex = 1;
             this.m_tbHocTap.Text = "Học Tập";

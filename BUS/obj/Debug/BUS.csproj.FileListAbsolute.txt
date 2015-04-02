@@ -42,3 +42,4 @@ C:\Users\thinh_000\Documents\GitHub\QuanLyHocSinh\BUS\bin\Debug\DAO.pdb
 C:\Users\thinh_000\Documents\GitHub\QuanLyHocSinh\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
 C:\Users\thinh_000\Documents\GitHub\QuanLyHocSinh\BUS\obj\Debug\BUS.dll
 C:\Users\thinh_000\Documents\GitHub\QuanLyHocSinh\BUS\obj\Debug\BUS.pdb
+F:\Github\QuanLyHocSinh\BUS\bin\Debug\BUS.dll.config
