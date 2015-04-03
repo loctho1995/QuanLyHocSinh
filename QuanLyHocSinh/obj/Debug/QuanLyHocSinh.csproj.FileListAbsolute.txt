@@ -61,3 +61,4 @@ C:\Users\thinh_000\Documents\GitHub\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLy
 C:\Users\thinh_000\Documents\GitHub\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.SearchControl.resources
 C:\Users\thinh_000\Documents\GitHub\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.csproj.GenerateResource.Cache
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.frmBaoCao.resources
+C:\Users\thinh_000\Documents\GitHub\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.frmXemSuaDiem_Mon.resources

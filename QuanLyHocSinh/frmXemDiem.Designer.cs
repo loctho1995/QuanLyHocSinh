@@ -36,11 +36,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.m_cbbHocKi = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.m_cbbMonHoc = new System.Windows.Forms.ComboBox();
             this.m_lbMaHS = new System.Windows.Forms.Label();
             this.m_lbTenHS = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.m_lbLop = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_dgvMain)).BeginInit();
             this.SuspendLayout();
@@ -87,7 +87,7 @@
             // m_cbbNamHoc
             // 
             this.m_cbbNamHoc.FormattingEnabled = true;
-            this.m_cbbNamHoc.Location = new System.Drawing.Point(254, 163);
+            this.m_cbbNamHoc.Location = new System.Drawing.Point(396, 163);
             this.m_cbbNamHoc.Name = "m_cbbNamHoc";
             this.m_cbbNamHoc.Size = new System.Drawing.Size(121, 21);
             this.m_cbbNamHoc.TabIndex = 43;
@@ -97,7 +97,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(258, 129);
+            this.label2.Location = new System.Drawing.Point(400, 129);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 31);
             this.label2.TabIndex = 44;
@@ -107,7 +107,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(418, 129);
+            this.label3.Location = new System.Drawing.Point(560, 129);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 31);
             this.label3.TabIndex = 46;
@@ -116,29 +116,11 @@
             // m_cbbHocKi
             // 
             this.m_cbbHocKi.FormattingEnabled = true;
-            this.m_cbbHocKi.Location = new System.Drawing.Point(399, 163);
+            this.m_cbbHocKi.Location = new System.Drawing.Point(541, 163);
             this.m_cbbHocKi.Name = "m_cbbHocKi";
             this.m_cbbHocKi.Size = new System.Drawing.Size(121, 21);
             this.m_cbbHocKi.TabIndex = 45;
             this.m_cbbHocKi.SelectedIndexChanged += new System.EventHandler(this.m_cbbHocKi_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(554, 129);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 31);
-            this.label4.TabIndex = 48;
-            this.label4.Text = "Môn học";
-            // 
-            // m_cbbMonHoc
-            // 
-            this.m_cbbMonHoc.FormattingEnabled = true;
-            this.m_cbbMonHoc.Location = new System.Drawing.Point(547, 163);
-            this.m_cbbMonHoc.Name = "m_cbbMonHoc";
-            this.m_cbbMonHoc.Size = new System.Drawing.Size(121, 21);
-            this.m_cbbMonHoc.TabIndex = 47;
             // 
             // m_lbMaHS
             // 
@@ -168,17 +150,36 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(152, 82);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 24);
+            this.label5.TabIndex = 52;
+            this.label5.Text = "Lớp:";
+            // 
+            // m_lbLop
+            // 
+            this.m_lbLop.AutoSize = true;
+            this.m_lbLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_lbLop.Location = new System.Drawing.Point(209, 82);
+            this.m_lbLop.Name = "m_lbLop";
+            this.m_lbLop.Size = new System.Drawing.Size(0, 24);
+            this.m_lbLop.TabIndex = 53;
+            // 
             // frmXemDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(683, 474);
+            this.Controls.Add(this.m_lbLop);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.m_lbTenHS);
             this.Controls.Add(this.m_lbMaHS);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.m_cbbMonHoc);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.m_cbbHocKi);
             this.Controls.Add(this.label2);
@@ -208,10 +209,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox m_cbbHocKi;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox m_cbbMonHoc;
         private System.Windows.Forms.Label m_lbMaHS;
         private System.Windows.Forms.Label m_lbTenHS;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label m_lbLop;
     }
 }

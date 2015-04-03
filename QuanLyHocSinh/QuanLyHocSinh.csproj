@@ -104,6 +104,12 @@
     <Compile Include="frmXemDiem.Designer.cs">
       <DependentUpon>frmXemDiem.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmXemSuaDiem_Mon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXemSuaDiem_Mon.Designer.cs">
+      <DependentUpon>frmXemSuaDiem_Mon.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuGroup.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmXemDiem.resx">
       <DependentUpon>frmXemDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXemSuaDiem_Mon.resx">
+      <DependentUpon>frmXemSuaDiem_Mon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

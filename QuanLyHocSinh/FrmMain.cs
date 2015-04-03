@@ -18,6 +18,7 @@ namespace QuanLyHocSinh
         public static PhanQuyenDangNhap m_phanquyen = new PhanQuyenDangNhap();
         bool m_checkseach = false;
         int tabpage = 0; //them 1 bien de xac dinh dang o tab nao, su dung cho treeview ( 0 = Ho So, 1 = Hoc Tap, 2 = Bao Cao, 3 = Tra Cuu)
+        static string node = ""; //dung de xac dinh dang chon node nao trong treeview
 
         //cho phép resize góc dưới bên phải
         private const int cGrip = 5;      // Grip size, khoảng range để xác định cho việc resize form xem thêm ở WndPrc
@@ -61,6 +62,26 @@ namespace QuanLyHocSinh
             //m_btBaoCao.Enabled = false;
 
             m_tcMain.SelectedIndexChanged += m_tcMain_SelectedIndexChanged;//them su kien chuyen tabpage trong tabcontrol
+
+            m_ccbPhanQuyen.Items.Add("GVCN");
+            m_ccbPhanQuyen.Items.Add("GVBM");
+            m_ccbPhanQuyen.SelectedIndex = 0;
+
+            m_cbbBoMon.DataSource = hs.LayMonHoc();
+            m_cbbBoMon.DisplayMember = "TENMONHOC";
+            m_cbbBoMon.ValueMember = "MAMONHOC";
+            //string a = m_cbbBoMon.SelectedValue.ToString();
+
+            m_cbbNamHoc.DataSource = hs.LayNamHoc();
+            m_cbbNamHoc.DisplayMember = "TENNAMHOC";
+            m_cbbNamHoc.ValueMember = "MANAMHOC";
+            //MessageBox.Show(m_cbbNamHoc.SelectedValue.ToString());
+            //foreach (var i in hs.LayNamHoc())
+            //{
+            //    m_cbbNamHoc.Items.Add(i.MANAMHOC);
+            //}
+            //m_cbbNamHoc.SelectedIndex = 0;
+
         }
 
         //ham bat su kien chuyen tabpage
@@ -208,6 +229,7 @@ namespace QuanLyHocSinh
                     break;
                     
                 case "m_btSuaDiem":
+                    SuaDiem();
                     break;
 
                 case "m_btXemDiem":
@@ -238,53 +260,65 @@ namespace QuanLyHocSinh
 
                 //Click vào Node Khối 10
                 case "m_nodeKhoi10":
-                    DesignDataGridView(m_dgvMain, "10");
+                    node = "10";
+                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 //Click vào Node khối 11
                 case "m_nodeKhoi11":
-                    DesignDataGridView(m_dgvMain, "11");
+                    node = "11";
+                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 //Click vào Node khối 11
                 case "m_nodeKhoi12":
-                    DesignDataGridView(m_dgvMain, "12");
+                    node = "12";
+                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node10A1":
-                    DesignDataGridView(m_dgvMain, "10a1");
+                    node = "10a1";
+                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node10A2":
-                    DesignDataGridView(m_dgvMain, "10a2");
+                    node = "10a2";
+                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node10A3":
-                    DesignDataGridView(m_dgvMain, "10a3");
+                    node = "10a3";
+                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node10A4":
-                    DesignDataGridView(m_dgvMain, "10a4");
+                    node = "10a4";
+                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node11A1":
-                    DesignDataGridView(m_dgvMain, "11a1");
+                    node = "11a1";
+                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node11A2":
-                    DesignDataGridView(m_dgvMain, "11a2");
+                    node = "11a2";
+                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node11A3":
-                    DesignDataGridView(m_dgvMain, "11a3");
+                    node = "11a3";
+                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node12A1":
-                    DesignDataGridView(m_dgvMain, "12a1");
+                    node = "12a1";
+                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node12A2":
-                    DesignDataGridView(m_dgvMain, "12a2");
+                    node = "12a2";
+                    DesignDataGridView(m_dgvMain, node);
                     break;
                 default:
                     break;
@@ -365,23 +399,42 @@ namespace QuanLyHocSinh
                         break;
 
                     case 1://tabpage Hoc tap
-                        dgv.DataSource = hs.LayDiemHocSinh_LopChuNhiem(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
-                        if (dgv.DataSource == null) return;
-                        dgv.Columns["STT"].Width = 40;
-                        dgv.Columns["MAHS"].Width = 50;
-                        dgv.Columns["HOTEN"].Width = 120;
-                        dgv.Columns["DIEMTBHKI"].Width = 120;
-                        dgv.Columns["DIEMTBHKII"].Width = 120;
-                        dgv.Columns["DIEMTBCANAM"].Width = 120;
-                        dgv.Columns["MANAMHOC"].Width = 40;
+                        if (m_ccbPhanQuyen.Text.ToString() == "GVCN")
+                        {
+                            dgv.DataSource = hs.LayDiemHocSinh_LopChuNhiem(ma, int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            if (dgv.DataSource == null) return;
+                            dgv.Columns["STT"].Width = 40;
+                            dgv.Columns["MAHS"].Width = 50;
+                            dgv.Columns["HOTEN"].Width = 120;
+                            dgv.Columns["DIEMTBHKI"].Width = 120;
+                            dgv.Columns["DIEMTBHKII"].Width = 120;
+                            dgv.Columns["DIEMTBCANAM"].Width = 120;
+                            dgv.Columns["MANAMHOC"].Width = 40;
 
-                        dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
-                        dgv.Columns["HOTEN"].HeaderText = "Họ và tên";
-                        dgv.Columns["DIEMTBHKI"].HeaderText = "Điểm TB HKI";
-                        dgv.Columns["DIEMTBHKII"].HeaderText = "Điểm TB HKII";
-                        dgv.Columns["DIEMTBCANAM"].HeaderText = "Điểm TB Cả năm";
-                        dgv.Columns["MANAMHOC"].HeaderText = "Năm học";
+                            dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
+                            dgv.Columns["HOTEN"].HeaderText = "Họ và tên";
+                            dgv.Columns["DIEMTBHKI"].HeaderText = "Điểm TB HKI";
+                            dgv.Columns["DIEMTBHKII"].HeaderText = "Điểm TB HKII";
+                            dgv.Columns["DIEMTBCANAM"].HeaderText = "Điểm TB Cả năm";
+                            dgv.Columns["MANAMHOC"].HeaderText = "Năm học";
+                        }
+                        else
+                        {
+                            dgv.DataSource = hs.LayDiemHocSinh_Mon(ma, m_cbbBoMon.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            if(dgv.DataSource == null) return;
 
+                            dgv.Columns["STT"].Width = 40;
+                            dgv.Columns["MAHS"].Width = 50;
+                            dgv.Columns["HOTEN"].Width = 120;
+                            dgv.Columns["DIEMTBMONHKI"].Width = 120;
+                            dgv.Columns["DIEMTBMONHKII"].Width = 120;
+
+                            dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
+                            dgv.Columns["HOTEN"].HeaderText = "Họ và tên";
+                            dgv.Columns["DIEMTBMONHKI"].HeaderText = "Điểm TB Môn HKI";
+                            dgv.Columns["DIEMTBMONHKII"].HeaderText = "Điểm TB Môn HKII";
+
+                        }
                         break;
 
                     case 2://tabpage Bao Cao
@@ -459,10 +512,36 @@ namespace QuanLyHocSinh
                 MessageBox.Show("Chọn học sinh cần xem thông tin");
             else
             {
-                frmXemDiem frmXD = new frmXemDiem(m_dgvMain.SelectedRows[0]);
-                frmXD.Show();
+                if (m_ccbPhanQuyen.Text.ToString() == "GVCN")
+                {
+                    frmXemDiem frmXD = new frmXemDiem(m_dgvMain.SelectedRows[0]);
+                    frmXD.Show();
+                }
+                else
+                {
+                    frmXemSuaDiem_Mon frmXDM = new frmXemSuaDiem_Mon(m_dgvMain.SelectedRows[0], false);
+                    frmXDM.Show();
+                }
             }
             
+        }
+
+        private void SuaDiem()
+        {
+            if (m_dgvMain.DataSource == null)
+                MessageBox.Show("Chọn học sinh cần xem thông tin");
+            else
+            {
+                if (m_ccbPhanQuyen.Text.ToString() == "GVCN")
+                {
+                    MessageBox.Show("Bạn không có quyền sửa điểm của học sinh!");
+                }
+                else
+                {
+                    frmXemSuaDiem_Mon frmXDM = new frmXemSuaDiem_Mon(m_dgvMain.SelectedRows[0], true);
+                    frmXDM.Show();
+                }
+            }
         }
 
         private void XuatBaoCao()
@@ -518,6 +597,42 @@ namespace QuanLyHocSinh
         private void m_btBaoCao_Click(object sender, EventArgs e)
         {
             XuatBaoCao();
+        }
+
+        private void m_ccbPhanQuyen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (m_ccbPhanQuyen.Text.ToString() == "GVCN")
+                m_cbbBoMon.Enabled = false;
+            else
+                m_cbbBoMon.Enabled = true;
+
+            DesignDataGridView(m_dgvMain, node);
+        }
+
+        private void m_cbbBoMon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DesignDataGridView(m_dgvMain, node);
+        }
+
+        private void m_cbbNamHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DesignDataGridView(m_dgvMain, node);
+        }
+
+        public static string getnode()
+        {
+            return node;
+        }
+
+        public static string getmagv()
+        {
+            return m_phanquyen.ID;
+        }
+
+        public static int getphanquyen()
+        {
+            return m_phanquyen.PhanQuyen;
         }
     }
 }
