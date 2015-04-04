@@ -135,20 +135,25 @@ namespace QuanLyHocSinh
                 MessageBox.Show("Các ô điểm không được để trống(có thể nhập '0' nếu chưa có điểm)");
             else
             {
-                if (hs.SuaDiem(int.Parse(m_lbMaHS.Text.ToString()), m_lbLop.Text.ToString(), m_cbbMonHoc.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), float.Parse(m_tbDMiengHK1.Text.ToString()), float.Parse(m_tbD15pHK1.Text.ToString()), float.Parse(m_tbD1tietHK1.Text.ToString()), float.Parse(m_tbDThiHK1.Text.ToString()), float.Parse(m_tbDMiengHK2.Text.ToString()), float.Parse(m_tbD15pHK2.Text.ToString()), float.Parse(m_tbD1tietHK2.Text.ToString()), float.Parse(m_tbDThiHK2.Text.ToString())))
+                if (ConverDiem())
                 {
-                    MessageBox.Show("Sửa thành công!");
-
-                    if (!sua)
+                    if (hs.SuaDiem(int.Parse(m_lbMaHS.Text.ToString()), m_lbLop.Text.ToString(), m_cbbMonHoc.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), float.Parse(m_tbDMiengHK1.Text.ToString()), float.Parse(m_tbD15pHK1.Text.ToString()), float.Parse(m_tbD1tietHK1.Text.ToString()), float.Parse(m_tbDThiHK1.Text.ToString()), float.Parse(m_tbDMiengHK2.Text.ToString()), float.Parse(m_tbD15pHK2.Text.ToString()), float.Parse(m_tbD1tietHK2.Text.ToString()), float.Parse(m_tbDThiHK2.Text.ToString())))
                     {
-                        DisableAllTB();
-                        m_btLuu.Enabled = false;
+                        MessageBox.Show("Sửa thành công!");
+
+                        if (!sua)
+                        {
+                            DisableAllTB();
+                            m_btLuu.Enabled = false;
+                        }
+                        else
+                        {
+
+                        }
+
                     }
                     else
-                    {
- 
-                    }
-
+                        MessageBox.Show("Sửa không thành công! Lỗi Cơ Sở Dữ Liệu");
                 }
                 else
                     MessageBox.Show("Sửa không thành công! Vui lòng kiểm tra lại dữ liệu nhập");
@@ -240,6 +245,26 @@ namespace QuanLyHocSinh
 
             m_tbDThiHK1.ReadOnly = false;
             m_tbDThiHK2.ReadOnly = false;
+        }
+
+        private bool ConverDiem()
+        {
+            try
+            {
+                float.Parse(m_tbDMiengHK1.Text.ToString());
+                float.Parse(m_tbD15pHK1.Text.ToString());
+                float.Parse(m_tbD1tietHK1.Text.ToString());
+                float.Parse(m_tbDThiHK1.Text.ToString());
+                float.Parse(m_tbDMiengHK2.Text.ToString());
+                float.Parse(m_tbD15pHK2.Text.ToString());
+                float.Parse(m_tbD1tietHK2.Text.ToString());
+                float.Parse(m_tbDThiHK2.Text.ToString());
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private void m_cbbNamHoc_SelectedValueChanged(object sender, EventArgs e)
