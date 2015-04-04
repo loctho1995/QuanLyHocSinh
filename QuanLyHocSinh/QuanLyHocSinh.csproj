@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ButtonFlat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ButtonFlat.Designer.cs">
+      <DependentUpon>ButtonFlat.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     <Compile Include="SearchControl.Designer.cs">
       <DependentUpon>SearchControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ButtonFlat.resx">
+      <DependentUpon>ButtonFlat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Form1.Designer.cs</LastGenOutput>
@@ -198,6 +207,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\showButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chinhsua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\themhs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xoa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
