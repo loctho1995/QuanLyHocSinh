@@ -43,3 +43,4 @@ C:\Users\thinh_000\Documents\GitHub\QuanLyHocSinh\BUS\obj\Debug\BUS.csprojResolv
 C:\Users\thinh_000\Documents\GitHub\QuanLyHocSinh\BUS\obj\Debug\BUS.dll
 C:\Users\thinh_000\Documents\GitHub\QuanLyHocSinh\BUS\obj\Debug\BUS.pdb
 F:\Github\QuanLyHocSinh\BUS\bin\Debug\BUS.dll.config
+E:\Visual Studio 2012\quan ly hoc sinh\QuanLyHocSinh\BUS\bin\Debug\BUS.dll.config

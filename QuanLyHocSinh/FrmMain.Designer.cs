@@ -608,14 +608,12 @@
         private System.Windows.Forms.TabPage m_tbTraCuu;
         private System.Windows.Forms.TabPage m_tbBaoCao;
         private System.Windows.Forms.Button m_btBaoCao;
-<<<<<<< HEAD
         private System.Windows.Forms.ComboBox m_ccbPhanQuyen;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox m_cbbBoMon;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox m_cbbNamHoc;
         private System.Windows.Forms.Label label7;
-=======
         private System.Windows.Forms.TabPage m_tbHocTap;
         private System.Windows.Forms.Button m_btXemDiem;
         private System.Windows.Forms.Button m_btSuaDiem;
@@ -625,7 +623,6 @@
         private ButtonFlat m_btSuaHS;
         private ButtonFlat m_btXoaHS;
         private ButtonFlat m_btThemHS;
->>>>>>> origin/master
     }
 }
 

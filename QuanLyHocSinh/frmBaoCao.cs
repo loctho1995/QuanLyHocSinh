@@ -18,6 +18,7 @@ namespace QuanLyHocSinh
         public frmBaoCao(String lop)
         {
             InitializeComponent();
+            LoadDataCombobox();
             m_lableLop.Text = lop;
             if (lop != FrmMain.m_phanquyen.LopCN) // Chua co csdl
             {
@@ -39,10 +40,7 @@ namespace QuanLyHocSinh
             //    m_cbbMonHoc.Items.Add(FrmMain.m_phanquyen.MonHoc[i]);
             //}
             //m_cbbMonHoc.SelectedIndex = 0;
-            m_cbbNamHoc.SelectedIndex = 0;
-            m_cbbHocKi.SelectedIndex = 0;
-
-            m_cbbType.SelectedIndex = 0;
+           
             WriteData();
         }
 
@@ -87,6 +85,21 @@ namespace QuanLyHocSinh
             WriteData();
         }
 
+        private void LoadDataCombobox()
+        {
+            m_cbbNamHoc.DataSource = hs.LayNamHoc();
+            m_cbbNamHoc.DisplayMember = "TENNAMHOC";
+            m_cbbNamHoc.ValueMember = "TENNAMHOC";
 
+            //insert data for combobox hoc ky
+            m_cbbHocKi.DataSource = hs.LayDuLieuHocKy();
+            m_cbbHocKi.DisplayMember = "TENHOCKY";
+            m_cbbHocKi.ValueMember = "MAHOCKY";
+
+            //insert data for combobox mon hoc
+            m_cbbMonHoc.DataSource = hs.LayDuLieuMonHoc();
+            m_cbbMonHoc.DisplayMember = "TENMONHOC";
+            m_cbbMonHoc.ValueMember = "MAMONHOC";
+        }
     }
 }

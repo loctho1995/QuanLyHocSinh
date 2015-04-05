@@ -312,7 +312,14 @@ namespace BUS
                 return null;
             return dt;
         }
-
+        public List<HOCKY> LayDuLieuHocKy()
+        {
+            return DB.HOCKies.ToList();
+        }
+        public List<MONHOC> LayDuLieuMonHoc()
+        {
+            return DB.MONHOCs.ToList();
+        }
         //SUA DIEM
         public bool SuaDiem(int mahs, string malop, string mamon, int namhoc, float d_mieng_hkI, float d_15p_hkI, float d_1tiet_hkI, float d_thi_hkI, float d_mieng_hkII, float d_15p_hkII, float d_1tiet_hkII, float d_thi_hkII)
         {

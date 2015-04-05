@@ -599,7 +599,6 @@ namespace QuanLyHocSinh
             XuatBaoCao();
         }
 
-<<<<<<< HEAD
         private void m_ccbPhanQuyen_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -634,7 +633,7 @@ namespace QuanLyHocSinh
         public static int getphanquyen()
         {
             return m_phanquyen.PhanQuyen;
-=======
+        }
         private void m_dgvMain_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -643,7 +642,7 @@ namespace QuanLyHocSinh
         private void BtMouseHover(object sender, EventArgs e)
         {
            
->>>>>>> origin/master
+
         }
     }
 }

@@ -92,9 +92,6 @@
             // m_cbbNamHoc
             // 
             this.m_cbbNamHoc.FormattingEnabled = true;
-            this.m_cbbNamHoc.Items.AddRange(new object[] {
-            "Học Kì I",
-            "Học Kì II"});
             this.m_cbbNamHoc.Location = new System.Drawing.Point(857, 147);
             this.m_cbbNamHoc.Name = "m_cbbNamHoc";
             this.m_cbbNamHoc.Size = new System.Drawing.Size(182, 24);
@@ -104,11 +101,6 @@
             // m_cbbHocKi
             // 
             this.m_cbbHocKi.FormattingEnabled = true;
-            this.m_cbbHocKi.Items.AddRange(new object[] {
-            "2011 - 2012",
-            "2012 - 2013",
-            "2013 - 2014",
-            "2014 - 2015"});
             this.m_cbbHocKi.Location = new System.Drawing.Point(857, 95);
             this.m_cbbHocKi.Name = "m_cbbHocKi";
             this.m_cbbHocKi.Size = new System.Drawing.Size(182, 24);
