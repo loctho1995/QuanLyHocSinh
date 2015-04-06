@@ -389,4 +389,68 @@
       <Column Name="MALOP" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.sp_BaoCaoTongKetMon" Method="sp_BaoCaoTongKetMon">
+    <Parameter Name="mamon" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="phanquyen" Type="System.Int32" DbType="Int" />
+    <Parameter Name="mahocki" Type="System.String" DbType="Char(2)" />
+    <Parameter Name="manamhoc" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_BaoCaoTongKetMonResult">
+      <Column Name="MALOP" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="SISO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SOLUONGDAT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_BaoCaoLayBangDiemCuaLop" Method="sp_BaoCaoLayBangDiemCuaLop">
+    <Parameter Name="magv" Type="System.String" DbType="Char(5)" />
+    <Parameter Name="malop" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="phanquyen" Type="System.Int32" DbType="Int" />
+    <Parameter Name="namhoc" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_BaoCaoLayBangDiemCuaLopResult">
+      <Column Name="MAHS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DIEMTBHKI" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIEMTBHKII" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIEMTBCANAM" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_BaoCaoLayDanhSachLop" Method="sp_BaoCaoLayDanhSachLop">
+    <Parameter Name="magv" Type="System.String" DbType="Char(5)" />
+    <Parameter Name="malop" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="phanquyen" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_BaoCaoLayDanhSachLopResult">
+      <Column Name="MAHS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GIOITINH" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="NGAYSINH" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_BaoCaoBangDiemChiTietTungHocKy" Method="sp_BaoCaoBangDiemChiTietTungHocKy">
+    <Parameter Name="magv" Type="System.String" DbType="Char(5)" />
+    <Parameter Name="malop" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="mamon" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="phanquyen" Type="System.Int32" DbType="Int" />
+    <Parameter Name="namhoc" Type="System.Int32" DbType="Int" />
+    <Parameter Name="hocky" Type="System.String" DbType="Char(2)" />
+    <ElementType Name="sp_BaoCaoBangDiemChiTietTungHocKyResult">
+      <Column Name="MAHS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DIEMMIENG" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIEM15PHUT" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIEM1TIET" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIEMTHI" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIEMTBHOCKY" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_BaoCaoTongKetHocKy" Method="sp_BaoCaoTongKetHocKy">
+    <Parameter Name="phanquyen" Type="System.Int32" DbType="Int" />
+    <Parameter Name="mahocki" Type="System.String" DbType="Char(2)" />
+    <Parameter Name="manamhoc" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_BaoCaoTongKetHocKyResult">
+      <Column Name="MALOP" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="SISO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SOLUONGDAT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

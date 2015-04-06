@@ -16,9 +16,10 @@ namespace QuanLyHocSinh
     {
         HocSinh_BUS hs = new HocSinh_BUS();
         public static PhanQuyenDangNhap m_phanquyen = new PhanQuyenDangNhap();
-        bool m_checkseach = false;
+        bool m_checkseach = false, bol = true;
         int tabpage = 0; //them 1 bien de xac dinh dang o tab nao, su dung cho treeview ( 0 = Ho So, 1 = Hoc Tap, 2 = Bao Cao, 3 = Tra Cuu)
         static string node = ""; //dung de xac dinh dang chon node nao trong treeview
+        static int typebaocao = 10;
 
         //cho phép resize góc dưới bên phải
         private const int cGrip = 5;      // Grip size, khoảng range để xác định cho việc resize form xem thêm ở WndPrc
@@ -29,7 +30,9 @@ namespace QuanLyHocSinh
             this.DoubleBuffered = true;
 
             InitializeComponent();
+
             FrmMain.m_phanquyen.LopCN = FrmMain.m_phanquyen.LopCN.Trim();
+            LoadDataBaoCao();
             this.BackColor = Color.FromArgb(62, 70, 73);
             m_tbHoSo.BackColor = Color.FromArgb(35, 168, 111);
             m_scMain.BackColor = Color.FromArgb(44, 208, 136);
@@ -81,6 +84,7 @@ namespace QuanLyHocSinh
             //    m_cbbNamHoc.Items.Add(i.MANAMHOC);
             //}
             //m_cbbNamHoc.SelectedIndex = 0;
+           // 
 
         }
         //ham bat su kien chuyen tabpage
@@ -95,8 +99,9 @@ namespace QuanLyHocSinh
 
             if (m_tcMain.TabPages[2].Focus() == true)
             {
-                LoadDataBaoCao();
+                
                 tabpage = 2;
+                bol = false;
             }
 
             if (m_tcMain.TabPages[3].Focus() == true)
@@ -108,6 +113,7 @@ namespace QuanLyHocSinh
         }
         private void LoadDataBaoCao()
         {
+            //if (!bol) return;
             m_cbbBaoCaonamhoc.DataSource = hs.LayNamHoc();
             m_cbbBaoCaonamhoc.DisplayMember = "TENNAMHOC";
             m_cbbBaoCaonamhoc.ValueMember = "MANAMHOC";
@@ -136,7 +142,7 @@ namespace QuanLyHocSinh
             }
 
 
-
+            m_dgvMain.DataSource = null;
         }
 
         private void TextBoxSearch_TextChanged(object sender, EventArgs e)
@@ -378,98 +384,11 @@ namespace QuanLyHocSinh
         //    m_checkseach = false;
         //}
         //them vao ham DesignDataGridView switch de xu ly tab
-        private void DesignDataGridView(DataGridView dgv, string node)
-        {
-            if (m_checkseach)//m_checkseach = true -> dang tim kiem hoc sinh
-            {
-                dgv.DataSource = hs.TimKiemThongTinHocSinh(FrmMain.m_phanquyen.LopCN, FrmMain.m_phanquyen.PhanQuyen, node);//hs.TimKiemThongTinHocSinh(ma);
-                m_checkseach = false;
-            }
-
-            else//m_checkseach = false -> dang su dung tree view
-            {  
-                switch (tabpage)//tabpage se cho biet tabpage nao dang duoc chon
-                {
-                    case 0://tabpage Ho So
-
-                        if (node.Length == 2)
-                            dgv.DataSource = hs.LayHocSinh_Khoi(node, m_phanquyen.ID, m_phanquyen.PhanQuyen);
-                        else if(CheckGVInLopBM(node))   dgv.DataSource = hs.LayHocSinh_Lop(node, m_phanquyen.ID, m_phanquyen.PhanQuyen);
-                        if (dgv.DataSource == null) return;
-                        dgv.Columns["STT"].Width = 40;
-                        dgv.Columns["MAHS"].Width = 50;
-                        dgv.Columns["HOTEN"].Width = 120;
-                        dgv.Columns["GIOITINH"].Width = 50;
-                        dgv.Columns["EMAIL"].Width = 120;
-                        dgv.Columns["MALOP"].Width = 50;
-                        dgv.Columns["MAKHOILOP"].Width = 40;
-
-                        dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
-                        dgv.Columns["HOTEN"].HeaderText = "Họ và tên";
-                        dgv.Columns["GIOITINH"].HeaderText = "Giới tính";
-                        dgv.Columns["EMAIL"].HeaderText = "Email";
-                        dgv.Columns["DIACHI"].HeaderText = "Địa chỉ";
-                        dgv.Columns["MALOP"].HeaderText = "Mã lớp";
-                        dgv.Columns["MAKHOILOP"].HeaderText = "Mã khối";
-                        dgv.Columns["HOTENCHA"].HeaderText = "Họ tên cha";
-                        dgv.Columns["HOTENME"].HeaderText = "Họ tên mẹ";
-                        dgv.Columns["NGHENGHIEPCHA"].HeaderText = "Nghề nghiệp cha";
-                        dgv.Columns["NGHENGHIEPME"].HeaderText = "Nghề nghiệp mẹ";
-
-                        break;
-
-                    case 1://tabpage Hoc tap
-                        if (m_ccbPhanQuyen.Text.ToString() == "GVCN")
-                        {
-                            dgv.DataSource = hs.LayDiemHocSinh_LopChuNhiem(node, int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
-                            if (dgv.DataSource == null) return;
-                            dgv.Columns["STT"].Width = 40;
-                            dgv.Columns["MAHS"].Width = 50;
-                            dgv.Columns["HOTEN"].Width = 120;
-                            dgv.Columns["DIEMTBHKI"].Width = 120;
-                            dgv.Columns["DIEMTBHKII"].Width = 120;
-                            dgv.Columns["DIEMTBCANAM"].Width = 120;
-                            dgv.Columns["MANAMHOC"].Width = 40;
-
-                            dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
-                            dgv.Columns["HOTEN"].HeaderText = "Họ và tên";
-                            dgv.Columns["DIEMTBHKI"].HeaderText = "Điểm TB HKI";
-                            dgv.Columns["DIEMTBHKII"].HeaderText = "Điểm TB HKII";
-                            dgv.Columns["DIEMTBCANAM"].HeaderText = "Điểm TB Cả năm";
-                            dgv.Columns["MANAMHOC"].HeaderText = "Năm học";
-                        }
-                        else
-                        {
-                            dgv.DataSource = hs.LayDiemHocSinh_Mon(node, m_cbbBoMon.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
-                            if(dgv.DataSource == null) return;
-
-                            dgv.Columns["STT"].Width = 40;
-                            dgv.Columns["MAHS"].Width = 50;
-                            dgv.Columns["HOTEN"].Width = 120;
-                            dgv.Columns["DIEMTBMONHKI"].Width = 120;
-                            dgv.Columns["DIEMTBMONHKII"].Width = 120;
-
-                            dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
-                            dgv.Columns["HOTEN"].HeaderText = "Họ và tên";
-                            dgv.Columns["DIEMTBMONHKI"].HeaderText = "Điểm TB Môn HKI";
-                            dgv.Columns["DIEMTBMONHKII"].HeaderText = "Điểm TB Môn HKII";
-
-                        }
-                        break;
-
-                    case 2://tabpage Bao Cao
-                        {
-                            MessageBox.Show(m_treeViewKhoi.SelectedNode.Text.Substring(5));
-                        }
-                        break;
-
-                    case 3://tabpage Tra Cuu
-                        break;
-                }
-            }
-        }
+       
         private bool CheckGVInLopBM(string lop)
         {
+            if (FrmMain.m_phanquyen.PhanQuyen == 1)
+                return true;
             foreach (string malop in FrmMain.m_phanquyen.LopBM)
             {
                 if (node.ToUpper() == malop.ToUpper().Trim())
@@ -480,6 +399,8 @@ namespace QuanLyHocSinh
 
         private bool CheckGVCN(string lop)
         {
+            if (FrmMain.m_phanquyen.PhanQuyen == 1)
+                return true;
             string malop = m_dgvMain.SelectedRows[0].Cells["MALOP"].Value.ToString().ToUpper().Trim();
             if (lop.ToUpper() == FrmMain.m_phanquyen.LopCN.ToUpper().Trim() || malop == FrmMain.m_phanquyen.LopCN.ToUpper().Trim())
                 return true;
@@ -695,29 +616,235 @@ namespace QuanLyHocSinh
 
         private void m_cbbBaoCaoLoai_SelectedIndexChanged(object sender, EventArgs e)
         {
+            m_dgvMain.DataSource = null;
             switch (m_cbbBaoCaoLoai.SelectedItem.ToString())
             {
                 case "In danh sách lớp":
                     m_cbbBaoCaomonhoc.Enabled = false;
+                    m_cbbBaoCaohocky.Enabled = false;
+                    typebaocao = 0;
                 break;
 
                 case "In bảng điểm môn":
                     m_cbbBaoCaomonhoc.Enabled = true;
+                    m_cbbBaoCaohocky.Enabled = true;
+                    typebaocao = 1;
                 break;
 
                 case "In bảng điểm lớp":
                     m_cbbBaoCaomonhoc.Enabled = false;
+                    m_cbbBaoCaohocky.Enabled = false;
+                    typebaocao = 2;
                 break;
 
                 case "In báo cáo tổng kết học kì":
                     m_cbbBaoCaomonhoc.Enabled = false;
+                    m_cbbBaoCaohocky.Enabled = true;
+                    InBaoCaoTongKetHocKy();
+                    typebaocao = 3;
                 break;
 
                 case "In báo cáo tổng kêt môn":
                     m_cbbBaoCaomonhoc.Enabled = true;
+                    m_cbbBaoCaohocky.Enabled = true;
+                    InBaoCaoTongKetMon();
+                    typebaocao = 4;
                 break;
+            }
+           
+        }
+         private void DesignDataGridView(DataGridView dgv, string node)
+        {
+            if (m_checkseach)//m_checkseach = true -> dang tim kiem hoc sinh
+            {
+                dgv.DataSource = hs.TimKiemThongTinHocSinh(FrmMain.m_phanquyen.LopCN, FrmMain.m_phanquyen.PhanQuyen, node);//hs.TimKiemThongTinHocSinh(ma);
+                m_checkseach = false;
+            }
 
+            else//m_checkseach = false -> dang su dung tree view
+            {  
+                switch (tabpage)//tabpage se cho biet tabpage nao dang duoc chon
+                {
+                    case 0://tabpage Ho So
+
+                        if (node.Length == 2)
+                            dgv.DataSource = hs.LayHocSinh_Khoi(node, m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                        else if (CheckGVInLopBM(node))
+                            dgv.DataSource = hs.LayHocSinh_Lop(node, m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                        if (dgv.DataSource == null) return;
+                        dgv.Columns["STT"].Width = 40;
+                        dgv.Columns["MAHS"].Width = 50;
+                        dgv.Columns["HOTEN"].Width = 120;
+                        dgv.Columns["GIOITINH"].Width = 50;
+                        dgv.Columns["EMAIL"].Width = 120;
+                        dgv.Columns["MALOP"].Width = 50;
+                        dgv.Columns["MAKHOILOP"].Width = 40;
+
+                        dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
+                        dgv.Columns["HOTEN"].HeaderText = "Họ và tên";
+                        dgv.Columns["GIOITINH"].HeaderText = "Giới tính";
+                        dgv.Columns["EMAIL"].HeaderText = "Email";
+                        dgv.Columns["DIACHI"].HeaderText = "Địa chỉ";
+                        dgv.Columns["MALOP"].HeaderText = "Mã lớp";
+                        dgv.Columns["MAKHOILOP"].HeaderText = "Mã khối";
+                        dgv.Columns["HOTENCHA"].HeaderText = "Họ tên cha";
+                        dgv.Columns["HOTENME"].HeaderText = "Họ tên mẹ";
+                        dgv.Columns["NGHENGHIEPCHA"].HeaderText = "Nghề nghiệp cha";
+                        dgv.Columns["NGHENGHIEPME"].HeaderText = "Nghề nghiệp mẹ";
+
+                        break;
+
+                    case 1://tabpage Hoc tap
+                        if (m_ccbPhanQuyen.Text.ToString() == "GVCN")
+                        {
+                            dgv.DataSource = hs.LayDiemHocSinh_LopChuNhiem(node, int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            if (dgv.DataSource == null) return;
+                            dgv.Columns["STT"].Width = 40;
+                            dgv.Columns["MAHS"].Width = 50;
+                            dgv.Columns["HOTEN"].Width = 120;
+                            dgv.Columns["DIEMTBHKI"].Width = 120;
+                            dgv.Columns["DIEMTBHKII"].Width = 120;
+                            dgv.Columns["DIEMTBCANAM"].Width = 120;
+                            dgv.Columns["MANAMHOC"].Width = 40;
+
+                            dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
+                            dgv.Columns["HOTEN"].HeaderText = "Họ và tên";
+                            dgv.Columns["DIEMTBHKI"].HeaderText = "Điểm TB HKI";
+                            dgv.Columns["DIEMTBHKII"].HeaderText = "Điểm TB HKII";
+                            dgv.Columns["DIEMTBCANAM"].HeaderText = "Điểm TB Cả năm";
+                            dgv.Columns["MANAMHOC"].HeaderText = "Năm học";
+                        }
+                        else
+                        {
+                            dgv.DataSource = hs.LayDiemHocSinh_Mon(node, m_cbbBoMon.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            if(dgv.DataSource == null) return;
+
+                            dgv.Columns["STT"].Width = 40;
+                            dgv.Columns["MAHS"].Width = 50;
+                            dgv.Columns["HOTEN"].Width = 120;
+                            dgv.Columns["DIEMTBMONHKI"].Width = 120;
+                            dgv.Columns["DIEMTBMONHKII"].Width = 120;
+
+                            dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
+                            dgv.Columns["HOTEN"].HeaderText = "Họ và tên";
+                            dgv.Columns["DIEMTBMONHKI"].HeaderText = "Điểm TB Môn HKI";
+                            dgv.Columns["DIEMTBMONHKII"].HeaderText = "Điểm TB Môn HKII";
+
+                        }
+                        break;
+
+                    case 2://tabpage Bao Cao
+                        {
+                            switch (typebaocao)
+                            {
+                                case 0:
+                                    InDanhSachLop();
+                                break;
+
+                                case 1:
+                                    InBangDiemChiTietTungHocky();
+                                break;
+
+                                case 2:
+                                   InBangDiemCuaLop();
+                                break;
+
+                                case 3:
+                                   
+                                break;
+                                case 4:
+                                   
+                                break;
+
+                                default:
+                                break;
+                            }
+                        }
+                        break;
+
+                    case 3://tabpage Tra Cuu
+                        break;
+                }
             }
         }
+        private void InDanhSachLop()
+        {
+            m_dgvMain.DataSource = hs.InDanhSachlop(FrmMain.m_phanquyen.ID, node, FrmMain.m_phanquyen.PhanQuyen);
+        }
+        private void InBangDiemCuaLop()
+        {
+            m_dgvMain.DataSource = hs.InBangDiemCuaLop(FrmMain.m_phanquyen.ID, node, FrmMain.m_phanquyen.PhanQuyen, int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString()));
+        }
+        private void InBangDiemChiTietTungHocky()
+        {
+            int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
+            m_dgvMain.DataSource = hs.InBangDiemChiTietTunghocKy(FrmMain.m_phanquyen.ID, node, m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, namhoc, m_cbbBaoCaohocky.SelectedValue.ToString());
+        }
+        private void InBaoCaoTongKetMon()
+        {
+            int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
+            m_dgvMain.DataSource = hs.BaoCaoTongKetMon(m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
+        }
+        private void InBaoCaoTongKetHocKy()
+        {
+            int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
+            m_dgvMain.DataSource = hs.BaoCaoTongKetHocKy(FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
+        }
+        private void m_cbbBaoCaonamhoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(typebaocao == 2)
+                m_dgvMain.DataSource = hs.InBangDiemCuaLop(FrmMain.m_phanquyen.ID, node, FrmMain.m_phanquyen.PhanQuyen, int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString()));
+            else if (typebaocao == 1)
+            {
+                int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
+                m_dgvMain.DataSource = hs.InBangDiemChiTietTunghocKy(FrmMain.m_phanquyen.ID, node, m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, namhoc, m_cbbBaoCaohocky.SelectedValue.ToString());
+            }
+            else if (typebaocao == 4)
+            {
+                int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
+                m_dgvMain.DataSource = hs.BaoCaoTongKetMon(m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
+            }
+            else if (typebaocao == 3)
+            {
+                int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
+                m_dgvMain.DataSource = hs.BaoCaoTongKetHocKy(FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
+            }
+
+        }
+
+        private void m_cbbBaoCaomonhoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (typebaocao == 1)
+            {
+                int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
+                m_dgvMain.DataSource = hs.InBangDiemChiTietTunghocKy(FrmMain.m_phanquyen.ID, node, m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, namhoc, m_cbbBaoCaohocky.SelectedValue.ToString());
+            }
+            else if (typebaocao == 4)
+            {
+                int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
+                m_dgvMain.DataSource = hs.BaoCaoTongKetMon(m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
+            }
+        }
+
+        private void m_cbbBaoCaohocky_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (typebaocao == 1)
+            {
+                int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
+                m_dgvMain.DataSource = hs.InBangDiemChiTietTunghocKy(FrmMain.m_phanquyen.ID, node, m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, namhoc, m_cbbBaoCaohocky.SelectedValue.ToString());
+            }
+            else if (typebaocao == 4)
+            {
+                int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
+                m_dgvMain.DataSource = hs.BaoCaoTongKetMon(m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
+            }
+            else if (typebaocao == 3)
+            {
+                int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
+                m_dgvMain.DataSource = hs.BaoCaoTongKetHocKy(FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
+            }
+        }
+        
+
     }
 }
