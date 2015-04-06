@@ -11,7 +11,7 @@ using BUS;
 
 namespace QuanLyHocSinh
 {
-    public partial class frmXemSuaDiem_Mon : Form
+    public partial class frmXemSuaDiem_Mon : FormFlat
     {
         DataGridViewRow m_row;
         HocSinh_BUS hs = new HocSinh_BUS();
@@ -22,11 +22,13 @@ namespace QuanLyHocSinh
         public frmXemSuaDiem_Mon()
         {
             InitializeComponent();
+            this.m_btClose.BackColor = Color.FromArgb(255, 101, 99);
         }
 
         public frmXemSuaDiem_Mon(DataGridViewRow row, bool sua)
         {
             InitializeComponent();
+            this.m_btClose.BackColor = Color.FromArgb(255, 101, 99);
 
             m_row = row;
             this.sua = sua;
@@ -42,21 +44,6 @@ namespace QuanLyHocSinh
             m_cbbNamHoc.DataSource = hs.LayNamHoc();
             m_cbbNamHoc.DisplayMember = "TENNAMHOC";
             m_cbbNamHoc.ValueMember = "MANAMHOC";
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void frmXemSuaDiem_Mon_Load(object sender, EventArgs e)
@@ -120,7 +107,6 @@ namespace QuanLyHocSinh
                 m_btSua.Text = "Sửa";
             }
         }
-
 
         private void m_cbbNamHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -275,6 +261,11 @@ namespace QuanLyHocSinh
         private void m_cbbMonHoc_SelectedValueChanged(object sender, EventArgs e)
         {
             //LoadDiem();
+        }
+
+        private void m_btClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace QuanLyHocSinh
 {
     public partial class SearchControl : UserControl
     {
-        #region - Attributes and Properties -
+        #region - PROPERTIES AND ATTRIBUTES -
         //size khi hien len
         Size m_hideSize;
         /// <summary>
@@ -221,6 +221,7 @@ namespace QuanLyHocSinh
             #endregion
         }
 
+        #region - EVENTS - 
         private void m_MouseMove(object sender, MouseEventArgs e)
         {
             if (m_btClick)
@@ -355,6 +356,8 @@ namespace QuanLyHocSinh
                     break;
             }
         }
+        #endregion
+
         #endregion
     }
 }

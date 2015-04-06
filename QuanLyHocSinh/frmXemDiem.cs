@@ -8,26 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
+using System.Drawing.Drawing2D;
 
 namespace QuanLyHocSinh
 {
-    public partial class frmXemDiem : Form
+    public partial class frmXemDiem : FormFlat
     {
+
         //int m_maHS;
         //string m_maGV;
         DataGridViewRow m_row;
         HocSinh_BUS hs = new HocSinh_BUS();
         bool firstload = true;
-        
-
 
         public frmXemDiem(DataGridViewRow row)
         {
             InitializeComponent();
-            //m_maHS = maHS;
-            //m_maGV = maGV;
             m_row = row;
-
+            this.BackColor = Color.FromArgb(102, 101, 101);
+            m_btClose.BackColor = Color.FromArgb(255, 101, 99);
+            this.MaximumSize = this.Size;
+            this.MinimumSize = this.Size;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -75,6 +76,11 @@ namespace QuanLyHocSinh
         {
             if(!firstload)
                 m_dgvMain.DataSource = hs.LayDiemHocSinh_AllMon(int.Parse(m_lbMaHS.Text.ToString()), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_cbbHocKi.Text.ToString());
+        }
+
+        private void m_btClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

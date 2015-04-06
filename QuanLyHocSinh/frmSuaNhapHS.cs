@@ -10,11 +10,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
 using DAO;
+using System.Drawing.Drawing2D;
 
 
 namespace QuanLyHocSinh
 {
-    public partial class frmSuaNhapHS : Form
+    public partial class frmSuaNhapHS : FormFlat
     {
         //them
         HOCSINH hs = new HOCSINH();
@@ -26,6 +27,12 @@ namespace QuanLyHocSinh
         public frmSuaNhapHS()
         {
             InitializeComponent();
+            FrmMain.IsSuaNhapOpen = true;
+            this.BackColor = Color.FromArgb(102, 101, 101);
+            this.MaximumSize = this.Size;
+            this.MinimumSize = this.Size;
+            m_btClose.BackColor = Color.FromArgb(255, 101, 99);
+
             m_ccbLop.DataSource = hs_bus.LayDuLieuLop(FrmMain.m_phanquyen.ID);
             m_ccbLop.ValueMember = "MALOP";
             m_ccbLop.DisplayMember = "TENLOP";
@@ -35,12 +42,18 @@ namespace QuanLyHocSinh
             m_ccbManamhoc.DisplayMember = "TENNAMHOC";
             m_ccbManamhoc.Visible = true;
             m_lblManamhoc.Visible = true;
-
         }
+
         //sua
         public frmSuaNhapHS(DataGridViewRow row)
         {
             InitializeComponent();
+            FrmMain.IsSuaNhapOpen = true;
+            this.BackColor = Color.FromArgb(102, 101, 101);
+            this.m_btClose.BackColor = Color.FromArgb(255, 101, 99);
+            this.MaximumSize = this.Size;
+            this.MinimumSize = this.Size;
+
             m_txtMahs.Text = row.Cells["MAHS"].Value.ToString();
             m_tbDiaChi.Text = row.Cells["DIACHI"].Value.ToString();
             m_tbEmail.Text = row.Cells["EMAIL"].Value.ToString();
@@ -64,13 +77,9 @@ namespace QuanLyHocSinh
             m_check = false;
         }
 
-        private void frmSuaNhapHS_Load(object sender, EventArgs e)
-        {          
-            
-        }
-
         private void m_btClose_Click(object sender, EventArgs e)
         {
+            FrmMain.IsSuaNhapOpen = false;
             this.Close();
         }
 

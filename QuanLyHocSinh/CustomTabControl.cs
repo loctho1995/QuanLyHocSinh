@@ -22,8 +22,7 @@ namespace QuanLyHocSinh
 
         protected override void WndProc(ref Message m)
         {
-
-            //Hide the tab headers at run-time
+            //xoa header cua tab, xoa duong vien cua tabcontrol
             if (m.Msg == TCM_ADJUSTRECT)
             {
                 RECT rect = (RECT)(m.GetLParam(typeof(RECT)));
@@ -33,9 +32,6 @@ namespace QuanLyHocSinh
                 rect.Top = this.Top - this.Margin.Top + 1;
                 rect.Bottom = this.Bottom + this.Margin.Bottom + 1;
                 Marshal.StructureToPtr(rect, m.LParam, true);
-
-                //m.Result = (IntPtr)1;
-                //return;
             }
             //else
             // call the base class implementation

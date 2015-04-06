@@ -11,6 +11,7 @@ using System.Drawing.Drawing2D;
 
 namespace QuanLyHocSinh
 {
+    [DefaultEvent("Click")]
     public partial class ButtonFlat : UserControl
     {
         #region - ENUMS, ATTRIBUTES. PROPERTIES - 
@@ -30,12 +31,18 @@ namespace QuanLyHocSinh
         {
             Center, Top, Bot
         }
-
         BTTextAlignment m_textAlignment = BTTextAlignment.Bot;
         public BTTextAlignment TextAlignment
         {
             get { return m_textAlignment; }
             set { m_textAlignment = value; }
+        }
+
+        Point m_textOrigin;
+        public Point TextOrigin
+        {
+            get { return m_textOrigin; }
+            set { m_textOrigin = value; }
         }
 
         string m_text;
@@ -103,7 +110,21 @@ namespace QuanLyHocSinh
         {
             get { return m_deltaDistace; }
             set { m_deltaDistace = value; }
-        }            
+        }
+
+        bool m_saveChanged; // cho phep luu Location khi Event OnLocationChanged duoc goi
+        public bool SaveChanged
+        {
+            get { return m_saveChanged; }
+            set { m_saveChanged = value; }
+        }
+
+        bool m_haveEffects;
+        public bool HaveEffects
+        {
+            get { return m_haveEffects; }
+            set { m_haveEffects = value; }
+        }
 
         Timer m_timer;
         Color m_backColorSave; //luu mau backcolor de cho viec chuyen sau
@@ -117,25 +138,30 @@ namespace QuanLyHocSinh
 
         #endregion
 
+        #region -INIT AND TIMER-
         public ButtonFlat()
         {
             #region -INIT- 
             InitializeComponent();
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
+            this.BackColor = Color.FromArgb(44, 208, 136);
+
+
             m_shawdownDistance = 6;
             m_deltaDistace = 2;
             m_deltaDistanceCount = 0;
-            m_sizeChanged = false;
-            m_firstTimeChanged = true;
-            this.BackColor = Color.FromArgb(44, 208, 136);
             m_alphaGlow = 40;
             m_deltaAlphaGlow = 2;
             m_alphaGlowValue = 0;
-            m_mouseDowning = false;
             m_textColor = Color.White;
             m_text = "Flat Button";
-            ImageOrigin = new Point(0, 0);
+            m_imageOrigin = new Point(0, 0);
+            m_textOrigin = new Point(0, 0);
+            m_sizeChanged = false;
+            m_firstTimeChanged = true;
+            m_mouseDowning = false;
+            m_haveEffects = true;
 
             m_timer = new Timer();
             m_timer.Interval = 50;
@@ -144,16 +170,20 @@ namespace QuanLyHocSinh
             m_timer.Stop();
 
             m_buttonImage = QuanLyHocSinh.Properties.Resources.info;
-            ImageSize = QuanLyHocSinh.Properties.Resources.info.Size;
+            m_imageSize = QuanLyHocSinh.Properties.Resources.info.Size;
             #endregion
         }
+
 
         void m_timer_Tick(object sender, EventArgs e)
         {
             switch (m_mouseState)
             {
                 case MouseStates.Hover:
-                    #region - MOUSE HOVER -
+                        #region - MOUSE HOVER -
+                    if (!m_haveEffects)
+                        return;
+
                     if (m_deltaDistanceCount < m_shawdownDistance)
                     {
                         if (m_alphaGlowValue < m_alphaGlow)
@@ -173,19 +203,16 @@ namespace QuanLyHocSinh
                     }
                     else
                     {
-                        if (!m_sizeChanged)
-                        {
-                            m_alphaGlowValue = m_alphaGlow;
-                            m_sizeChanged = true;
-                            this.Location = new Point(m_locationSave.X - (int)m_shawdownDistance,
-                                                        m_locationSave.Y);
+                        m_alphaGlowValue = m_alphaGlow;
+                        m_sizeChanged = true;
+                        this.Location = new Point(m_locationSave.X - (int)m_shawdownDistance,
+                                                    m_locationSave.Y);
 
-                            this.Size = new System.Drawing.Size(m_sizeSave.Width + (int)m_shawdownDistance,
-                                                                 m_sizeSave.Height + (int)m_shawdownDistance);
+                        this.Size = new System.Drawing.Size(m_sizeSave.Width + (int)m_shawdownDistance,
+                                                             m_sizeSave.Height + (int)m_shawdownDistance);
 
-                            this.Invalidate();
-                            m_timer.Stop();
-                        }
+                        this.Invalidate();
+                        m_timer.Stop();
                     }
                     #endregion
                     break;
@@ -200,20 +227,32 @@ namespace QuanLyHocSinh
                     break;
 
                 case MouseStates.Leave:
-
                     break;
 
                 default:
                     break;
             }
         }
+        #endregion
 
+        #region -DRAW EVENTS-
         protected override void OnBackColorChanged(EventArgs e)
         {
             if(BackColor != Color.Transparent)
                 m_backColorSave = this.BackColor;
 
             base.OnBackColorChanged(e);
+        }
+
+        protected override void OnLocationChanged(EventArgs e)
+        {
+            if (m_saveChanged)
+            {
+                m_locationSave = this.Location;
+                m_saveChanged = false;
+            }
+
+            base.OnLocationChanged(e);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -229,7 +268,7 @@ namespace QuanLyHocSinh
                 case MouseStates.Down:
                     #region - MOUSE DOWN -
 
-                    this.BackColor = m_backColorSave;    
+                    this.BackColor = m_backColorSave;
                     // draw face
                     e.Graphics.FillRectangle(new SolidBrush(BackColor), new Rectangle(0, 0, this.Width, this.Height));
 
@@ -246,6 +285,7 @@ namespace QuanLyHocSinh
                     #region - MOUSE UP -
                     m_alphaGlowValue = m_alphaGlow;
                     m_sizeChanged = true;
+
                     if (m_buttonImage != null)
                         e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X, this.Height / 2 - bm.Height / 2 + m_imageOrigin.Y));
                     #endregion
@@ -259,7 +299,7 @@ namespace QuanLyHocSinh
                     break;
 
                 case MouseStates.Leave:
-                    #region - MOUSE LEAVE - 
+                    #region - MOUSE LEAVE -
                     //ve icon len button
                     if (m_buttonImage != null)
                         e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X, this.Height / 2 - bm.Height / 2 + m_imageOrigin.Y));
@@ -267,7 +307,23 @@ namespace QuanLyHocSinh
                     break;
 
                 case MouseStates.Hover:
+
                     #region - MOUSE HOVER -
+                    if (!m_haveEffects)
+                    {
+                        //draw face
+                        e.Graphics.FillRectangle(new SolidBrush(m_backColorSave), new Rectangle((int)m_deltaDistanceCount,
+                                                    0, this.Width - (int)m_deltaDistanceCount, this.Height - (int)m_deltaDistanceCount));
+
+                        e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb((int)m_alphaGlow, Color.White)), new Rectangle((int)m_deltaDistanceCount,
+                                                    0, this.Width - (int)m_deltaDistanceCount, this.Height - (int)m_deltaDistanceCount));
+                        //ve icon len button
+                        if (m_buttonImage != null)
+                            e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X,
+                                                    this.Height / 2 - bm.Height / 2 - (int)m_deltaDistanceCount / 2 + m_imageOrigin.Y));
+                        break;
+                    }
+
                     e.Graphics.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(this.ClientRectangle.Width, this.ClientRectangle.Height),
                                                 Color.FromArgb(60, 40, 40, 40), Color.FromArgb(120, 80, 80, 80)),
                                                 new Rectangle(0, (int)m_deltaDistanceCount, this.Width - (int)m_deltaDistanceCount,
@@ -280,7 +336,7 @@ namespace QuanLyHocSinh
                                                 0, this.Width - (int)m_deltaDistanceCount, this.Height - (int)m_deltaDistanceCount));
 
                     //ve icon len button
-                    if(m_buttonImage != null)
+                    if (m_buttonImage != null)
                         e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X,
                                                 this.Height / 2 - bm.Height / 2 - (int)m_deltaDistanceCount / 2 + m_imageOrigin.Y));
                     #endregion
@@ -295,7 +351,8 @@ namespace QuanLyHocSinh
                 case BTTextAlignment.Center:
                     SizeF textSize1 = e.Graphics.MeasureString(m_text, this.Font);
                     e.Graphics.DrawString(m_text, this.Font,new SolidBrush(m_textColor),
-                                            new PointF(this.Width / 2 - textSize1.Width / 2, this.Height / 2 - textSize1.Height / 2));
+                                            new PointF(this.Width / 2 - textSize1.Width / 2 + m_textOrigin.X,
+                                                        this.Height / 2 - textSize1.Height / 2 + m_textOrigin.Y));
                     break;
 
                 case BTTextAlignment.Top:
@@ -304,7 +361,8 @@ namespace QuanLyHocSinh
                 case BTTextAlignment.Bot:
                     SizeF textSize = e.Graphics.MeasureString(m_text, this.Font);
                     e.Graphics.DrawString(m_text, this.Font,new SolidBrush(m_textColor),
-                                            new PointF(this.Width / 2 - textSize.Width / 2, this.Height - textSize.Height - (int)m_deltaDistanceCount));
+                                            new PointF(this.Width / 2 - textSize.Width / 2 + m_textOrigin.X,
+                                                        this.Height - textSize.Height - (int)m_deltaDistanceCount + m_textOrigin.Y));
                     break;
                 default:
                     break;
@@ -312,7 +370,9 @@ namespace QuanLyHocSinh
 
             base.OnPaint(e);
         }
+        #endregion
 
+        #region -MOUSE EVENTS-
         protected override void OnMouseMove(MouseEventArgs e)
         {
             if (!m_mouseDowning)
@@ -356,17 +416,16 @@ namespace QuanLyHocSinh
         {
             m_mouseState = MouseStates.Leave;
 
-            if (m_sizeChanged)
-            {
-                m_sizeChanged = false;
-                m_firstTimeChanged = false;
-            }
+            m_sizeChanged = true;
+            m_firstTimeChanged = true;
 
             m_deltaDistanceCount = 0;
             m_alphaGlowValue = 0;
+
+            this.BackColor = m_backColorSave;
             this.Location = m_locationSave;
             this.Size = m_sizeSave;
-            this.BackColor = m_backColorSave;
+
             this.Invalidate();
 
             base.OnMouseLeave(e);
@@ -385,25 +444,21 @@ namespace QuanLyHocSinh
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
+            m_mouseState = MouseStates.Leave;
             m_mouseDowning = false;
-            m_mouseState = MouseStates.Up;
+            m_sizeChanged = true;
+            m_firstTimeChanged = true;
+
+            m_deltaDistanceCount = 0;
+            m_alphaGlowValue = 0;
+
+            this.Location = m_locationSave;
+            this.Size = m_sizeSave;
+            this.BackColor = m_backColorSave;
 
             this.Invalidate();
             base.OnMouseUp(e);
         }
-
-        protected override void OnLostFocus(EventArgs e)
-        {            
-            //m_sizeChanged = false;
-            //m_firstTimeChanged = false;
-            //m_deltaDistanceCount = 0;
-            //m_alphaGlowValue = 0;
-            //this.Location = m_locationSave;
-            //this.Size = m_sizeSave;
-            //this.Invalidate();
-            //m_timer.Start();
-
-            base.OnLostFocus(e);
-        }
+        #endregion
     }
 }

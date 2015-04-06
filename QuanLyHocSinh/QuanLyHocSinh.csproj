@@ -62,6 +62,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Form1.resx</DependentUpon>
     </Compile>
+    <Compile Include="FormFlat.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmBaoCao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,12 +82,6 @@
     </Compile>
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmSuaDiem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSuaDiem.Designer.cs">
-      <DependentUpon>frmSuaDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSuaNhapHS.cs">
       <SubType>Form</SubType>
@@ -147,9 +144,6 @@
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSuaDiem.resx">
-      <DependentUpon>frmSuaDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSuaNhapHS.resx">
       <DependentUpon>frmSuaNhapHS.cs</DependentUpon>
@@ -219,6 +213,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\xoa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\frmThongtin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconClose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconLogout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconmaxsie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconminmize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconminsize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconmaxsize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconsave.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

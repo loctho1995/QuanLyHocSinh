@@ -14,14 +14,17 @@ namespace QuanLyHocSinh
 {
     public partial class FrmMain : Form
     {
+        public static List<frmThongTinHS> ListThongTinHS
+        { get; set; }
+
+        public static bool IsSuaNhapOpen
+        { get; set; }
+
         HocSinh_BUS hs = new HocSinh_BUS();
         public static PhanQuyenDangNhap m_phanquyen = new PhanQuyenDangNhap();
         bool m_checkseach = false;
         int tabpage = 0; //them 1 bien de xac dinh dang o tab nao, su dung cho treeview ( 0 = Ho So, 1 = Hoc Tap, 2 = Bao Cao, 3 = Tra Cuu)
         static string node = ""; //dung de xac dinh dang chon node nao trong treeview
-
-        //cho phép resize góc dưới bên phải
-        private const int cGrip = 5;      // Grip size, khoảng range để xác định cho việc resize form xem thêm ở WndPrc
 
         public FrmMain()
         {            
@@ -29,13 +32,21 @@ namespace QuanLyHocSinh
             this.DoubleBuffered = true;
 
             InitializeComponent();
+            ListThongTinHS = new List<frmThongTinHS>();
+
             this.BackColor = Color.FromArgb(62, 70, 73);
             m_tbHoSo.BackColor = Color.FromArgb(35, 168, 111);
+            m_tbBaoCao.BackColor = Color.FromArgb(35, 168, 111);
+            m_tbHocTap.BackColor = Color.FromArgb(35, 168, 111);
+            m_tbTraCuu.BackColor = Color.FromArgb(35, 168, 111);
+
+            m_btclose.BackColor = Color.FromArgb(255, 101, 99);
+            m_btHide.BackColor = m_btclose.BackColor;
+            m_btmaxSize.BackColor = m_btclose.BackColor;
+
             m_scMain.BackColor = Color.FromArgb(44, 208, 136);
             m_scMain.ShadowColor = m_tbHoSo.BackColor;
-            //m_scMain.LabelSearch.ForeColor = Color.FromArgb(49, 52, 55);
             m_scMain.LabelSearch.ForeColor = Color.White;
-            //m_btflat.ButtonText = "button flat";
 
             /* Mau xanh la
             this.BackColor = Color.FromArgb(63, 159, 63);
@@ -75,13 +86,6 @@ namespace QuanLyHocSinh
             m_cbbNamHoc.DataSource = hs.LayNamHoc();
             m_cbbNamHoc.DisplayMember = "TENNAMHOC";
             m_cbbNamHoc.ValueMember = "MANAMHOC";
-            //MessageBox.Show(m_cbbNamHoc.SelectedValue.ToString());
-            //foreach (var i in hs.LayNamHoc())
-            //{
-            //    m_cbbNamHoc.Items.Add(i.MANAMHOC);
-            //}
-            //m_cbbNamHoc.SelectedIndex = 0;
-
         }
 
         //ham bat su kien chuyen tabpage
@@ -102,8 +106,6 @@ namespace QuanLyHocSinh
 
             //cau lenh lam mat datagridview khi chuyen tab
             m_dgvMain.DataSource = null;
-
-            
         }
 
         private void TextBoxSearch_TextChanged(object sender, EventArgs e)
@@ -118,6 +120,8 @@ namespace QuanLyHocSinh
                 DesignDataGridView(m_dgvMain, m_scMain.TextBoxSearch.Text);
         }
 
+        //cho phép resize góc dưới bên phải
+        private const int cGrip = 5;      // Grip size, khoảng range để xác định cho việc resize form xem thêm ở WndPrc
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
@@ -183,7 +187,6 @@ namespace QuanLyHocSinh
                         return;
                     }
 
-
                     //rê chuột xuông dưới bottom
                     if (pos.Y > this.ClientSize.Height - cGrip)
                     {
@@ -196,11 +199,6 @@ namespace QuanLyHocSinh
             }
 
             base.WndProc(ref m);
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
         }
 
         private void button_Click(object sender, EventArgs e)
@@ -236,10 +234,32 @@ namespace QuanLyHocSinh
                     XemDiem();
                     break;
 
+                case "m_btHide":
+                    (sender as ButtonFlat).SaveChanged = true;
+                    this.WindowState = FormWindowState.Minimized;
+
+                    break;
+
+                case "m_btmaxSize":
+                    (sender as ButtonFlat).SaveChanged = true;
+
+                    if (this.WindowState != FormWindowState.Maximized)
+                    {
+                        this.WindowState = FormWindowState.Maximized;
+                        m_btmaxSize.ButtonImage = QuanLyHocSinh.Properties.Resources.iconminsize;
+                    }
+                    else
+                    {
+                        this.WindowState = FormWindowState.Normal;
+                        m_btmaxSize.ButtonImage = QuanLyHocSinh.Properties.Resources.iconmaxsize;
+                    }
+
+                    break;
                 default:
                     break;
             }
         }       
+
         private void m_treeViewKhoi_AfterSelect(object sender, TreeViewEventArgs e)
         {
             //Viet ham check cho button baocao
@@ -327,37 +347,7 @@ namespace QuanLyHocSinh
 
            // MessageBox.Show((e.Node.Name));
         }
-
-        //private void DesignDataGridView(DataGridView dgv, string ma)
-        //{
-        //    if (m_checkseach)
-        //        dgv.DataSource = hs.TimKiemThongTinHocSinh(ma);//hs.TimKiemThongTinHocSinh(ma);
-        //    else if (ma.Length == 2)
-        //        dgv.DataSource = hs.LayHocSinh_Khoi(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
-        //    else dgv.DataSource = hs.LayHocSinh_Lop(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
-        //    if (dgv.DataSource == null) return;
-        //    dgv.Columns["STT"].Width = 40;
-        //    dgv.Columns["MAHS"].Width = 50;
-        //    dgv.Columns["HOTEN"].Width = 120;
-        //    dgv.Columns["GIOITINH"].Width = 50;
-        //    dgv.Columns["EMAIL"].Width = 120;
-        //    dgv.Columns["MALOP"].Width = 50;
-        //    dgv.Columns["MAKHOILOP"].Width = 40;
-
-        //    dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
-        //    dgv.Columns["HOTEN"].HeaderText = "Họ và tện";
-        //    dgv.Columns["GIOITINH"].HeaderText = "Giới tính";
-        //    dgv.Columns["EMAIL"].HeaderText = "Email";
-        //    dgv.Columns["DIACHI"].HeaderText = "Địa chỉ";
-        //    dgv.Columns["MALOP"].HeaderText = "Mã lớp";
-        //    dgv.Columns["MAKHOILOP"].HeaderText = "Mã khối";
-        //    dgv.Columns["HOTENCHA"].HeaderText = "Họ tên cha";
-        //    dgv.Columns["HOTENME"].HeaderText = "Họ tên mẹ";
-        //    dgv.Columns["NGHENGHIEPCHA"].HeaderText = "Nghề nghiệp cha";
-        //    dgv.Columns["NGHENGHIEPME"].HeaderText = "Nghề nghiệp mẹ";
-        //    m_checkseach = false;
-        //}
-        //them vao ham DesignDataGridView switch de xu ly tab
+      
         private void DesignDataGridView(DataGridView dgv, string ma)
         {
             if (m_checkseach)//m_checkseach = true -> dang tim kiem hoc sinh
@@ -401,7 +391,8 @@ namespace QuanLyHocSinh
                     case 1://tabpage Hoc tap
                         if (m_ccbPhanQuyen.Text.ToString() == "GVCN")
                         {
-                            dgv.DataSource = hs.LayDiemHocSinh_LopChuNhiem(ma, int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            dgv.DataSource = hs.LayDiemHocSinh_LopChuNhiem(ma, int.Parse(m_cbbNamHoc.SelectedValue.ToString()), 
+                                                                                m_phanquyen.ID, m_phanquyen.PhanQuyen);
                             if (dgv.DataSource == null) return;
                             dgv.Columns["STT"].Width = 40;
                             dgv.Columns["MAHS"].Width = 50;
@@ -420,7 +411,9 @@ namespace QuanLyHocSinh
                         }
                         else
                         {
-                            dgv.DataSource = hs.LayDiemHocSinh_Mon(ma, m_cbbBoMon.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            dgv.DataSource = hs.LayDiemHocSinh_Mon(ma, m_cbbBoMon.SelectedValue.ToString(), 
+                                                                    int.Parse(m_cbbNamHoc.SelectedValue.ToString()), 
+                                                                    m_phanquyen.ID, m_phanquyen.PhanQuyen);
                             if(dgv.DataSource == null) return;
 
                             dgv.Columns["STT"].Width = 40;
@@ -452,21 +445,18 @@ namespace QuanLyHocSinh
             m_dgvMain.DataSource = hs.LayTatCa();
         }
 
-        //Resize control khi form Resize
-        private void FrmMain_Resize(object sender, EventArgs e)
-        {
-            //m_treeViewKhoi.Size = new Size(m_treeViewKhoi.Width, this.Height - m_treeViewKhoi.Location.Y);
-            //m_dgwMain.Size = new Size(this.Width - m_dgwMain.Location.X, this.Height - m_dgwMain.Location.Y);
-        }
-
-        private void FrmMain_Load(object sender, EventArgs e)
-        {
-            //
-        }
         private void ThemHocSinh()
         {
-            frmSuaNhapHS frmNhap = new frmSuaNhapHS();
-            frmNhap.Show();
+            if (!IsSuaNhapOpen)
+            {
+                frmSuaNhapHS frmNhap = new frmSuaNhapHS();
+                frmNhap.Show();
+                IsSuaNhapOpen = true;
+            }
+            else
+            {
+                MessageBox.Show("hoàn thành chỉnh sửa / nhập học sinh trước khi mở form mới! ");
+            }
         }
 
         private void SuaHocSinh()
@@ -475,8 +465,16 @@ namespace QuanLyHocSinh
                 MessageBox.Show("Chọn học sinh cần sửa");
             else
             {
-                frmSuaNhapHS frmSua = new frmSuaNhapHS(m_dgvMain.SelectedRows[0]);
-                frmSua.Show();
+                if (!IsSuaNhapOpen)
+                {
+                    frmSuaNhapHS frmSua = new frmSuaNhapHS(m_dgvMain.SelectedRows[0]);
+                    frmSua.Show();
+                    IsSuaNhapOpen = true;
+                }
+                else
+                {
+                    MessageBox.Show("hoàn thành chỉnh sửa / nhập học sinh trước khi mở form mới! ");
+                }
             }
         }
 
@@ -501,7 +499,19 @@ namespace QuanLyHocSinh
                 MessageBox.Show("Chọn học sinh cần xem thông tin");
             else
             {
+                foreach (var item in ListThongTinHS)
+                {
+                    if (item.FormID.ToString() == m_dgvMain.SelectedRows[0].Cells["MAHS"].Value.ToString())
+                    {
+                        item.Hide();
+                        item.Show();
+                        return;
+                    }                        
+                }
+
                 frmThongTinHS frmTT = new frmThongTinHS(m_dgvMain.SelectedRows[0]);
+                frmTT.FormID = int.Parse(m_dgvMain.SelectedRows[0].Cells["MAHS"].Value.ToString());
+                ListThongTinHS.Add(frmTT);
                 frmTT.Show();
             }
         }
@@ -550,31 +560,6 @@ namespace QuanLyHocSinh
             frmBC.ShowDialog();
         }
 
-        private void searchControl1_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void m_tbHoSo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void searchControl1_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void searchControl2_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void searchControl1_Load_2(object sender, EventArgs e)
-        {
-
-        }
-
         private void m_dgvMain_DoubleClick(object sender, EventArgs e)
         {
             this.XemThongTin();
@@ -590,8 +575,6 @@ namespace QuanLyHocSinh
                 frmDangNhap frmdangNhap = new frmDangNhap();
                 frmdangNhap.ShowDialog();
             }
-                
-            
         }
 
         private void m_btBaoCao_Click(object sender, EventArgs e)
@@ -599,7 +582,6 @@ namespace QuanLyHocSinh
             XuatBaoCao();
         }
 
-<<<<<<< HEAD
         private void m_ccbPhanQuyen_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -634,16 +616,6 @@ namespace QuanLyHocSinh
         public static int getphanquyen()
         {
             return m_phanquyen.PhanQuyen;
-=======
-        private void m_dgvMain_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void BtMouseHover(object sender, EventArgs e)
-        {
-           
->>>>>>> origin/master
         }
     }
 }
