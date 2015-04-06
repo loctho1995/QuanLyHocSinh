@@ -33,7 +33,7 @@ namespace QuanLyHocSinh
                 this.Hide();
                 FrmMain.m_phanquyen.ID = m_tbID.Text.ToUpper();
                 FrmMain.m_phanquyen.Username = name;
-                FrmMain.m_phanquyen.LopCN = malop.ToUpper();
+                FrmMain.m_phanquyen.LopCN = malop.Trim();
                 FrmMain.m_phanquyen.PhanQuyen = phanquyen;
                 FrmMain.m_phanquyen.LopBM = malopbomon;
                 FrmMain frmMain = new FrmMain();

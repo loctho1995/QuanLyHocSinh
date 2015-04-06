@@ -106,7 +106,7 @@ namespace QuanLyHocSinh
             if (m_check)
             {
                 pl.MANAMHOC = int.Parse(m_ccbManamhoc.SelectedValue.ToString());
-                pl.MAKHOILOP = pl.MALOP.Substring(0, 2);
+                pl.MAKHOI = pl.MALOP.Substring(0, 2);
                 MessageBox.Show("Thanh cong" + " " + hs_bus.ThemHocSinh(hs, pl).ToString());
             }
             else if (hs_bus.UpdateHocSinh(hs, pl)&&m_check ==false)

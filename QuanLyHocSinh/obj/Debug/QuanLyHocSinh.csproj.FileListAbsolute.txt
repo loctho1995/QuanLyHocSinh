@@ -1,3 +1,10 @@
+F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\QuanLyHocSinh.exe.config
+F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\QuanLyHocSinh.exe
+F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\QuanLyHocSinh.pdb
+F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\BUS.dll
+F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\DAO.dll
+F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\BUS.pdb
+F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\DAO.pdb
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.csprojResolveAssemblyReference.cache
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.ButtonFlat.resources
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.Form1.resources
@@ -11,12 +18,5 @@ F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.frmXemSuaDiem_Mon.
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.Properties.Resources.resources
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.SearchControl.resources
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.csproj.GenerateResource.Cache
-F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\QuanLyHocSinh.exe.config
-F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\QuanLyHocSinh.exe
-F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\QuanLyHocSinh.pdb
-F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\BUS.dll
-F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\DAO.dll
-F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\BUS.pdb
-F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\DAO.pdb
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.exe
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.pdb

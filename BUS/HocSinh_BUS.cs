@@ -31,8 +31,12 @@ namespace BUS
         {
             return DB.MONHOCs.ToList();
         }
+        public List<HOCKY> LayHocky()
+        {
+            return DB.HOCKies.ToList();
+        }
 
-        public DataTable TimKiemThongTinHocSinh(string hoten)
+        public DataTable TimKiemThongTinHocSinh(string malop, int phanquyen, string hoten)
         {
             DataTable dt = new DataTable();
             //dt.Clear();
@@ -52,7 +56,7 @@ namespace BUS
             dt.Columns.Add("MALOP", typeof(string));
             dt.Columns.Add("MAKHOILOP", typeof(int));
 
-            var hocsinh = DB.sp_TiemKiemHocSinh(hoten);
+            var hocsinh = DB.sp_TiemKiemHocSinh(malop,phanquyen, hoten);
             int c = 1;
 
             foreach (var i in hocsinh)
@@ -72,7 +76,7 @@ namespace BUS
                 r["HOTENME"] = i.HOTENME;
                 r["NGHENGHIEPME"] = i.NGHENGHIEPME;
                 r["MALOP"] = i.MALOP;
-                r["MAKHOILOP"] = i.MAKHOILOP;
+                r["MAKHOILOP"] = i.MAKHOI;
                 dt.Rows.Add(r);
             }
 
@@ -119,7 +123,7 @@ namespace BUS
                 r["HOTENME"] = i.HOTENME;
                 r["NGHENGHIEPME"] = i.NGHENGHIEPME;
                 r["MALOP"] = i.MALOP;
-                r["MAKHOILOP"] = i.MAKHOILOP;
+                r["MAKHOILOP"] = i.MAKHOI;
 
                 dt.Rows.Add(r);
             }
@@ -167,7 +171,7 @@ namespace BUS
                 r["HOTENME"] = i.HOTENME;
                 r["NGHENGHIEPME"] = i.NGHENGHIEPME;
                 r["MALOP"] = i.MALOP;
-                r["MAKHOILOP"] = i.MAKHOILOP;
+                r["MAKHOILOP"] = i.MAKHOI;
 
                 dt.Rows.Add(r);
             }
@@ -313,6 +317,14 @@ namespace BUS
             return dt;
         }
 
+        public List<HOCKY> LayDuLieuHocKy()
+        {
+            return DB.HOCKies.ToList();
+        }
+        public List<MONHOC> LayDuLieuMonHoc()
+        {
+            return DB.MONHOCs.ToList();
+        }
         //SUA DIEM
         public bool SuaDiem(int mahs, string malop, string mamon, int namhoc, float d_mieng_hkI, float d_15p_hkI, float d_1tiet_hkI, float d_thi_hkI, float d_mieng_hkII, float d_15p_hkII, float d_1tiet_hkII, float d_thi_hkII)
         {
@@ -363,7 +375,7 @@ namespace BUS
             try
             {
                 
-                var a = DB.sp_ThemHocSinh(hs.MAHS, hs.HOTEN, hs.GIOITINH, hs.NGAYSINH, hs.DIACHI, hs.EMAIL, hs.TONGIAO, hs.HOTENCHAC, hs.NGHENGHIEPCHA, hs.HOTENME, hs.NGHENGHIEPME, pl.MALOP, pl.MANAMHOC, pl.MAKHOILOP);
+                var a = DB.sp_ThemHocSinh(hs.MAHS, hs.HOTEN, hs.GIOITINH, hs.NGAYSINH, hs.DIACHI, hs.EMAIL, hs.TONGIAO, hs.HOTENCHAC, hs.NGHENGHIEPCHA, hs.HOTENME, hs.NGHENGHIEPME, pl.MALOP, pl.MANAMHOC, pl.MAKHOI);
                 return int.Parse(a.ToString()) ;
             }
             catch
@@ -374,7 +386,7 @@ namespace BUS
         //phân quyền đăng nhập
         public int DangNhap(string user, string pass,ref string name, ref string malop,ref int phanquyen)
         {
-            int? m_check = 2, m_temp = 0;
+            int? m_check = 0, m_temp = 0;
             try
             {
                 DB.sp_DangNhap(user, pass, ref m_check, ref name, ref malop, ref m_temp);
@@ -406,6 +418,168 @@ namespace BUS
                 return;
             }
         }
+        public DataTable InDanhSachlop(string magv, string malop, int phanquyen)
+        {
+            DataTable dt = new DataTable();
+            //dt.Clear();
 
+            dt.Columns.Add("STT", typeof(int));
+            dt.Columns.Add("MAHS", typeof(int));
+            dt.Columns.Add("HOTEN", typeof(string));
+            dt.Columns.Add("GIOITINH", typeof(string));
+            dt.Columns.Add("NGAYSINH", typeof(string));
+            dt.Columns.Add("DIACHI", typeof(string));
+            dt.Columns.Add("EMAIL", typeof(string));
+
+            var hocsinh = DB.sp_BaoCaoLayDanhSachLop(magv, malop, phanquyen);
+            int c = 1;
+
+            foreach (var i in hocsinh)
+            {
+                DataRow r = dt.NewRow();
+
+                r["STT"] = c++;
+                r["MAHS"] = i.MAHS;
+                r["HOTEN"] = i.HOTEN;
+                r["GIOITINH"] = i.GIOITINH;
+                r["NGAYSINH"] = i.NGAYSINH;
+                r["DIACHI"] = i.DIACHI;
+                r["EMAIL"] = i.EMAIL;
+                dt.Rows.Add(r);
+            }
+            if (dt.Rows.Count == 0)
+                return null;
+            return dt;
+        }
+        public DataTable InBangDiemCuaLop(string magv, string malop, int phanquyen, int namhoc)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("STT", typeof(int));
+            dt.Columns.Add("MAHS", typeof(int));
+            dt.Columns.Add("HOTEN", typeof(string));
+            dt.Columns.Add("DIEMTBMONHKI");
+            dt.Columns.Add("DIEMTBMONHKII");
+            dt.Columns.Add("DIEMTBCANAM");
+
+            var diem = DB.sp_BaoCaoLayBangDiemCuaLop(magv, malop, phanquyen, namhoc);
+            int c = 1;
+
+            foreach (var i in diem)
+            {
+                DataRow r = dt.NewRow();
+
+                r["STT"] = c++;
+                r["MAHS"] = i.MAHS;
+                r["HOTEN"] = i.HOTEN;
+                r["DIEMTBMONHKI"] = i.DIEMTBHKI;
+                r["DIEMTBMONHKII"] = i.DIEMTBHKII;
+                r["DIEMTBCANAM"] = i.DIEMTBCANAM;
+
+                dt.Rows.Add(r);
+            }
+
+            if (dt.Rows.Count == 0)
+                return null;
+            return dt;
+        }
+        public DataTable InBangDiemChiTietTunghocKy(string magv, string malop, string mamon, int phanquyen, int namhoc, string hocky)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("STT", typeof(int));
+            dt.Columns.Add("MAHS", typeof(int));
+            dt.Columns.Add("HOTEN", typeof(string));
+            dt.Columns.Add("D_MIENG_HKI", typeof(float));
+            dt.Columns.Add("D_15P_HKI", typeof(float));
+            dt.Columns.Add("D_1TIET_HKI", typeof(float));
+            dt.Columns.Add("D_THI_HKI", typeof(float));
+            dt.Columns.Add("D_TBMON_HKI", typeof(float));
+
+            try
+            {
+                var diem = DB.sp_BaoCaoBangDiemChiTietTungHocKy(magv, malop, mamon, phanquyen, namhoc, hocky);
+                int c = 1;
+                foreach (var i in diem)
+                {
+                    DataRow r = dt.NewRow();
+
+                    r["STT"] = c++;
+                    r["MAHS"] = i.MAHS;
+                    r["HOTEN"] = i.HOTEN;
+                    r["D_MIENG_HKI"] = i.DIEMMIENG;
+                    r["D_15P_HKI"] = i.DIEM15PHUT;
+                    r["D_1TIET_HKI"] = i.DIEM1TIET;
+                    r["D_THI_HKI"] = i.DIEMTHI;
+                    r["D_TBMON_HKI"] = i.DIEMTBHOCKY;
+                    dt.Rows.Add(r);
+                }
+                if (dt.Rows.Count == 0)
+                    return null;
+                return dt;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public DataTable BaoCaoTongKetMon(string mamon, int phanquyen, string mahocki, int manamhoc)
+        {
+            int siso = 1, soluongdat = 0;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("STT",typeof(int));
+            dt.Columns.Add("LOP", typeof(string));
+            dt.Columns.Add("SISO", typeof(int));
+            dt.Columns.Add("SOLUONGDAT", typeof(int));
+            dt.Columns.Add("TILE");
+
+            var diem = DB.sp_BaoCaoTongKetMon(mamon, phanquyen, mahocki, manamhoc);
+            int c = 1;
+            foreach (var i in diem)
+            {
+                DataRow r = dt.NewRow();
+
+                r["STT"] = c++;
+                r["LOP"] = i.MALOP;
+                r["SISO"] = i.SISO;
+                r["SOLUONGDAT"] = i.SOLUONGDAT;
+                siso = int.Parse(i.SISO.ToString());
+                soluongdat = int.Parse(i.SOLUONGDAT.ToString());
+                r["TILE"] = ((float)soluongdat/siso*100).ToString()+" %";
+                dt.Rows.Add(r);
+            }
+
+            if (dt.Rows.Count == 0)
+                return null;
+            return dt;
+        }
+        public DataTable BaoCaoTongKetHocKy(int phanquyen, string mahocki, int manamhoc)
+        {
+            int siso = 1, soluongdat = 0;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("STT", typeof(int));
+            dt.Columns.Add("LOP", typeof(string));
+            dt.Columns.Add("SISO", typeof(int));
+            dt.Columns.Add("SOLUONGDAT", typeof(int));
+            dt.Columns.Add("TILE");
+
+            var diem = DB.sp_BaoCaoTongKetHocKy(phanquyen, mahocki, manamhoc);
+            int c = 1;
+            foreach (var i in diem)
+            {
+                DataRow r = dt.NewRow();
+
+                r["STT"] = c++;
+                r["LOP"] = i.MALOP;
+                r["SISO"] = i.SISO;
+                r["SOLUONGDAT"] = i.SOLUONGDAT;
+                siso = int.Parse(i.SISO.ToString());
+                soluongdat = int.Parse(i.SOLUONGDAT.ToString());
+                r["TILE"] = ((float)soluongdat / siso * 100).ToString() + " %";
+                dt.Rows.Add(r);
+            }
+
+            if (dt.Rows.Count == 0)
+                return null;
+            return dt;
+        }
     }
 }
