@@ -31,8 +31,12 @@ namespace BUS
         {
             return DB.MONHOCs.ToList();
         }
+        public List<HOCKY> LayHocky()
+        {
+            return DB.HOCKies.ToList();
+        }
 
-        public DataTable TimKiemThongTinHocSinh(string hoten)
+        public DataTable TimKiemThongTinHocSinh(string malop, int phanquyen, string hoten)
         {
             DataTable dt = new DataTable();
             //dt.Clear();
@@ -52,7 +56,7 @@ namespace BUS
             dt.Columns.Add("MALOP", typeof(string));
             dt.Columns.Add("MAKHOILOP", typeof(int));
 
-            var hocsinh = DB.sp_TiemKiemHocSinh(hoten);
+            var hocsinh = DB.sp_TiemKiemHocSinh(malop,phanquyen, hoten);
             int c = 1;
 
             foreach (var i in hocsinh)
@@ -72,7 +76,7 @@ namespace BUS
                 r["HOTENME"] = i.HOTENME;
                 r["NGHENGHIEPME"] = i.NGHENGHIEPME;
                 r["MALOP"] = i.MALOP;
-                r["MAKHOILOP"] = i.MAKHOILOP;
+                r["MAKHOILOP"] = i.MAKHOI;
                 dt.Rows.Add(r);
             }
 
@@ -119,7 +123,7 @@ namespace BUS
                 r["HOTENME"] = i.HOTENME;
                 r["NGHENGHIEPME"] = i.NGHENGHIEPME;
                 r["MALOP"] = i.MALOP;
-                r["MAKHOILOP"] = i.MAKHOILOP;
+                r["MAKHOILOP"] = i.MAKHOI;
 
                 dt.Rows.Add(r);
             }
@@ -167,7 +171,7 @@ namespace BUS
                 r["HOTENME"] = i.HOTENME;
                 r["NGHENGHIEPME"] = i.NGHENGHIEPME;
                 r["MALOP"] = i.MALOP;
-                r["MAKHOILOP"] = i.MAKHOILOP;
+                r["MAKHOILOP"] = i.MAKHOI;
 
                 dt.Rows.Add(r);
             }
@@ -381,7 +385,7 @@ namespace BUS
         //phân quyền đăng nhập
         public int DangNhap(string user, string pass,ref string name, ref string malop,ref int phanquyen)
         {
-            int? m_check = 2, m_temp = 0;
+            int? m_check = 0, m_temp = 0;
             try
             {
                 DB.sp_DangNhap(user, pass, ref m_check, ref name, ref malop, ref m_temp);

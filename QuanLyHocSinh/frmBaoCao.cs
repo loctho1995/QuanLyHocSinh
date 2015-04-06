@@ -15,76 +15,20 @@ namespace QuanLyHocSinh
     {
         HocSinh_BUS hs = new HocSinh_BUS();
 
-        public frmBaoCao(String lop)
+        public frmBaoCao(String lop, int phanquyen)
         {
             InitializeComponent();
-            LoadDataCombobox();
-            m_lableLop.Text = lop;
-            if (lop != FrmMain.m_phanquyen.LopCN) // Chua co csdl
-            {
-                m_cbbType.Items.Add("Báo cáo tổng kết học kì");
-                m_cbbType.Items.Add("Báo cáo tổng kết môn");
-                m_cbbMonHoc.Visible = false;
-                m_labelMonHoc.Visible = false;
-            }
-            else
-            {
-                m_cbbType.Items.Add("Báo cáo tổng kết môn");
-            }
-
-
-            // Chua co mon hoc
-
-            //for (int i = 0; i < FrmMain.m_phanquyen.MonHoc.Count; i++)
-            //{
-            //    m_cbbMonHoc.Items.Add(FrmMain.m_phanquyen.MonHoc[i]);
-            //}
-            //m_cbbMonHoc.SelectedIndex = 0;
-           
-            WriteData();
         }
 
-        private void m_btClose_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        private void WriteData()
-        {
 
-           //m_data.DataSource = // Dua vao index cua 4 combobox
-            
-        }
 
-        private void m_cbbType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (m_cbbType.SelectedIndex == 0)
-            {
-                m_cbbMonHoc.Visible = false;
-                m_labelMonHoc.Visible = false;
-            }
-            else
-            {
-                m_cbbMonHoc.Visible = true;
-                m_labelMonHoc.Visible = true;
-            }
-            WriteData();
-        }
-
-        private void m_cbbHocKi_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            WriteData();
-        }
-
-        private void m_cbbNamHoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            WriteData();
-        }
-
-        private void m_cbbMonHoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            WriteData();
-        }
-
+    
+      
+        /*
         private void LoadDataCombobox()
         {
             m_cbbNamHoc.DataSource = hs.LayNamHoc();
@@ -100,6 +44,6 @@ namespace QuanLyHocSinh
             m_cbbMonHoc.DataSource = hs.LayDuLieuMonHoc();
             m_cbbMonHoc.DisplayMember = "TENMONHOC";
             m_cbbMonHoc.ValueMember = "MAMONHOC";
-        }
+        }*/
     }
 }

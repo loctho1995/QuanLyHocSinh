@@ -29,6 +29,7 @@ namespace QuanLyHocSinh
             this.DoubleBuffered = true;
 
             InitializeComponent();
+            FrmMain.m_phanquyen.LopCN = FrmMain.m_phanquyen.LopCN.Trim();
             this.BackColor = Color.FromArgb(62, 70, 73);
             m_tbHoSo.BackColor = Color.FromArgb(35, 168, 111);
             m_scMain.BackColor = Color.FromArgb(44, 208, 136);
@@ -81,7 +82,6 @@ namespace QuanLyHocSinh
             //    m_cbbNamHoc.Items.Add(i.MANAMHOC);
             //}
             //m_cbbNamHoc.SelectedIndex = 0;
-
         }
 
         //ham bat su kien chuyen tabpage
@@ -95,15 +95,36 @@ namespace QuanLyHocSinh
                 tabpage = 1;
 
             if (m_tcMain.TabPages[2].Focus() == true)
+            {
+                LoadDataBaoCao();
                 tabpage = 2;
+            }
 
             if (m_tcMain.TabPages[3].Focus() == true)
+            {
                 tabpage = 3;
+            }
 
             //cau lenh lam mat datagridview khi chuyen tab
             m_dgvMain.DataSource = null;
-
             
+        }
+        private void LoadDataBaoCao()
+        {
+            m_cbbBaoCaonamhoc.DataSource = hs.LayNamHoc();
+            m_cbbBaoCaonamhoc.DisplayMember = "TENNAMHOC";
+            m_cbbBaoCaonamhoc.ValueMember = "MANAMHOC";
+
+            m_cbbBaoCaomonhoc.DataSource = hs.LayMonHoc();
+            m_cbbBaoCaomonhoc.DisplayMember = "TENMONHOC";
+            m_cbbBaoCaomonhoc.ValueMember = "MAMONHOC";
+
+            m_cbbBaoCaohocky.DataSource = hs.LayHocky();
+            m_cbbBaoCaohocky.DisplayMember = "TENHOCKY";
+            m_cbbBaoCaohocky.ValueMember = "MAHOCKY";
+
+
+
         }
 
         private void TextBoxSearch_TextChanged(object sender, EventArgs e)
@@ -362,7 +383,7 @@ namespace QuanLyHocSinh
         {
             if (m_checkseach)//m_checkseach = true -> dang tim kiem hoc sinh
             {
-                dgv.DataSource = hs.TimKiemThongTinHocSinh(ma);//hs.TimKiemThongTinHocSinh(ma);
+                dgv.DataSource = hs.TimKiemThongTinHocSinh(FrmMain.m_phanquyen.LopCN, FrmMain.m_phanquyen.PhanQuyen, ma);//hs.TimKiemThongTinHocSinh(ma);
                 m_checkseach = false;
             }
 
@@ -438,6 +459,9 @@ namespace QuanLyHocSinh
                         break;
 
                     case 2://tabpage Bao Cao
+                        {
+                           
+                        }
                         break;
 
                     case 3://tabpage Tra Cuu
@@ -445,7 +469,7 @@ namespace QuanLyHocSinh
                 }
             }
         }
-
+      
         private void ShowHocSinh_Khoi()
         {
             //
@@ -546,7 +570,7 @@ namespace QuanLyHocSinh
 
         private void XuatBaoCao()
         {
-            frmBaoCao frmBC = new frmBaoCao(m_treeViewKhoi.SelectedNode.Text);
+            frmBaoCao frmBC = new frmBaoCao(m_treeViewKhoi.SelectedNode.Text, FrmMain.m_phanquyen.PhanQuyen);
             frmBC.ShowDialog();
         }
 
