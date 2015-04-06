@@ -49,7 +49,6 @@ namespace QuanLyHocSinh
         private bool Check()
         {
             int x = hs.DangNhap(m_tbID.Text, m_tbPass.Text,ref name, ref malop, ref phanquyen);
-            MessageBox.Show(x.ToString());
             if (x == 1)
                 return true;
             else if (x == 2)

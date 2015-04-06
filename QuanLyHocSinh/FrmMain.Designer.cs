@@ -115,29 +115,29 @@
             this.m_treeViewKhoi.Margin = new System.Windows.Forms.Padding(4);
             this.m_treeViewKhoi.Name = "m_treeViewKhoi";
             treeNode1.Name = "m_node10A1";
-            treeNode1.Text = "Lớp 10A1";
+            treeNode1.Text = "Lớp  10A1";
             treeNode2.Name = "m_node10A2";
-            treeNode2.Text = "Lớp 10A2";
+            treeNode2.Text = "Lớp  10A2";
             treeNode3.Name = "m_node10A3";
-            treeNode3.Text = "Lớp 10A3";
+            treeNode3.Text = "Lớp  10A3";
             treeNode4.Name = "m_node10A4";
-            treeNode4.Text = "Lớp 10A4";
+            treeNode4.Text = "Lớp  10A4";
             treeNode5.ImageIndex = 2;
             treeNode5.Name = "m_nodeKhoi10";
             treeNode5.Text = "Khối 10";
             treeNode6.Name = "m_node11A1";
-            treeNode6.Text = "Lớp 11A1";
+            treeNode6.Text = "Lớp  11A1";
             treeNode7.Name = "m_node11A2";
-            treeNode7.Text = "Lớp 11A2";
+            treeNode7.Text = "Lớp  11A2";
             treeNode8.Name = "m_node11A3";
-            treeNode8.Text = "Lớp 11A3";
+            treeNode8.Text = "Lớp  11A3";
             treeNode9.ImageIndex = 2;
             treeNode9.Name = "m_nodeKhoi11";
             treeNode9.Text = "Khối 11";
             treeNode10.Name = "m_node12A1";
-            treeNode10.Text = "Lớp 12A1";
+            treeNode10.Text = "Lớp  12A1";
             treeNode11.Name = "m_node12A2";
-            treeNode11.Text = "Lớp 12A2";
+            treeNode11.Text = "Lớp  12A2";
             treeNode12.ImageIndex = 2;
             treeNode12.Name = "m_nodeKhoi12";
             treeNode12.Text = "Khối 12";
@@ -148,6 +148,7 @@
             this.m_treeViewKhoi.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode13});
             this.m_treeViewKhoi.SelectedImageIndex = 0;
+            this.m_treeViewKhoi.SelectedNode = treeNode13;
             this.m_treeViewKhoi.Size = new System.Drawing.Size(249, 460);
             this.m_treeViewKhoi.TabIndex = 0;
             this.m_treeViewKhoi.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.m_treeViewKhoi_AfterSelect);
@@ -598,6 +599,7 @@
             this.m_cbbBaoCaoLoai.Name = "m_cbbBaoCaoLoai";
             this.m_cbbBaoCaoLoai.Size = new System.Drawing.Size(190, 24);
             this.m_cbbBaoCaoLoai.TabIndex = 9;
+            this.m_cbbBaoCaoLoai.SelectedIndexChanged += new System.EventHandler(this.m_cbbBaoCaoLoai_SelectedIndexChanged);
             // 
             // m_cbbBaoCaohocky
             // 

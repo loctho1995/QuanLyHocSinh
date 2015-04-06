@@ -71,7 +71,6 @@ namespace QuanLyHocSinh
             m_cbbBoMon.DataSource = hs.LayMonHoc();
             m_cbbBoMon.DisplayMember = "TENMONHOC";
             m_cbbBoMon.ValueMember = "MAMONHOC";
-            //string a = m_cbbBoMon.SelectedValue.ToString();
 
             m_cbbNamHoc.DataSource = hs.LayNamHoc();
             m_cbbNamHoc.DisplayMember = "TENNAMHOC";
@@ -82,8 +81,8 @@ namespace QuanLyHocSinh
             //    m_cbbNamHoc.Items.Add(i.MANAMHOC);
             //}
             //m_cbbNamHoc.SelectedIndex = 0;
-        }
 
+        }
         //ham bat su kien chuyen tabpage
         void m_tcMain_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -101,9 +100,7 @@ namespace QuanLyHocSinh
             }
 
             if (m_tcMain.TabPages[3].Focus() == true)
-            {
                 tabpage = 3;
-            }
 
             //cau lenh lam mat datagridview khi chuyen tab
             m_dgvMain.DataSource = null;
@@ -122,6 +119,21 @@ namespace QuanLyHocSinh
             m_cbbBaoCaohocky.DataSource = hs.LayHocky();
             m_cbbBaoCaohocky.DisplayMember = "TENHOCKY";
             m_cbbBaoCaohocky.ValueMember = "MAHOCKY";
+
+            if (FrmMain.m_phanquyen.PhanQuyen == 1)
+            {
+                m_cbbBaoCaoLoai.Items.Add("In danh sách lớp");
+                m_cbbBaoCaoLoai.Items.Add("In bảng điểm môn");
+                m_cbbBaoCaoLoai.Items.Add("In bảng điểm lớp");
+                m_cbbBaoCaoLoai.Items.Add("In báo cáo tổng kết học kì");
+                m_cbbBaoCaoLoai.Items.Add("In báo cáo tổng kêt môn");
+            }
+            else
+            {
+                m_cbbBaoCaoLoai.Items.Add("In danh sách lớp");
+                m_cbbBaoCaoLoai.Items.Add("In bảng điểm môn");
+                m_cbbBaoCaoLoai.Items.Add("In bảng điểm lớp");
+            }
 
 
 
@@ -282,71 +294,58 @@ namespace QuanLyHocSinh
                 //Click vào Node Khối 10
                 case "m_nodeKhoi10":
                     node = "10";
-                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 //Click vào Node khối 11
                 case "m_nodeKhoi11":
                     node = "11";
-                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 //Click vào Node khối 11
                 case "m_nodeKhoi12":
                     node = "12";
-                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node10A1":
                     node = "10a1";
-                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node10A2":
                     node = "10a2";
-                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node10A3":
                     node = "10a3";
-                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node10A4":
                     node = "10a4";
-                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node11A1":
                     node = "11a1";
-                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node11A2":
                     node = "11a2";
-                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node11A3":
                     node = "11a3";
-                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node12A1":
                     node = "12a1";
-                    DesignDataGridView(m_dgvMain, node);
                     break;
 
                 case "m_node12A2":
                     node = "12a2";
-                    DesignDataGridView(m_dgvMain, node);
                     break;
                 default:
                     break;
 
             }
-
-           // MessageBox.Show((e.Node.Name));
+            DesignDataGridView(m_dgvMain, node);
         }
 
         //private void DesignDataGridView(DataGridView dgv, string ma)
@@ -379,23 +378,23 @@ namespace QuanLyHocSinh
         //    m_checkseach = false;
         //}
         //them vao ham DesignDataGridView switch de xu ly tab
-        private void DesignDataGridView(DataGridView dgv, string ma)
+        private void DesignDataGridView(DataGridView dgv, string node)
         {
             if (m_checkseach)//m_checkseach = true -> dang tim kiem hoc sinh
             {
-                dgv.DataSource = hs.TimKiemThongTinHocSinh(FrmMain.m_phanquyen.LopCN, FrmMain.m_phanquyen.PhanQuyen, ma);//hs.TimKiemThongTinHocSinh(ma);
+                dgv.DataSource = hs.TimKiemThongTinHocSinh(FrmMain.m_phanquyen.LopCN, FrmMain.m_phanquyen.PhanQuyen, node);//hs.TimKiemThongTinHocSinh(ma);
                 m_checkseach = false;
             }
 
             else//m_checkseach = false -> dang su dung tree view
-            {
+            {  
                 switch (tabpage)//tabpage se cho biet tabpage nao dang duoc chon
                 {
                     case 0://tabpage Ho So
 
-                        if (ma.Length == 2)
-                            dgv.DataSource = hs.LayHocSinh_Khoi(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
-                        else dgv.DataSource = hs.LayHocSinh_Lop(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                        if (node.Length == 2)
+                            dgv.DataSource = hs.LayHocSinh_Khoi(node, m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                        else if(CheckGVInLopBM(node))   dgv.DataSource = hs.LayHocSinh_Lop(node, m_phanquyen.ID, m_phanquyen.PhanQuyen);
                         if (dgv.DataSource == null) return;
                         dgv.Columns["STT"].Width = 40;
                         dgv.Columns["MAHS"].Width = 50;
@@ -422,7 +421,7 @@ namespace QuanLyHocSinh
                     case 1://tabpage Hoc tap
                         if (m_ccbPhanQuyen.Text.ToString() == "GVCN")
                         {
-                            dgv.DataSource = hs.LayDiemHocSinh_LopChuNhiem(ma, int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            dgv.DataSource = hs.LayDiemHocSinh_LopChuNhiem(node, int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
                             if (dgv.DataSource == null) return;
                             dgv.Columns["STT"].Width = 40;
                             dgv.Columns["MAHS"].Width = 50;
@@ -441,7 +440,7 @@ namespace QuanLyHocSinh
                         }
                         else
                         {
-                            dgv.DataSource = hs.LayDiemHocSinh_Mon(ma, m_cbbBoMon.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            dgv.DataSource = hs.LayDiemHocSinh_Mon(node, m_cbbBoMon.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
                             if(dgv.DataSource == null) return;
 
                             dgv.Columns["STT"].Width = 40;
@@ -460,7 +459,7 @@ namespace QuanLyHocSinh
 
                     case 2://tabpage Bao Cao
                         {
-                           
+                            MessageBox.Show(m_treeViewKhoi.SelectedNode.Text.Substring(5));
                         }
                         break;
 
@@ -468,6 +467,23 @@ namespace QuanLyHocSinh
                         break;
                 }
             }
+        }
+        private bool CheckGVInLopBM(string lop)
+        {
+            foreach (string malop in FrmMain.m_phanquyen.LopBM)
+            {
+                if (node.ToUpper() == malop.ToUpper().Trim())
+                    return true;
+            }
+            return false;
+        }
+
+        private bool CheckGVCN(string lop)
+        {
+            string malop = m_dgvMain.SelectedRows[0].Cells["MALOP"].Value.ToString().ToUpper().Trim();
+            if (lop.ToUpper() == FrmMain.m_phanquyen.LopCN.ToUpper().Trim() || malop == FrmMain.m_phanquyen.LopCN.ToUpper().Trim())
+                return true;
+            return false;
         }
       
         private void ShowHocSinh_Khoi()
@@ -497,6 +513,7 @@ namespace QuanLyHocSinh
         {
             if (m_dgvMain.DataSource == null)
                 MessageBox.Show("Chọn học sinh cần sửa");
+            else if (!CheckGVCN(node)) MessageBox.Show("Bạn không có quyền sữa hồ sơ học sinh ở lớp này!");
             else
             {
                 frmSuaNhapHS frmSua = new frmSuaNhapHS(m_dgvMain.SelectedRows[0]);
@@ -508,13 +525,20 @@ namespace QuanLyHocSinh
         {
             if (m_dgvMain.DataSource == null)
                 MessageBox.Show("chọn học sinh cần xóa");
+            else if (!CheckGVCN(node)) MessageBox.Show("Bạn không có quyền xóa hồ sơ học sinh ở lớp này!");
             else
             {
+                if (MessageBox.Show("Bạn có muốn xóa không ?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                    return;
                 int key = 0;
                 if(m_dgvMain.SelectedRows[0].Cells["MAHS"] != null)
                   key = int.Parse(m_dgvMain.SelectedRows[0].Cells["MAHS"].Value.ToString());
-                if (hs.DeleteHocSinh(key)&&key!=0)
+                if (hs.DeleteHocSinh(key) && key != 0)
+                {
+                    DesignDataGridView(m_dgvMain, node);
                     MessageBox.Show("Xoá thành công");
+                }
+
                 else MessageBox.Show("Thất bại");
             }
         }
@@ -667,6 +691,33 @@ namespace QuanLyHocSinh
         {
            
 
+        }
+
+        private void m_cbbBaoCaoLoai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (m_cbbBaoCaoLoai.SelectedItem.ToString())
+            {
+                case "In danh sách lớp":
+                    m_cbbBaoCaomonhoc.Enabled = false;
+                break;
+
+                case "In bảng điểm môn":
+                    m_cbbBaoCaomonhoc.Enabled = true;
+                break;
+
+                case "In bảng điểm lớp":
+                    m_cbbBaoCaomonhoc.Enabled = false;
+                break;
+
+                case "In báo cáo tổng kết học kì":
+                    m_cbbBaoCaomonhoc.Enabled = false;
+                break;
+
+                case "In báo cáo tổng kêt môn":
+                    m_cbbBaoCaomonhoc.Enabled = true;
+                break;
+
+            }
         }
     }
 }
