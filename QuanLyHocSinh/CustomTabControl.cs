@@ -22,7 +22,7 @@ namespace QuanLyHocSinh
 
         protected override void WndProc(ref Message m)
         {
-            //xoa header cua tab, xoa duong vien cua tabcontrol
+            ////xoa header cua tab, xoa duong vien cua tabcontrol
             if (m.Msg == TCM_ADJUSTRECT)
             {
                 RECT rect = (RECT)(m.GetLParam(typeof(RECT)));
@@ -32,10 +32,17 @@ namespace QuanLyHocSinh
                 rect.Top = this.Top - this.Margin.Top + 1;
                 rect.Bottom = this.Bottom + this.Margin.Bottom + 1;
                 Marshal.StructureToPtr(rect, m.LParam, true);
+
             }
             //else
             // call the base class implementation
             base.WndProc(ref m);
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            e.Graphics.FillRectangle(Brushes.Red, this.ClientRectangle);
+            base.OnPaint(e);
         }
 
         private struct RECT

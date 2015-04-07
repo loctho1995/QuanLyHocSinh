@@ -113,12 +113,6 @@
     <Compile Include="frmXemSuaDiem_Mon.Designer.cs">
       <DependentUpon>frmXemSuaDiem_Mon.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuGroup.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MenuGroup.Designer.cs">
-      <DependentUpon>MenuGroup.cs</DependentUpon>
-    </Compile>
     <Compile Include="PhanQuyenDangNhap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -240,6 +234,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconsave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconreport.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

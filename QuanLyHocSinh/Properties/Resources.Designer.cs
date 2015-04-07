@@ -153,6 +153,16 @@ namespace QuanLyHocSinh.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconreport {
+            get {
+                object obj = ResourceManager.GetObject("iconreport", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconsave {
             get {
                 object obj = ResourceManager.GetObject("iconsave", resourceCulture);

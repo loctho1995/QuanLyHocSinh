@@ -31,7 +31,6 @@ namespace QuanLyHocSinh
         {            
             //this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.CacheText, true);
             this.DoubleBuffered = true;
-
             InitializeComponent();
             ListThongTinHS = new List<frmThongTinHS>();
             FrmMain.m_phanquyen.LopCN = FrmMain.m_phanquyen.LopCN.Trim();
@@ -113,6 +112,7 @@ namespace QuanLyHocSinh
             m_dgvMain.DataSource = null;
 
         }
+
         private void LoadDataBaoCao()
         {
             //if (!bol) return;
@@ -864,25 +864,30 @@ namespace QuanLyHocSinh
         {
             m_dgvMain.DataSource = hs.InDanhSachlop(FrmMain.m_phanquyen.ID, node, FrmMain.m_phanquyen.PhanQuyen);
         }
+
         private void InBangDiemCuaLop()
         {
             m_dgvMain.DataSource = hs.InBangDiemCuaLop(FrmMain.m_phanquyen.ID, node, FrmMain.m_phanquyen.PhanQuyen, int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString()));
         }
+
         private void InBangDiemChiTietTungHocky()
         {
             int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
             m_dgvMain.DataSource = hs.InBangDiemChiTietTunghocKy(FrmMain.m_phanquyen.ID, node, m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, namhoc, m_cbbBaoCaohocky.SelectedValue.ToString());
         }
+
         private void InBaoCaoTongKetMon()
         {
             int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
             m_dgvMain.DataSource = hs.BaoCaoTongKetMon(m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
         }
+
         private void InBaoCaoTongKetHocKy()
         {
             int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
             m_dgvMain.DataSource = hs.BaoCaoTongKetHocKy(FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
         }
+
         private void m_cbbBaoCaonamhoc_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(typebaocao == 2)
@@ -936,8 +941,7 @@ namespace QuanLyHocSinh
                 int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
                 m_dgvMain.DataSource = hs.BaoCaoTongKetHocKy(FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
             }
-        }
-        
+        }   
 
     }
 }

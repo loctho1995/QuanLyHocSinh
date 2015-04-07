@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -171,11 +170,6 @@ namespace QuanLyHocSinh
                     m_tb.Text = "";
                 };
             //khi TextBox không còn được focus thì đóng control lại
-            m_tb.LostFocus += (o, e) =>
-                {
-                    m_mouseState = MouseStates.Leave;
-                    m_timer.Start();
-                };
             #endregion
 
             #region -Label-
