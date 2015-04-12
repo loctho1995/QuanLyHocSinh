@@ -49,7 +49,7 @@ namespace QuanLyHocSinh
             //}
             //m_cbbNamHoc.SelectedIndex = 0;
 
-            m_lbLop.Text = FrmMain.getnode();
+            m_lbLop.Text = FrmMain.Node;
 
             m_cbbNamHoc.DataSource = hs.LayNamHoc();
             m_cbbNamHoc.DisplayMember = "TENNAMHOC";

@@ -43,7 +43,6 @@ namespace QuanLyHocSinh
             m_ccbManamhoc.Visible = true;
             m_lblManamhoc.Visible = true;
         }
-
         //sua
         public frmSuaNhapHS(DataGridViewRow row)
         {

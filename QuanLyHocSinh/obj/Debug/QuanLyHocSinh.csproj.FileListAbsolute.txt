@@ -20,6 +20,7 @@ F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.SearchControl.reso
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.csproj.GenerateResource.Cache
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.exe
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.pdb
+<<<<<<< HEAD
 C:\Users\Sky\Documents\GitHub\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\QuanLyHocSinh.exe.config
 C:\Users\Sky\Documents\GitHub\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\QuanLyHocSinh.exe
 C:\Users\Sky\Documents\GitHub\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\QuanLyHocSinh.pdb
@@ -42,3 +43,6 @@ C:\Users\Sky\Documents\GitHub\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSin
 C:\Users\Sky\Documents\GitHub\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.csproj.GenerateResource.Cache
 C:\Users\Sky\Documents\GitHub\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.exe
 C:\Users\Sky\Documents\GitHub\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.pdb
+=======
+F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.frmCaiDat.resources
+>>>>>>> origin/master

@@ -23,19 +23,23 @@ namespace QuanLyHocSinh
         {
             InitializeComponent();
             this.m_btClose.BackColor = Color.FromArgb(255, 101, 99);
+            this.MinimumSize = this.Size;
+            this.MaximumSize = this.Size;
         }
 
         public frmXemSuaDiem_Mon(DataGridViewRow row, bool sua)
         {
             InitializeComponent();
             this.m_btClose.BackColor = Color.FromArgb(255, 101, 99);
+            this.MinimumSize = this.Size;
+            this.MaximumSize = this.Size;
 
             m_row = row;
             this.sua = sua;
 
             m_lbMaHS.Text = m_row.Cells["MAHS"].Value.ToString();
             m_lbHoTen.Text = m_row.Cells["HOTEN"].Value.ToString();
-            m_lbLop.Text = FrmMain.getnode();
+            m_lbLop.Text = FrmMain.Node;
 
             m_cbbMonHoc.DataSource = hs.LayMonHoc();
             m_cbbMonHoc.DisplayMember = "TENMONHOC";
@@ -77,7 +81,7 @@ namespace QuanLyHocSinh
 
         private void m_btSua_Click(object sender, EventArgs e)
         {
-            if (m_btSua.Text.ToString() != "Cancel")
+            if (m_btSua.ButtonText.ToString() != "Cancel")
             {
                 EnableAllTB();
 
@@ -89,7 +93,9 @@ namespace QuanLyHocSinh
                 m_lbTBHK1text.Visible = false;
                 m_lbTBHK2text.Visible = false;
 
-                m_btSua.Text = "Cancel";
+                m_btSua.ButtonText = "Cancel";
+                m_btSua.ButtonImage = QuanLyHocSinh.Properties.Resources.iconClose;
+                m_btSua.ImageOrigin = new Point(30, 0);
             }
             else
             {
@@ -104,7 +110,9 @@ namespace QuanLyHocSinh
                 m_lbTBHK1text.Visible = true;
                 m_lbTBHK2text.Visible = true;
 
-                m_btSua.Text = "Sửa";
+                m_btSua.ButtonText = "Sửa";
+                m_btSua.ImageOrigin = new Point(30, 0);
+                m_btSua.ButtonImage = QuanLyHocSinh.Properties.Resources.chinhsua;
             }
         }
 
@@ -115,8 +123,7 @@ namespace QuanLyHocSinh
         }
 
         private void m_btLuu_Click(object sender, EventArgs e)
-        {
-
+        {            
             if (m_tbD15pHK1.Text == "" || m_tbD15pHK2.Text == "" || m_tbDMiengHK1.Text == "" || m_tbDMiengHK2.Text == "" || m_tbD1tietHK1.Text == "" || m_tbD1tietHK2.Text == "" || m_tbDThiHK1.Text == "" || m_tbDThiHK2.Text == "")
                 MessageBox.Show("Các ô điểm không được để trống(có thể nhập '0' nếu chưa có điểm)");
             else
@@ -131,6 +138,19 @@ namespace QuanLyHocSinh
                         {
                             DisableAllTB();
                             m_btLuu.Enabled = false;
+
+                            m_btSua.ButtonText = "Sửa";
+                            m_btSua.ImageOrigin = new Point(30, 0);
+                            m_btSua.ButtonImage = QuanLyHocSinh.Properties.Resources.chinhsua;
+
+                            LoadDiem();
+
+                            m_lbTBHK1.Visible = true;
+                            m_lbTBHK2.Visible = true;
+
+                            m_lbTBHK1text.Visible = true;
+                            m_lbTBHK2text.Visible = true;
+
                         }
                         else
                         {
