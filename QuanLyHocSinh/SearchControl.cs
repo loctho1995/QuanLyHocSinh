@@ -116,7 +116,7 @@ namespace QuanLyHocSinh
         {
             GlowUp, GlowDown
         }
-        AlphaStates m_controlGlowState;
+
         #endregion
 
         #region - Methods -
@@ -124,9 +124,9 @@ namespace QuanLyHocSinh
         {
             #region -Init-
             InitializeComponent();
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
 
             #region -Init Attributes-
-            m_controlGlowState = AlphaStates.GlowDown;
             m_speed = 1; //tốc độ di chuyển hiện tại
             m_deltaSpeed = 2; //tốc độ biến thiên
             m_opacity = 1;
@@ -145,6 +145,7 @@ namespace QuanLyHocSinh
             m_bt.FlatStyle = FlatStyle.Flat;
             m_bt.FlatAppearance.BorderSize = 0;
             m_bt.MouseMove += m_MouseMove;
+            m_bt.BackColor = Color.Transparent;
             m_bt.MouseClick += (o, e) =>
                 {
                     if(m_state == States.Show)
@@ -179,6 +180,7 @@ namespace QuanLyHocSinh
             m_lb.Text = "Tìm kiếm học sinh";
             m_lb.Location = new Point(m_tb.Location.X + (m_showSize.Width / 2 - m_lb.Width), this.Location.Y + 5);//this.Location;
             m_lb.ForeColor = Color.Red;
+            m_lb.BackColor = Color.Transparent;
             #endregion
 
             #region -Add controls-

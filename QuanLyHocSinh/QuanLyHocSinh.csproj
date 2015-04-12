@@ -57,6 +57,7 @@
     <Compile Include="CustomTabControl.Designer.cs">
       <DependentUpon>CustomTabControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="FlatTabPage.cs" />
     <Compile Include="Form1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -82,6 +83,12 @@
     </Compile>
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCaiDat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCaiDat.Designer.cs">
+      <DependentUpon>frmCaiDat.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSuaNhapHS.cs">
       <SubType>Form</SubType>
@@ -139,6 +146,9 @@
       <DependentUpon>FrmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCaiDat.resx">
+      <DependentUpon>frmCaiDat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSuaNhapHS.resx">
       <DependentUpon>frmSuaNhapHS.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,9 +204,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\showButton.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\chinhsua.png" />
   </ItemGroup>
   <ItemGroup>
@@ -237,6 +244,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconreport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconsetting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\showButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

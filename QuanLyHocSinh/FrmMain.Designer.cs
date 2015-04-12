@@ -29,31 +29,31 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Lớp 10A1");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Lớp 10A2");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Lớp10A3");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Lớp10A4");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Khối 10", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Lớp 11A1");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Lớp 11A2");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Lớp 11A3");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Khối 11", new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode7,
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Lớp 12A1");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Lớp 12A2");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Khối 12", new System.Windows.Forms.TreeNode[] {
-            treeNode10,
-            treeNode11});
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Khối", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode9,
-            treeNode12});
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Lớp 10A1");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Lớp 10A2");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Lớp10A3");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Lớp10A4");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Khối 10", new System.Windows.Forms.TreeNode[] {
+            treeNode14,
+            treeNode15,
+            treeNode16,
+            treeNode17});
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Lớp 11A1");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Lớp 11A2");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Lớp 11A3");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Khối 11", new System.Windows.Forms.TreeNode[] {
+            treeNode19,
+            treeNode20,
+            treeNode21});
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Lớp 12A1");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Lớp 12A2");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Khối 12", new System.Windows.Forms.TreeNode[] {
+            treeNode23,
+            treeNode24});
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Khối", new System.Windows.Forms.TreeNode[] {
+            treeNode18,
+            treeNode22,
+            treeNode25});
             this.m_treeViewKhoi = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.m_dgwMain = new System.Windows.Forms.DataGridView();
@@ -66,10 +66,6 @@
             this.m_lblLopCN = new System.Windows.Forms.Label();
             this.m_lblLopBoMon = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.m_btHide = new QuanLyHocSinh.ButtonFlat();
-            this.m_btmaxSize = new QuanLyHocSinh.ButtonFlat();
-            this.m_dangXuatbtn = new QuanLyHocSinh.ButtonFlat();
-            this.m_btclose = new QuanLyHocSinh.ButtonFlat();
             this.m_scMain = new QuanLyHocSinh.SearchControl();
             this.m_tcMain = new QuanLyHocSinh.CustomTabControl();
             this.m_tbHoSo = new System.Windows.Forms.TabPage();
@@ -97,6 +93,11 @@
             this.m_cbbBaoCaomonhoc = new System.Windows.Forms.ComboBox();
             this.m_btBaoCao = new QuanLyHocSinh.ButtonFlat();
             this.m_tbTraCuu = new System.Windows.Forms.TabPage();
+            this.m_btCaiDat = new QuanLyHocSinh.ButtonFlat();
+            this.m_btHide = new QuanLyHocSinh.ButtonFlat();
+            this.m_btmaxSize = new QuanLyHocSinh.ButtonFlat();
+            this.m_btdangXuat = new QuanLyHocSinh.ButtonFlat();
+            this.m_btclose = new QuanLyHocSinh.ButtonFlat();
             ((System.ComponentModel.ISupportInitialize)(this.m_dgwMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_dgvMain)).BeginInit();
             this.m_tcMain.SuspendLayout();
@@ -116,39 +117,39 @@
             this.m_treeViewKhoi.ImageList = this.imageList1;
             this.m_treeViewKhoi.Location = new System.Drawing.Point(2, 124);
             this.m_treeViewKhoi.Name = "m_treeViewKhoi";
-            treeNode1.Name = "m_node10A1";
-            treeNode1.Text = "Lớp 10A1";
-            treeNode2.Name = "m_node10A2";
-            treeNode2.Text = "Lớp 10A2";
-            treeNode3.Name = "m_node10A3";
-            treeNode3.Text = "Lớp10A3";
-            treeNode4.Name = "m_node10A4";
-            treeNode4.Text = "Lớp10A4";
-            treeNode5.ImageIndex = 2;
-            treeNode5.Name = "m_nodeKhoi10";
-            treeNode5.Text = "Khối 10";
-            treeNode6.Name = "m_node11A1";
-            treeNode6.Text = "Lớp 11A1";
-            treeNode7.Name = "m_node11A2";
-            treeNode7.Text = "Lớp 11A2";
-            treeNode8.Name = "m_node11A3";
-            treeNode8.Text = "Lớp 11A3";
-            treeNode9.ImageIndex = 2;
-            treeNode9.Name = "m_nodeKhoi11";
-            treeNode9.Text = "Khối 11";
-            treeNode10.Name = "m_node12A1";
-            treeNode10.Text = "Lớp 12A1";
-            treeNode11.Name = "m_node12A2";
-            treeNode11.Text = "Lớp 12A2";
-            treeNode12.ImageIndex = 2;
-            treeNode12.Name = "m_nodeKhoi12";
-            treeNode12.Text = "Khối 12";
-            treeNode13.Checked = true;
-            treeNode13.ImageIndex = 1;
-            treeNode13.Name = "m_nodeKhoi";
-            treeNode13.Text = "Khối";
+            treeNode14.Name = "m_node10A1";
+            treeNode14.Text = "Lớp 10A1";
+            treeNode15.Name = "m_node10A2";
+            treeNode15.Text = "Lớp 10A2";
+            treeNode16.Name = "m_node10A3";
+            treeNode16.Text = "Lớp10A3";
+            treeNode17.Name = "m_node10A4";
+            treeNode17.Text = "Lớp10A4";
+            treeNode18.ImageIndex = 2;
+            treeNode18.Name = "m_nodeKhoi10";
+            treeNode18.Text = "Khối 10";
+            treeNode19.Name = "m_node11A1";
+            treeNode19.Text = "Lớp 11A1";
+            treeNode20.Name = "m_node11A2";
+            treeNode20.Text = "Lớp 11A2";
+            treeNode21.Name = "m_node11A3";
+            treeNode21.Text = "Lớp 11A3";
+            treeNode22.ImageIndex = 2;
+            treeNode22.Name = "m_nodeKhoi11";
+            treeNode22.Text = "Khối 11";
+            treeNode23.Name = "m_node12A1";
+            treeNode23.Text = "Lớp 12A1";
+            treeNode24.Name = "m_node12A2";
+            treeNode24.Text = "Lớp 12A2";
+            treeNode25.ImageIndex = 2;
+            treeNode25.Name = "m_nodeKhoi12";
+            treeNode25.Text = "Khối 12";
+            treeNode26.Checked = true;
+            treeNode26.ImageIndex = 1;
+            treeNode26.Name = "m_nodeKhoi";
+            treeNode26.Text = "Khối";
             this.m_treeViewKhoi.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode13});
+            treeNode26});
             this.m_treeViewKhoi.SelectedImageIndex = 0;
             this.m_treeViewKhoi.Size = new System.Drawing.Size(187, 374);
             this.m_treeViewKhoi.TabIndex = 0;
@@ -278,106 +279,6 @@
             this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Lớp BM:";
-            // 
-            // m_btHide
-            // 
-            this.m_btHide.AlphaGlow = 40F;
-            this.m_btHide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_btHide.BackColor = System.Drawing.Color.OrangeRed;
-            this.m_btHide.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconminmize;
-            this.m_btHide.ButtonText = "";
-            this.m_btHide.DeltaAlphaGlow = 8F;
-            this.m_btHide.DeltaDistance = 2F;
-            this.m_btHide.HaveEffects = true;
-            this.m_btHide.ImageOrigin = new System.Drawing.Point(0, 0);
-            this.m_btHide.ImageSize = new System.Drawing.Size(20, 20);
-            this.m_btHide.Location = new System.Drawing.Point(816, 2);
-            this.m_btHide.Margin = new System.Windows.Forms.Padding(2);
-            this.m_btHide.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
-            this.m_btHide.Name = "m_btHide";
-            this.m_btHide.SaveChanged = false;
-            this.m_btHide.ShadownDistance = 6;
-            this.m_btHide.Size = new System.Drawing.Size(28, 23);
-            this.m_btHide.TabIndex = 12;
-            this.m_btHide.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
-            this.m_btHide.TextColor = System.Drawing.Color.White;
-            this.m_btHide.TextOrigin = new System.Drawing.Point(0, 0);
-            this.m_btHide.Click += new System.EventHandler(this.button_Click);
-            // 
-            // m_btmaxSize
-            // 
-            this.m_btmaxSize.AlphaGlow = 40F;
-            this.m_btmaxSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_btmaxSize.BackColor = System.Drawing.Color.OrangeRed;
-            this.m_btmaxSize.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconmaxsize;
-            this.m_btmaxSize.ButtonText = "";
-            this.m_btmaxSize.DeltaAlphaGlow = 8F;
-            this.m_btmaxSize.DeltaDistance = 2F;
-            this.m_btmaxSize.HaveEffects = true;
-            this.m_btmaxSize.ImageOrigin = new System.Drawing.Point(0, 0);
-            this.m_btmaxSize.ImageSize = new System.Drawing.Size(25, 20);
-            this.m_btmaxSize.Location = new System.Drawing.Point(848, 2);
-            this.m_btmaxSize.Margin = new System.Windows.Forms.Padding(2);
-            this.m_btmaxSize.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
-            this.m_btmaxSize.Name = "m_btmaxSize";
-            this.m_btmaxSize.SaveChanged = false;
-            this.m_btmaxSize.ShadownDistance = 6;
-            this.m_btmaxSize.Size = new System.Drawing.Size(28, 23);
-            this.m_btmaxSize.TabIndex = 11;
-            this.m_btmaxSize.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
-            this.m_btmaxSize.TextColor = System.Drawing.Color.White;
-            this.m_btmaxSize.TextOrigin = new System.Drawing.Point(0, 0);
-            this.m_btmaxSize.Click += new System.EventHandler(this.button_Click);
-            // 
-            // m_dangXuatbtn
-            // 
-            this.m_dangXuatbtn.AlphaGlow = 40F;
-            this.m_dangXuatbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_dangXuatbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
-            this.m_dangXuatbtn.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconLogout;
-            this.m_dangXuatbtn.ButtonText = "đăng xuất";
-            this.m_dangXuatbtn.DeltaAlphaGlow = 8F;
-            this.m_dangXuatbtn.DeltaDistance = 2F;
-            this.m_dangXuatbtn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_dangXuatbtn.HaveEffects = true;
-            this.m_dangXuatbtn.ImageOrigin = new System.Drawing.Point(35, 0);
-            this.m_dangXuatbtn.ImageSize = new System.Drawing.Size(20, 20);
-            this.m_dangXuatbtn.Location = new System.Drawing.Point(694, 2);
-            this.m_dangXuatbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.m_dangXuatbtn.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
-            this.m_dangXuatbtn.Name = "m_dangXuatbtn";
-            this.m_dangXuatbtn.SaveChanged = false;
-            this.m_dangXuatbtn.ShadownDistance = 6;
-            this.m_dangXuatbtn.Size = new System.Drawing.Size(101, 23);
-            this.m_dangXuatbtn.TabIndex = 10;
-            this.m_dangXuatbtn.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
-            this.m_dangXuatbtn.TextColor = System.Drawing.Color.White;
-            this.m_dangXuatbtn.TextOrigin = new System.Drawing.Point(-8, 0);
-            this.m_dangXuatbtn.Click += new System.EventHandler(this.m_dangXuatbtn_Click);
-            // 
-            // m_btclose
-            // 
-            this.m_btclose.AlphaGlow = 40F;
-            this.m_btclose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_btclose.BackColor = System.Drawing.Color.Gray;
-            this.m_btclose.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconClose;
-            this.m_btclose.ButtonText = "";
-            this.m_btclose.DeltaAlphaGlow = 8F;
-            this.m_btclose.DeltaDistance = 2F;
-            this.m_btclose.HaveEffects = true;
-            this.m_btclose.ImageOrigin = new System.Drawing.Point(0, 0);
-            this.m_btclose.ImageSize = new System.Drawing.Size(30, 30);
-            this.m_btclose.Location = new System.Drawing.Point(880, 2);
-            this.m_btclose.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
-            this.m_btclose.Name = "m_btclose";
-            this.m_btclose.SaveChanged = false;
-            this.m_btclose.ShadownDistance = 6;
-            this.m_btclose.Size = new System.Drawing.Size(28, 23);
-            this.m_btclose.TabIndex = 9;
-            this.m_btclose.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
-            this.m_btclose.TextColor = System.Drawing.Color.White;
-            this.m_btclose.TextOrigin = new System.Drawing.Point(0, 0);
-            this.m_btclose.Click += new System.EventHandler(this.button_Click);
             // 
             // m_scMain
             // 
@@ -769,7 +670,7 @@
             this.m_btBaoCao.Name = "m_btBaoCao";
             this.m_btBaoCao.SaveChanged = false;
             this.m_btBaoCao.ShadownDistance = 6;
-            this.m_btBaoCao.Size = new System.Drawing.Size(111, 62);
+            this.m_btBaoCao.Size = new System.Drawing.Size(127, 62);
             this.m_btBaoCao.TabIndex = 8;
             this.m_btBaoCao.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btBaoCao.TextColor = System.Drawing.Color.White;
@@ -784,15 +685,142 @@
             this.m_tbTraCuu.TabIndex = 3;
             this.m_tbTraCuu.Text = "Tra Cứu";
             // 
+            // m_btCaiDat
+            // 
+            this.m_btCaiDat.AlphaGlow = 40F;
+            this.m_btCaiDat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.m_btCaiDat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
+            this.m_btCaiDat.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconsetting;
+            this.m_btCaiDat.ButtonText = "Cài đặt";
+            this.m_btCaiDat.DeltaAlphaGlow = 8F;
+            this.m_btCaiDat.DeltaDistance = 2F;
+            this.m_btCaiDat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_btCaiDat.HaveEffects = false;
+            this.m_btCaiDat.ImageOrigin = new System.Drawing.Point(35, 0);
+            this.m_btCaiDat.ImageSize = new System.Drawing.Size(20, 20);
+            this.m_btCaiDat.Location = new System.Drawing.Point(585, 2);
+            this.m_btCaiDat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_btCaiDat.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
+            this.m_btCaiDat.Name = "m_btCaiDat";
+            this.m_btCaiDat.SaveChanged = false;
+            this.m_btCaiDat.ShadownDistance = 6;
+            this.m_btCaiDat.Size = new System.Drawing.Size(101, 23);
+            this.m_btCaiDat.TabIndex = 13;
+            this.m_btCaiDat.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
+            this.m_btCaiDat.TextColor = System.Drawing.Color.White;
+            this.m_btCaiDat.TextOrigin = new System.Drawing.Point(-8, 0);
+            this.m_btCaiDat.Click += new System.EventHandler(this.button_Click);
+            // 
+            // m_btHide
+            // 
+            this.m_btHide.AlphaGlow = 40F;
+            this.m_btHide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.m_btHide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
+            this.m_btHide.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconminmize;
+            this.m_btHide.ButtonText = "";
+            this.m_btHide.DeltaAlphaGlow = 8F;
+            this.m_btHide.DeltaDistance = 2F;
+            this.m_btHide.HaveEffects = false;
+            this.m_btHide.ImageOrigin = new System.Drawing.Point(0, 0);
+            this.m_btHide.ImageSize = new System.Drawing.Size(20, 20);
+            this.m_btHide.Location = new System.Drawing.Point(816, 2);
+            this.m_btHide.Margin = new System.Windows.Forms.Padding(2);
+            this.m_btHide.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
+            this.m_btHide.Name = "m_btHide";
+            this.m_btHide.SaveChanged = false;
+            this.m_btHide.ShadownDistance = 6;
+            this.m_btHide.Size = new System.Drawing.Size(28, 23);
+            this.m_btHide.TabIndex = 12;
+            this.m_btHide.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
+            this.m_btHide.TextColor = System.Drawing.Color.White;
+            this.m_btHide.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btHide.Click += new System.EventHandler(this.button_Click);
+            // 
+            // m_btmaxSize
+            // 
+            this.m_btmaxSize.AlphaGlow = 40F;
+            this.m_btmaxSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.m_btmaxSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
+            this.m_btmaxSize.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconmaxsize;
+            this.m_btmaxSize.ButtonText = "";
+            this.m_btmaxSize.DeltaAlphaGlow = 8F;
+            this.m_btmaxSize.DeltaDistance = 2F;
+            this.m_btmaxSize.HaveEffects = false;
+            this.m_btmaxSize.ImageOrigin = new System.Drawing.Point(0, 0);
+            this.m_btmaxSize.ImageSize = new System.Drawing.Size(25, 20);
+            this.m_btmaxSize.Location = new System.Drawing.Point(848, 2);
+            this.m_btmaxSize.Margin = new System.Windows.Forms.Padding(2);
+            this.m_btmaxSize.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
+            this.m_btmaxSize.Name = "m_btmaxSize";
+            this.m_btmaxSize.SaveChanged = false;
+            this.m_btmaxSize.ShadownDistance = 6;
+            this.m_btmaxSize.Size = new System.Drawing.Size(28, 23);
+            this.m_btmaxSize.TabIndex = 11;
+            this.m_btmaxSize.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
+            this.m_btmaxSize.TextColor = System.Drawing.Color.White;
+            this.m_btmaxSize.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btmaxSize.Click += new System.EventHandler(this.button_Click);
+            // 
+            // m_btdangXuat
+            // 
+            this.m_btdangXuat.AlphaGlow = 40F;
+            this.m_btdangXuat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.m_btdangXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
+            this.m_btdangXuat.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconLogout;
+            this.m_btdangXuat.ButtonText = "đăng xuất";
+            this.m_btdangXuat.DeltaAlphaGlow = 8F;
+            this.m_btdangXuat.DeltaDistance = 2F;
+            this.m_btdangXuat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_btdangXuat.HaveEffects = false;
+            this.m_btdangXuat.ImageOrigin = new System.Drawing.Point(35, 0);
+            this.m_btdangXuat.ImageSize = new System.Drawing.Size(20, 20);
+            this.m_btdangXuat.Location = new System.Drawing.Point(694, 2);
+            this.m_btdangXuat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_btdangXuat.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
+            this.m_btdangXuat.Name = "m_btdangXuat";
+            this.m_btdangXuat.SaveChanged = false;
+            this.m_btdangXuat.ShadownDistance = 6;
+            this.m_btdangXuat.Size = new System.Drawing.Size(101, 23);
+            this.m_btdangXuat.TabIndex = 10;
+            this.m_btdangXuat.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
+            this.m_btdangXuat.TextColor = System.Drawing.Color.White;
+            this.m_btdangXuat.TextOrigin = new System.Drawing.Point(-8, 0);
+            this.m_btdangXuat.Click += new System.EventHandler(this.m_dangXuatbtn_Click);
+            // 
+            // m_btclose
+            // 
+            this.m_btclose.AlphaGlow = 40F;
+            this.m_btclose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.m_btclose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
+            this.m_btclose.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconClose;
+            this.m_btclose.ButtonText = "";
+            this.m_btclose.DeltaAlphaGlow = 8F;
+            this.m_btclose.DeltaDistance = 2F;
+            this.m_btclose.HaveEffects = false;
+            this.m_btclose.ImageOrigin = new System.Drawing.Point(0, 0);
+            this.m_btclose.ImageSize = new System.Drawing.Size(30, 30);
+            this.m_btclose.Location = new System.Drawing.Point(880, 2);
+            this.m_btclose.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
+            this.m_btclose.Name = "m_btclose";
+            this.m_btclose.SaveChanged = false;
+            this.m_btclose.ShadownDistance = 6;
+            this.m_btclose.Size = new System.Drawing.Size(28, 23);
+            this.m_btclose.TabIndex = 9;
+            this.m_btclose.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
+            this.m_btclose.TextColor = System.Drawing.Color.White;
+            this.m_btclose.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btclose.Click += new System.EventHandler(this.button_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(910, 524);
+            this.Controls.Add(this.m_btCaiDat);
             this.Controls.Add(this.m_btHide);
             this.Controls.Add(this.m_btmaxSize);
-            this.Controls.Add(this.m_dangXuatbtn);
+            this.Controls.Add(this.m_btdangXuat);
             this.Controls.Add(this.m_btclose);
             this.Controls.Add(this.m_lblName);
             this.Controls.Add(this.m_lblLopBoMon);
@@ -857,7 +885,7 @@
         private ButtonFlat m_btSuaDiem;
         private ButtonFlat m_btBaoCao;
         private ButtonFlat m_btclose;
-        private ButtonFlat m_dangXuatbtn;
+        private ButtonFlat m_btdangXuat;
         private ButtonFlat m_btmaxSize;
         private ButtonFlat m_btHide;
         private System.Windows.Forms.Label label8;
@@ -868,6 +896,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox m_cbbBaoCaoLoai;
         private System.Windows.Forms.ComboBox m_cbbBaoCaohocky;
+        private ButtonFlat m_btCaiDat;
     }
 }
 

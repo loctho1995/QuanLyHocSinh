@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.m_btClose = new QuanLyHocSinh.ButtonFlat();
             this.m_btLuu = new QuanLyHocSinh.ButtonFlat();
             this.m_btSua = new QuanLyHocSinh.ButtonFlat();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -63,9 +64,31 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.m_btClose = new QuanLyHocSinh.ButtonFlat();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // m_btClose
+            // 
+            this.m_btClose.AlphaGlow = 40F;
+            this.m_btClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btClose.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconClose;
+            this.m_btClose.ButtonText = "";
+            this.m_btClose.DeltaAlphaGlow = 2F;
+            this.m_btClose.DeltaDistance = 2F;
+            this.m_btClose.HaveEffects = false;
+            this.m_btClose.ImageOrigin = new System.Drawing.Point(0, 0);
+            this.m_btClose.ImageSize = new System.Drawing.Size(25, 25);
+            this.m_btClose.Location = new System.Drawing.Point(731, 1);
+            this.m_btClose.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
+            this.m_btClose.Name = "m_btClose";
+            this.m_btClose.SaveChanged = false;
+            this.m_btClose.ShadownDistance = 6;
+            this.m_btClose.Size = new System.Drawing.Size(50, 28);
+            this.m_btClose.TabIndex = 55;
+            this.m_btClose.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
+            this.m_btClose.TextColor = System.Drawing.Color.White;
+            this.m_btClose.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btClose.Click += new System.EventHandler(this.m_btClose_Click);
             // 
             // m_btLuu
             // 
@@ -79,7 +102,7 @@
             this.m_btLuu.HaveEffects = true;
             this.m_btLuu.ImageOrigin = new System.Drawing.Point(20, 0);
             this.m_btLuu.ImageSize = new System.Drawing.Size(30, 30);
-            this.m_btLuu.Location = new System.Drawing.Point(609, 360);
+            this.m_btLuu.Location = new System.Drawing.Point(620, 360);
             this.m_btLuu.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.m_btLuu.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btLuu.Name = "m_btLuu";
@@ -90,6 +113,7 @@
             this.m_btLuu.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
             this.m_btLuu.TextColor = System.Drawing.Color.White;
             this.m_btLuu.TextOrigin = new System.Drawing.Point(-20, 0);
+            this.m_btLuu.Click += new System.EventHandler(this.m_btLuu_Click);
             // 
             // m_btSua
             // 
@@ -101,7 +125,7 @@
             this.m_btSua.DeltaDistance = 2F;
             this.m_btSua.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.m_btSua.HaveEffects = true;
-            this.m_btSua.ImageOrigin = new System.Drawing.Point(20, 0);
+            this.m_btSua.ImageOrigin = new System.Drawing.Point(30, 0);
             this.m_btSua.ImageSize = new System.Drawing.Size(30, 30);
             this.m_btSua.Location = new System.Drawing.Point(491, 360);
             this.m_btSua.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
@@ -109,11 +133,12 @@
             this.m_btSua.Name = "m_btSua";
             this.m_btSua.SaveChanged = false;
             this.m_btSua.ShadownDistance = 6;
-            this.m_btSua.Size = new System.Drawing.Size(90, 39);
+            this.m_btSua.Size = new System.Drawing.Size(117, 39);
             this.m_btSua.TabIndex = 45;
             this.m_btSua.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
             this.m_btSua.TextColor = System.Drawing.Color.White;
             this.m_btSua.TextOrigin = new System.Drawing.Point(-20, 0);
+            this.m_btSua.Click += new System.EventHandler(this.m_btSua_Click);
             // 
             // pictureBox1
             // 
@@ -452,29 +477,6 @@
             this.label1.Size = new System.Drawing.Size(96, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Mã học sinh:";
-            // 
-            // m_btClose
-            // 
-            this.m_btClose.AlphaGlow = 40F;
-            this.m_btClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
-            this.m_btClose.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconClose;
-            this.m_btClose.ButtonText = "";
-            this.m_btClose.DeltaAlphaGlow = 2F;
-            this.m_btClose.DeltaDistance = 2F;
-            this.m_btClose.HaveEffects = false;
-            this.m_btClose.ImageOrigin = new System.Drawing.Point(0, 0);
-            this.m_btClose.ImageSize = new System.Drawing.Size(25, 25);
-            this.m_btClose.Location = new System.Drawing.Point(731, 1);
-            this.m_btClose.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
-            this.m_btClose.Name = "m_btClose";
-            this.m_btClose.SaveChanged = false;
-            this.m_btClose.ShadownDistance = 6;
-            this.m_btClose.Size = new System.Drawing.Size(50, 28);
-            this.m_btClose.TabIndex = 55;
-            this.m_btClose.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
-            this.m_btClose.TextColor = System.Drawing.Color.White;
-            this.m_btClose.TextOrigin = new System.Drawing.Point(0, 0);
-            this.m_btClose.Click += new System.EventHandler(this.m_btClose_Click);
             // 
             // frmXemSuaDiem_Mon
             // 

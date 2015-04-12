@@ -35,28 +35,28 @@ namespace QuanLyHocSinh
         public BTTextAlignment TextAlignment
         {
             get { return m_textAlignment; }
-            set { m_textAlignment = value; }
+            set { m_textAlignment = value; this.Invalidate(); }
         }
 
         Point m_textOrigin;
         public Point TextOrigin
         {
             get { return m_textOrigin; }
-            set { m_textOrigin = value; }
+            set { m_textOrigin = value; this.Invalidate(); }
         }
 
         string m_text;
         public string ButtonText
         {
             get { return m_text; }
-            set { m_text = value; }
+            set { m_text = value; this.Invalidate(); }
         }
 
         Color m_textColor;
         public Color TextColor
         {
             get { return m_textColor; }
-            set { m_textColor = value; }
+            set { m_textColor = value; this.Invalidate(); }
         }
         
         //do lech cua anh khi ve len, mac dinh la 0,0 ve o giua
@@ -64,28 +64,28 @@ namespace QuanLyHocSinh
         public Point ImageOrigin
         {
             get { return m_imageOrigin; }
-            set { m_imageOrigin = value; }
+            set { m_imageOrigin = value; this.Invalidate(); }
         }
 
         int m_shawdownDistance;
         public int ShadownDistance
         {
             get { return m_shawdownDistance; }
-            set { m_shawdownDistance = value; }
+            set { m_shawdownDistance = value; this.Invalidate(); }
         }
 
         Image m_buttonImage;
         public Image ButtonImage
         {
             get { return m_buttonImage; }
-            set { m_buttonImage = value; }
+            set { m_buttonImage = value; this.Invalidate(); }
         }
 
         Size m_imageSize;
         public Size ImageSize
         {
             get { return m_imageSize; }
-            set { m_imageSize = value; }
+            set { m_imageSize = value; this.Invalidate(); }
         }
 
         //do trong suot toi da, dung cho hieu ung sang cua button khi mouse hover, default = 20
@@ -93,7 +93,7 @@ namespace QuanLyHocSinh
         public float AlphaGlow
         {
             get { return m_alphaGlow; }
-            set { m_alphaGlow = value; }
+            set { m_alphaGlow = value; this.Invalidate(); }
         }
 
         //do bien thien alphaGlow theo thoi gian
@@ -101,7 +101,7 @@ namespace QuanLyHocSinh
         public float DeltaAlphaGlow
         {
             get { return m_deltaAlphaGlow; }
-            set { m_deltaAlphaGlow = value; }
+            set { m_deltaAlphaGlow = value; this.Invalidate(); }
         }
 
         //khoang distance thay doi dung cho khi mouse hover
@@ -109,21 +109,21 @@ namespace QuanLyHocSinh
         public float DeltaDistance
         {
             get { return m_deltaDistace; }
-            set { m_deltaDistace = value; }
+            set { m_deltaDistace = value; this.Invalidate(); }
         }
 
         bool m_saveChanged; // cho phep luu Location khi Event OnLocationChanged duoc goi
         public bool SaveChanged
         {
             get { return m_saveChanged; }
-            set { m_saveChanged = value; }
+            set { m_saveChanged = value; this.Invalidate(); }
         }
 
         bool m_haveEffects;
         public bool HaveEffects
         {
             get { return m_haveEffects; }
-            set { m_haveEffects = value; }
+            set { m_haveEffects = value; this.Invalidate(); }
         }
 
         Timer m_timer;
