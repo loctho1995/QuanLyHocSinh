@@ -164,270 +164,6 @@ namespace QuanLyHocSinh
             m_dgvMain.DataSource = null;
         }
 
-<<<<<<< HEAD
-        private void TextBoxSearch_TextChanged(object sender, EventArgs e)
-        {
-            m_checkseach = true;
-            if (m_scMain.TextBoxSearch.Text == "")
-            {
-                m_dgvMain.DataSource = null;
-                m_checkseach = false;
-            }
-            else
-                DesignDataGridView(m_dgvMain, m_scMain.TextBoxSearch.Text);
-        }
-
-        //cho phép resize góc dưới bên phải
-        private const int cGrip = 5;      // Grip size, khoảng range để xác định cho việc resize form xem thêm ở WndPrc
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case 0x84:
-                    base.WndProc(ref m);
-
-                    if ((int)m.Result == 0x1)
-                        m.Result = (IntPtr)0x2;
-
-                    Point pos = new Point(m.LParam.ToInt32() & 0xffff, m.LParam.ToInt32() >> 16);
-                    pos = this.PointToClient(pos);
-
-                    /*
-                    const int htLeft = 10;
-                    const int htRight = 11;
-                    const int htTop = 12;
-                    const int htTopLeft = 13;
-                    const int htTopRight = 14;
-                    const int htBottom = 15;            
-                    const int htBottomLeft = 16;
-                    const int htBottomRight = 17;  
-                     */
-
-                    //if (pos.Y < cCaption)
-                    //{
-                    //    m.Result = (IntPtr)2;  // HTCAPTION
-                    //    return;
-                    //}
-
-                    //rê chuột vào phía cạnh bên trái
-                    if (pos.X <= cGrip && pos.Y < this.ClientSize.Height - cGrip && pos.Y > cGrip)
-                    {
-                        m.Result = (IntPtr)10;  // HTCAPTION
-                        return;
-                    }
-
-                    //rê chuột vào phía cạnh bên phải
-                    if (pos.X >= this.ClientSize.Width - cGrip && pos.Y < this.ClientSize.Height - cGrip && pos.Y > cGrip)
-                    {
-                        m.Result = (IntPtr)11;
-                        return;
-                    }
-
-                    //rê chuột vào góc dưới bên phải
-                    if (pos.X >= this.ClientSize.Width - cGrip && pos.Y >= this.ClientSize.Height - cGrip)
-                    {
-                        m.Result = (IntPtr)17; // HTBOTTOMRIGHT
-                        return;
-                    }
-
-                    //rê chuột vào góc dưới bên trái
-                    if (pos.X <= cGrip && pos.Y >= this.ClientSize.Height - cGrip)
-                    {
-                        m.Result = (IntPtr)16;
-                        return;
-                    }
-
-                    //rê chuột bên phía trên top
-                    if (pos.Y < cGrip)
-                    {
-                        m.Result = (IntPtr)12;
-                        return;
-                    }
-
-                    //rê chuột xuông dưới bottom
-                    if (pos.Y > this.ClientSize.Height - cGrip)
-                    {
-                        m.Result = (IntPtr)15;
-                        return;
-                    }
-
-                    this.Invalidate();
-                    return;
-            }
-
-            base.WndProc(ref m);
-        }
-
-        private void button_Click(object sender, EventArgs e)
-        {
-            switch ((sender as Control).Name)
-            {
-                case "m_btclose":
-                  //  if (MessageBox.Show("Sure Mother fucker?", "Quit", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
-                        this.Close();
-                    break;
-
-                case "m_btXoaHS":
-                    XoaHocSinh();
-                    break;
-
-                case "m_btXemThongTin":
-                    XemThongTin();
-                    break;
-
-                case "m_btThemHS":
-                    ThemHocSinh();
-                    break;
-
-                case "m_btSuaHS":
-                    SuaHocSinh();
-                    break;
-                    
-                case "m_btSuaDiem":
-                    SuaDiem();
-                    break;
-
-                case "m_btXemDiem":
-                    XemDiem();
-                    break;
-
-                case "m_btHide":
-                    (sender as ButtonFlat).SaveChanged = true;
-                    this.WindowState = FormWindowState.Minimized;
-
-                    break;
-
-                case "m_btmaxSize":
-                    (sender as ButtonFlat).SaveChanged = true;
-
-                    if (this.WindowState != FormWindowState.Maximized)
-                    {
-                        this.WindowState = FormWindowState.Maximized;
-                        m_btmaxSize.ButtonImage = QuanLyHocSinh.Properties.Resources.iconminsize;
-                    }
-                    else
-                    {
-                        this.WindowState = FormWindowState.Normal;
-                        m_btmaxSize.ButtonImage = QuanLyHocSinh.Properties.Resources.iconmaxsize;
-                    }
-
-                    break;
-                default:
-                    break;
-            }
-        }       
-
-        private void m_treeViewKhoi_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            //Viet ham check cho button baocao
-            //m_btBaoCao.Enabled = false;
-            //for (int i = 0; i < m_phanquyen.LopBM.Count(); i++)
-            //{
-            //    if (e.Node.Text == m_phanquyen.LopBM[i])
-            //    {
-            //        m_btBaoCao.Enabled = true;
-            //        break;
-            //    }
-            //}
-
-            
-            switch (e.Node.Name)
-            {
-                case "m_nodeKhoi":
-                    break;
-
-                //Click vào Node Khối 10
-                case "m_nodeKhoi10":
-                    node = "10";
-                    break;
-
-                //Click vào Node khối 11
-                case "m_nodeKhoi11":
-                    node = "11";
-                    break;
-
-                //Click vào Node khối 11
-                case "m_nodeKhoi12":
-                    node = "12";
-                    break;
-
-                case "m_node10A1":
-                    node = "10a1";
-                    break;
-
-                case "m_node10A2":
-                    node = "10a2";
-                    break;
-
-                case "m_node10A3":
-                    node = "10a3";
-                    break;
-
-                case "m_node10A4":
-                    node = "10a4";
-                    break;
-
-                case "m_node11A1":
-                    node = "11a1";
-                    break;
-
-                case "m_node11A2":
-                    node = "11a2";
-                    break;
-
-                case "m_node11A3":
-                    node = "11a3";
-                    break;
-
-                case "m_node12A1":
-                    node = "12a1";
-                    break;
-
-                case "m_node12A2":
-                    node = "12a2";
-                    break;
-                default:
-                    break;
-
-            }
-            DesignDataGridView(m_dgvMain, node);
-        }
-      
-        //private void DesignDataGridView(DataGridView dgv, string ma)
-
-        //private void DesignDataGridView(DataGridView dgv, string ma)
-        //{
-        //    if (m_checkseach)
-        //        dgv.DataSource = hs.TimKiemThongTinHocSinh(ma);//hs.TimKiemThongTinHocSinh(ma);
-        //    else if (ma.Length == 2)
-        //        dgv.DataSource = hs.LayHocSinh_Khoi(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
-        //    else dgv.DataSource = hs.LayHocSinh_Lop(ma, m_phanquyen.ID, m_phanquyen.PhanQuyen);
-        //    if (dgv.DataSource == null) return;
-        //    dgv.Columns["STT"].Width = 40;
-        //    dgv.Columns["MAHS"].Width = 50;
-        //    dgv.Columns["HOTEN"].Width = 120;
-        //    dgv.Columns["GIOITINH"].Width = 50;
-        //    dgv.Columns["EMAIL"].Width = 120;
-        //    dgv.Columns["MALOP"].Width = 50;
-        //    dgv.Columns["MAKHOILOP"].Width = 40;
-
-        //    dgv.Columns["MAHS"].HeaderText = "Mã học sinh";
-        //    dgv.Columns["HOTEN"].HeaderText = "Họ và tện";
-        //    dgv.Columns["GIOITINH"].HeaderText = "Giới tính";
-        //    dgv.Columns["EMAIL"].HeaderText = "Email";
-        //    dgv.Columns["DIACHI"].HeaderText = "Địa chỉ";
-        //    dgv.Columns["MALOP"].HeaderText = "Mã lớp";
-        //    dgv.Columns["MAKHOILOP"].HeaderText = "Mã khối";
-        //    dgv.Columns["HOTENCHA"].HeaderText = "Họ tên cha";
-        //    dgv.Columns["HOTENME"].HeaderText = "Họ tên mẹ";
-        //    dgv.Columns["NGHENGHIEPCHA"].HeaderText = "Nghề nghiệp cha";
-        //    dgv.Columns["NGHENGHIEPME"].HeaderText = "Nghề nghiệp mẹ";
-        //    m_checkseach = false;
-        //}
-        //them vao ham DesignDataGridView switch de xu ly tab
-
-=======
->>>>>>> origin/master
         private bool CheckGVInLopBM(string lop)
         {
             if (FrmMain.m_phanquyen.PhanQuyen == 1)
@@ -453,6 +189,7 @@ namespace QuanLyHocSinh
       
         private void ShowHocSinh_Khoi()
         {
+            //
             m_dgvMain.DataSource = hs.LayTatCa();
         }
 
@@ -531,7 +268,7 @@ namespace QuanLyHocSinh
                 frmThongTinHS frmTT = new frmThongTinHS(m_dgvMain.SelectedRows[0]);
                 frmTT.FormID = int.Parse(m_dgvMain.SelectedRows[0].Cells["MAHS"].Value.ToString());
                 ListThongTinHS.Add(frmTT);
-                frmTT.ShowDialog();
+                frmTT.Show();
             }
         }
 
@@ -575,16 +312,8 @@ namespace QuanLyHocSinh
 
         private void XuatBaoCao()
         {
-            try
-            {
-                frmBaoCao frmBC = new frmBaoCao(m_dgvMain, m_treeViewKhoi.SelectedNode.Text, m_cbbBaoCaoLoai.SelectedItem.ToString());
-                frmBC.ShowDialog();
-            }
-            catch
-            {
- 
-            }
-            
+            frmBaoCao frmBC = new frmBaoCao(m_treeViewKhoi.SelectedNode.Text, FrmMain.m_phanquyen.PhanQuyen);
+            frmBC.ShowDialog();
         }
 
         public static string Node
@@ -592,54 +321,6 @@ namespace QuanLyHocSinh
             get { return m_node; }
         }
 
-<<<<<<< HEAD
-        private void m_dangXuatbtn_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Dang Xuat?", "Thong Bao", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
-            {
-                this.Hide();
-                m_lblID.Text = null;
-                m_lblName.Text = null;
-                frmDangNhap frmdangNhap = new frmDangNhap();
-                frmdangNhap.ShowDialog();
-                this.Close();
-
-            }
-        }
-
-        private void m_btBaoCao_Click(object sender, EventArgs e)
-        {
-            XuatBaoCao();
-        }
-
-        private void m_ccbPhanQuyen_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (m_ccbPhanQuyen.Text.ToString() == "GVCN")
-                m_cbbBoMon.Enabled = false;
-            else
-                m_cbbBoMon.Enabled = true;
-
-            DesignDataGridView(m_dgvMain, node);
-        }
-
-        private void m_cbbBoMon_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DesignDataGridView(m_dgvMain, node);
-        }
-
-        private void m_cbbNamHoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DesignDataGridView(m_dgvMain, node);
-        }
-
-        public static string getnode()
-        {
-            return node;
-        }
-
-=======
->>>>>>> origin/master
         public static string getmagv()
         {
             return m_phanquyen.ID;
@@ -860,8 +541,6 @@ namespace QuanLyHocSinh
 
         private void m_cbbBaoCaonamhoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-=======
             if(typebaocao == 2)
                 m_dgvMain.DataSource = hs.InBangDiemCuaLop(FrmMain.m_phanquyen.ID, m_node, FrmMain.m_phanquyen.PhanQuyen, int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString()));
             else if (typebaocao == 1)
@@ -879,7 +558,6 @@ namespace QuanLyHocSinh
                 int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
                 m_dgvMain.DataSource = hs.BaoCaoTongKetHocKy(FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
             }
->>>>>>> origin/master
 
         }
 
@@ -916,12 +594,6 @@ namespace QuanLyHocSinh
             }
         }
 
-<<<<<<< HEAD
-        private void m_tcMain_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            m_treeViewKhoi.SelectedNode = null;
-        }   
-=======
         private void m_dgvMain_DoubleClick(object sender, EventArgs e)
         {
             this.XemThongTin();
@@ -1197,7 +869,6 @@ namespace QuanLyHocSinh
 
             base.WndProc(ref m);
         }
->>>>>>> origin/master
 
         #endregion
     }

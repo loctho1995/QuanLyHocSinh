@@ -62,15 +62,5 @@ namespace DAO.Properties {
                 return ((string)(this["SQL_QUANLYHOCSINHConnectionString3"]));
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=sky;Initial Catalog=SQL_QUANLYHOCSINH;Integrated Security=True")]
-        public string SQL_QUANLYHOCSINHConnectionString4 {
-            get {
-                return ((string)(this["SQL_QUANLYHOCSINHConnectionString4"]));
-            }
-        }
     }
 }

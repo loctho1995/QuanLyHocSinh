@@ -21,10 +21,6 @@ namespace QuanLyHocSinh
             InitializeComponent();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         private void m_dangNhapBtn_Click(object sender, EventArgs e)
         {
             if (Check() == true)
@@ -40,15 +36,15 @@ namespace QuanLyHocSinh
                 frmMain.ShowDialog();
                 this.Close();
             }
-            else 
+            else
             {
-                MessageBox.Show("Wrong hole Mother Fucker!!!"); 
+                MessageBox.Show("Wrong hole Mother Fucker!!!");
             }
         }
         //
         private bool Check()
         {
-            int x = hs.DangNhap(m_tbID.Text, m_tbPass.Text,ref name, ref malop, ref phanquyen);
+            int x = hs.DangNhap(m_tbID.Text, m_tbPass.Text, ref name, ref malop, ref phanquyen);
             if (x == 1)
                 return true;
             else if (x == 2)
@@ -67,7 +63,7 @@ namespace QuanLyHocSinh
             this.Close();
         }
 
-      protected override bool ProcessCmdKey(ref Message msg, Keys keydata) 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keydata)
         {
             if (keydata == Keys.Enter)
             {
@@ -94,13 +90,12 @@ namespace QuanLyHocSinh
             {
                 return false;
             }
-            
-        } 
 
+        }
 
-
-
-
-
+        private void buttonFlat1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

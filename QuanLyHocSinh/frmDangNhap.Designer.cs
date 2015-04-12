@@ -71,7 +71,7 @@
             // 
             this.m_tbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.m_tbID.Location = new System.Drawing.Point(277, 90);
-            this.m_tbID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_tbID.Margin = new System.Windows.Forms.Padding(2);
             this.m_tbID.Multiline = true;
             this.m_tbID.Name = "m_tbID";
             this.m_tbID.Size = new System.Drawing.Size(193, 33);
@@ -82,7 +82,7 @@
             this.m_tbPass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.m_tbPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.m_tbPass.Location = new System.Drawing.Point(277, 139);
-            this.m_tbPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_tbPass.Margin = new System.Windows.Forms.Padding(2);
             this.m_tbPass.Multiline = true;
             this.m_tbPass.Name = "m_tbPass";
             this.m_tbPass.PasswordChar = '*';
@@ -122,6 +122,7 @@
             this.buttonFlat1.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.buttonFlat1.TextColor = System.Drawing.Color.White;
             this.buttonFlat1.TextOrigin = new System.Drawing.Point(0, 0);
+            this.buttonFlat1.Click += new System.EventHandler(this.buttonFlat1_Click);
             // 
             // m_dangNhapBtn
             // 
@@ -164,7 +165,7 @@
             this.Controls.Add(this.m_IDLable);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmDangNhap";
             this.Opacity = 0.99D;
             this.Text = "frmDangNhap";
