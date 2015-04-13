@@ -22,7 +22,7 @@ namespace QuanLyHocSinh
         public frmXemSuaDiem_Mon()
         {
             InitializeComponent();
-            this.m_btClose.BackColor = Color.FromArgb(255, 101, 99);
+
             this.MinimumSize = this.Size;
             this.MaximumSize = this.Size;
         }
@@ -30,7 +30,7 @@ namespace QuanLyHocSinh
         public frmXemSuaDiem_Mon(DataGridViewRow row, bool sua)
         {
             InitializeComponent();
-            this.m_btClose.BackColor = Color.FromArgb(255, 101, 99);
+
             this.MinimumSize = this.Size;
             this.MaximumSize = this.Size;
 
@@ -286,6 +286,11 @@ namespace QuanLyHocSinh
         private void m_btClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void m_btminimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

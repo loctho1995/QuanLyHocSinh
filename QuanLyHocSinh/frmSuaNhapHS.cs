@@ -23,12 +23,14 @@ namespace QuanLyHocSinh
         List<LOP> ll = new List<LOP>();
         HocSinh_BUS hs_bus= new HocSinh_BUS();
         bool m_check = true;
+        string m_imagePath;
 
         public frmSuaNhapHS()
         {
             InitializeComponent();
             FrmMain.IsSuaNhapOpen = true;
             this.BackColor = Color.FromArgb(102, 101, 101);
+
             this.MaximumSize = this.Size;
             this.MinimumSize = this.Size;
             m_btClose.BackColor = Color.FromArgb(255, 101, 99);
@@ -136,6 +138,20 @@ namespace QuanLyHocSinh
             else
             {
                 m_tbEmail.ForeColor = Color.Black;
+            }
+        }
+
+        private void m_btminimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void buttonFlat1_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.FileName = "";
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                
             }
         }
     }

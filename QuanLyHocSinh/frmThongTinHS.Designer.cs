@@ -54,6 +54,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.m_btchinhSua = new QuanLyHocSinh.ButtonFlat();
             this.m_btClose = new QuanLyHocSinh.ButtonFlat();
+            this.m_btminimize = new QuanLyHocSinh.ButtonFlat();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -347,7 +348,7 @@
             // m_btchinhSua
             // 
             this.m_btchinhSua.AlphaGlow = 40F;
-            this.m_btchinhSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btchinhSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
             this.m_btchinhSua.ButtonImage = global::QuanLyHocSinh.Properties.Resources.chinhsua;
             this.m_btchinhSua.ButtonText = "Chỉnh sửa";
             this.m_btchinhSua.DeltaAlphaGlow = 2F;
@@ -356,7 +357,7 @@
             this.m_btchinhSua.HaveEffects = false;
             this.m_btchinhSua.ImageOrigin = new System.Drawing.Point(25, 0);
             this.m_btchinhSua.ImageSize = new System.Drawing.Size(18, 18);
-            this.m_btchinhSua.Location = new System.Drawing.Point(778, 2);
+            this.m_btchinhSua.Location = new System.Drawing.Point(726, 2);
             this.m_btchinhSua.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btchinhSua.Name = "m_btchinhSua";
             this.m_btchinhSua.SaveChanged = false;
@@ -371,7 +372,7 @@
             // m_btClose
             // 
             this.m_btClose.AlphaGlow = 40F;
-            this.m_btClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
             this.m_btClose.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconClose;
             this.m_btClose.ButtonText = "";
             this.m_btClose.DeltaAlphaGlow = 2F;
@@ -391,12 +392,36 @@
             this.m_btClose.TextOrigin = new System.Drawing.Point(0, 0);
             this.m_btClose.Click += new System.EventHandler(this.m_btClose_Click);
             // 
+            // m_btminimize
+            // 
+            this.m_btminimize.AlphaGlow = 40F;
+            this.m_btminimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
+            this.m_btminimize.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconminmize;
+            this.m_btminimize.ButtonText = "";
+            this.m_btminimize.DeltaAlphaGlow = 2F;
+            this.m_btminimize.DeltaDistance = 2F;
+            this.m_btminimize.HaveEffects = false;
+            this.m_btminimize.ImageOrigin = new System.Drawing.Point(0, 0);
+            this.m_btminimize.ImageSize = new System.Drawing.Size(25, 25);
+            this.m_btminimize.Location = new System.Drawing.Point(822, 1);
+            this.m_btminimize.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
+            this.m_btminimize.Name = "m_btminimize";
+            this.m_btminimize.SaveChanged = false;
+            this.m_btminimize.ShadownDistance = 6;
+            this.m_btminimize.Size = new System.Drawing.Size(43, 27);
+            this.m_btminimize.TabIndex = 17;
+            this.m_btminimize.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
+            this.m_btminimize.TextColor = System.Drawing.Color.White;
+            this.m_btminimize.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btminimize.Click += new System.EventHandler(this.m_btminimize_Click);
+            // 
             // frmThongTinHS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(915, 320);
+            this.Controls.Add(this.m_btminimize);
             this.Controls.Add(this.m_btchinhSua);
             this.Controls.Add(this.m_btClose);
             this.Controls.Add(this.label15);
@@ -461,5 +486,6 @@
         private System.Windows.Forms.Label m_lblNgheNghiepMe;
         private ButtonFlat m_btClose;
         private ButtonFlat m_btchinhSua;
+        private ButtonFlat m_btminimize;
     }
 }

@@ -75,7 +75,6 @@ namespace QuanLyHocSinh
             m_tbHoSo.BackColor = Color.FromArgb(35, 168, 111);
             m_tbBaoCao.BackColor = Color.FromArgb(35, 168, 111);
             m_tbHocTap.BackColor = Color.FromArgb(35, 168, 111);
-            m_tbTraCuu.BackColor = Color.FromArgb(35, 168, 111);
 
             m_btclose.BackColor = Color.FromArgb(255, 101, 99);
             m_btHide.BackColor = m_btclose.BackColor;
@@ -499,9 +498,6 @@ namespace QuanLyHocSinh
                 bol = false;
             }
 
-            if (m_tcMain.TabPages[3].Focus() == true)
-                tabpage = 3;
-
             //cau lenh lam mat datagridview khi chuyen tab
             m_dgvMain.DataSource = null;
 
@@ -510,6 +506,8 @@ namespace QuanLyHocSinh
         private void m_cbbBaoCaoLoai_SelectedIndexChanged(object sender, EventArgs e)
         {
             m_dgvMain.DataSource = null;
+            m_treeViewKhoi.SelectedNode = null;
+
             switch (m_cbbBaoCaoLoai.SelectedItem.ToString())
             {
                 case "In danh sách lớp":
@@ -879,5 +877,10 @@ namespace QuanLyHocSinh
         }
 
         #endregion
+
+        private void m_tcMain_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            m_treeViewKhoi.SelectedNode = null;
+        }
     }
 }

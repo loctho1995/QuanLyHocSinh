@@ -14,13 +14,16 @@ using BUS;
 
 namespace QuanLyHocSinh
 {
-    public partial class frmBaoCao : Form
+    public partial class frmBaoCao : FormFlat
     {
 
         public frmBaoCao(DataGridView data, string Lop, string TableName)
         {
             InitializeComponent();
+            this.BackColor = Color.FromArgb(102, 101, 101);
+
             this.m_dgvData.DataSource = data.DataSource;
+            this.AllowFormResize = true;
             m_lableLop.Text = Lop;
             m_tableName.Text = TableName;
         }
@@ -82,6 +85,33 @@ namespace QuanLyHocSinh
             wb.SaveAs(path, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             wb.Close(true, misValue, misValue);
             app.Quit();
+        }
+
+        private void m_btclose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void m_btmaxSize_Click(object sender, EventArgs e)
+        {
+            (sender as ButtonFlat).SaveChanged = true;
+
+            if (this.WindowState != FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                m_btmaxSize.ButtonImage = QuanLyHocSinh.Properties.Resources.iconminsize;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                m_btmaxSize.ButtonImage = QuanLyHocSinh.Properties.Resources.iconmaxsize;
+            }
+        }
+
+        private void m_btHide_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+            (sender as ButtonFlat).SaveChanged = true;
         }
 
 

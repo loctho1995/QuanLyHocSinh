@@ -21,6 +21,22 @@ namespace QuanLyHocSinh
             InitializeComponent();
         }
 
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case 0x84:
+                    base.WndProc(ref m);
+
+                    if ((int)m.Result == 0x1)
+                        m.Result = (IntPtr)0x2;
+                    return;
+
+            }
+
+            base.WndProc(ref m);
+        }
+
         private void m_dangNhapBtn_Click(object sender, EventArgs e)
         {
             if (Check() == true)
@@ -82,7 +98,7 @@ namespace QuanLyHocSinh
                 }
                 else
                 {
-                    MessageBox.Show("Wrong hole Mother Fucker!!!");
+                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác");
                 }
                 return true;
             }
@@ -96,6 +112,11 @@ namespace QuanLyHocSinh
         private void buttonFlat1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void m_btminimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

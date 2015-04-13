@@ -64,13 +64,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.m_btminimize = new QuanLyHocSinh.ButtonFlat();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // m_btClose
             // 
             this.m_btClose.AlphaGlow = 40F;
-            this.m_btClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
             this.m_btClose.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconClose;
             this.m_btClose.ButtonText = "";
             this.m_btClose.DeltaAlphaGlow = 2F;
@@ -93,7 +94,7 @@
             // m_btLuu
             // 
             this.m_btLuu.AlphaGlow = 40F;
-            this.m_btLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.m_btLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
             this.m_btLuu.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconsave;
             this.m_btLuu.ButtonText = "Lưu";
             this.m_btLuu.DeltaAlphaGlow = 2F;
@@ -118,7 +119,7 @@
             // m_btSua
             // 
             this.m_btSua.AlphaGlow = 40F;
-            this.m_btSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.m_btSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
             this.m_btSua.ButtonImage = global::QuanLyHocSinh.Properties.Resources.chinhsua;
             this.m_btSua.ButtonText = "Sửa";
             this.m_btSua.DeltaAlphaGlow = 2F;
@@ -478,11 +479,35 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Mã học sinh:";
             // 
+            // m_btminimize
+            // 
+            this.m_btminimize.AlphaGlow = 40F;
+            this.m_btminimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
+            this.m_btminimize.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconminmize;
+            this.m_btminimize.ButtonText = "";
+            this.m_btminimize.DeltaAlphaGlow = 2F;
+            this.m_btminimize.DeltaDistance = 2F;
+            this.m_btminimize.HaveEffects = false;
+            this.m_btminimize.ImageOrigin = new System.Drawing.Point(0, 0);
+            this.m_btminimize.ImageSize = new System.Drawing.Size(25, 25);
+            this.m_btminimize.Location = new System.Drawing.Point(675, 1);
+            this.m_btminimize.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
+            this.m_btminimize.Name = "m_btminimize";
+            this.m_btminimize.SaveChanged = false;
+            this.m_btminimize.ShadownDistance = 6;
+            this.m_btminimize.Size = new System.Drawing.Size(50, 28);
+            this.m_btminimize.TabIndex = 56;
+            this.m_btminimize.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
+            this.m_btminimize.TextColor = System.Drawing.Color.White;
+            this.m_btminimize.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btminimize.Click += new System.EventHandler(this.m_btminimize_Click);
+            // 
             // frmXemSuaDiem_Mon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 441);
+            this.Controls.Add(this.m_btminimize);
             this.Controls.Add(this.m_btClose);
             this.Controls.Add(this.m_btLuu);
             this.Controls.Add(this.m_btSua);
@@ -569,5 +594,6 @@
         private ButtonFlat m_btSua;
         private ButtonFlat m_btLuu;
         private ButtonFlat m_btClose;
+        private ButtonFlat m_btminimize;
     }
 }

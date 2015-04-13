@@ -26,7 +26,7 @@ namespace QuanLyHocSinh
             InitializeComponent();
             m_row = row;
             this.BackColor = Color.FromArgb(102, 101, 101);
-            m_btClose.BackColor = Color.FromArgb(255, 101, 99);
+
             this.MaximumSize = this.Size;
             this.MinimumSize = this.Size;
         }
@@ -81,6 +81,11 @@ namespace QuanLyHocSinh
         private void m_btClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void m_btminimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

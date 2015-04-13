@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonFlat1 = new QuanLyHocSinh.ButtonFlat();
             this.m_dangNhapBtn = new QuanLyHocSinh.ButtonFlat();
+            this.m_btminimize = new QuanLyHocSinh.ButtonFlat();
             this.SuspendLayout();
             // 
             // m_IDLable
@@ -150,12 +151,36 @@
             this.m_dangNhapBtn.TextOrigin = new System.Drawing.Point(0, 0);
             this.m_dangNhapBtn.Click += new System.EventHandler(this.m_dangNhapBtn_Click);
             // 
+            // m_btminimize
+            // 
+            this.m_btminimize.AlphaGlow = 40F;
+            this.m_btminimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
+            this.m_btminimize.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconminmize;
+            this.m_btminimize.ButtonText = "";
+            this.m_btminimize.DeltaAlphaGlow = 2F;
+            this.m_btminimize.DeltaDistance = 2F;
+            this.m_btminimize.HaveEffects = true;
+            this.m_btminimize.ImageOrigin = new System.Drawing.Point(0, 0);
+            this.m_btminimize.ImageSize = new System.Drawing.Size(30, 30);
+            this.m_btminimize.Location = new System.Drawing.Point(389, 2);
+            this.m_btminimize.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
+            this.m_btminimize.Name = "m_btminimize";
+            this.m_btminimize.SaveChanged = false;
+            this.m_btminimize.ShadownDistance = 6;
+            this.m_btminimize.Size = new System.Drawing.Size(43, 31);
+            this.m_btminimize.TabIndex = 11;
+            this.m_btminimize.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
+            this.m_btminimize.TextColor = System.Drawing.Color.White;
+            this.m_btminimize.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btminimize.Click += new System.EventHandler(this.m_btminimize_Click);
+            // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(483, 227);
+            this.Controls.Add(this.m_btminimize);
             this.Controls.Add(this.m_dangNhapBtn);
             this.Controls.Add(this.buttonFlat1);
             this.Controls.Add(this.label1);
@@ -183,5 +208,6 @@
         private System.Windows.Forms.Label label1;
         private ButtonFlat buttonFlat1;
         private ButtonFlat m_dangNhapBtn;
+        private ButtonFlat m_btminimize;
     }
 }

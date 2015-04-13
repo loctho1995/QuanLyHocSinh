@@ -27,8 +27,7 @@ namespace QuanLyHocSinh
             m_row = row;
 
             this.BackColor = Color.FromArgb(102, 101, 101);
-            this.m_btchinhSua.BackColor = Color.FromArgb(255, 101, 99);
-            this.m_btClose.BackColor = Color.FromArgb(255, 101, 99);
+
             this.MaximumSize = this.Size;
             this.MinimumSize = this.Size;
         }
@@ -61,6 +60,11 @@ namespace QuanLyHocSinh
                 FrmMain.ListThongTinHS.Remove(this);
                 this.Close();
             }
+        }
+
+        private void m_btminimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

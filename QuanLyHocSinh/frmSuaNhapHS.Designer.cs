@@ -61,13 +61,16 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.m_btminimize = new QuanLyHocSinh.ButtonFlat();
+            this.buttonFlat1 = new QuanLyHocSinh.ButtonFlat();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // m_btHoanTat
             // 
             this.m_btHoanTat.AlphaGlow = 40F;
-            this.m_btHoanTat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.m_btHoanTat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
             this.m_btHoanTat.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconsave;
             this.m_btHoanTat.ButtonText = "Hoàn tất";
             this.m_btHoanTat.DeltaAlphaGlow = 2F;
@@ -92,7 +95,7 @@
             // m_btClose
             // 
             this.m_btClose.AlphaGlow = 40F;
-            this.m_btClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
             this.m_btClose.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconClose;
             this.m_btClose.ButtonText = "";
             this.m_btClose.DeltaAlphaGlow = 2F;
@@ -430,12 +433,66 @@
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
+            // m_btminimize
+            // 
+            this.m_btminimize.AlphaGlow = 40F;
+            this.m_btminimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
+            this.m_btminimize.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconminmize;
+            this.m_btminimize.ButtonText = "";
+            this.m_btminimize.DeltaAlphaGlow = 2F;
+            this.m_btminimize.DeltaDistance = 2F;
+            this.m_btminimize.HaveEffects = false;
+            this.m_btminimize.ImageOrigin = new System.Drawing.Point(0, 0);
+            this.m_btminimize.ImageSize = new System.Drawing.Size(25, 25);
+            this.m_btminimize.Location = new System.Drawing.Point(822, 2);
+            this.m_btminimize.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
+            this.m_btminimize.Name = "m_btminimize";
+            this.m_btminimize.SaveChanged = false;
+            this.m_btminimize.ShadownDistance = 6;
+            this.m_btminimize.Size = new System.Drawing.Size(43, 26);
+            this.m_btminimize.TabIndex = 60;
+            this.m_btminimize.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
+            this.m_btminimize.TextColor = System.Drawing.Color.White;
+            this.m_btminimize.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btminimize.Click += new System.EventHandler(this.m_btminimize_Click);
+            // 
+            // buttonFlat1
+            // 
+            this.buttonFlat1.AlphaGlow = 40F;
+            this.buttonFlat1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
+            this.buttonFlat1.ButtonImage = null;
+            this.buttonFlat1.ButtonText = "Chọn hình";
+            this.buttonFlat1.DeltaAlphaGlow = 2F;
+            this.buttonFlat1.DeltaDistance = 2F;
+            this.buttonFlat1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFlat1.HaveEffects = true;
+            this.buttonFlat1.ImageOrigin = new System.Drawing.Point(0, 0);
+            this.buttonFlat1.ImageSize = new System.Drawing.Size(50, 50);
+            this.buttonFlat1.Location = new System.Drawing.Point(31, 249);
+            this.buttonFlat1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.buttonFlat1.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
+            this.buttonFlat1.Name = "buttonFlat1";
+            this.buttonFlat1.SaveChanged = false;
+            this.buttonFlat1.ShadownDistance = 6;
+            this.buttonFlat1.Size = new System.Drawing.Size(87, 32);
+            this.buttonFlat1.TabIndex = 61;
+            this.buttonFlat1.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
+            this.buttonFlat1.TextColor = System.Drawing.Color.White;
+            this.buttonFlat1.TextOrigin = new System.Drawing.Point(0, 0);
+            this.buttonFlat1.Click += new System.EventHandler(this.buttonFlat1_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // frmSuaNhapHS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(917, 365);
+            this.Controls.Add(this.buttonFlat1);
+            this.Controls.Add(this.m_btminimize);
             this.Controls.Add(this.m_btHoanTat);
             this.Controls.Add(this.m_btClose);
             this.Controls.Add(this.m_lblManamhoc);
@@ -514,6 +571,9 @@
         private System.Windows.Forms.ComboBox m_ccbManamhoc;
         private ButtonFlat m_btClose;
         private ButtonFlat m_btHoanTat;
+        private ButtonFlat m_btminimize;
+        private ButtonFlat buttonFlat1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
 
     }
 }
