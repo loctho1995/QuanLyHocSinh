@@ -32,6 +32,7 @@
             this.m_dgvData = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.m_tableName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.m_dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +43,6 @@
             this.m_lableLop.Name = "m_lableLop";
             this.m_lableLop.Size = new System.Drawing.Size(356, 97);
             this.m_lableLop.TabIndex = 1;
-            this.m_lableLop.Text = "BÁO CÁO";
             this.m_lableLop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // m_dgvData
@@ -73,6 +73,16 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "In";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // m_tableName
+            // 
+            this.m_tableName.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_tableName.Location = new System.Drawing.Point(452, -3);
+            this.m_tableName.Name = "m_tableName";
+            this.m_tableName.Size = new System.Drawing.Size(356, 97);
+            this.m_tableName.TabIndex = 5;
+            this.m_tableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmBaoCao
             // 
@@ -80,6 +90,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(958, 761);
+            this.Controls.Add(this.m_tableName);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.m_dgvData);
@@ -98,5 +109,6 @@
         private System.Windows.Forms.DataGridView m_dgvData;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label m_tableName;
     }
 }

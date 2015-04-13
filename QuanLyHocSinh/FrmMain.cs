@@ -312,8 +312,16 @@ namespace QuanLyHocSinh
 
         private void XuatBaoCao()
         {
-            frmBaoCao frmBC = new frmBaoCao(m_treeViewKhoi.SelectedNode.Text, FrmMain.m_phanquyen.PhanQuyen);
-            frmBC.ShowDialog();
+            try
+            {
+                frmBaoCao frmBC = new frmBaoCao(m_dgvMain, m_treeViewKhoi.SelectedNode.Text, m_cbbBaoCaoLoai.SelectedItem.ToString());
+                frmBC.ShowDialog();
+            }
+            catch
+            {
+ 
+            }
+            
         }
 
         public static string Node
