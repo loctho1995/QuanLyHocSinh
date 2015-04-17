@@ -29,31 +29,31 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Lớp 10A1");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Lớp 10A2");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Lớp10A3");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Lớp10A4");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Khối 10", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Lớp 11A1");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Lớp 11A2");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Lớp 11A3");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Khối 11", new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode7,
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Lớp 12A1");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Lớp 12A2");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Khối 12", new System.Windows.Forms.TreeNode[] {
-            treeNode10,
-            treeNode11});
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Khối", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode9,
-            treeNode12});
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Lớp 10A1");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Lớp 10A2");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Lớp10A3");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Lớp10A4");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Khối 10", new System.Windows.Forms.TreeNode[] {
+            treeNode14,
+            treeNode15,
+            treeNode16,
+            treeNode17});
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Lớp 11A1");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Lớp 11A2");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Lớp 11A3");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Khối 11", new System.Windows.Forms.TreeNode[] {
+            treeNode19,
+            treeNode20,
+            treeNode21});
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Lớp 12A1");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Lớp 12A2");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Khối 12", new System.Windows.Forms.TreeNode[] {
+            treeNode23,
+            treeNode24});
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Khối", new System.Windows.Forms.TreeNode[] {
+            treeNode18,
+            treeNode22,
+            treeNode25});
             this.m_treeViewKhoi = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.m_dgwMain = new System.Windows.Forms.DataGridView();
@@ -117,39 +117,39 @@
             this.m_treeViewKhoi.ImageList = this.imageList1;
             this.m_treeViewKhoi.Location = new System.Drawing.Point(2, 124);
             this.m_treeViewKhoi.Name = "m_treeViewKhoi";
-            treeNode1.Name = "m_node10A1";
-            treeNode1.Text = "Lớp 10A1";
-            treeNode2.Name = "m_node10A2";
-            treeNode2.Text = "Lớp 10A2";
-            treeNode3.Name = "m_node10A3";
-            treeNode3.Text = "Lớp10A3";
-            treeNode4.Name = "m_node10A4";
-            treeNode4.Text = "Lớp10A4";
-            treeNode5.ImageIndex = 2;
-            treeNode5.Name = "m_nodeKhoi10";
-            treeNode5.Text = "Khối 10";
-            treeNode6.Name = "m_node11A1";
-            treeNode6.Text = "Lớp 11A1";
-            treeNode7.Name = "m_node11A2";
-            treeNode7.Text = "Lớp 11A2";
-            treeNode8.Name = "m_node11A3";
-            treeNode8.Text = "Lớp 11A3";
-            treeNode9.ImageIndex = 2;
-            treeNode9.Name = "m_nodeKhoi11";
-            treeNode9.Text = "Khối 11";
-            treeNode10.Name = "m_node12A1";
-            treeNode10.Text = "Lớp 12A1";
-            treeNode11.Name = "m_node12A2";
-            treeNode11.Text = "Lớp 12A2";
-            treeNode12.ImageIndex = 2;
-            treeNode12.Name = "m_nodeKhoi12";
-            treeNode12.Text = "Khối 12";
-            treeNode13.Checked = true;
-            treeNode13.ImageIndex = 1;
-            treeNode13.Name = "m_nodeKhoi";
-            treeNode13.Text = "Khối";
+            treeNode14.Name = "m_node10A1";
+            treeNode14.Text = "Lớp 10A1";
+            treeNode15.Name = "m_node10A2";
+            treeNode15.Text = "Lớp 10A2";
+            treeNode16.Name = "m_node10A3";
+            treeNode16.Text = "Lớp10A3";
+            treeNode17.Name = "m_node10A4";
+            treeNode17.Text = "Lớp10A4";
+            treeNode18.ImageIndex = 2;
+            treeNode18.Name = "m_nodeKhoi10";
+            treeNode18.Text = "Khối 10";
+            treeNode19.Name = "m_node11A1";
+            treeNode19.Text = "Lớp 11A1";
+            treeNode20.Name = "m_node11A2";
+            treeNode20.Text = "Lớp 11A2";
+            treeNode21.Name = "m_node11A3";
+            treeNode21.Text = "Lớp 11A3";
+            treeNode22.ImageIndex = 2;
+            treeNode22.Name = "m_nodeKhoi11";
+            treeNode22.Text = "Khối 11";
+            treeNode23.Name = "m_node12A1";
+            treeNode23.Text = "Lớp 12A1";
+            treeNode24.Name = "m_node12A2";
+            treeNode24.Text = "Lớp 12A2";
+            treeNode25.ImageIndex = 2;
+            treeNode25.Name = "m_nodeKhoi12";
+            treeNode25.Text = "Khối 12";
+            treeNode26.Checked = true;
+            treeNode26.ImageIndex = 1;
+            treeNode26.Name = "m_nodeKhoi";
+            treeNode26.Text = "Khối";
             this.m_treeViewKhoi.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode13});
+            treeNode26});
             this.m_treeViewKhoi.SelectedImageIndex = 0;
             this.m_treeViewKhoi.Size = new System.Drawing.Size(187, 374);
             this.m_treeViewKhoi.TabIndex = 0;
@@ -334,7 +334,7 @@
             this.m_btThemHS.DeltaAlphaGlow = 8F;
             this.m_btThemHS.DeltaDistance = 2F;
             this.m_btThemHS.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btThemHS.HaveEffects = true;
+            this.m_btThemHS.HaveEffects = false;
             this.m_btThemHS.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btThemHS.ImageSize = new System.Drawing.Size(40, 40);
             this.m_btThemHS.Location = new System.Drawing.Point(499, 6);
@@ -359,7 +359,7 @@
             this.m_btXoaHS.DeltaAlphaGlow = 8F;
             this.m_btXoaHS.DeltaDistance = 2F;
             this.m_btXoaHS.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btXoaHS.HaveEffects = true;
+            this.m_btXoaHS.HaveEffects = false;
             this.m_btXoaHS.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btXoaHS.ImageSize = new System.Drawing.Size(40, 40);
             this.m_btXoaHS.Location = new System.Drawing.Point(333, 6);
@@ -384,7 +384,7 @@
             this.m_btSuaHS.DeltaAlphaGlow = 8F;
             this.m_btSuaHS.DeltaDistance = 2F;
             this.m_btSuaHS.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btSuaHS.HaveEffects = true;
+            this.m_btSuaHS.HaveEffects = false;
             this.m_btSuaHS.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btSuaHS.ImageSize = new System.Drawing.Size(40, 40);
             this.m_btSuaHS.Location = new System.Drawing.Point(169, 6);
@@ -409,7 +409,7 @@
             this.m_btXemThongTin.DeltaAlphaGlow = 8F;
             this.m_btXemThongTin.DeltaDistance = 2F;
             this.m_btXemThongTin.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btXemThongTin.HaveEffects = true;
+            this.m_btXemThongTin.HaveEffects = false;
             this.m_btXemThongTin.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btXemThongTin.ImageSize = new System.Drawing.Size(40, 40);
             this.m_btXemThongTin.Location = new System.Drawing.Point(7, 6);
@@ -509,7 +509,7 @@
             this.m_btXemDiem.DeltaAlphaGlow = 8F;
             this.m_btXemDiem.DeltaDistance = 2F;
             this.m_btXemDiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btXemDiem.HaveEffects = true;
+            this.m_btXemDiem.HaveEffects = false;
             this.m_btXemDiem.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btXemDiem.ImageSize = new System.Drawing.Size(60, 40);
             this.m_btXemDiem.Location = new System.Drawing.Point(6, 6);
@@ -534,7 +534,7 @@
             this.m_btSuaDiem.DeltaAlphaGlow = 8F;
             this.m_btSuaDiem.DeltaDistance = 2F;
             this.m_btSuaDiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btSuaDiem.HaveEffects = true;
+            this.m_btSuaDiem.HaveEffects = false;
             this.m_btSuaDiem.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btSuaDiem.ImageSize = new System.Drawing.Size(40, 40);
             this.m_btSuaDiem.Location = new System.Drawing.Point(135, 6);
@@ -661,7 +661,7 @@
             this.m_btBaoCao.DeltaAlphaGlow = 8F;
             this.m_btBaoCao.DeltaDistance = 2F;
             this.m_btBaoCao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btBaoCao.HaveEffects = true;
+            this.m_btBaoCao.HaveEffects = false;
             this.m_btBaoCao.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btBaoCao.ImageSize = new System.Drawing.Size(40, 40);
             this.m_btBaoCao.Location = new System.Drawing.Point(9, 6);

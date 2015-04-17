@@ -154,6 +154,13 @@ namespace QuanLyHocSinh
             m_frmMain.TopButtonsColor = m_btclose.BackColor;
             m_frmMain.TabButtonsColor = m_btBaoCao.BackColor;
             m_frmMain.SearchControl.BackColor = m_scMain.BackColor;
+
+            for (int i = 0; i < m_frmMain.TabControl.TabPages.Count; i++)
+            {
+                m_frmMain.TabControl.TabPages[i].BackColor = m_tcMain.TabPages[0].BackColor;
+            }
+
+            this.Close();
         }
     }
 }

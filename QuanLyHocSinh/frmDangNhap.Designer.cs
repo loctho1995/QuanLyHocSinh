@@ -110,7 +110,7 @@
             this.buttonFlat1.ButtonText = "";
             this.buttonFlat1.DeltaAlphaGlow = 2F;
             this.buttonFlat1.DeltaDistance = 2F;
-            this.buttonFlat1.HaveEffects = true;
+            this.buttonFlat1.HaveEffects = false;
             this.buttonFlat1.ImageOrigin = new System.Drawing.Point(0, 0);
             this.buttonFlat1.ImageSize = new System.Drawing.Size(30, 30);
             this.buttonFlat1.Location = new System.Drawing.Point(438, 2);
@@ -135,7 +135,7 @@
             this.m_dangNhapBtn.DeltaDistance = 2F;
             this.m_dangNhapBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.m_dangNhapBtn.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.m_dangNhapBtn.HaveEffects = true;
+            this.m_dangNhapBtn.HaveEffects = false;
             this.m_dangNhapBtn.ImageOrigin = new System.Drawing.Point(0, 0);
             this.m_dangNhapBtn.ImageSize = new System.Drawing.Size(50, 50);
             this.m_dangNhapBtn.Location = new System.Drawing.Point(339, 179);
@@ -159,7 +159,7 @@
             this.m_btminimize.ButtonText = "";
             this.m_btminimize.DeltaAlphaGlow = 2F;
             this.m_btminimize.DeltaDistance = 2F;
-            this.m_btminimize.HaveEffects = true;
+            this.m_btminimize.HaveEffects = false;
             this.m_btminimize.ImageOrigin = new System.Drawing.Point(0, 0);
             this.m_btminimize.ImageSize = new System.Drawing.Size(30, 30);
             this.m_btminimize.Location = new System.Drawing.Point(389, 2);
