@@ -41,11 +41,11 @@ namespace QuanLyHocSinh
             m_lbHoTen.Text = m_row.Cells["HOTEN"].Value.ToString();
             m_lbLop.Text = FrmMain.Node;
 
-            m_cbbMonHoc.DataSource = hs.LayMonHoc();
+            m_cbbMonHoc.DataSource = DataBase.MonHoc.LayMonHoc();
             m_cbbMonHoc.DisplayMember = "TENMONHOC";
             m_cbbMonHoc.ValueMember = "MAMONHOC";
 
-            m_cbbNamHoc.DataSource = hs.LayNamHoc();
+            m_cbbNamHoc.DataSource = DataBase.NamHoc.LayNamHoc();
             m_cbbNamHoc.DisplayMember = "TENNAMHOC";
             m_cbbNamHoc.ValueMember = "MANAMHOC";
         }
@@ -130,7 +130,7 @@ namespace QuanLyHocSinh
             {
                 if (ConverDiem())
                 {
-                    if (hs.SuaDiem(int.Parse(m_lbMaHS.Text.ToString()), m_lbLop.Text.ToString(), m_cbbMonHoc.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), float.Parse(m_tbDMiengHK1.Text.ToString()), float.Parse(m_tbD15pHK1.Text.ToString()), float.Parse(m_tbD1tietHK1.Text.ToString()), float.Parse(m_tbDThiHK1.Text.ToString()), float.Parse(m_tbDMiengHK2.Text.ToString()), float.Parse(m_tbD15pHK2.Text.ToString()), float.Parse(m_tbD1tietHK2.Text.ToString()), float.Parse(m_tbDThiHK2.Text.ToString())))
+                    if (DataBase.Diem.SuaDiem(int.Parse(m_lbMaHS.Text.ToString()), m_lbLop.Text.ToString(), m_cbbMonHoc.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), float.Parse(m_tbDMiengHK1.Text.ToString()), float.Parse(m_tbD15pHK1.Text.ToString()), float.Parse(m_tbD1tietHK1.Text.ToString()), float.Parse(m_tbDThiHK1.Text.ToString()), float.Parse(m_tbDMiengHK2.Text.ToString()), float.Parse(m_tbD15pHK2.Text.ToString()), float.Parse(m_tbD1tietHK2.Text.ToString()), float.Parse(m_tbDThiHK2.Text.ToString())))
                     {
                         MessageBox.Show("Sửa thành công!");
 
@@ -175,7 +175,7 @@ namespace QuanLyHocSinh
 
         private void LoadDiem()
         {
-            dt = hs.LayDiem1HocSinh_Mon(int.Parse(m_lbMaHS.Text.ToString()), m_cbbMonHoc.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), FrmMain.getmagv(), FrmMain.getphanquyen());
+            dt = DataBase.Diem.LayDiem1HocSinh_Mon(int.Parse(m_lbMaHS.Text.ToString()), m_cbbMonHoc.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), FrmMain.getmagv(), FrmMain.getphanquyen());
             if (dt != null)
             {
                 m_btSua.Enabled = true;

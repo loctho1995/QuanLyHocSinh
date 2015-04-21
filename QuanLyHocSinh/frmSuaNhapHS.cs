@@ -28,18 +28,18 @@ namespace QuanLyHocSinh
         public frmSuaNhapHS()
         {
             InitializeComponent();
-            FrmMain.IsSuaNhapOpen = true;
+            
             this.BackColor = Color.FromArgb(102, 101, 101);
 
             this.MaximumSize = this.Size;
             this.MinimumSize = this.Size;
             m_btClose.BackColor = Color.FromArgb(255, 101, 99);
 
-            m_ccbLop.DataSource = hs_bus.LayDuLieuLop(FrmMain.m_phanquyen.ID);
+            m_ccbLop.DataSource = DataBase.Lop.LayDuLieuLop(FrmMain.m_phanquyen.ID);
             m_ccbLop.ValueMember = "MALOP";
             m_ccbLop.DisplayMember = "TENLOP";
             m_check = true;
-            m_ccbManamhoc.DataSource = hs_bus.LayNamHoc();
+            m_ccbManamhoc.DataSource = DataBase.NamHoc.LayNamHoc();
             m_ccbManamhoc.ValueMember = "MANAMHOC";
             m_ccbManamhoc.DisplayMember = "TENNAMHOC";
             m_ccbManamhoc.Visible = true;
@@ -49,7 +49,7 @@ namespace QuanLyHocSinh
         public frmSuaNhapHS(DataGridViewRow row)
         {
             InitializeComponent();
-            FrmMain.IsSuaNhapOpen = true;
+            
             this.BackColor = Color.FromArgb(102, 101, 101);
             this.m_btClose.BackColor = Color.FromArgb(255, 101, 99);
             this.MaximumSize = this.Size;
@@ -80,7 +80,7 @@ namespace QuanLyHocSinh
 
         private void m_btClose_Click(object sender, EventArgs e)
         {
-            FrmMain.IsSuaNhapOpen = false;
+            
             this.Close();
         }
 
@@ -113,6 +113,7 @@ namespace QuanLyHocSinh
             else if (hs_bus.UpdateHocSinh(hs, pl)&&m_check ==false)
             {
                 MessageBox.Show("Thanh cong" + m_ccbLop.SelectedValue.ToString());
+                this.Close();
             }
             else MessageBox.Show("That bai" + pl.MALOP);
         }

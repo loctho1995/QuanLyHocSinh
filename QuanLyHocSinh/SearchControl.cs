@@ -155,6 +155,11 @@ namespace QuanLyHocSinh
                         m_timer.Start();
                     }
                 };
+            m_bt.SizeChanged += (o, e) =>
+                {
+                    m_bt.Location = new Point(this.HideSize.Width - m_bt.Width, 0);
+                };
+           
             #endregion
 
             #region -TextBox Search-

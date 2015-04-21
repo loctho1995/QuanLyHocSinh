@@ -51,13 +51,13 @@ namespace QuanLyHocSinh
 
             m_lbLop.Text = FrmMain.Node;
 
-            m_cbbNamHoc.DataSource = hs.LayNamHoc();
+            m_cbbNamHoc.DataSource = DataBase.NamHoc.LayNamHoc();
             m_cbbNamHoc.DisplayMember = "TENNAMHOC";
             m_cbbNamHoc.ValueMember = "MANAMHOC";
 
             m_cbbHocKi.SelectedIndex = 0;
 
-            m_dgvMain.DataSource = hs.LayDiemHocSinh_AllMon(int.Parse(m_lbMaHS.Text.ToString()), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_cbbHocKi.Text.ToString());
+            m_dgvMain.DataSource = DataBase.Diem.LayDiemHocSinh_AllMon(int.Parse(m_lbMaHS.Text.ToString()), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_cbbHocKi.Text.ToString());
             firstload = false;
         }
 
@@ -69,13 +69,13 @@ namespace QuanLyHocSinh
         private void m_cbbHocKi_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(!firstload)
-            m_dgvMain.DataSource = hs.LayDiemHocSinh_AllMon(int.Parse(m_lbMaHS.Text.ToString()), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_cbbHocKi.Text.ToString());
+                m_dgvMain.DataSource = DataBase.Diem.LayDiemHocSinh_AllMon(int.Parse(m_lbMaHS.Text.ToString()), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_cbbHocKi.Text.ToString());
         }
 
         private void m_cbbNamHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(!firstload)
-                m_dgvMain.DataSource = hs.LayDiemHocSinh_AllMon(int.Parse(m_lbMaHS.Text.ToString()), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_cbbHocKi.Text.ToString());
+                m_dgvMain.DataSource = DataBase.Diem.LayDiemHocSinh_AllMon(int.Parse(m_lbMaHS.Text.ToString()), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_cbbHocKi.Text.ToString());
         }
 
         private void m_btClose_Click(object sender, EventArgs e)

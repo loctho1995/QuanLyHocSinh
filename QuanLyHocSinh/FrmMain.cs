@@ -18,9 +18,6 @@ namespace QuanLyHocSinh
         public static List<frmThongTinHS> ListThongTinHS
         { get; set; }
 
-        public static bool IsSuaNhapOpen
-        { get; set; }
-
         public SearchControl SearchControl
         {
             get { return m_scMain; }
@@ -53,7 +50,6 @@ namespace QuanLyHocSinh
             }
         }
 
-        HocSinh_BUS hs = new HocSinh_BUS();
         public static PhanQuyenDangNhap m_phanquyen = new PhanQuyenDangNhap();
         bool m_checkseach = false, bol = true;
         int tabpage = 0; //them 1 bien de xac dinh dang o tab nao, su dung cho treeview ( 0 = Ho So, 1 = Hoc Tap, 2 = Bao Cao, 3 = Tra Cuu)
@@ -67,9 +63,14 @@ namespace QuanLyHocSinh
             //this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.CacheText, true);
             this.DoubleBuffered = true;
             InitializeComponent();
+
+            if (!DataBase.IsLoaded)
+                DataBase.InitDataBase();
+
             ListThongTinHS = new List<frmThongTinHS>();
-            FrmMain.m_phanquyen.LopCN = FrmMain.m_phanquyen.LopCN.Trim();
+            FrmMain.m_phanquyen.LopCN = FrmMain.m_phanquyen.LopCN.Trim();            
             LoadDataBaoCao();
+            m_scMain.ButtonSearch.Size = new Size(45, m_scMain.ButtonSearch.Height);
 
             this.BackColor = Color.FromArgb(62, 70, 73);
             m_tbHoSo.BackColor = Color.FromArgb(35, 168, 111);
@@ -114,11 +115,11 @@ namespace QuanLyHocSinh
             m_ccbPhanQuyen.Items.Add("GVBM");
             m_ccbPhanQuyen.SelectedIndex = 0;
 
-            m_cbbBoMon.DataSource = hs.LayMonHoc();
+            m_cbbBoMon.DataSource = DataBase.MonHoc.LayMonHoc();
             m_cbbBoMon.DisplayMember = "TENMONHOC";
             m_cbbBoMon.ValueMember = "MAMONHOC";
 
-            m_cbbNamHoc.DataSource = hs.LayNamHoc();
+            m_cbbNamHoc.DataSource = DataBase.NamHoc.LayNamHoc();
             m_cbbNamHoc.DisplayMember = "TENNAMHOC";
             m_cbbNamHoc.ValueMember = "MANAMHOC";
         }
@@ -132,15 +133,15 @@ namespace QuanLyHocSinh
         private void LoadDataBaoCao()
         {
             //if (!bol) return;
-            m_cbbBaoCaonamhoc.DataSource = hs.LayNamHoc();
+            m_cbbBaoCaonamhoc.DataSource = DataBase.NamHoc.LayNamHoc();
             m_cbbBaoCaonamhoc.DisplayMember = "TENNAMHOC";
             m_cbbBaoCaonamhoc.ValueMember = "MANAMHOC";
 
-            m_cbbBaoCaomonhoc.DataSource = hs.LayMonHoc();
+            m_cbbBaoCaomonhoc.DataSource = DataBase.MonHoc.LayMonHoc();
             m_cbbBaoCaomonhoc.DisplayMember = "TENMONHOC";
             m_cbbBaoCaomonhoc.ValueMember = "MAMONHOC";
 
-            m_cbbBaoCaohocky.DataSource = hs.LayHocky();
+            m_cbbBaoCaohocky.DataSource = DataBase.HocKy.LayHocky();
             m_cbbBaoCaohocky.DisplayMember = "TENHOCKY";
             m_cbbBaoCaohocky.ValueMember = "MAHOCKY";
 
@@ -189,21 +190,14 @@ namespace QuanLyHocSinh
         private void ShowHocSinh_Khoi()
         {
             //
-            m_dgvMain.DataSource = hs.LayTatCa();
+            m_dgvMain.DataSource = DataBase.HocSinh.LayTatCa();
         }
 
         private void ThemHocSinh()
         {
-            if (!IsSuaNhapOpen)
-            {
-                frmSuaNhapHS frmNhap = new frmSuaNhapHS();
-                frmNhap.Show();
-                IsSuaNhapOpen = true;
-            }
-            else
-            {
-                MessageBox.Show("hoàn thành chỉnh sửa / nhập học sinh trước khi mở form mới! ");
-            }
+            frmSuaNhapHS frmNhap = new frmSuaNhapHS();
+            frmNhap.ShowDialog();
+            
         }
 
         private void SuaHocSinh()
@@ -213,16 +207,8 @@ namespace QuanLyHocSinh
             else if (!CheckGVCN(m_node)) MessageBox.Show("Bạn không có quyền sữa hồ sơ học sinh ở lớp này!");
             else
             {
-                if (!IsSuaNhapOpen)
-                {
-                    frmSuaNhapHS frmSua = new frmSuaNhapHS(m_dgvMain.SelectedRows[0]);
-                    frmSua.Show();
-                    IsSuaNhapOpen = true;
-                }
-                else
-                {
-                    MessageBox.Show("hoàn thành chỉnh sửa / nhập học sinh trước khi mở form mới! ");
-                }
+                frmSuaNhapHS frmSua = new frmSuaNhapHS(m_dgvMain.SelectedRows[0]);
+                frmSua.ShowDialog();
             }
         }
 
@@ -238,7 +224,7 @@ namespace QuanLyHocSinh
                 int key = 0;
                 if(m_dgvMain.SelectedRows[0].Cells["MAHS"] != null)
                   key = int.Parse(m_dgvMain.SelectedRows[0].Cells["MAHS"].Value.ToString());
-                if (hs.DeleteHocSinh(key) && key != 0)
+                if (DataBase.HocSinh.DeleteHocSinh(key) && key != 0)
                 {
                     DesignDataGridView(m_dgvMain, m_node);
                     MessageBox.Show("Xoá thành công");
@@ -342,7 +328,7 @@ namespace QuanLyHocSinh
         {
             if (m_checkseach)//m_checkseach = true -> dang tim kiem hoc sinh
             {
-                dgv.DataSource = hs.TimKiemThongTinHocSinh(FrmMain.m_phanquyen.LopCN, FrmMain.m_phanquyen.PhanQuyen, node);//hs.TimKiemThongTinHocSinh(ma);
+                dgv.DataSource = DataBase.HocSinh.TimKiemThongTinHocSinh(FrmMain.m_phanquyen.LopCN, FrmMain.m_phanquyen.PhanQuyen, node);//hs.TimKiemThongTinHocSinh(ma);
                 m_checkseach = false;
             }
             else//m_checkseach = false -> dang su dung tree view
@@ -352,9 +338,9 @@ namespace QuanLyHocSinh
                     case 0://tabpage Ho So
 
                         if (node.Length == 2)
-                            dgv.DataSource = hs.LayHocSinh_Khoi(node, m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            dgv.DataSource = DataBase.HocSinh.LayHocSinh_Khoi(node, m_phanquyen.ID, m_phanquyen.PhanQuyen);
                         else if (CheckGVInLopBM(node))
-                            dgv.DataSource = hs.LayHocSinh_Lop(node, m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            dgv.DataSource = DataBase.HocSinh.LayHocSinh_Lop(node, m_phanquyen.ID, m_phanquyen.PhanQuyen);
                         if (dgv.DataSource == null) return;
                         dgv.Columns["STT"].Width = 40;
                         dgv.Columns["MAHS"].Width = 50;
@@ -381,7 +367,7 @@ namespace QuanLyHocSinh
                     case 1://tabpage Hoc tap
                         if (m_ccbPhanQuyen.Text.ToString() == "GVCN")
                         {
-                            dgv.DataSource = hs.LayDiemHocSinh_LopChuNhiem(node, int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            dgv.DataSource = DataBase.Diem.LayDiemHocSinh_LopChuNhiem(node, int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
                             if (dgv.DataSource == null) return;
                             dgv.Columns["STT"].Width = 40;
                             dgv.Columns["MAHS"].Width = 50;
@@ -400,7 +386,7 @@ namespace QuanLyHocSinh
                         }
                         else
                         {
-                            dgv.DataSource = hs.LayDiemHocSinh_Mon(node, m_cbbBoMon.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            dgv.DataSource = DataBase.Diem.LayDiemHocSinh_Mon(node, m_cbbBoMon.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
                             if(dgv.DataSource == null) return;
 
                             dgv.Columns["STT"].Width = 40;
@@ -454,30 +440,30 @@ namespace QuanLyHocSinh
 
         private void InDanhSachLop()
         {
-            m_dgvMain.DataSource = hs.InDanhSachlop(FrmMain.m_phanquyen.ID, m_node, FrmMain.m_phanquyen.PhanQuyen);
+            m_dgvMain.DataSource = DataBase.BaoCao.InDanhSachlop(FrmMain.m_phanquyen.ID, m_node, FrmMain.m_phanquyen.PhanQuyen);
         }
 
         private void InBangDiemCuaLop()
         {
-            m_dgvMain.DataSource = hs.InBangDiemCuaLop(FrmMain.m_phanquyen.ID, m_node, FrmMain.m_phanquyen.PhanQuyen, int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString()));
+            m_dgvMain.DataSource = DataBase.BaoCao.InBangDiemCuaLop(FrmMain.m_phanquyen.ID, m_node, FrmMain.m_phanquyen.PhanQuyen, int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString()));
         }
 
         private void InBangDiemChiTietTungHocky()
         {
             int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
-            m_dgvMain.DataSource = hs.InBangDiemChiTietTunghocKy(FrmMain.m_phanquyen.ID, m_node, m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, namhoc, m_cbbBaoCaohocky.SelectedValue.ToString());
+            m_dgvMain.DataSource = DataBase.BaoCao.InBangDiemChiTietTunghocKy(FrmMain.m_phanquyen.ID, m_node, m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, namhoc, m_cbbBaoCaohocky.SelectedValue.ToString());
         }
 
         private void InBaoCaoTongKetMon()
         {
             int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
-            m_dgvMain.DataSource = hs.BaoCaoTongKetMon(m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
+            m_dgvMain.DataSource = DataBase.BaoCao.BaoCaoTongKetMon(m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
         }
 
         private void InBaoCaoTongKetHocKy()
         {
             int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
-            m_dgvMain.DataSource = hs.BaoCaoTongKetHocKy(FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
+            m_dgvMain.DataSource = DataBase.BaoCao.BaoCaoTongKetHocKy(FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
         }
         #endregion
 
@@ -548,21 +534,21 @@ namespace QuanLyHocSinh
         private void m_cbbBaoCaonamhoc_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(typebaocao == 2)
-                m_dgvMain.DataSource = hs.InBangDiemCuaLop(FrmMain.m_phanquyen.ID, m_node, FrmMain.m_phanquyen.PhanQuyen, int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString()));
+                m_dgvMain.DataSource = DataBase.BaoCao.InBangDiemCuaLop(FrmMain.m_phanquyen.ID, m_node, FrmMain.m_phanquyen.PhanQuyen, int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString()));
             else if (typebaocao == 1)
             {
                 int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
-                m_dgvMain.DataSource = hs.InBangDiemChiTietTunghocKy(FrmMain.m_phanquyen.ID, m_node, m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, namhoc, m_cbbBaoCaohocky.SelectedValue.ToString());
+                m_dgvMain.DataSource = DataBase.BaoCao.InBangDiemChiTietTunghocKy(FrmMain.m_phanquyen.ID, m_node, m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, namhoc, m_cbbBaoCaohocky.SelectedValue.ToString());
             }
             else if (typebaocao == 4)
             {
                 int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
-                m_dgvMain.DataSource = hs.BaoCaoTongKetMon(m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
+                m_dgvMain.DataSource = DataBase.BaoCao.BaoCaoTongKetMon(m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
             }
             else if (typebaocao == 3)
             {
                 int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
-                m_dgvMain.DataSource = hs.BaoCaoTongKetHocKy(FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
+                m_dgvMain.DataSource = DataBase.BaoCao.BaoCaoTongKetHocKy(FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
             }
 
         }
@@ -572,12 +558,12 @@ namespace QuanLyHocSinh
             if (typebaocao == 1)
             {
                 int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
-                m_dgvMain.DataSource = hs.InBangDiemChiTietTunghocKy(FrmMain.m_phanquyen.ID, m_node, m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, namhoc, m_cbbBaoCaohocky.SelectedValue.ToString());
+                m_dgvMain.DataSource = DataBase.BaoCao.InBangDiemChiTietTunghocKy(FrmMain.m_phanquyen.ID, m_node, m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, namhoc, m_cbbBaoCaohocky.SelectedValue.ToString());
             }
             else if (typebaocao == 4)
             {
                 int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
-                m_dgvMain.DataSource = hs.BaoCaoTongKetMon(m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
+                m_dgvMain.DataSource = DataBase.BaoCao.BaoCaoTongKetMon(m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
             }
         }
 
@@ -586,17 +572,17 @@ namespace QuanLyHocSinh
             if (typebaocao == 1)
             {
                 int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
-                m_dgvMain.DataSource = hs.InBangDiemChiTietTunghocKy(FrmMain.m_phanquyen.ID, m_node, m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, namhoc, m_cbbBaoCaohocky.SelectedValue.ToString());
+                m_dgvMain.DataSource = DataBase.BaoCao.InBangDiemChiTietTunghocKy(FrmMain.m_phanquyen.ID, m_node, m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, namhoc, m_cbbBaoCaohocky.SelectedValue.ToString());
             }
             else if (typebaocao == 4)
             {
                 int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
-                m_dgvMain.DataSource = hs.BaoCaoTongKetMon(m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
+                m_dgvMain.DataSource = DataBase.BaoCao.BaoCaoTongKetMon(m_cbbBaoCaomonhoc.SelectedValue.ToString(), FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
             }
             else if (typebaocao == 3)
             {
                 int namhoc = int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString());
-                m_dgvMain.DataSource = hs.BaoCaoTongKetHocKy(FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
+                m_dgvMain.DataSource = DataBase.BaoCao.BaoCaoTongKetHocKy(FrmMain.m_phanquyen.PhanQuyen, m_cbbBaoCaohocky.SelectedValue.ToString(), namhoc);
             }
         }
 
@@ -609,11 +595,12 @@ namespace QuanLyHocSinh
         {
             if (MessageBox.Show("Dang Xuat?", "Thong Bao", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
-                this.Close();
+                this.Hide();
                 m_lblID.Text = null;
                 m_lblName.Text = null;
                 frmDangNhap frmdangNhap = new frmDangNhap();
                 frmdangNhap.ShowDialog();
+                this.Close();
             }
         }
 

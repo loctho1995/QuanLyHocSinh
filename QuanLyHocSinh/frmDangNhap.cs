@@ -12,13 +12,18 @@ namespace QuanLyHocSinh
 {
     public partial class frmDangNhap : Form
     {
-        HocSinh_BUS hs = new HocSinh_BUS();
         string name = null, malop = null;
         string[] malopbomon = null;
         int phanquyen = 0;
+
         public frmDangNhap()
         {
             InitializeComponent();
+
+            if (!DataBase.IsLoaded)
+            {
+                DataBase.InitDataBase();
+            }
         }
 
         protected override void WndProc(ref Message m)
@@ -41,7 +46,7 @@ namespace QuanLyHocSinh
         {
             if (Check() == true)
             {
-                hs.LayGVBoMon(ref malopbomon, m_tbID.Text.ToUpper());
+                DataBase.GiaoVien.LayGVBoMon(ref malopbomon, m_tbID.Text.ToUpper());
                 this.Hide();
                 FrmMain.m_phanquyen.ID = m_tbID.Text.ToUpper();
                 FrmMain.m_phanquyen.Username = name;
@@ -60,7 +65,7 @@ namespace QuanLyHocSinh
         //
         private bool Check()
         {
-            int x = hs.DangNhap(m_tbID.Text, m_tbPass.Text, ref name, ref malop, ref phanquyen);
+            int x = DataBase.User.DangNhap(m_tbID.Text, m_tbPass.Text, ref name, ref malop, ref phanquyen);
             if (x == 1)
                 return true;
             else if (x == 2)
@@ -85,7 +90,7 @@ namespace QuanLyHocSinh
             {
                 if (Check() == true)
                 {
-                    hs.LayGVBoMon(ref malopbomon, m_tbID.Text.ToUpper());
+                    DataBase.GiaoVien.LayGVBoMon(ref malopbomon, m_tbID.Text.ToUpper());
                     this.Hide();
                     FrmMain.m_phanquyen.ID = m_tbID.Text.ToUpper();
                     FrmMain.m_phanquyen.Username = name;

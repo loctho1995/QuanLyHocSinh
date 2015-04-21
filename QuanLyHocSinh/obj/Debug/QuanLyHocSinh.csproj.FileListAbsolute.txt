@@ -21,3 +21,4 @@ F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.SearchControl.reso
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.csproj.GenerateResource.Cache
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.exe
 F:\Github\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.pdb
+F:\Github\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\System.Windows.Forms.Ribbon35.dll

@@ -53,13 +53,11 @@ namespace QuanLyHocSinh
 
         private void m_btchinhSua_Click(object sender, EventArgs e)
         {
-            if (!FrmMain.IsSuaNhapOpen)
-            {
-                frmSuaNhapHS frm = new frmSuaNhapHS(m_row);
-                frm.Show();
-                FrmMain.ListThongTinHS.Remove(this);
-                this.Close();
-            }
+            frmSuaNhapHS frm = new frmSuaNhapHS(m_row);
+            frm.ShowDialog();
+            this.Hide();
+            FrmMain.ListThongTinHS.Remove(this);
+            this.Close();
         }
 
         private void m_btminimize_Click(object sender, EventArgs e)

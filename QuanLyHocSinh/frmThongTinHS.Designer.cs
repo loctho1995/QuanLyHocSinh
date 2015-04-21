@@ -380,7 +380,7 @@
             this.m_btClose.HaveEffects = false;
             this.m_btClose.ImageOrigin = new System.Drawing.Point(0, 0);
             this.m_btClose.ImageSize = new System.Drawing.Size(25, 25);
-            this.m_btClose.Location = new System.Drawing.Point(871, 2);
+            this.m_btClose.Location = new System.Drawing.Point(871, 1);
             this.m_btClose.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btClose.Name = "m_btClose";
             this.m_btClose.SaveChanged = false;

@@ -465,11 +465,11 @@
             this.buttonFlat1.DeltaAlphaGlow = 2F;
             this.buttonFlat1.DeltaDistance = 2F;
             this.buttonFlat1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFlat1.HaveEffects = true;
+            this.buttonFlat1.HaveEffects = false;
             this.buttonFlat1.ImageOrigin = new System.Drawing.Point(0, 0);
             this.buttonFlat1.ImageSize = new System.Drawing.Size(50, 50);
             this.buttonFlat1.Location = new System.Drawing.Point(31, 249);
-            this.buttonFlat1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.buttonFlat1.Margin = new System.Windows.Forms.Padding(5);
             this.buttonFlat1.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.buttonFlat1.Name = "buttonFlat1";
             this.buttonFlat1.SaveChanged = false;
