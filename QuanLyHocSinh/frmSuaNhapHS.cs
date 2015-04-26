@@ -68,6 +68,8 @@ namespace QuanLyHocSinh
             m_tbHotenme.Text = row.Cells["NGHENGHIEPCHA"].Value.ToString();
             m_tbNghenghiepcha.Text = row.Cells["HOTENME"].Value.ToString();
             m_tbNghenghiepme.Text = row.Cells["NGHENGHIEPME"].Value.ToString();
+            if (DataBase.HocSinh.Image(int.Parse(m_txtMahs.Text)) != null)
+                m_ptbHS.Image = (Image)(new Bitmap(DataBase.HocSinh.Image(int.Parse(m_txtMahs.Text))));
 
             LOP l = new LOP();
             l.MALOP = row.Cells["MALOP"].Value.ToString();
@@ -103,19 +105,21 @@ namespace QuanLyHocSinh
             hs.HOTENME = m_tbHotenme.Text;
             hs.NGHENGHIEPCHA = m_tbNghenghiepcha.Text;
             hs.NGHENGHIEPME = m_tbNghenghiepme.Text;
+            hs.IMAGEE = m_imagePath;
 
             if (m_check)
             {
                 pl.MANAMHOC = int.Parse(m_ccbManamhoc.SelectedValue.ToString());
                 pl.MAKHOI = pl.MALOP.Substring(0, 2);
-                MessageBox.Show("Thanh cong" + " " + hs_bus.ThemHocSinh(hs, pl).ToString());
+                hs_bus.ThemHocSinh(hs,pl);
+                MessageBox.Show("Thanh cong");
             }
             else if (hs_bus.UpdateHocSinh(hs, pl)&&m_check ==false)
             {
-                MessageBox.Show("Thanh cong" + m_ccbLop.SelectedValue.ToString());
+                MessageBox.Show("Thanh cong");
                 this.Close();
             }
-            else MessageBox.Show("That bai" + pl.MALOP);
+            else MessageBox.Show("That bai");
         }
 
         private bool CheckEmail(string input)
@@ -147,13 +151,16 @@ namespace QuanLyHocSinh
             WindowState = FormWindowState.Minimized;
         }
 
-        private void buttonFlat1_Click(object sender, EventArgs e)
+        private void m_btnChonhinh_Click(object sender, EventArgs e)
         {
             openFileDialog1.FileName = "";
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                
+                m_imagePath = openFileDialog1.FileName.ToString();
+                Bitmap image = new Bitmap(m_imagePath);
+                m_ptbHS.Image = (Image)image;
             }
         }
+
     }
 }

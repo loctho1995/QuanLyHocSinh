@@ -189,7 +189,7 @@ namespace BUS
         {
             try
             {
-                DB.sp_SuaThongtinHocSinh(hs.MAHS, hs.HOTEN, hs.GIOITINH, hs.NGAYSINH, hs.DIACHI, hs.EMAIL, hs.TONGIAO, hs.HOTENCHAC, hs.NGHENGHIEPCHA, hs.HOTENME, hs.NGHENGHIEPME, pl.MALOP);
+                DB.sp_SuaThongtinHocSinh(hs.MAHS, hs.HOTEN, hs.GIOITINH, hs.NGAYSINH, hs.DIACHI, hs.EMAIL, hs.TONGIAO, hs.HOTENCHAC, hs.NGHENGHIEPCHA, hs.HOTENME, hs.NGHENGHIEPME, pl.MALOP,hs.IMAGEE);
                 return true;
             }
             catch
@@ -203,14 +203,26 @@ namespace BUS
             try
             {
                 
-                //var a = DB.sp_ThemHocSinh(hs.MAHS, hs.HOTEN, hs.GIOITINH, hs.NGAYSINH, hs.DIACHI, hs.EMAIL, hs.TONGIAO, hs.HOTENCHAC, hs.NGHENGHIEPCHA, hs.HOTENME, hs.NGHENGHIEPME, pl.MALOP, pl.MANAMHOC, pl.MAKHOI);
-                //return int.Parse(a.ToString()) ;
-                return 0;
+                var a = DB.sp_ThemHocSinh(hs.MAHS, hs.HOTEN, hs.GIOITINH, hs.NGAYSINH, hs.DIACHI, hs.EMAIL, hs.TONGIAO, hs.HOTENCHAC, hs.NGHENGHIEPCHA, hs.HOTENME, hs.NGHENGHIEPME, pl.MALOP, pl.MANAMHOC, pl.MAKHOI,hs.IMAGEE);
+                return int.Parse(a.ToString()) ;
             }
             catch
             {
                 return 1;
             }
-        }        
+        }
+        public string Image(int mahs)
+        {
+            try
+            {
+                string image = "";
+                SQLDataContext.SQLData.sp_LayImageHS(mahs, ref image);
+                return image;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

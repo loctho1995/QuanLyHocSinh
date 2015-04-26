@@ -1,14 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SQL_QUANLYHOCSINH" Class="SQL_QUANLYHOCSINHDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=PC;Initial Catalog=SQL_QUANLYHOCSINH;Integrated Security=True" SettingsObjectName="DAO.Properties.Settings" SettingsPropertyName="SQL_QUANLYHOCSINHConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.DIEMHOCKY1" Member="DIEMHOCKY1s">
-    <Type Name="DIEMHOCKY1">
-      <Column Name="MAHS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MAMONHOC" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MANAMHOC" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MALOP" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MALOAIDIEM" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DIEM" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=HP;Initial Catalog=SQL_QUANLYHOCSINH;Integrated Security=True" SettingsObjectName="DAO.Properties.Settings" SettingsPropertyName="SQL_QUANLYHOCSINHConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CAIDAT" Member="CAIDATs">
+    <Type Name="CAIDAT">
+      <Column Name="MAIN_BACKCOLOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TOPBUTTONCOLOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TABBUTTONCOLOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SEACHCONTROL_BACKGOUND" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TABPANEL_COLOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.USERS" Member="USERs">
@@ -18,6 +16,17 @@
       <Column Name="EMAIL" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
       <Column Name="PHANQUYEN" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="GIAOVIEN_USER" Member="GIAOVIEN" ThisKey="ID" OtherKey="MAGV" Type="GIAOVIEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DIEMHOCKY1" Member="DIEMHOCKY1s">
+    <Type Name="DIEMHOCKY1">
+      <Column Name="MAHS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MAMONHOC" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MANAMHOC" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MALOP" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MALOAIDIEM" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DIEM" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.DIEMHOCKY2" Member="DIEMHOCKY2s">
@@ -83,6 +92,7 @@
       <Column Name="HOTENME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="NGHENGHIEPME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="NGHENGHIEPCHA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="IMAGEE" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Association Name="HOCSINH_LOP" Member="LOPs" ThisKey="MAHS" OtherKey="MATRGLOP" Type="LOP" />
       <Association Name="HOCSINH_PHANLOP" Member="PHANLOPs" ThisKey="MAHS" OtherKey="MAHS" Type="PHANLOP" />
     </Type>
@@ -292,6 +302,14 @@
       <Column Name="DIEMTBCANAM" Type="System.Double" DbType="Float" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.sp_InsertDuLieuCaiDat" Method="sp_InsertDuLieuCaiDat">
+    <Parameter Name="main_backcolor" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="topbuttoncolor" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="tabbuttoncolor" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="seachcontrol_background" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="tabpanel_color" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.sp_LayGVBoMon" Method="sp_LayGVBoMon">
     <Parameter Name="magv" Type="System.String" DbType="Char(5)" />
     <ElementType Name="sp_LayGVBoMonResult">
@@ -326,6 +344,7 @@
     <Parameter Name="hotenme" Type="System.String" DbType="VarChar(30)" />
     <Parameter Name="nghenghiepme" Type="System.String" DbType="VarChar(30)" />
     <Parameter Name="malop" Type="System.String" DbType="Char(5)" />
+    <Parameter Name="image" Type="System.String" DbType="VarChar(200)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_ThemHocSinh" Method="sp_ThemHocSinh">
@@ -343,6 +362,7 @@
     <Parameter Name="malop" Type="System.String" DbType="Char(5)" />
     <Parameter Name="manamhoc" Type="System.Int32" DbType="Int" />
     <Parameter Name="makhoilop" Type="System.String" DbType="Char(2)" />
+    <Parameter Name="image" Type="System.String" DbType="VarChar(200)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_ThongtinHocSinhtheoKhoi" Method="sp_ThongtinHocSinhtheoKhoi">
@@ -404,5 +424,10 @@
       <Column Name="MAKHOI" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
       <Column Name="MALOP" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.sp_LayImageHS" Method="sp_LayImageHS">
+    <Parameter Name="mahs" Type="System.Int32" DbType="Int" />
+    <Parameter Name="image" Type="System.String" DbType="VarChar(200)" Direction="InOut" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

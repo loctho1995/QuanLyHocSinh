@@ -40,6 +40,9 @@ namespace QuanLyHocSinh
         public static bool IsLoaded
         { get; set; }
 
+        public static CaiDat_BUS CaiDat
+        { get; set; }
+
         public static void InitDataBase()
         {
             BaoCao = new BaoCao_BUS();
@@ -51,6 +54,7 @@ namespace QuanLyHocSinh
             NamHoc = new NamHoc_BUS();
             User = new User_BUS();
             IsLoaded = true;
+            CaiDat = new CaiDat_BUS();
         }
     }
 }

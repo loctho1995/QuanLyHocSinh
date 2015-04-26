@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
+using DAO;
 
 namespace QuanLyHocSinh
 {
@@ -122,6 +123,22 @@ namespace QuanLyHocSinh
             m_cbbNamHoc.DataSource = DataBase.NamHoc.LayNamHoc();
             m_cbbNamHoc.DisplayMember = "TENNAMHOC";
             m_cbbNamHoc.ValueMember = "MANAMHOC";
+
+            LoadColorApplication();
+        }
+
+        private void LoadColorApplication()
+        {
+            CAIDAT caidat = new CAIDAT();
+            caidat = DataBase.CaiDat.LoadDuLieuCaiDat();
+            this.BackColor = System.Drawing.Color.FromArgb(int.Parse(caidat.MAIN_BACKCOLOR));
+            this.TopButtonsColor = System.Drawing.Color.FromArgb(int.Parse(caidat.TOPBUTTONCOLOR));
+            this.TabButtonsColor = System.Drawing.Color.FromArgb(int.Parse(caidat.TABBUTTONCOLOR));
+            this.SearchControl.BackColor = System.Drawing.Color.FromArgb(int.Parse(caidat.SEACHCONTROL_BACKGOUND));
+            for (int i = 0; i < this.TabControl.TabPages.Count; i++)
+            {
+                this.TabControl.TabPages[i].BackColor = System.Drawing.Color.FromArgb(int.Parse(caidat.TABPANEL_COLOR));
+            }
         }
         //ham bat su kien chuyen tabpage
 

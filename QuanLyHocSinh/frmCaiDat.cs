@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS;
+using DAO;
 
 namespace QuanLyHocSinh
 {
+    
     public partial class frmCaiDat : Form
     {
         FrmMain m_frmMain;
         Color m_btTabControlColor;
-        Timer m_timer;      
+        Timer m_timer;
+        CAIDAT caidat = new CAIDAT();
         
         public frmCaiDat(FrmMain frmMain)
         {
@@ -160,6 +164,12 @@ namespace QuanLyHocSinh
                 m_frmMain.TabControl.TabPages[i].BackColor = m_tcMain.TabPages[0].BackColor;
             }
 
+            caidat.MAIN_BACKCOLOR = m_frmMain.BackColor.ToArgb().ToString();
+            caidat.TOPBUTTONCOLOR = m_frmMain.TopButtonsColor.ToArgb().ToString();
+            caidat.TABBUTTONCOLOR = m_frmMain.TabButtonsColor.ToArgb().ToString();
+            caidat.SEACHCONTROL_BACKGOUND = m_frmMain.SearchControl.BackColor.ToArgb().ToString();
+            caidat.TABPANEL_COLOR = m_frmMain.TabControl.TabPages[0].BackColor.ToArgb().ToString();
+            DataBase.CaiDat.insertDuLieuCatDat(caidat);
             this.Close();
         }
     }

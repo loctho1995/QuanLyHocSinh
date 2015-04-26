@@ -8,19 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS;
 
 namespace QuanLyHocSinh
 {
     public partial class frmThongTinHS : FormFlat
     {
         DataGridViewRow m_row;
-
+        HocSinh_BUS hs = new HocSinh_BUS();
         /// <summary>
         /// mỗi frm có 1 ID riêng để tránh việc xem thông tin của 1 học sinh trên 2 frm
         /// </summary>
         public int FormID
         { get; set; }
-
+        
         public frmThongTinHS(DataGridViewRow row)
         {
             InitializeComponent();
@@ -43,11 +44,14 @@ namespace QuanLyHocSinh
             m_lblDiachi.Text = m_row.Cells["DIACHI"].Value.ToString();
             m_lblEmail.Text = m_row.Cells["EMAIL"].Value.ToString();
             m_lblLop.Text = m_row.Cells["MALOP"].Value.ToString();
+            if (DataBase.HocSinh.Image(int.Parse(m_row.Cells["MAHS"].Value.ToString())) != null)
+                m_ptbHS.Image = (Image)(new Bitmap(DataBase.HocSinh.Image(int.Parse(m_row.Cells["MAHS"].Value.ToString()))));
         }
 
         private void m_btClose_Click(object sender, EventArgs e)
         {
             FrmMain.ListThongTinHS.Remove(this);
+            m_ptbHS.Image = null;
             this.Close();
         }
 
