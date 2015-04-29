@@ -277,7 +277,7 @@ namespace QuanLyHocSinh
         private void XemDiem()
         {
             if (m_dgvMain.DataSource == null)
-                MessageBox.Show("Chọn học sinh cần xem thông tin");
+                MessageBox.Show("Chọn học sinh cần sửa điểm");
             else
             {
                 if (m_ccbPhanQuyen.Text.ToString() == "GVCN")
