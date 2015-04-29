@@ -353,7 +353,7 @@ namespace QuanLyHocSinh
                 switch (tabpage)//tabpage se cho biet tabpage nao dang duoc chon
                 {
                     case 0://tabpage Ho So
-
+                        dgv.DataSource = null;
                         if (node.Length == 2)
                             dgv.DataSource = DataBase.HocSinh.LayHocSinh_Khoi(node, m_phanquyen.ID, m_phanquyen.PhanQuyen);
                         else if (CheckGVInLopBM(node))
