@@ -130,19 +130,27 @@ namespace BUS
 
             var diem = SQLDataContext.SQLData.sp_BaoCaoTongKetMon(mamon, phanquyen, mahocki, manamhoc);
             int c = 1;
-            foreach (var i in diem)
+            try
             {
-                DataRow r = dt.NewRow();
+                foreach (var i in diem)
+                {
+                    DataRow r = dt.NewRow();
 
-                r["STT"] = c++;
-                r["LOP"] = i.MALOP;
-                r["SISO"] = i.SISO;
-                r["SOLUONGDAT"] = i.SOLUONGDAT;
-                siso = int.Parse(i.SISO.ToString());
-                soluongdat = int.Parse(i.SOLUONGDAT.ToString());
-                r["TILE"] = ((float)soluongdat / siso * 100).ToString() + " %";
-                dt.Rows.Add(r);
+                    r["STT"] = c++;
+                    r["LOP"] = i.MALOP;
+                    r["SISO"] = i.SISO;
+                    r["SOLUONGDAT"] = i.SOLUONGDAT;
+                    siso = int.Parse(i.SISO.ToString());
+                    soluongdat = int.Parse(i.SOLUONGDAT.ToString());
+                    r["TILE"] = ((float)soluongdat / siso * 100).ToString() + " %";
+                    dt.Rows.Add(r);
+                }
             }
+            catch
+            {
+
+            }
+
 
             if (dt.Rows.Count == 0)
                 return null;

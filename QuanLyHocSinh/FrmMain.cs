@@ -33,7 +33,7 @@ namespace QuanLyHocSinh
 
         public Color TabButtonsColor
         {
-            get { return m_btBaoCao.BackColor; }
+            get { return m_btXemThongTin.GetRealBackColor; }
             set
             {
                 m_btBaoCao.BackColor = m_btSuaDiem.BackColor = m_btSuaHS.BackColor = m_btThemHS.BackColor = m_btXemDiem.BackColor
@@ -71,32 +71,8 @@ namespace QuanLyHocSinh
             ListThongTinHS = new List<frmThongTinHS>();
             FrmMain.m_phanquyen.LopCN = FrmMain.m_phanquyen.LopCN.Trim();            
             LoadDataBaoCao();
-            m_scMain.ButtonSearch.Size = new Size(45, m_scMain.ButtonSearch.Height);
-
-            this.BackColor = Color.FromArgb(62, 70, 73);
-            m_tbHoSo.BackColor = Color.FromArgb(35, 168, 111);
-            m_tbBaoCao.BackColor = Color.FromArgb(35, 168, 111);
-            m_tbHocTap.BackColor = Color.FromArgb(35, 168, 111);
-
-            m_btclose.BackColor = Color.FromArgb(255, 101, 99);
-            m_btHide.BackColor = m_btclose.BackColor;
-            m_btmaxSize.BackColor = m_btclose.BackColor;
-
-            m_scMain.BackColor = Color.FromArgb(44, 208, 136);
-            m_scMain.ShadowColor = m_tbHoSo.BackColor;
-            m_scMain.LabelSearch.ForeColor = Color.White;
-
-            /* Mau xanh la
-            this.BackColor = Color.FromArgb(63, 159, 63);
-            m_tbHoSo.BackColor = Color.FromArgb(105, 213, 105);
-            m_tbHocTap.UseVisualStyleBackColor = true;
-            m_tbBaoCao.BackColor = Color.FromArgb(123, 241, 123);
-            m_tbHocTap.BackColor = Color.FromArgb(123, 241, 123);
-            m_scMain.BackColor = Color.FromArgb(142, 252, 142);
-            m_scMain.ShadowColor = m_tbHoSo.BackColor;
-            m_scMain.LabelSearch.ForeColor = Color.FromArgb(92, 92, 92);
-            m_btflat.BackColor = Color.FromArgb(232, 76, 61);
-            */
+            m_scMain.ButtonSearch.Size = new Size(38, m_scMain.ButtonSearch.Height);
+            
 
             m_treeViewKhoi.ExpandAll(); 
 
@@ -125,6 +101,17 @@ namespace QuanLyHocSinh
             m_cbbNamHoc.ValueMember = "MANAMHOC";
 
             LoadColorApplication();
+            LoadButtonsLocation();
+        }
+
+        private void LoadButtonsLocation()
+        {
+            m_btXemThongTin.Location = m_btXemDiem.Location = new Point(0, -1);
+            m_btSuaHS.Location = new Point(m_btXemThongTin.Location.X + 190, m_btXemThongTin.Location.Y);
+            m_btXoaHS.Location = new Point(m_btSuaHS.Location.X + 190, m_btXemThongTin.Location.Y);
+            m_btThemHS.Location = new Point(m_btXoaHS.Location.X + 190, m_btXemThongTin.Location.Y);
+
+            m_btSuaDiem.Location = new Point(m_btXemDiem.Location.X + 160, m_btXemDiem.Location.Y);
         }
 
         private void LoadColorApplication()
@@ -135,10 +122,15 @@ namespace QuanLyHocSinh
             this.TopButtonsColor = System.Drawing.Color.FromArgb(int.Parse(caidat.TOPBUTTONCOLOR));
             this.TabButtonsColor = System.Drawing.Color.FromArgb(int.Parse(caidat.TABBUTTONCOLOR));
             this.SearchControl.BackColor = System.Drawing.Color.FromArgb(int.Parse(caidat.SEACHCONTROL_BACKGOUND));
+
             for (int i = 0; i < this.TabControl.TabPages.Count; i++)
             {
                 this.TabControl.TabPages[i].BackColor = System.Drawing.Color.FromArgb(int.Parse(caidat.TABPANEL_COLOR));
             }
+
+            m_scMain.ShadowColor = m_tbHoSo.BackColor;
+            m_scMain.BackColor = m_btXemThongTin.BackColor; //m_tbHoSo.BackColor;
+            m_scMain.LabelSearch.ForeColor = Color.White;
         }
         //ham bat su kien chuyen tabpage
 
@@ -605,7 +597,8 @@ namespace QuanLyHocSinh
 
         private void m_dgvMain_DoubleClick(object sender, EventArgs e)
         {
-            this.XemThongTin();
+            if(m_tbHoSo.Focus())
+                this.XemThongTin();
         }
 
         private void m_dangXuatbtn_Click(object sender, EventArgs e)
@@ -880,11 +873,10 @@ namespace QuanLyHocSinh
             base.WndProc(ref m);
         }
 
-        #endregion
-
         private void m_tcMain_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             m_treeViewKhoi.SelectedNode = null;
         }
+        #endregion
     }
 }

@@ -33,15 +33,21 @@ namespace BUS
 
             foreach (var i in hocsinh)
             {
-                DataRow r = dt.NewRow();
-                r["STT"] = c++;
-                r["MAHS"] = i.MAHS;
-                r["HOTEN"] = i.HOTEN;
-                r["DIEMTBHKI"] = i.DIEMTBHKI;
-                r["DIEMTBHKII"] = i.DIEMTBHKII;
-                r["DIEMTBCANAM"] = i.DIEMTBCANAM;
-
-                dt.Rows.Add(r);
+                try
+                {
+                    DataRow r = dt.NewRow();
+                    r["STT"] = c++;
+                    r["MAHS"] = i.MAHS;
+                    r["HOTEN"] = i.HOTEN;
+                    r["DIEMTBHKI"] = i.DIEMTBHKI;
+                    r["DIEMTBHKII"] = i.DIEMTBHKII;
+                    r["DIEMTBCANAM"] = i.DIEMTBCANAM;
+                    dt.Rows.Add(r);
+                }
+                catch
+                {
+                    
+                }
             }
 
             if (dt.Rows.Count == 0)
@@ -131,18 +137,26 @@ namespace BUS
             foreach (var i in diem)
             {
                 DataRow r = dt.NewRow();
+                
+                try
+                {
+                    r["D_MIENG_HKI"] = i.D_MIENGHKI;
+                    r["D_15P_HKI"] = i.D_15PHKI;
+                    r["D_1TIET_HKI"] = i.D_1TIETHKI;
+                    r["D_THI_HKI"] = i.D_THIHKI;
+                    r["D_TBMON_HKI"] = i.D_TBMONHKI;
 
-                r["D_MIENG_HKI"] = i.D_MIENGHKI;
-                r["D_15P_HKI"] = i.D_15PHKI;
-                r["D_1TIET_HKI"] = i.D_1TIETHKI;
-                r["D_THI_HKI"] = i.D_THIHKI;
-                r["D_TBMON_HKI"] = i.D_TBMONHKI;
+                    r["D_MIENG_HKII"] = i.D_MIENGHKII;
+                    r["D_15P_HKII"] = i.D_15PHKII;
+                    r["D_1TIET_HKII"] = i.D_1TIETHKII;
+                    r["D_THI_HKII"] = i.D_THIHKII;
+                    r["D_TBMON_HKII"] = i.D_TBMONHKII;
+                }
+                catch (Exception ex)
+                {
+                    
+                }
 
-                r["D_MIENG_HKII"] = i.D_MIENGHKII;
-                r["D_15P_HKII"] = i.D_15PHKII;
-                r["D_1TIET_HKII"] = i.D_1TIETHKII;
-                r["D_THI_HKII"] = i.D_THIHKII;
-                r["D_TBMON_HKII"] = i.D_TBMONHKII;
 
                 dt.Rows.Add(r);
             }

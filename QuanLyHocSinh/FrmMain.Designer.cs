@@ -66,6 +66,14 @@
             this.m_lblLopCN = new System.Windows.Forms.Label();
             this.m_lblLopBoMon = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.ribbonTab1 = new System.Windows.Forms.RibbonTab();
+            this.ribbonTab2 = new System.Windows.Forms.RibbonTab();
+            this.ribbonTab3 = new System.Windows.Forms.RibbonTab();
+            this.m_btCaiDat = new QuanLyHocSinh.ButtonFlat();
+            this.m_btHide = new QuanLyHocSinh.ButtonFlat();
+            this.m_btmaxSize = new QuanLyHocSinh.ButtonFlat();
+            this.m_btdangXuat = new QuanLyHocSinh.ButtonFlat();
+            this.m_btclose = new QuanLyHocSinh.ButtonFlat();
             this.m_scMain = new QuanLyHocSinh.SearchControl();
             this.m_tcMain = new QuanLyHocSinh.CustomTabControl();
             this.m_tbHoSo = new System.Windows.Forms.TabPage();
@@ -92,14 +100,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.m_cbbBaoCaomonhoc = new System.Windows.Forms.ComboBox();
             this.m_btBaoCao = new QuanLyHocSinh.ButtonFlat();
-            this.m_btCaiDat = new QuanLyHocSinh.ButtonFlat();
-            this.m_btHide = new QuanLyHocSinh.ButtonFlat();
-            this.m_btmaxSize = new QuanLyHocSinh.ButtonFlat();
-            this.m_btdangXuat = new QuanLyHocSinh.ButtonFlat();
-            this.m_btclose = new QuanLyHocSinh.ButtonFlat();
-            this.ribbonTab1 = new System.Windows.Forms.RibbonTab();
-            this.ribbonTab2 = new System.Windows.Forms.RibbonTab();
-            this.ribbonTab3 = new System.Windows.Forms.RibbonTab();
             ((System.ComponentModel.ISupportInitialize)(this.m_dgwMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_dgvMain)).BeginInit();
             this.m_tcMain.SuspendLayout();
@@ -186,7 +186,7 @@
             this.m_dgvMain.Name = "m_dgvMain";
             this.m_dgvMain.ReadOnly = true;
             this.m_dgvMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.m_dgvMain.Size = new System.Drawing.Size(719, 374);
+            this.m_dgvMain.Size = new System.Drawing.Size(717, 374);
             this.m_dgvMain.TabIndex = 5;
             this.m_dgvMain.DoubleClick += new System.EventHandler(this.m_dgvMain_DoubleClick);
             // 
@@ -283,19 +283,167 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Lớp BM:";
             // 
+            // ribbonTab1
+            // 
+            this.ribbonTab1.Text = "Hồ Sơ";
+            // 
+            // ribbonTab2
+            // 
+            this.ribbonTab2.Text = "Học Tập";
+            // 
+            // ribbonTab3
+            // 
+            this.ribbonTab3.Text = "Báo Cáo";
+            // 
+            // m_btCaiDat
+            // 
+            this.m_btCaiDat.AlphaGlow = 80F;
+            this.m_btCaiDat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.m_btCaiDat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
+            this.m_btCaiDat.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconsetting;
+            this.m_btCaiDat.ButtonText = "Cài đặt";
+            this.m_btCaiDat.DeltaAlphaGlow = 8F;
+            this.m_btCaiDat.DeltaDistance = 2F;
+            this.m_btCaiDat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_btCaiDat.HaveEffects = false;
+            this.m_btCaiDat.ImageOrigin = new System.Drawing.Point(35, 0);
+            this.m_btCaiDat.ImageSize = new System.Drawing.Size(20, 20);
+            this.m_btCaiDat.Location = new System.Drawing.Point(542, 2);
+            this.m_btCaiDat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_btCaiDat.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
+            this.m_btCaiDat.Name = "m_btCaiDat";
+            this.m_btCaiDat.SaveChanged = false;
+            this.m_btCaiDat.ShadownDistance = 6;
+            this.m_btCaiDat.Size = new System.Drawing.Size(101, 28);
+            this.m_btCaiDat.TabIndex = 13;
+            this.m_btCaiDat.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
+            this.m_btCaiDat.TextColor = System.Drawing.Color.White;
+            this.m_btCaiDat.TextOrigin = new System.Drawing.Point(-8, 0);
+            this.m_btCaiDat.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btCaiDat.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
+            this.m_btCaiDat.Click += new System.EventHandler(this.button_Click);
+            // 
+            // m_btHide
+            // 
+            this.m_btHide.AlphaGlow = 80F;
+            this.m_btHide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.m_btHide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
+            this.m_btHide.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconminmize;
+            this.m_btHide.ButtonText = "";
+            this.m_btHide.DeltaAlphaGlow = 8F;
+            this.m_btHide.DeltaDistance = 2F;
+            this.m_btHide.HaveEffects = false;
+            this.m_btHide.ImageOrigin = new System.Drawing.Point(0, 0);
+            this.m_btHide.ImageSize = new System.Drawing.Size(20, 20);
+            this.m_btHide.Location = new System.Drawing.Point(763, 2);
+            this.m_btHide.Margin = new System.Windows.Forms.Padding(2);
+            this.m_btHide.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
+            this.m_btHide.Name = "m_btHide";
+            this.m_btHide.SaveChanged = false;
+            this.m_btHide.ShadownDistance = 6;
+            this.m_btHide.Size = new System.Drawing.Size(46, 28);
+            this.m_btHide.TabIndex = 12;
+            this.m_btHide.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
+            this.m_btHide.TextColor = System.Drawing.Color.White;
+            this.m_btHide.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btHide.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btHide.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
+            this.m_btHide.Click += new System.EventHandler(this.button_Click);
+            // 
+            // m_btmaxSize
+            // 
+            this.m_btmaxSize.AlphaGlow = 80F;
+            this.m_btmaxSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.m_btmaxSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
+            this.m_btmaxSize.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconmaxsize;
+            this.m_btmaxSize.ButtonText = "";
+            this.m_btmaxSize.DeltaAlphaGlow = 8F;
+            this.m_btmaxSize.DeltaDistance = 2F;
+            this.m_btmaxSize.HaveEffects = false;
+            this.m_btmaxSize.ImageOrigin = new System.Drawing.Point(0, 0);
+            this.m_btmaxSize.ImageSize = new System.Drawing.Size(25, 20);
+            this.m_btmaxSize.Location = new System.Drawing.Point(813, 2);
+            this.m_btmaxSize.Margin = new System.Windows.Forms.Padding(2);
+            this.m_btmaxSize.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
+            this.m_btmaxSize.Name = "m_btmaxSize";
+            this.m_btmaxSize.SaveChanged = false;
+            this.m_btmaxSize.ShadownDistance = 6;
+            this.m_btmaxSize.Size = new System.Drawing.Size(46, 28);
+            this.m_btmaxSize.TabIndex = 11;
+            this.m_btmaxSize.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
+            this.m_btmaxSize.TextColor = System.Drawing.Color.White;
+            this.m_btmaxSize.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btmaxSize.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btmaxSize.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
+            this.m_btmaxSize.Click += new System.EventHandler(this.button_Click);
+            // 
+            // m_btdangXuat
+            // 
+            this.m_btdangXuat.AlphaGlow = 80F;
+            this.m_btdangXuat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.m_btdangXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
+            this.m_btdangXuat.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconLogout;
+            this.m_btdangXuat.ButtonText = "đăng xuất";
+            this.m_btdangXuat.DeltaAlphaGlow = 8F;
+            this.m_btdangXuat.DeltaDistance = 2F;
+            this.m_btdangXuat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_btdangXuat.HaveEffects = false;
+            this.m_btdangXuat.ImageOrigin = new System.Drawing.Point(35, 0);
+            this.m_btdangXuat.ImageSize = new System.Drawing.Size(20, 20);
+            this.m_btdangXuat.Location = new System.Drawing.Point(651, 2);
+            this.m_btdangXuat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_btdangXuat.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
+            this.m_btdangXuat.Name = "m_btdangXuat";
+            this.m_btdangXuat.SaveChanged = false;
+            this.m_btdangXuat.ShadownDistance = 6;
+            this.m_btdangXuat.Size = new System.Drawing.Size(102, 28);
+            this.m_btdangXuat.TabIndex = 10;
+            this.m_btdangXuat.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
+            this.m_btdangXuat.TextColor = System.Drawing.Color.White;
+            this.m_btdangXuat.TextOrigin = new System.Drawing.Point(-8, 0);
+            this.m_btdangXuat.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btdangXuat.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
+            this.m_btdangXuat.Click += new System.EventHandler(this.m_dangXuatbtn_Click);
+            // 
+            // m_btclose
+            // 
+            this.m_btclose.AlphaGlow = 80F;
+            this.m_btclose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.m_btclose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
+            this.m_btclose.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconClose;
+            this.m_btclose.ButtonText = "";
+            this.m_btclose.DeltaAlphaGlow = 8F;
+            this.m_btclose.DeltaDistance = 2F;
+            this.m_btclose.HaveEffects = false;
+            this.m_btclose.ImageOrigin = new System.Drawing.Point(0, 0);
+            this.m_btclose.ImageSize = new System.Drawing.Size(30, 30);
+            this.m_btclose.Location = new System.Drawing.Point(862, 2);
+            this.m_btclose.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
+            this.m_btclose.Name = "m_btclose";
+            this.m_btclose.SaveChanged = false;
+            this.m_btclose.ShadownDistance = 6;
+            this.m_btclose.Size = new System.Drawing.Size(46, 28);
+            this.m_btclose.TabIndex = 15;
+            this.m_btclose.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
+            this.m_btclose.TextColor = System.Drawing.Color.White;
+            this.m_btclose.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btclose.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btclose.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
+            this.m_btclose.Click += new System.EventHandler(this.button_Click);
+            // 
             // m_scMain
             // 
             this.m_scMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.m_scMain.BackColor = System.Drawing.Color.GhostWhite;
             this.m_scMain.DeltaSpeed = 20;
-            this.m_scMain.HideSize = new System.Drawing.Size(60, 80);
-            this.m_scMain.Location = new System.Drawing.Point(850, 44);
+            this.m_scMain.HideSize = new System.Drawing.Size(50, 80);
+            this.m_scMain.Location = new System.Drawing.Point(858, 44);
             this.m_scMain.Margin = new System.Windows.Forms.Padding(4);
             this.m_scMain.Name = "m_scMain";
             this.m_scMain.Opacity = 1F;
             this.m_scMain.ShadowColor = System.Drawing.Color.Empty;
             this.m_scMain.ShowSize = new System.Drawing.Size(250, 80);
-            this.m_scMain.Size = new System.Drawing.Size(60, 80);
+            this.m_scMain.Size = new System.Drawing.Size(50, 79);
             this.m_scMain.Speed = 1;
             this.m_scMain.State = QuanLyHocSinh.SearchControl.States.Hide;
             this.m_scMain.TabIndex = 6;
@@ -330,8 +478,8 @@
             // 
             // m_btXemThongTin
             // 
-            this.m_btXemThongTin.AlphaGlow = 40F;
-            this.m_btXemThongTin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btXemThongTin.AlphaGlow = 80F;
+            this.m_btXemThongTin.BackColor = System.Drawing.Color.Transparent;
             this.m_btXemThongTin.ButtonImage = global::QuanLyHocSinh.Properties.Resources.info;
             this.m_btXemThongTin.ButtonText = "Xem thông tin";
             this.m_btXemThongTin.DeltaAlphaGlow = 8F;
@@ -340,23 +488,25 @@
             this.m_btXemThongTin.HaveEffects = false;
             this.m_btXemThongTin.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btXemThongTin.ImageSize = new System.Drawing.Size(40, 40);
-            this.m_btXemThongTin.Location = new System.Drawing.Point(7, 7);
+            this.m_btXemThongTin.Location = new System.Drawing.Point(0, 0);
             this.m_btXemThongTin.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.m_btXemThongTin.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btXemThongTin.Name = "m_btXemThongTin";
             this.m_btXemThongTin.SaveChanged = false;
             this.m_btXemThongTin.ShadownDistance = 6;
-            this.m_btXemThongTin.Size = new System.Drawing.Size(130, 62);
+            this.m_btXemThongTin.Size = new System.Drawing.Size(230, 81);
             this.m_btXemThongTin.TabIndex = 16;
             this.m_btXemThongTin.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btXemThongTin.TextColor = System.Drawing.Color.White;
             this.m_btXemThongTin.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btXemThongTin.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btXemThongTin.Type = QuanLyHocSinh.ButtonFlat.Types.FlatCross;
             this.m_btXemThongTin.Click += new System.EventHandler(this.button_Click);
             // 
             // m_btThemHS
             // 
-            this.m_btThemHS.AlphaGlow = 40F;
-            this.m_btThemHS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btThemHS.AlphaGlow = 80F;
+            this.m_btThemHS.BackColor = System.Drawing.Color.Transparent;
             this.m_btThemHS.ButtonImage = global::QuanLyHocSinh.Properties.Resources.themhs;
             this.m_btThemHS.ButtonText = "Thêm học sinh";
             this.m_btThemHS.DeltaAlphaGlow = 8F;
@@ -365,23 +515,25 @@
             this.m_btThemHS.HaveEffects = false;
             this.m_btThemHS.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btThemHS.ImageSize = new System.Drawing.Size(40, 40);
-            this.m_btThemHS.Location = new System.Drawing.Point(499, 6);
+            this.m_btThemHS.Location = new System.Drawing.Point(648, 0);
             this.m_btThemHS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.m_btThemHS.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btThemHS.Name = "m_btThemHS";
             this.m_btThemHS.SaveChanged = false;
             this.m_btThemHS.ShadownDistance = 6;
-            this.m_btThemHS.Size = new System.Drawing.Size(130, 62);
+            this.m_btThemHS.Size = new System.Drawing.Size(230, 81);
             this.m_btThemHS.TabIndex = 15;
             this.m_btThemHS.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btThemHS.TextColor = System.Drawing.Color.White;
             this.m_btThemHS.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btThemHS.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btThemHS.Type = QuanLyHocSinh.ButtonFlat.Types.FlatCross;
             this.m_btThemHS.Click += new System.EventHandler(this.button_Click);
             // 
             // m_btXoaHS
             // 
-            this.m_btXoaHS.AlphaGlow = 40F;
-            this.m_btXoaHS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btXoaHS.AlphaGlow = 80F;
+            this.m_btXoaHS.BackColor = System.Drawing.Color.Transparent;
             this.m_btXoaHS.ButtonImage = global::QuanLyHocSinh.Properties.Resources.xoa;
             this.m_btXoaHS.ButtonText = "Xóa học sinh";
             this.m_btXoaHS.DeltaAlphaGlow = 8F;
@@ -390,23 +542,25 @@
             this.m_btXoaHS.HaveEffects = false;
             this.m_btXoaHS.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btXoaHS.ImageSize = new System.Drawing.Size(40, 40);
-            this.m_btXoaHS.Location = new System.Drawing.Point(333, 6);
+            this.m_btXoaHS.Location = new System.Drawing.Point(396, -1);
             this.m_btXoaHS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.m_btXoaHS.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btXoaHS.Name = "m_btXoaHS";
             this.m_btXoaHS.SaveChanged = false;
             this.m_btXoaHS.ShadownDistance = 6;
-            this.m_btXoaHS.Size = new System.Drawing.Size(130, 62);
+            this.m_btXoaHS.Size = new System.Drawing.Size(230, 81);
             this.m_btXoaHS.TabIndex = 14;
             this.m_btXoaHS.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btXoaHS.TextColor = System.Drawing.Color.White;
             this.m_btXoaHS.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btXoaHS.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btXoaHS.Type = QuanLyHocSinh.ButtonFlat.Types.FlatCross;
             this.m_btXoaHS.Click += new System.EventHandler(this.button_Click);
             // 
             // m_btSuaHS
             // 
-            this.m_btSuaHS.AlphaGlow = 40F;
-            this.m_btSuaHS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btSuaHS.AlphaGlow = 80F;
+            this.m_btSuaHS.BackColor = System.Drawing.Color.Transparent;
             this.m_btSuaHS.ButtonImage = global::QuanLyHocSinh.Properties.Resources.chinhsua;
             this.m_btSuaHS.ButtonText = "Chỉnh sửa";
             this.m_btSuaHS.DeltaAlphaGlow = 8F;
@@ -415,17 +569,19 @@
             this.m_btSuaHS.HaveEffects = false;
             this.m_btSuaHS.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btSuaHS.ImageSize = new System.Drawing.Size(40, 40);
-            this.m_btSuaHS.Location = new System.Drawing.Point(169, 6);
+            this.m_btSuaHS.Location = new System.Drawing.Point(190, 0);
             this.m_btSuaHS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.m_btSuaHS.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btSuaHS.Name = "m_btSuaHS";
             this.m_btSuaHS.SaveChanged = false;
             this.m_btSuaHS.ShadownDistance = 6;
-            this.m_btSuaHS.Size = new System.Drawing.Size(130, 62);
+            this.m_btSuaHS.Size = new System.Drawing.Size(230, 81);
             this.m_btSuaHS.TabIndex = 13;
             this.m_btSuaHS.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btSuaHS.TextColor = System.Drawing.Color.White;
             this.m_btSuaHS.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btSuaHS.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btSuaHS.Type = QuanLyHocSinh.ButtonFlat.Types.FlatCross;
             this.m_btSuaHS.Click += new System.EventHandler(this.button_Click);
             // 
             // m_tbHocTap
@@ -449,7 +605,7 @@
             // m_cbbNamHoc
             // 
             this.m_cbbNamHoc.FormattingEnabled = true;
-            this.m_cbbNamHoc.Location = new System.Drawing.Point(346, 46);
+            this.m_cbbNamHoc.Location = new System.Drawing.Point(479, 45);
             this.m_cbbNamHoc.Name = "m_cbbNamHoc";
             this.m_cbbNamHoc.Size = new System.Drawing.Size(121, 21);
             this.m_cbbNamHoc.TabIndex = 13;
@@ -459,7 +615,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label7.Location = new System.Drawing.Point(289, 49);
+            this.label7.Location = new System.Drawing.Point(422, 48);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 12;
@@ -468,7 +624,7 @@
             // m_cbbBoMon
             // 
             this.m_cbbBoMon.FormattingEnabled = true;
-            this.m_cbbBoMon.Location = new System.Drawing.Point(520, 12);
+            this.m_cbbBoMon.Location = new System.Drawing.Point(653, 11);
             this.m_cbbBoMon.Name = "m_cbbBoMon";
             this.m_cbbBoMon.Size = new System.Drawing.Size(121, 21);
             this.m_cbbBoMon.TabIndex = 11;
@@ -478,7 +634,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(482, 16);
+            this.label6.Location = new System.Drawing.Point(615, 15);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 13);
             this.label6.TabIndex = 10;
@@ -487,7 +643,7 @@
             // m_ccbPhanQuyen
             // 
             this.m_ccbPhanQuyen.FormattingEnabled = true;
-            this.m_ccbPhanQuyen.Location = new System.Drawing.Point(346, 12);
+            this.m_ccbPhanQuyen.Location = new System.Drawing.Point(479, 11);
             this.m_ccbPhanQuyen.Name = "m_ccbPhanQuyen";
             this.m_ccbPhanQuyen.Size = new System.Drawing.Size(121, 21);
             this.m_ccbPhanQuyen.TabIndex = 9;
@@ -497,7 +653,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Location = new System.Drawing.Point(255, 16);
+            this.label5.Location = new System.Drawing.Point(388, 15);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 13);
             this.label5.TabIndex = 8;
@@ -506,7 +662,7 @@
             // m_btXemDiem
             // 
             this.m_btXemDiem.AlphaGlow = 40F;
-            this.m_btXemDiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btXemDiem.BackColor = System.Drawing.Color.Transparent;
             this.m_btXemDiem.ButtonImage = global::QuanLyHocSinh.Properties.Resources.xem;
             this.m_btXemDiem.ButtonText = "Xem điểm";
             this.m_btXemDiem.DeltaAlphaGlow = 8F;
@@ -515,23 +671,25 @@
             this.m_btXemDiem.HaveEffects = false;
             this.m_btXemDiem.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btXemDiem.ImageSize = new System.Drawing.Size(60, 40);
-            this.m_btXemDiem.Location = new System.Drawing.Point(6, 6);
+            this.m_btXemDiem.Location = new System.Drawing.Point(0, 0);
             this.m_btXemDiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.m_btXemDiem.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btXemDiem.Name = "m_btXemDiem";
             this.m_btXemDiem.SaveChanged = false;
             this.m_btXemDiem.ShadownDistance = 6;
-            this.m_btXemDiem.Size = new System.Drawing.Size(111, 62);
+            this.m_btXemDiem.Size = new System.Drawing.Size(200, 81);
             this.m_btXemDiem.TabIndex = 7;
             this.m_btXemDiem.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btXemDiem.TextColor = System.Drawing.Color.White;
             this.m_btXemDiem.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btXemDiem.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btXemDiem.Type = QuanLyHocSinh.ButtonFlat.Types.FlatCross;
             this.m_btXemDiem.Click += new System.EventHandler(this.button_Click);
             // 
             // m_btSuaDiem
             // 
             this.m_btSuaDiem.AlphaGlow = 40F;
-            this.m_btSuaDiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btSuaDiem.BackColor = System.Drawing.Color.Transparent;
             this.m_btSuaDiem.ButtonImage = global::QuanLyHocSinh.Properties.Resources.chinhsua;
             this.m_btSuaDiem.ButtonText = "Sửa điểm";
             this.m_btSuaDiem.DeltaAlphaGlow = 8F;
@@ -540,17 +698,19 @@
             this.m_btSuaDiem.HaveEffects = false;
             this.m_btSuaDiem.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btSuaDiem.ImageSize = new System.Drawing.Size(40, 40);
-            this.m_btSuaDiem.Location = new System.Drawing.Point(135, 6);
+            this.m_btSuaDiem.Location = new System.Drawing.Point(215, 0);
             this.m_btSuaDiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.m_btSuaDiem.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btSuaDiem.Name = "m_btSuaDiem";
             this.m_btSuaDiem.SaveChanged = false;
             this.m_btSuaDiem.ShadownDistance = 6;
-            this.m_btSuaDiem.Size = new System.Drawing.Size(111, 62);
+            this.m_btSuaDiem.Size = new System.Drawing.Size(200, 81);
             this.m_btSuaDiem.TabIndex = 4;
             this.m_btSuaDiem.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btSuaDiem.TextColor = System.Drawing.Color.White;
             this.m_btSuaDiem.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btSuaDiem.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btSuaDiem.Type = QuanLyHocSinh.ButtonFlat.Types.FlatCross;
             this.m_btSuaDiem.Click += new System.EventHandler(this.button_Click);
             // 
             // m_tbBaoCao
@@ -575,7 +735,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label11.Location = new System.Drawing.Point(380, 14);
+            this.label11.Location = new System.Drawing.Point(466, 15);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 13);
@@ -586,7 +746,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label9.Location = new System.Drawing.Point(142, 14);
+            this.label9.Location = new System.Drawing.Point(228, 15);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 13);
@@ -596,7 +756,7 @@
             // m_cbbBaoCaonamhoc
             // 
             this.m_cbbBaoCaonamhoc.FormattingEnabled = true;
-            this.m_cbbBaoCaonamhoc.Location = new System.Drawing.Point(441, 11);
+            this.m_cbbBaoCaonamhoc.Location = new System.Drawing.Point(527, 12);
             this.m_cbbBaoCaonamhoc.Margin = new System.Windows.Forms.Padding(2);
             this.m_cbbBaoCaonamhoc.Name = "m_cbbBaoCaonamhoc";
             this.m_cbbBaoCaonamhoc.Size = new System.Drawing.Size(144, 21);
@@ -607,7 +767,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label10.Location = new System.Drawing.Point(391, 50);
+            this.label10.Location = new System.Drawing.Point(477, 51);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 13);
@@ -617,7 +777,7 @@
             // m_cbbBaoCaoLoai
             // 
             this.m_cbbBaoCaoLoai.FormattingEnabled = true;
-            this.m_cbbBaoCaoLoai.Location = new System.Drawing.Point(217, 11);
+            this.m_cbbBaoCaoLoai.Location = new System.Drawing.Point(303, 12);
             this.m_cbbBaoCaoLoai.Margin = new System.Windows.Forms.Padding(2);
             this.m_cbbBaoCaoLoai.Name = "m_cbbBaoCaoLoai";
             this.m_cbbBaoCaoLoai.Size = new System.Drawing.Size(144, 21);
@@ -627,7 +787,7 @@
             // m_cbbBaoCaohocky
             // 
             this.m_cbbBaoCaohocky.FormattingEnabled = true;
-            this.m_cbbBaoCaohocky.Location = new System.Drawing.Point(441, 48);
+            this.m_cbbBaoCaohocky.Location = new System.Drawing.Point(527, 49);
             this.m_cbbBaoCaohocky.Margin = new System.Windows.Forms.Padding(2);
             this.m_cbbBaoCaohocky.Name = "m_cbbBaoCaohocky";
             this.m_cbbBaoCaohocky.Size = new System.Drawing.Size(144, 21);
@@ -638,7 +798,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label8.Location = new System.Drawing.Point(162, 50);
+            this.label8.Location = new System.Drawing.Point(248, 51);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 13);
@@ -648,7 +808,7 @@
             // m_cbbBaoCaomonhoc
             // 
             this.m_cbbBaoCaomonhoc.FormattingEnabled = true;
-            this.m_cbbBaoCaomonhoc.Location = new System.Drawing.Point(217, 48);
+            this.m_cbbBaoCaomonhoc.Location = new System.Drawing.Point(303, 49);
             this.m_cbbBaoCaomonhoc.Margin = new System.Windows.Forms.Padding(2);
             this.m_cbbBaoCaomonhoc.Name = "m_cbbBaoCaomonhoc";
             this.m_cbbBaoCaomonhoc.Size = new System.Drawing.Size(144, 21);
@@ -667,156 +827,20 @@
             this.m_btBaoCao.HaveEffects = false;
             this.m_btBaoCao.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btBaoCao.ImageSize = new System.Drawing.Size(40, 40);
-            this.m_btBaoCao.Location = new System.Drawing.Point(9, 6);
+            this.m_btBaoCao.Location = new System.Drawing.Point(0, -1);
             this.m_btBaoCao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.m_btBaoCao.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btBaoCao.Name = "m_btBaoCao";
             this.m_btBaoCao.SaveChanged = false;
             this.m_btBaoCao.ShadownDistance = 6;
-            this.m_btBaoCao.Size = new System.Drawing.Size(127, 62);
+            this.m_btBaoCao.Size = new System.Drawing.Size(200, 81);
             this.m_btBaoCao.TabIndex = 8;
             this.m_btBaoCao.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btBaoCao.TextColor = System.Drawing.Color.White;
             this.m_btBaoCao.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btBaoCao.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btBaoCao.Type = QuanLyHocSinh.ButtonFlat.Types.FlatCross;
             this.m_btBaoCao.Click += new System.EventHandler(this.m_btBaoCao_Click);
-            // 
-            // m_btCaiDat
-            // 
-            this.m_btCaiDat.AlphaGlow = 40F;
-            this.m_btCaiDat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_btCaiDat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
-            this.m_btCaiDat.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconsetting;
-            this.m_btCaiDat.ButtonText = "Cài đặt";
-            this.m_btCaiDat.DeltaAlphaGlow = 8F;
-            this.m_btCaiDat.DeltaDistance = 2F;
-            this.m_btCaiDat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btCaiDat.HaveEffects = false;
-            this.m_btCaiDat.ImageOrigin = new System.Drawing.Point(35, 0);
-            this.m_btCaiDat.ImageSize = new System.Drawing.Size(20, 20);
-            this.m_btCaiDat.Location = new System.Drawing.Point(542, 2);
-            this.m_btCaiDat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.m_btCaiDat.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
-            this.m_btCaiDat.Name = "m_btCaiDat";
-            this.m_btCaiDat.SaveChanged = false;
-            this.m_btCaiDat.ShadownDistance = 6;
-            this.m_btCaiDat.Size = new System.Drawing.Size(101, 28);
-            this.m_btCaiDat.TabIndex = 13;
-            this.m_btCaiDat.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
-            this.m_btCaiDat.TextColor = System.Drawing.Color.White;
-            this.m_btCaiDat.TextOrigin = new System.Drawing.Point(-8, 0);
-            this.m_btCaiDat.Click += new System.EventHandler(this.button_Click);
-            // 
-            // m_btHide
-            // 
-            this.m_btHide.AlphaGlow = 40F;
-            this.m_btHide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_btHide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
-            this.m_btHide.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconminmize;
-            this.m_btHide.ButtonText = "";
-            this.m_btHide.DeltaAlphaGlow = 8F;
-            this.m_btHide.DeltaDistance = 2F;
-            this.m_btHide.HaveEffects = false;
-            this.m_btHide.ImageOrigin = new System.Drawing.Point(0, 0);
-            this.m_btHide.ImageSize = new System.Drawing.Size(20, 20);
-            this.m_btHide.Location = new System.Drawing.Point(763, 2);
-            this.m_btHide.Margin = new System.Windows.Forms.Padding(2);
-            this.m_btHide.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
-            this.m_btHide.Name = "m_btHide";
-            this.m_btHide.SaveChanged = false;
-            this.m_btHide.ShadownDistance = 6;
-            this.m_btHide.Size = new System.Drawing.Size(46, 28);
-            this.m_btHide.TabIndex = 12;
-            this.m_btHide.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
-            this.m_btHide.TextColor = System.Drawing.Color.White;
-            this.m_btHide.TextOrigin = new System.Drawing.Point(0, 0);
-            this.m_btHide.Click += new System.EventHandler(this.button_Click);
-            // 
-            // m_btmaxSize
-            // 
-            this.m_btmaxSize.AlphaGlow = 40F;
-            this.m_btmaxSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_btmaxSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
-            this.m_btmaxSize.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconmaxsize;
-            this.m_btmaxSize.ButtonText = "";
-            this.m_btmaxSize.DeltaAlphaGlow = 8F;
-            this.m_btmaxSize.DeltaDistance = 2F;
-            this.m_btmaxSize.HaveEffects = false;
-            this.m_btmaxSize.ImageOrigin = new System.Drawing.Point(0, 0);
-            this.m_btmaxSize.ImageSize = new System.Drawing.Size(25, 20);
-            this.m_btmaxSize.Location = new System.Drawing.Point(813, 2);
-            this.m_btmaxSize.Margin = new System.Windows.Forms.Padding(2);
-            this.m_btmaxSize.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
-            this.m_btmaxSize.Name = "m_btmaxSize";
-            this.m_btmaxSize.SaveChanged = false;
-            this.m_btmaxSize.ShadownDistance = 6;
-            this.m_btmaxSize.Size = new System.Drawing.Size(46, 28);
-            this.m_btmaxSize.TabIndex = 11;
-            this.m_btmaxSize.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
-            this.m_btmaxSize.TextColor = System.Drawing.Color.White;
-            this.m_btmaxSize.TextOrigin = new System.Drawing.Point(0, 0);
-            this.m_btmaxSize.Click += new System.EventHandler(this.button_Click);
-            // 
-            // m_btdangXuat
-            // 
-            this.m_btdangXuat.AlphaGlow = 40F;
-            this.m_btdangXuat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_btdangXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
-            this.m_btdangXuat.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconLogout;
-            this.m_btdangXuat.ButtonText = "đăng xuất";
-            this.m_btdangXuat.DeltaAlphaGlow = 8F;
-            this.m_btdangXuat.DeltaDistance = 2F;
-            this.m_btdangXuat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btdangXuat.HaveEffects = false;
-            this.m_btdangXuat.ImageOrigin = new System.Drawing.Point(35, 0);
-            this.m_btdangXuat.ImageSize = new System.Drawing.Size(20, 20);
-            this.m_btdangXuat.Location = new System.Drawing.Point(651, 2);
-            this.m_btdangXuat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.m_btdangXuat.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
-            this.m_btdangXuat.Name = "m_btdangXuat";
-            this.m_btdangXuat.SaveChanged = false;
-            this.m_btdangXuat.ShadownDistance = 6;
-            this.m_btdangXuat.Size = new System.Drawing.Size(102, 28);
-            this.m_btdangXuat.TabIndex = 10;
-            this.m_btdangXuat.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
-            this.m_btdangXuat.TextColor = System.Drawing.Color.White;
-            this.m_btdangXuat.TextOrigin = new System.Drawing.Point(-8, 0);
-            this.m_btdangXuat.Click += new System.EventHandler(this.m_dangXuatbtn_Click);
-            // 
-            // m_btclose
-            // 
-            this.m_btclose.AlphaGlow = 40F;
-            this.m_btclose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_btclose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
-            this.m_btclose.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconClose;
-            this.m_btclose.ButtonText = "";
-            this.m_btclose.DeltaAlphaGlow = 8F;
-            this.m_btclose.DeltaDistance = 2F;
-            this.m_btclose.HaveEffects = false;
-            this.m_btclose.ImageOrigin = new System.Drawing.Point(0, 0);
-            this.m_btclose.ImageSize = new System.Drawing.Size(30, 30);
-            this.m_btclose.Location = new System.Drawing.Point(862, 2);
-            this.m_btclose.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
-            this.m_btclose.Name = "m_btclose";
-            this.m_btclose.SaveChanged = false;
-            this.m_btclose.ShadownDistance = 6;
-            this.m_btclose.Size = new System.Drawing.Size(46, 28);
-            this.m_btclose.TabIndex = 15;
-            this.m_btclose.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
-            this.m_btclose.TextColor = System.Drawing.Color.White;
-            this.m_btclose.TextOrigin = new System.Drawing.Point(0, 0);
-            this.m_btclose.Click += new System.EventHandler(this.button_Click);
-            // 
-            // ribbonTab1
-            // 
-            this.ribbonTab1.Text = "Hồ Sơ";
-            // 
-            // ribbonTab2
-            // 
-            this.ribbonTab2.Text = "Học Tập";
-            // 
-            // ribbonTab3
-            // 
-            this.ribbonTab3.Text = "Báo Cáo";
             // 
             // FrmMain
             // 

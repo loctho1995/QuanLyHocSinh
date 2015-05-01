@@ -126,6 +126,29 @@ namespace QuanLyHocSinh
             set { m_haveEffects = value; this.Invalidate(); }
         }
 
+        public enum Types
+        {
+            FlatNormal, FlatCross
+        }
+        Types m_types;
+        public Types Type
+        {
+            get { return m_types; }
+            set { m_types = value; }
+        }
+
+        Color m_transparentBackColor;
+        public Color TransparentBackColor
+        {
+            get { return m_transparentBackColor; }
+            set { m_transparentBackColor = value; }
+        }
+
+        public Color GetRealBackColor
+        {
+            get { return m_backColor; }
+        }
+
         Timer m_timer;
         Color m_backColorSave; //luu mau backcolor de cho viec chuyen sau
         float m_deltaDistanceCount, // dung de tang distance cong vao position khi mouse hover
@@ -135,6 +158,7 @@ namespace QuanLyHocSinh
         bool m_sizeChanged, //kiem tra khi chayxong effect mouse hover thi khong thay doi location va size cua control nua
              m_firstTimeChanged, // dung de biet lan dau thay doi size, location de luu gia tri vao savelocation va savesize 
              m_mouseDowning; //neu nhu chuot dang o trang thai down thi khong xu ly nhung trang thai khac
+        Color m_backColor;
 
         #endregion
 
@@ -144,10 +168,10 @@ namespace QuanLyHocSinh
             #region -INIT- 
             InitializeComponent();
             this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
-            this.BackColor = Color.FromArgb(44, 208, 136);
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint| ControlStyles.SupportsTransparentBackColor, true);
+            this.BackColor = Color.Transparent; //Color.FromArgb(44, 208, 136);
 
-
+            
             m_shawdownDistance = 6;
             m_deltaDistace = 2;
             m_deltaDistanceCount = 0;
@@ -182,7 +206,15 @@ namespace QuanLyHocSinh
                 case MouseStates.Hover:
                         #region - MOUSE HOVER -
                     if (!m_haveEffects)
+                    {
+                        if (m_alphaGlowValue < m_alphaGlow)
+                        {
+                            m_alphaGlowValue += m_deltaAlphaGlow;
+                        }
+                        this.Invalidate();
                         return;
+                    }
+
 
                     if (m_deltaDistanceCount < m_shawdownDistance)
                     {
@@ -227,6 +259,21 @@ namespace QuanLyHocSinh
                     break;
 
                 case MouseStates.Leave:
+                    if (!m_haveEffects)
+                    {
+                        if (m_alphaGlowValue >= 0)
+                        {
+                            m_alphaGlowValue -= m_deltaAlphaGlow;
+                            if (m_alphaGlowValue < 0)
+                            {
+                                m_alphaGlowValue = 0;
+                                m_timer.Stop();
+                            }
+                        }
+
+                        this.Invalidate();
+                        return;
+                    }
                     break;
 
                 default:
@@ -239,7 +286,11 @@ namespace QuanLyHocSinh
         protected override void OnBackColorChanged(EventArgs e)
         {
             if(BackColor != Color.Transparent)
+            {
                 m_backColorSave = this.BackColor;
+                m_backColor = this.BackColor;
+            }
+
 
             base.OnBackColorChanged(e);
         }
@@ -258,94 +309,199 @@ namespace QuanLyHocSinh
         protected override void OnPaint(PaintEventArgs e)
         {
             Bitmap bm;
-            if (m_buttonImage != null)
-                bm = new Bitmap(m_buttonImage, m_imageSize);
-            else
-                bm = new Bitmap(this.Width, this.Height);
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            switch (m_mouseState)
+            switch (m_types)
             {
-                case MouseStates.Down:
-                    #region - MOUSE DOWN -
-
-                    this.BackColor = m_backColorSave;
-                    // draw face
-                    e.Graphics.FillRectangle(new SolidBrush(BackColor), new Rectangle(0, 0, this.Width, this.Height));
-
-                    //ve icon len button
-                    if (m_buttonImage != null)
-                        e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X, this.Height / 2 - bm.Height / 2 + m_imageOrigin.Y));
-
-                    //cho nen control toi lai
-                    e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(30, Color.Black)), new Rectangle(0, 0, this.Width, this.Height));
-                    #endregion
-                    break;
-
-                case MouseStates.Up:
-                    #region - MOUSE UP -
-                    m_alphaGlowValue = m_alphaGlow;
-                    m_sizeChanged = true;
+                case Types.FlatNormal:
+                    #region -Flat Normal-
 
                     if (m_buttonImage != null)
-                        e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X, this.Height / 2 - bm.Height / 2 + m_imageOrigin.Y));
-                    #endregion
-                    break;
+                        bm = new Bitmap(m_buttonImage, m_imageSize);
+                    else
+                        bm = new Bitmap(this.Width, this.Height);
 
-                case MouseStates.Enter:
-                    #region - MOUSE ENTER -
-                    if (m_buttonImage != null)
-                        e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X, this.Height / 2 - bm.Height / 2 + m_imageOrigin.Y));
-                    #endregion
-                    break;
-
-                case MouseStates.Leave:
-                    #region - MOUSE LEAVE -
-                    //ve icon len button
-                    if (m_buttonImage != null)
-                        e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X, this.Height / 2 - bm.Height / 2 + m_imageOrigin.Y));
-                    #endregion
-                    break;
-
-                case MouseStates.Hover:
-
-                    #region - MOUSE HOVER -
-                    if (!m_haveEffects)
+                    switch (m_mouseState)
                     {
-                        //draw face
-                        e.Graphics.FillRectangle(new SolidBrush(m_backColorSave), new Rectangle((int)m_deltaDistanceCount,
-                                                    0, this.Width - (int)m_deltaDistanceCount, this.Height - (int)m_deltaDistanceCount));
+                        case MouseStates.Down:
+                            #region - MOUSE DOWN -
 
-                        e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb((int)m_alphaGlow, Color.White)), new Rectangle((int)m_deltaDistanceCount,
-                                                    0, this.Width - (int)m_deltaDistanceCount, this.Height - (int)m_deltaDistanceCount));
-                        //ve icon len button
-                        if (m_buttonImage != null)
-                            e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X,
-                                                    this.Height / 2 - bm.Height / 2 - (int)m_deltaDistanceCount / 2 + m_imageOrigin.Y));
-                        break;
+                            m_backColor = m_backColorSave;
+                            // draw face
+                            e.Graphics.FillRectangle(new SolidBrush(m_backColor), new Rectangle(0, 0, this.Width, this.Height));
+
+                            //ve icon len button
+                            if (m_buttonImage != null)
+                                e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X, this.Height / 2 - bm.Height / 2 + m_imageOrigin.Y));
+
+                            //cho nen control toi lai
+                            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(30, Color.Black)), new Rectangle(0, 0, this.Width, this.Height));
+                            #endregion
+                            break;
+
+                        case MouseStates.Up:
+                            #region - MOUSE UP -
+                            m_alphaGlowValue = m_alphaGlow;
+                            m_sizeChanged = true;
+
+                            if (m_buttonImage != null)
+                                e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X, this.Height / 2 - bm.Height / 2 + m_imageOrigin.Y));
+                            #endregion
+                            break;
+
+                        case MouseStates.Enter:
+                            #region - MOUSE ENTER -
+                            if (m_buttonImage != null)
+                                e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X, this.Height / 2 - bm.Height / 2 + m_imageOrigin.Y));
+                            #endregion
+                            break;
+
+                        case MouseStates.Leave:
+                            #region - MOUSE LEAVE -
+                            e.Graphics.FillRectangle(new SolidBrush(m_backColor), new Rectangle(0, 0, this.Width, this.Height));
+
+                            //ve icon len button
+                            if (m_buttonImage != null)
+                                e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X, this.Height / 2 - bm.Height / 2 + m_imageOrigin.Y));
+
+                            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb((int)m_alphaGlowValue, Color.White)), new Rectangle(0, 0, this.Width, this.Height));
+                            #endregion
+                            break;
+
+                        case MouseStates.Hover:
+                            #region - MOUSE HOVER -
+                            if (!m_haveEffects)
+                            {
+                                //draw face
+                                e.Graphics.FillRectangle(new SolidBrush(m_backColorSave), new Rectangle((int)m_deltaDistanceCount,
+                                                            0, this.Width - (int)m_deltaDistanceCount, this.Height - (int)m_deltaDistanceCount));
+
+                                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb((int)m_alphaGlowValue, Color.White)), new Rectangle((int)m_deltaDistanceCount,
+                                                            0, this.Width - (int)m_deltaDistanceCount, this.Height - (int)m_deltaDistanceCount));
+                                //ve icon len button
+                                if (m_buttonImage != null)
+                                    e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X,
+                                                            this.Height / 2 - bm.Height / 2 - (int)m_deltaDistanceCount / 2 + m_imageOrigin.Y));
+                                break;
+                            }
+                            else
+                            {
+                                e.Graphics.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(this.ClientRectangle.Width, this.ClientRectangle.Height),
+                                                                            Color.FromArgb(60, 40, 40, 40), Color.FromArgb(120, 80, 80, 80)),
+                                                                            new Rectangle(0, (int)m_deltaDistanceCount, this.Width - (int)m_deltaDistanceCount,
+                                                                                                this.Height - (int)m_deltaDistanceCount));
+                                //draw face
+                                e.Graphics.FillRectangle(new SolidBrush(m_backColorSave), new Rectangle((int)m_deltaDistanceCount,
+                                                            0, this.Width - (int)m_deltaDistanceCount, this.Height - (int)m_deltaDistanceCount));
+
+                                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb((int)m_alphaGlowValue, Color.White)), new Rectangle((int)m_deltaDistanceCount,
+                                                            0, this.Width - (int)m_deltaDistanceCount, this.Height - (int)m_deltaDistanceCount));
+                            }
+
+                            //ve icon len button
+                            if (m_buttonImage != null)
+                                e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X,
+                                                        this.Height / 2 - bm.Height / 2 - (int)m_deltaDistanceCount / 2 + m_imageOrigin.Y));
+                            #endregion
+                            break;
+
+                        default:
+                            break;
+                    }
+                    #endregion
+                    break;
+
+                case Types.FlatCross:
+                    #region -Flat Cross-
+                    GraphicsPath gp = new GraphicsPath();
+                    Point[] points = new Point[]{new Point( this.Width / 4, 0), new Point(0, this.Height), 
+                                                    new Point(this.Width * 3 / 4, this.Height), new Point(this.Width, 0)};
+                    gp.AddPolygon(points);
+                    this.Region = new Region(gp);
+                    this.BackColor = Color.Transparent;
+
+                    points = new Point[]{new Point( this.Width / 4 + 1, 1), new Point(1, this.Height - 1), 
+                                                    new Point(this.Width * 3 / 4 - 1, this.Height - 1), new Point(this.Width - 1, 1)};
+             
+                    if (m_buttonImage != null)
+                        bm = new Bitmap(m_buttonImage, m_imageSize);
+                    else
+                        bm = new Bitmap(this.Width, this.Height);
+
+                    switch (m_mouseState)
+                    {
+                        case MouseStates.Down:
+                            #region - MOUSE DOWN -
+                            e.Graphics.FillPolygon(new SolidBrush(m_backColor), points);   
+                            //ve icon len button
+                            if (m_buttonImage != null)
+                                e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X, this.Height / 2 - bm.Height / 2 + m_imageOrigin.Y));
+
+                            //cho nen control toi lai
+                           
+                            e.Graphics.FillPolygon(new SolidBrush(Color.FromArgb(30, Color.Black)), points);
+                            #endregion
+                            break;
+
+                        case MouseStates.Up:
+                            #region - MOUSE UP -
+                            m_alphaGlowValue = m_alphaGlow;
+                            m_sizeChanged = true;
+
+                            e.Graphics.FillPolygon(new SolidBrush(m_backColor), points);   
+
+                            if (m_buttonImage != null)
+                                e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X, this.Height / 2 - bm.Height / 2 + m_imageOrigin.Y));
+                            #endregion
+                            break;
+
+                        case MouseStates.Enter:
+                            #region - MOUSE ENTER -
+
+                            e.Graphics.FillPolygon(new SolidBrush(m_backColor), points);   
+                            if (m_buttonImage != null)
+                                e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X, this.Height / 2 - bm.Height / 2 + m_imageOrigin.Y));
+                            #endregion
+                            break;
+
+                        case MouseStates.Leave:
+                            #region - MOUSE LEAVE -
+                            e.Graphics.FillPolygon(new SolidBrush(m_backColor), points);   
+
+                            //ve icon len button
+                            if (m_buttonImage != null)
+                                e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X, this.Height / 2 - bm.Height / 2 + m_imageOrigin.Y));
+
+                            e.Graphics.FillPolygon(new SolidBrush(Color.FromArgb((int)m_alphaGlowValue, Color.White)), points);
+                            #endregion
+                            break;
+
+                        case MouseStates.Hover:
+                            #region - MOUSE HOVER -
+
+                            e.Graphics.FillPolygon(new SolidBrush(m_backColor), points);   
+                            //ve icon len button
+                            if (m_buttonImage != null)
+                                e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X,
+                                                        this.Height / 2 - bm.Height / 2 - (int)m_deltaDistanceCount / 2 + m_imageOrigin.Y));
+
+                            e.Graphics.FillPolygon(new SolidBrush(Color.FromArgb((int)m_alphaGlowValue, Color.White)), points);
+                            #endregion
+                            break;
+
+                        default:
+                            break;
                     }
 
-                    e.Graphics.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(this.ClientRectangle.Width, this.ClientRectangle.Height),
-                                                Color.FromArgb(60, 40, 40, 40), Color.FromArgb(120, 80, 80, 80)),
-                                                new Rectangle(0, (int)m_deltaDistanceCount, this.Width - (int)m_deltaDistanceCount,
-                                                                    this.Height - (int)m_deltaDistanceCount));
-                    //draw face
-                    e.Graphics.FillRectangle(new SolidBrush(m_backColorSave), new Rectangle((int)m_deltaDistanceCount,
-                                                0, this.Width - (int)m_deltaDistanceCount, this.Height - (int)m_deltaDistanceCount));
-
-                    e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb((int)m_alphaGlowValue, Color.White)), new Rectangle((int)m_deltaDistanceCount,
-                                                0, this.Width - (int)m_deltaDistanceCount, this.Height - (int)m_deltaDistanceCount));
-
-                    //ve icon len button
-                    if (m_buttonImage != null)
-                        e.Graphics.DrawImage(bm, new Point(this.Width / 2 - bm.Width / 2 + m_imageOrigin.X,
-                                                this.Height / 2 - bm.Height / 2 - (int)m_deltaDistanceCount / 2 + m_imageOrigin.Y));
                     #endregion
-                    break;
 
+                    break;
                 default:
                     break;
             }
 
+
+            #region -TextAlignment-
             switch (m_textAlignment)
             {
                 case BTTextAlignment.Center:
@@ -367,6 +523,7 @@ namespace QuanLyHocSinh
                 default:
                     break;
             }
+            #endregion
 
             base.OnPaint(e);
         }
@@ -420,11 +577,12 @@ namespace QuanLyHocSinh
             m_firstTimeChanged = true;
 
             m_deltaDistanceCount = 0;
-            m_alphaGlowValue = 0;
+            //m_alphaGlowValue = 0;
 
             this.BackColor = m_backColorSave;
             this.Location = m_locationSave;
             this.Size = m_sizeSave;
+            m_timer.Start();
 
             this.Invalidate();
 

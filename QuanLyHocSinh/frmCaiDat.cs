@@ -49,7 +49,7 @@ namespace QuanLyHocSinh
             m_scMain.LabelSearch.BackColor = Color.Transparent;
             m_scMain.ButtonSearch.BackColor = Color.Transparent;
 
-            m_tbBaoCao.BackColor = m_tbHocTap.BackColor = m_tbHoSo.BackColor = m_tbTraCuu.BackColor = m_frmMain.TabControl.TabPages[0].BackColor;
+            m_tbBaoCao.BackColor = m_tbHocTap.BackColor = m_tbHoSo.BackColor = m_frmMain.TabControl.TabPages[0].BackColor;
 
             m_btBaoCao.BackColor = m_btSuaDiem.BackColor = m_btSuaHS.BackColor = m_btThemHS.BackColor = m_btXemDiem.BackColor 
                 = m_btXemThongTin.BackColor = m_btXoaHS.BackColor = m_frmMain.TabButtonsColor;
@@ -138,7 +138,6 @@ namespace QuanLyHocSinh
             m_tbHoSo.BackColor = Color.FromArgb(35, 168, 111);
             m_tbBaoCao.BackColor = Color.FromArgb(35, 168, 111);
             m_tbHocTap.BackColor = Color.FromArgb(35, 168, 111);
-            m_tbTraCuu.BackColor = Color.FromArgb(35, 168, 111);
 
             m_btclose.BackColor = Color.FromArgb(255, 101, 99);
             m_btHide.BackColor = m_btclose.BackColor;
@@ -157,7 +156,7 @@ namespace QuanLyHocSinh
             m_frmMain.BackColor = m_panel.BackColor;
             m_frmMain.TopButtonsColor = m_btclose.BackColor;
             m_frmMain.TabButtonsColor = m_btBaoCao.BackColor;
-            m_frmMain.SearchControl.BackColor = m_scMain.BackColor;
+
 
             for (int i = 0; i < m_frmMain.TabControl.TabPages.Count; i++)
             {
@@ -170,6 +169,10 @@ namespace QuanLyHocSinh
             caidat.SEACHCONTROL_BACKGOUND = m_frmMain.SearchControl.BackColor.ToArgb().ToString();
             caidat.TABPANEL_COLOR = m_frmMain.TabControl.TabPages[0].BackColor.ToArgb().ToString();
             DataBase.CaiDat.insertDuLieuCatDat(caidat);
+
+            m_frmMain.SearchControl.ShadowColor = m_tbHoSo.BackColor;
+            m_frmMain.SearchControl.BackColor = m_scMain.BackColor;
+            m_frmMain.SearchControl.LabelSearch.ForeColor = Color.White;
             this.Close();
         }
     }
