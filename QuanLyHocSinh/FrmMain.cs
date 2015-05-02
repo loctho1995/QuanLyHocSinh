@@ -886,5 +886,12 @@ namespace QuanLyHocSinh
         {
             m_treeViewKhoi.SelectedNode = null;
         }
+
+        private void m_btnGiaoVien_Click(object sender, EventArgs e)
+        {
+            frmGiaoVien frm_giaovien = new frmGiaoVien();
+            frm_giaovien.Show();
+        }
+
     }
 }

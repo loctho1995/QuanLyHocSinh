@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAO;
+using System.Data;
 
 namespace BUS
 {
@@ -32,6 +34,78 @@ namespace BUS
             catch
             {
                 return;
+            }
+        }
+
+        public DataTable LoadDuLieuGiaoVien()
+        {
+            DataTable dt = new DataTable();
+            //dt.Clear();
+
+            dt.Columns.Add("STT", typeof(int));
+            dt.Columns.Add("MAGV", typeof(string));
+            dt.Columns.Add("HOTEN", typeof(string));
+            dt.Columns.Add("GIOITINH", typeof(string));
+            dt.Columns.Add("NGAYSINH", typeof(string));
+            dt.Columns.Add("SODT", typeof(string));
+
+            var giaovien = SQLDataContext.SQLData.sp_LoadDuLieuGV();
+            int c = 1;
+
+            foreach (var i in giaovien)
+            {
+                DataRow r = dt.NewRow();
+
+                r["STT"] = c++;
+                r["MAGV"] = i.MAGV;
+                r["HOTEN"] = i.HOTEN;
+                r["GIOITINH"] = i.GIOITINH;
+                r["NGAYSINH"] = i.NGAYSINH;
+                r["SODT"] = i.SODT;
+                dt.Rows.Add(r);
+            }
+
+            return dt;
+        }
+        public bool InsertDuLieuGV(GIAOVIEN giaovien, USER user, int type)
+        {
+            try
+            {
+                SQLDataContext.SQLData.sp_InsertDuLieuGV(giaovien.MAGV, giaovien.HOTEN, giaovien.NGAYSINH, giaovien.GIOITINH, giaovien.SODT, user.PASSWORD, user.EMAIL, user.PHANQUYEN, type);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool DeleteDuLieuGV(string magv)
+        {
+            try
+            {
+                var giaovien = from gv in SQLDataContext.SQLData.GIAOVIENs
+                               where gv.MAGV == magv
+                               select gv;
+                SQLDataContext.SQLData.GIAOVIENs.DeleteAllOnSubmit(giaovien);
+                SQLDataContext.SQLData.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateDuLieuGV(GIAOVIEN giaovien, USER user)
+        {
+            try
+            {
+                SQLDataContext.SQLData.sp_UpdateDuLieuGV(giaovien.MAGV, giaovien.HOTEN, giaovien.NGAYSINH, giaovien.GIOITINH, giaovien.SODT, user.PASSWORD, user.EMAIL, user.PHANQUYEN);
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

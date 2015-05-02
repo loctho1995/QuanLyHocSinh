@@ -44,6 +44,11 @@ namespace QuanLyHocSinh
             m_lblDiachi.Text = m_row.Cells["DIACHI"].Value.ToString();
             m_lblEmail.Text = m_row.Cells["EMAIL"].Value.ToString();
             m_lblLop.Text = m_row.Cells["MALOP"].Value.ToString();
+            m_lblTonGiao.Text = m_row.Cells["TONGIAO"].Value.ToString();
+            m_lblHoTenCha.Text = m_row.Cells["HOTENCHA"].Value.ToString();
+            m_lblHoTenMe.Text = m_row.Cells["HOTENME"].Value.ToString();
+            m_lblNgheNghiepCha.Text = m_row.Cells["NGHENGHIEPCHA"].Value.ToString();
+            m_lblNgheNghiepMe.Text = m_row.Cells["NGHENGHIEPME"].Value.ToString();
             if (DataBase.HocSinh.Image(int.Parse(m_row.Cells["MAHS"].Value.ToString())) != null)
                 m_ptbHS.Image = (Image)(new Bitmap(DataBase.HocSinh.Image(int.Parse(m_row.Cells["MAHS"].Value.ToString()))));
         }

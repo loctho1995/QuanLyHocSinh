@@ -45,3 +45,4 @@ E:\Visual Studio 2012\quan ly hoc sinh\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\Qua
 E:\Visual Studio 2012\quan ly hoc sinh\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.csproj.GenerateResource.Cache
 E:\Visual Studio 2012\quan ly hoc sinh\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.exe
 E:\Visual Studio 2012\quan ly hoc sinh\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.pdb
+E:\Visual Studio 2012\quan ly hoc sinh\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.frmGiaoVien.resources
