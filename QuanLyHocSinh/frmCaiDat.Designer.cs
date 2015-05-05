@@ -29,31 +29,31 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Lớp 10A1");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Lớp 10A2");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Lớp10A3");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Lớp10A4");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Khối 10", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Lớp 11A1");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Lớp 11A2");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Lớp 11A3");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Khối 11", new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode7,
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Lớp 12A1");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Lớp 12A2");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Khối 12", new System.Windows.Forms.TreeNode[] {
-            treeNode10,
-            treeNode11});
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Khối", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode9,
-            treeNode12});
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Lớp 10A1");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Lớp 10A2");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Lớp10A3");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Lớp10A4");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Khối 10", new System.Windows.Forms.TreeNode[] {
+            treeNode14,
+            treeNode15,
+            treeNode16,
+            treeNode17});
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Lớp 11A1");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Lớp 11A2");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Lớp 11A3");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Khối 11", new System.Windows.Forms.TreeNode[] {
+            treeNode19,
+            treeNode20,
+            treeNode21});
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Lớp 12A1");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Lớp 12A2");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Khối 12", new System.Windows.Forms.TreeNode[] {
+            treeNode23,
+            treeNode24});
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Khối", new System.Windows.Forms.TreeNode[] {
+            treeNode18,
+            treeNode22,
+            treeNode25});
             this.m_panel = new System.Windows.Forms.Panel();
             this.m_btCaiDat = new QuanLyHocSinh.ButtonFlat();
             this.m_btdangXuat = new QuanLyHocSinh.ButtonFlat();
@@ -97,7 +97,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.m_cbbBaoCaomonhoc = new System.Windows.Forms.ComboBox();
             this.m_btBaoCao = new QuanLyHocSinh.ButtonFlat();
-            this.m_tbTraCuu = new System.Windows.Forms.TabPage();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.buttonFlat1 = new QuanLyHocSinh.ButtonFlat();
             this.m_btSave = new QuanLyHocSinh.ButtonFlat();
@@ -163,6 +162,8 @@
             this.m_btCaiDat.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
             this.m_btCaiDat.TextColor = System.Drawing.Color.White;
             this.m_btCaiDat.TextOrigin = new System.Drawing.Point(-8, 0);
+            this.m_btCaiDat.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btCaiDat.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             // 
             // m_btdangXuat
             // 
@@ -188,6 +189,8 @@
             this.m_btdangXuat.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
             this.m_btdangXuat.TextColor = System.Drawing.Color.White;
             this.m_btdangXuat.TextOrigin = new System.Drawing.Point(-8, 0);
+            this.m_btdangXuat.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btdangXuat.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             // 
             // m_btclose
             // 
@@ -212,6 +215,8 @@
             this.m_btclose.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btclose.TextColor = System.Drawing.Color.White;
             this.m_btclose.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btclose.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btclose.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             // 
             // m_lblName
             // 
@@ -329,6 +334,8 @@
             this.m_btHide.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btHide.TextColor = System.Drawing.Color.White;
             this.m_btHide.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btHide.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btHide.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             // 
             // m_btmaxSize
             // 
@@ -353,6 +360,8 @@
             this.m_btmaxSize.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btmaxSize.TextColor = System.Drawing.Color.White;
             this.m_btmaxSize.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btmaxSize.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btmaxSize.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             // 
             // m_scMain
             // 
@@ -399,39 +408,39 @@
             this.m_treeViewKhoi.ImageList = this.imageList1;
             this.m_treeViewKhoi.Location = new System.Drawing.Point(2, 131);
             this.m_treeViewKhoi.Name = "m_treeViewKhoi";
-            treeNode1.Name = "m_node10A1";
-            treeNode1.Text = "Lớp 10A1";
-            treeNode2.Name = "m_node10A2";
-            treeNode2.Text = "Lớp 10A2";
-            treeNode3.Name = "m_node10A3";
-            treeNode3.Text = "Lớp10A3";
-            treeNode4.Name = "m_node10A4";
-            treeNode4.Text = "Lớp10A4";
-            treeNode5.ImageIndex = 2;
-            treeNode5.Name = "m_nodeKhoi10";
-            treeNode5.Text = "Khối 10";
-            treeNode6.Name = "m_node11A1";
-            treeNode6.Text = "Lớp 11A1";
-            treeNode7.Name = "m_node11A2";
-            treeNode7.Text = "Lớp 11A2";
-            treeNode8.Name = "m_node11A3";
-            treeNode8.Text = "Lớp 11A3";
-            treeNode9.ImageIndex = 2;
-            treeNode9.Name = "m_nodeKhoi11";
-            treeNode9.Text = "Khối 11";
-            treeNode10.Name = "m_node12A1";
-            treeNode10.Text = "Lớp 12A1";
-            treeNode11.Name = "m_node12A2";
-            treeNode11.Text = "Lớp 12A2";
-            treeNode12.ImageIndex = 2;
-            treeNode12.Name = "m_nodeKhoi12";
-            treeNode12.Text = "Khối 12";
-            treeNode13.Checked = true;
-            treeNode13.ImageIndex = 1;
-            treeNode13.Name = "m_nodeKhoi";
-            treeNode13.Text = "Khối";
+            treeNode14.Name = "m_node10A1";
+            treeNode14.Text = "Lớp 10A1";
+            treeNode15.Name = "m_node10A2";
+            treeNode15.Text = "Lớp 10A2";
+            treeNode16.Name = "m_node10A3";
+            treeNode16.Text = "Lớp10A3";
+            treeNode17.Name = "m_node10A4";
+            treeNode17.Text = "Lớp10A4";
+            treeNode18.ImageIndex = 2;
+            treeNode18.Name = "m_nodeKhoi10";
+            treeNode18.Text = "Khối 10";
+            treeNode19.Name = "m_node11A1";
+            treeNode19.Text = "Lớp 11A1";
+            treeNode20.Name = "m_node11A2";
+            treeNode20.Text = "Lớp 11A2";
+            treeNode21.Name = "m_node11A3";
+            treeNode21.Text = "Lớp 11A3";
+            treeNode22.ImageIndex = 2;
+            treeNode22.Name = "m_nodeKhoi11";
+            treeNode22.Text = "Khối 11";
+            treeNode23.Name = "m_node12A1";
+            treeNode23.Text = "Lớp 12A1";
+            treeNode24.Name = "m_node12A2";
+            treeNode24.Text = "Lớp 12A2";
+            treeNode25.ImageIndex = 2;
+            treeNode25.Name = "m_nodeKhoi12";
+            treeNode25.Text = "Khối 12";
+            treeNode26.Checked = true;
+            treeNode26.ImageIndex = 1;
+            treeNode26.Name = "m_nodeKhoi";
+            treeNode26.Text = "Khối";
             this.m_treeViewKhoi.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode13});
+            treeNode26});
             this.m_treeViewKhoi.SelectedImageIndex = 0;
             this.m_treeViewKhoi.Size = new System.Drawing.Size(138, 265);
             this.m_treeViewKhoi.TabIndex = 55;
@@ -449,7 +458,6 @@
             this.m_tcMain.Controls.Add(this.m_tbHoSo);
             this.m_tcMain.Controls.Add(this.m_tbHocTap);
             this.m_tcMain.Controls.Add(this.m_tbBaoCao);
-            this.m_tcMain.Controls.Add(this.m_tbTraCuu);
             this.m_tcMain.Location = new System.Drawing.Point(2, 30);
             this.m_tcMain.Name = "m_tcMain";
             this.m_tcMain.SelectedIndex = 0;
@@ -473,98 +481,106 @@
             // m_btThemHS
             // 
             this.m_btThemHS.AlphaGlow = 40F;
-            this.m_btThemHS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btThemHS.BackColor = System.Drawing.Color.Transparent;
             this.m_btThemHS.ButtonImage = global::QuanLyHocSinh.Properties.Resources.themhs;
             this.m_btThemHS.ButtonText = "Thêm học sinh";
             this.m_btThemHS.DeltaAlphaGlow = 8F;
             this.m_btThemHS.DeltaDistance = 2F;
             this.m_btThemHS.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btThemHS.HaveEffects = true;
+            this.m_btThemHS.HaveEffects = false;
             this.m_btThemHS.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btThemHS.ImageSize = new System.Drawing.Size(40, 40);
-            this.m_btThemHS.Location = new System.Drawing.Point(499, 6);
+            this.m_btThemHS.Location = new System.Drawing.Point(418, -2);
             this.m_btThemHS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.m_btThemHS.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btThemHS.Name = "m_btThemHS";
             this.m_btThemHS.SaveChanged = false;
             this.m_btThemHS.ShadownDistance = 6;
-            this.m_btThemHS.Size = new System.Drawing.Size(130, 62);
+            this.m_btThemHS.Size = new System.Drawing.Size(180, 81);
             this.m_btThemHS.TabIndex = 15;
             this.m_btThemHS.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btThemHS.TextColor = System.Drawing.Color.White;
             this.m_btThemHS.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btThemHS.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btThemHS.Type = QuanLyHocSinh.ButtonFlat.Types.FlatCross;
             // 
             // m_btXoaHS
             // 
             this.m_btXoaHS.AlphaGlow = 40F;
-            this.m_btXoaHS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btXoaHS.BackColor = System.Drawing.Color.Transparent;
             this.m_btXoaHS.ButtonImage = global::QuanLyHocSinh.Properties.Resources.xoa;
             this.m_btXoaHS.ButtonText = "Xóa học sinh";
             this.m_btXoaHS.DeltaAlphaGlow = 8F;
             this.m_btXoaHS.DeltaDistance = 2F;
             this.m_btXoaHS.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btXoaHS.HaveEffects = true;
+            this.m_btXoaHS.HaveEffects = false;
             this.m_btXoaHS.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btXoaHS.ImageSize = new System.Drawing.Size(40, 40);
-            this.m_btXoaHS.Location = new System.Drawing.Point(333, 6);
+            this.m_btXoaHS.Location = new System.Drawing.Point(279, -2);
             this.m_btXoaHS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.m_btXoaHS.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btXoaHS.Name = "m_btXoaHS";
             this.m_btXoaHS.SaveChanged = false;
             this.m_btXoaHS.ShadownDistance = 6;
-            this.m_btXoaHS.Size = new System.Drawing.Size(130, 62);
+            this.m_btXoaHS.Size = new System.Drawing.Size(180, 81);
             this.m_btXoaHS.TabIndex = 14;
             this.m_btXoaHS.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btXoaHS.TextColor = System.Drawing.Color.White;
             this.m_btXoaHS.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btXoaHS.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btXoaHS.Type = QuanLyHocSinh.ButtonFlat.Types.FlatCross;
             // 
             // m_btSuaHS
             // 
             this.m_btSuaHS.AlphaGlow = 40F;
-            this.m_btSuaHS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btSuaHS.BackColor = System.Drawing.Color.Transparent;
             this.m_btSuaHS.ButtonImage = global::QuanLyHocSinh.Properties.Resources.chinhsua;
             this.m_btSuaHS.ButtonText = "Chỉnh sửa";
             this.m_btSuaHS.DeltaAlphaGlow = 8F;
             this.m_btSuaHS.DeltaDistance = 2F;
             this.m_btSuaHS.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btSuaHS.HaveEffects = true;
+            this.m_btSuaHS.HaveEffects = false;
             this.m_btSuaHS.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btSuaHS.ImageSize = new System.Drawing.Size(40, 40);
-            this.m_btSuaHS.Location = new System.Drawing.Point(169, 6);
+            this.m_btSuaHS.Location = new System.Drawing.Point(139, 0);
             this.m_btSuaHS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.m_btSuaHS.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btSuaHS.Name = "m_btSuaHS";
             this.m_btSuaHS.SaveChanged = false;
             this.m_btSuaHS.ShadownDistance = 6;
-            this.m_btSuaHS.Size = new System.Drawing.Size(130, 62);
+            this.m_btSuaHS.Size = new System.Drawing.Size(180, 81);
             this.m_btSuaHS.TabIndex = 13;
             this.m_btSuaHS.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btSuaHS.TextColor = System.Drawing.Color.White;
             this.m_btSuaHS.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btSuaHS.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btSuaHS.Type = QuanLyHocSinh.ButtonFlat.Types.FlatCross;
             // 
             // m_btXemThongTin
             // 
             this.m_btXemThongTin.AlphaGlow = 40F;
-            this.m_btXemThongTin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btXemThongTin.BackColor = System.Drawing.Color.Transparent;
             this.m_btXemThongTin.ButtonImage = global::QuanLyHocSinh.Properties.Resources.info;
             this.m_btXemThongTin.ButtonText = "Xem thông tin";
             this.m_btXemThongTin.DeltaAlphaGlow = 8F;
             this.m_btXemThongTin.DeltaDistance = 2F;
             this.m_btXemThongTin.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btXemThongTin.HaveEffects = true;
+            this.m_btXemThongTin.HaveEffects = false;
             this.m_btXemThongTin.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btXemThongTin.ImageSize = new System.Drawing.Size(40, 40);
-            this.m_btXemThongTin.Location = new System.Drawing.Point(7, 6);
+            this.m_btXemThongTin.Location = new System.Drawing.Point(0, 0);
             this.m_btXemThongTin.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.m_btXemThongTin.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btXemThongTin.Name = "m_btXemThongTin";
             this.m_btXemThongTin.SaveChanged = false;
             this.m_btXemThongTin.ShadownDistance = 6;
-            this.m_btXemThongTin.Size = new System.Drawing.Size(130, 62);
+            this.m_btXemThongTin.Size = new System.Drawing.Size(180, 81);
             this.m_btXemThongTin.TabIndex = 12;
             this.m_btXemThongTin.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btXemThongTin.TextColor = System.Drawing.Color.White;
             this.m_btXemThongTin.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btXemThongTin.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btXemThongTin.Type = QuanLyHocSinh.ButtonFlat.Types.FlatCross;
             // 
             // m_tbHocTap
             // 
@@ -587,7 +603,7 @@
             // m_cbbNamHoc
             // 
             this.m_cbbNamHoc.FormattingEnabled = true;
-            this.m_cbbNamHoc.Location = new System.Drawing.Point(346, 46);
+            this.m_cbbNamHoc.Location = new System.Drawing.Point(385, 50);
             this.m_cbbNamHoc.Name = "m_cbbNamHoc";
             this.m_cbbNamHoc.Size = new System.Drawing.Size(121, 21);
             this.m_cbbNamHoc.TabIndex = 13;
@@ -596,7 +612,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label7.Location = new System.Drawing.Point(289, 49);
+            this.label7.Location = new System.Drawing.Point(328, 53);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 12;
@@ -605,7 +621,7 @@
             // m_cbbBoMon
             // 
             this.m_cbbBoMon.FormattingEnabled = true;
-            this.m_cbbBoMon.Location = new System.Drawing.Point(520, 12);
+            this.m_cbbBoMon.Location = new System.Drawing.Point(559, 16);
             this.m_cbbBoMon.Name = "m_cbbBoMon";
             this.m_cbbBoMon.Size = new System.Drawing.Size(121, 21);
             this.m_cbbBoMon.TabIndex = 11;
@@ -614,7 +630,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(482, 16);
+            this.label6.Location = new System.Drawing.Point(521, 20);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 13);
             this.label6.TabIndex = 10;
@@ -623,7 +639,7 @@
             // m_ccbPhanQuyen
             // 
             this.m_ccbPhanQuyen.FormattingEnabled = true;
-            this.m_ccbPhanQuyen.Location = new System.Drawing.Point(346, 12);
+            this.m_ccbPhanQuyen.Location = new System.Drawing.Point(385, 16);
             this.m_ccbPhanQuyen.Name = "m_ccbPhanQuyen";
             this.m_ccbPhanQuyen.Size = new System.Drawing.Size(121, 21);
             this.m_ccbPhanQuyen.TabIndex = 9;
@@ -632,7 +648,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Location = new System.Drawing.Point(255, 16);
+            this.label5.Location = new System.Drawing.Point(294, 20);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 13);
             this.label5.TabIndex = 8;
@@ -641,50 +657,54 @@
             // m_btXemDiem
             // 
             this.m_btXemDiem.AlphaGlow = 40F;
-            this.m_btXemDiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btXemDiem.BackColor = System.Drawing.Color.Transparent;
             this.m_btXemDiem.ButtonImage = global::QuanLyHocSinh.Properties.Resources.xem;
             this.m_btXemDiem.ButtonText = "Xem điểm";
             this.m_btXemDiem.DeltaAlphaGlow = 8F;
             this.m_btXemDiem.DeltaDistance = 2F;
             this.m_btXemDiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btXemDiem.HaveEffects = true;
+            this.m_btXemDiem.HaveEffects = false;
             this.m_btXemDiem.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btXemDiem.ImageSize = new System.Drawing.Size(60, 40);
-            this.m_btXemDiem.Location = new System.Drawing.Point(6, 6);
+            this.m_btXemDiem.Location = new System.Drawing.Point(0, 0);
             this.m_btXemDiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.m_btXemDiem.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btXemDiem.Name = "m_btXemDiem";
             this.m_btXemDiem.SaveChanged = false;
             this.m_btXemDiem.ShadownDistance = 6;
-            this.m_btXemDiem.Size = new System.Drawing.Size(111, 62);
+            this.m_btXemDiem.Size = new System.Drawing.Size(160, 79);
             this.m_btXemDiem.TabIndex = 7;
             this.m_btXemDiem.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btXemDiem.TextColor = System.Drawing.Color.White;
             this.m_btXemDiem.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btXemDiem.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btXemDiem.Type = QuanLyHocSinh.ButtonFlat.Types.FlatCross;
             // 
             // m_btSuaDiem
             // 
             this.m_btSuaDiem.AlphaGlow = 40F;
-            this.m_btSuaDiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btSuaDiem.BackColor = System.Drawing.Color.Transparent;
             this.m_btSuaDiem.ButtonImage = global::QuanLyHocSinh.Properties.Resources.chinhsua;
             this.m_btSuaDiem.ButtonText = "Sửa điểm";
             this.m_btSuaDiem.DeltaAlphaGlow = 8F;
             this.m_btSuaDiem.DeltaDistance = 2F;
             this.m_btSuaDiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btSuaDiem.HaveEffects = true;
+            this.m_btSuaDiem.HaveEffects = false;
             this.m_btSuaDiem.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btSuaDiem.ImageSize = new System.Drawing.Size(40, 40);
-            this.m_btSuaDiem.Location = new System.Drawing.Point(135, 6);
+            this.m_btSuaDiem.Location = new System.Drawing.Point(127, -2);
             this.m_btSuaDiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.m_btSuaDiem.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btSuaDiem.Name = "m_btSuaDiem";
             this.m_btSuaDiem.SaveChanged = false;
             this.m_btSuaDiem.ShadownDistance = 6;
-            this.m_btSuaDiem.Size = new System.Drawing.Size(111, 62);
+            this.m_btSuaDiem.Size = new System.Drawing.Size(160, 81);
             this.m_btSuaDiem.TabIndex = 4;
             this.m_btSuaDiem.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btSuaDiem.TextColor = System.Drawing.Color.White;
             this.m_btSuaDiem.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btSuaDiem.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btSuaDiem.Type = QuanLyHocSinh.ButtonFlat.Types.FlatCross;
             // 
             // m_tbBaoCao
             // 
@@ -708,7 +728,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label11.Location = new System.Drawing.Point(380, 14);
+            this.label11.Location = new System.Drawing.Point(438, 20);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 13);
@@ -719,7 +739,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label9.Location = new System.Drawing.Point(142, 14);
+            this.label9.Location = new System.Drawing.Point(200, 20);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 13);
@@ -729,7 +749,7 @@
             // m_cbbBaoCaonamhoc
             // 
             this.m_cbbBaoCaonamhoc.FormattingEnabled = true;
-            this.m_cbbBaoCaonamhoc.Location = new System.Drawing.Point(441, 11);
+            this.m_cbbBaoCaonamhoc.Location = new System.Drawing.Point(499, 17);
             this.m_cbbBaoCaonamhoc.Margin = new System.Windows.Forms.Padding(2);
             this.m_cbbBaoCaonamhoc.Name = "m_cbbBaoCaonamhoc";
             this.m_cbbBaoCaonamhoc.Size = new System.Drawing.Size(144, 21);
@@ -739,7 +759,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label10.Location = new System.Drawing.Point(391, 50);
+            this.label10.Location = new System.Drawing.Point(449, 56);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 13);
@@ -749,7 +769,7 @@
             // m_cbbBaoCaoLoai
             // 
             this.m_cbbBaoCaoLoai.FormattingEnabled = true;
-            this.m_cbbBaoCaoLoai.Location = new System.Drawing.Point(217, 11);
+            this.m_cbbBaoCaoLoai.Location = new System.Drawing.Point(275, 17);
             this.m_cbbBaoCaoLoai.Margin = new System.Windows.Forms.Padding(2);
             this.m_cbbBaoCaoLoai.Name = "m_cbbBaoCaoLoai";
             this.m_cbbBaoCaoLoai.Size = new System.Drawing.Size(144, 21);
@@ -758,7 +778,7 @@
             // m_cbbBaoCaohocky
             // 
             this.m_cbbBaoCaohocky.FormattingEnabled = true;
-            this.m_cbbBaoCaohocky.Location = new System.Drawing.Point(441, 48);
+            this.m_cbbBaoCaohocky.Location = new System.Drawing.Point(499, 54);
             this.m_cbbBaoCaohocky.Margin = new System.Windows.Forms.Padding(2);
             this.m_cbbBaoCaohocky.Name = "m_cbbBaoCaohocky";
             this.m_cbbBaoCaohocky.Size = new System.Drawing.Size(144, 21);
@@ -768,7 +788,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label8.Location = new System.Drawing.Point(162, 50);
+            this.label8.Location = new System.Drawing.Point(220, 56);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 13);
@@ -778,7 +798,7 @@
             // m_cbbBaoCaomonhoc
             // 
             this.m_cbbBaoCaomonhoc.FormattingEnabled = true;
-            this.m_cbbBaoCaomonhoc.Location = new System.Drawing.Point(217, 48);
+            this.m_cbbBaoCaomonhoc.Location = new System.Drawing.Point(275, 54);
             this.m_cbbBaoCaomonhoc.Margin = new System.Windows.Forms.Padding(2);
             this.m_cbbBaoCaomonhoc.Name = "m_cbbBaoCaomonhoc";
             this.m_cbbBaoCaomonhoc.Size = new System.Drawing.Size(144, 21);
@@ -787,34 +807,28 @@
             // m_btBaoCao
             // 
             this.m_btBaoCao.AlphaGlow = 40F;
-            this.m_btBaoCao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(208)))), ((int)(((byte)(136)))));
+            this.m_btBaoCao.BackColor = System.Drawing.Color.Transparent;
             this.m_btBaoCao.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconreport;
             this.m_btBaoCao.ButtonText = "Báo cáo";
             this.m_btBaoCao.DeltaAlphaGlow = 8F;
             this.m_btBaoCao.DeltaDistance = 2F;
             this.m_btBaoCao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btBaoCao.HaveEffects = true;
+            this.m_btBaoCao.HaveEffects = false;
             this.m_btBaoCao.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btBaoCao.ImageSize = new System.Drawing.Size(40, 40);
-            this.m_btBaoCao.Location = new System.Drawing.Point(9, 6);
+            this.m_btBaoCao.Location = new System.Drawing.Point(1, 0);
             this.m_btBaoCao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.m_btBaoCao.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btBaoCao.Name = "m_btBaoCao";
             this.m_btBaoCao.SaveChanged = false;
             this.m_btBaoCao.ShadownDistance = 6;
-            this.m_btBaoCao.Size = new System.Drawing.Size(127, 62);
+            this.m_btBaoCao.Size = new System.Drawing.Size(159, 79);
             this.m_btBaoCao.TabIndex = 8;
             this.m_btBaoCao.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btBaoCao.TextColor = System.Drawing.Color.White;
             this.m_btBaoCao.TextOrigin = new System.Drawing.Point(0, 0);
-            // 
-            // m_tbTraCuu
-            // 
-            this.m_tbTraCuu.Location = new System.Drawing.Point(1, 20);
-            this.m_tbTraCuu.Name = "m_tbTraCuu";
-            this.m_tbTraCuu.Size = new System.Drawing.Size(717, 79);
-            this.m_tbTraCuu.TabIndex = 3;
-            this.m_tbTraCuu.Text = "Tra Cứu";
+            this.m_btBaoCao.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btBaoCao.Type = QuanLyHocSinh.ButtonFlat.Types.FlatCross;
             // 
             // buttonFlat1
             // 
@@ -839,6 +853,8 @@
             this.buttonFlat1.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
             this.buttonFlat1.TextColor = System.Drawing.Color.White;
             this.buttonFlat1.TextOrigin = new System.Drawing.Point(0, 0);
+            this.buttonFlat1.TransparentBackColor = System.Drawing.Color.Empty;
+            this.buttonFlat1.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             this.buttonFlat1.Click += new System.EventHandler(this.buttonFlat1_Click);
             // 
             // m_btSave
@@ -864,6 +880,8 @@
             this.m_btSave.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
             this.m_btSave.TextColor = System.Drawing.Color.White;
             this.m_btSave.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btSave.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btSave.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             this.m_btSave.Click += new System.EventHandler(this.m_btSave_Click);
             // 
             // m_btsearchColor
@@ -889,6 +907,8 @@
             this.m_btsearchColor.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
             this.m_btsearchColor.TextColor = System.Drawing.Color.White;
             this.m_btsearchColor.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btsearchColor.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btsearchColor.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             this.m_btsearchColor.Click += new System.EventHandler(this.m_btsearchColor_Click);
             // 
             // m_bttabPageColor
@@ -914,6 +934,8 @@
             this.m_bttabPageColor.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
             this.m_bttabPageColor.TextColor = System.Drawing.Color.White;
             this.m_bttabPageColor.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_bttabPageColor.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_bttabPageColor.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             this.m_bttabPageColor.Click += new System.EventHandler(this.m_bttabPageColor_Click);
             // 
             // m_bttopButtonsColor
@@ -939,6 +961,8 @@
             this.m_bttopButtonsColor.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
             this.m_bttopButtonsColor.TextColor = System.Drawing.Color.White;
             this.m_bttopButtonsColor.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_bttopButtonsColor.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_bttopButtonsColor.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             this.m_bttopButtonsColor.Click += new System.EventHandler(this.m_bttopButtonsColor_Click);
             // 
             // m_btformBackColor
@@ -964,6 +988,8 @@
             this.m_btformBackColor.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
             this.m_btformBackColor.TextColor = System.Drawing.Color.White;
             this.m_btformBackColor.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btformBackColor.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btformBackColor.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             this.m_btformBackColor.Click += new System.EventHandler(this.m_btformBackColor_Click);
             // 
             // bt_tabButtonsColor
@@ -989,6 +1015,8 @@
             this.bt_tabButtonsColor.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
             this.bt_tabButtonsColor.TextColor = System.Drawing.Color.White;
             this.bt_tabButtonsColor.TextOrigin = new System.Drawing.Point(0, 0);
+            this.bt_tabButtonsColor.TransparentBackColor = System.Drawing.Color.Empty;
+            this.bt_tabButtonsColor.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             this.bt_tabButtonsColor.Click += new System.EventHandler(this.bt_tabButtonsColor_Click);
             // 
             // buttonFlat2
@@ -1014,6 +1042,8 @@
             this.buttonFlat2.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.buttonFlat2.TextColor = System.Drawing.Color.White;
             this.buttonFlat2.TextOrigin = new System.Drawing.Point(0, 0);
+            this.buttonFlat2.TransparentBackColor = System.Drawing.Color.Empty;
+            this.buttonFlat2.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             this.buttonFlat2.Click += new System.EventHandler(this.buttonFlat2_Click);
             // 
             // frmCaiDat
@@ -1077,7 +1107,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox m_cbbBaoCaomonhoc;
         private ButtonFlat m_btBaoCao;
-        private System.Windows.Forms.TabPage m_tbTraCuu;
         private System.Windows.Forms.TreeView m_treeViewKhoi;
         private System.Windows.Forms.DataGridView m_dgvMain;
         private SearchControl m_scMain;

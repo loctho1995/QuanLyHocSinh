@@ -243,7 +243,7 @@
     <Parameter Name="mahocki" Type="System.String" DbType="Char(2)" />
     <Parameter Name="manamhoc" Type="System.Int32" DbType="Int" />
     <ElementType Name="sp_BaoCaoTongKetHocKyResult">
-      <Column Name="MALOP" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="MALOP" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="SISO" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SOLUONGDAT" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
@@ -259,11 +259,40 @@
       <Column Name="SOLUONGDAT" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.sp_DangNhap" Method="sp_DangNhap">
+    <Parameter Name="username" Type="System.String" DbType="Char(5)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="check" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
+    <Parameter Name="malop" Type="System.String" DbType="Char(5)" Direction="InOut" />
+    <Parameter Name="phanquyen" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_demo" Method="sp_demo">
+    <ElementType Name="sp_demoResult">
+      <Column Name="MAHS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GIOITINH" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="NGAYSINH" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="TONGIAO" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="HOTENCHAC" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="HOTENME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="NGHENGHIEPME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="NGHENGHIEPCHA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="IMAGEE" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_demo1" Method="sp_demo1">
+    <Parameter Name="hoten" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.sp_Diem1HocSinhTheoBoMon" Method="sp_Diem1HocSinhTheoBoMon">
     <Parameter Name="mahs" Type="System.Int32" DbType="Int" />
     <Parameter Name="mamon" Type="System.String" DbType="VarChar(10)" />
     <Parameter Name="namhoc" Type="System.Int32" DbType="Int" />
-    <Parameter Name="magv" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="magv" Type="System.String" DbType="Char(5)" />
     <Parameter Name="phanquyen" Type="System.Int32" DbType="Int" />
     <ElementType Name="sp_Diem1HocSinhTheoBoMonResult">
       <Column Name="D_MIENGHKI" Type="System.Double" DbType="Float" CanBeNull="true" />
@@ -325,10 +354,36 @@
     <Parameter Name="tabpanel_color" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.sp_InsertDuLieuGV" Method="sp_InsertDuLieuGV">
+    <Parameter Name="magv" Type="System.String" DbType="Char(5)" />
+    <Parameter Name="hoten" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="ngaysinh" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="gioitinh" Type="System.String" DbType="Char(3)" />
+    <Parameter Name="sodt" Type="System.String" DbType="VarChar(11)" />
+    <Parameter Name="pass" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="phanquyen" Type="System.Int32" DbType="Int" />
+    <Parameter Name="type" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.sp_LayGVBoMon" Method="sp_LayGVBoMon">
     <Parameter Name="magv" Type="System.String" DbType="Char(5)" />
     <ElementType Name="sp_LayGVBoMonResult">
       <Column Name="MALOP" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_LayImageHS" Method="sp_LayImageHS">
+    <Parameter Name="mahs" Type="System.Int32" DbType="Int" />
+    <Parameter Name="image" Type="System.String" DbType="VarChar(200)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_LoadDuLieuGV" Method="sp_LoadDuLieuGV">
+    <ElementType Name="sp_LoadDuLieuGVResult">
+      <Column Name="MAGV" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="NGAYSINH" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="GIOITINH" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="SODT" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_SuaDiem" Method="sp_SuaDiem">
@@ -344,7 +399,15 @@
     <Parameter Name="d_15p_hkII" Type="System.Double" DbType="Float" />
     <Parameter Name="d_1tiet_hkII" Type="System.Double" DbType="Float" />
     <Parameter Name="d_thi_hkII" Type="System.Double" DbType="Float" />
-    <Return Type="System.Int32" />
+    <ElementType Name="sp_SuaDiemResult">
+      <Column Name="MAHS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MAMONHOC" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MANAMHOC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MALOP" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="MALOAIDIEM" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="DIEM" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+    </ElementType>
   </Function>
   <Function Name="dbo.sp_SuaThongtinHocSinh" Method="sp_SuaThongtinHocSinh">
     <Parameter Name="mahs" Type="System.Int32" DbType="Int" />
@@ -440,20 +503,6 @@
       <Column Name="MALOP" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_LayImageHS" Method="sp_LayImageHS">
-    <Parameter Name="mahs" Type="System.Int32" DbType="Int" />
-    <Parameter Name="image" Type="System.String" DbType="VarChar(200)" Direction="InOut" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_DangNhap" Method="sp_DangNhap">
-    <Parameter Name="username" Type="System.String" DbType="Char(5)" />
-    <Parameter Name="password" Type="System.String" DbType="VarChar(30)" />
-    <Parameter Name="check" Type="System.Int32" DbType="Int" Direction="InOut" />
-    <Parameter Name="name" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
-    <Parameter Name="malop" Type="System.String" DbType="Char(5)" Direction="InOut" />
-    <Parameter Name="phanquyen" Type="System.Int32" DbType="Int" Direction="InOut" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.sp_UpdateDuLieuGV" Method="sp_UpdateDuLieuGV">
     <Parameter Name="magv" Type="System.String" DbType="Char(5)" />
     <Parameter Name="hoten" Type="System.String" DbType="NVarChar(20)" />
@@ -463,27 +512,6 @@
     <Parameter Name="pass" Type="System.String" DbType="VarChar(30)" />
     <Parameter Name="email" Type="System.String" DbType="VarChar(4)" />
     <Parameter Name="phanquyen" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_LoadDuLieuGV" Method="sp_LoadDuLieuGV">
-    <ElementType Name="sp_LoadDuLieuGVResult">
-      <Column Name="MAGV" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
-      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="NGAYSINH" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
-      <Column Name="GIOITINH" Type="System.String" DbType="Char(3)" CanBeNull="true" />
-      <Column Name="SODT" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_InsertDuLieuGV" Method="sp_InsertDuLieuGV">
-    <Parameter Name="magv" Type="System.String" DbType="Char(5)" />
-    <Parameter Name="hoten" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="ngaysinh" Type="System.DateTime" DbType="SmallDateTime" />
-    <Parameter Name="gioitinh" Type="System.String" DbType="Char(3)" />
-    <Parameter Name="sodt" Type="System.String" DbType="VarChar(11)" />
-    <Parameter Name="pass" Type="System.String" DbType="VarChar(30)" />
-    <Parameter Name="email" Type="System.String" DbType="VarChar(4)" />
-    <Parameter Name="phanquyen" Type="System.Int32" DbType="Int" />
-    <Parameter Name="type" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

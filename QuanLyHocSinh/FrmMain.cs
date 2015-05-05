@@ -33,7 +33,7 @@ namespace QuanLyHocSinh
 
         public Color TabButtonsColor
         {
-            get { return m_btBaoCao.BackColor; }
+            get { return m_btXemThongTin.GetRealBackColor; }
             set
             {
                 m_btBaoCao.BackColor = m_btSuaDiem.BackColor = m_btSuaHS.BackColor = m_btThemHS.BackColor = m_btXemDiem.BackColor
@@ -46,7 +46,7 @@ namespace QuanLyHocSinh
             get { return m_btclose.BackColor; }
             set
             {
-                m_btclose.BackColor = m_btHide.BackColor = m_btmaxSize.BackColor = m_btdangXuat.BackColor 
+                m_btclose.BackColor = m_btHide.BackColor = m_btmaxSize.BackColor = m_btdangXuat.BackColor
                     = m_btCaiDat.BackColor = value;
             }
         }
@@ -60,7 +60,7 @@ namespace QuanLyHocSinh
 
         #region - METHODS -
         public FrmMain()
-        {            
+        {
             //this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.CacheText, true);
             this.DoubleBuffered = true;
             InitializeComponent();
@@ -69,36 +69,12 @@ namespace QuanLyHocSinh
                 DataBase.InitDataBase();
 
             ListThongTinHS = new List<frmThongTinHS>();
-            FrmMain.m_phanquyen.LopCN = FrmMain.m_phanquyen.LopCN.Trim();            
+            FrmMain.m_phanquyen.LopCN = FrmMain.m_phanquyen.LopCN.Trim();
             LoadDataBaoCao();
-            m_scMain.ButtonSearch.Size = new Size(45, m_scMain.ButtonSearch.Height);
+            m_scMain.ButtonSearch.Size = new Size(38, m_scMain.ButtonSearch.Height);
 
-            this.BackColor = Color.FromArgb(62, 70, 73);
-            m_tbHoSo.BackColor = Color.FromArgb(35, 168, 111);
-            m_tbBaoCao.BackColor = Color.FromArgb(35, 168, 111);
-            m_tbHocTap.BackColor = Color.FromArgb(35, 168, 111);
 
-            m_btclose.BackColor = Color.FromArgb(255, 101, 99);
-            m_btHide.BackColor = m_btclose.BackColor;
-            m_btmaxSize.BackColor = m_btclose.BackColor;
-
-            m_scMain.BackColor = Color.FromArgb(44, 208, 136);
-            m_scMain.ShadowColor = m_tbHoSo.BackColor;
-            m_scMain.LabelSearch.ForeColor = Color.White;
-
-            /* Mau xanh la
-            this.BackColor = Color.FromArgb(63, 159, 63);
-            m_tbHoSo.BackColor = Color.FromArgb(105, 213, 105);
-            m_tbHocTap.UseVisualStyleBackColor = true;
-            m_tbBaoCao.BackColor = Color.FromArgb(123, 241, 123);
-            m_tbHocTap.BackColor = Color.FromArgb(123, 241, 123);
-            m_scMain.BackColor = Color.FromArgb(142, 252, 142);
-            m_scMain.ShadowColor = m_tbHoSo.BackColor;
-            m_scMain.LabelSearch.ForeColor = Color.FromArgb(92, 92, 92);
-            m_btflat.BackColor = Color.FromArgb(232, 76, 61);
-            */
-
-            m_treeViewKhoi.ExpandAll(); 
+            m_treeViewKhoi.ExpandAll();
 
             m_scMain.TextBoxSearch.TextChanged += TextBoxSearch_TextChanged;
             m_treeViewKhoi.ExpandAll();
@@ -125,6 +101,17 @@ namespace QuanLyHocSinh
             m_cbbNamHoc.ValueMember = "MANAMHOC";
 
             LoadColorApplication();
+            LoadButtonsLocation();
+        }
+
+        private void LoadButtonsLocation()
+        {
+            m_btXemThongTin.Location = m_btXemDiem.Location = new Point(0, -1);
+            m_btSuaHS.Location = new Point(m_btXemThongTin.Location.X + 190, m_btXemThongTin.Location.Y);
+            m_btXoaHS.Location = new Point(m_btSuaHS.Location.X + 190, m_btXemThongTin.Location.Y);
+            m_btThemHS.Location = new Point(m_btXoaHS.Location.X + 190, m_btXemThongTin.Location.Y);
+
+            m_btSuaDiem.Location = new Point(m_btXemDiem.Location.X + 160, m_btXemDiem.Location.Y);
         }
 
         private void LoadColorApplication()
@@ -135,16 +122,21 @@ namespace QuanLyHocSinh
             this.TopButtonsColor = System.Drawing.Color.FromArgb(int.Parse(caidat.TOPBUTTONCOLOR));
             this.TabButtonsColor = System.Drawing.Color.FromArgb(int.Parse(caidat.TABBUTTONCOLOR));
             this.SearchControl.BackColor = System.Drawing.Color.FromArgb(int.Parse(caidat.SEACHCONTROL_BACKGOUND));
+
             for (int i = 0; i < this.TabControl.TabPages.Count; i++)
             {
                 this.TabControl.TabPages[i].BackColor = System.Drawing.Color.FromArgb(int.Parse(caidat.TABPANEL_COLOR));
             }
+
+            m_scMain.ShadowColor = m_tbHoSo.BackColor;
+            m_scMain.BackColor = m_btXemThongTin.BackColor; //m_tbHoSo.BackColor;
+            m_scMain.LabelSearch.ForeColor = Color.White;
         }
         //ham bat su kien chuyen tabpage
 
         public void LoadColor()
         {
-            
+
         }
 
         private void LoadDataBaoCao()
@@ -203,7 +195,7 @@ namespace QuanLyHocSinh
                 return true;
             return false;
         }
-      
+
         private void ShowHocSinh_Khoi()
         {
             //
@@ -214,7 +206,7 @@ namespace QuanLyHocSinh
         {
             frmSuaNhapHS frmNhap = new frmSuaNhapHS();
             frmNhap.ShowDialog();
-            
+
         }
 
         private void SuaHocSinh()
@@ -239,8 +231,8 @@ namespace QuanLyHocSinh
                 if (MessageBox.Show("Bạn có muốn xóa không ?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                     return;
                 int key = 0;
-                if(m_dgvMain.SelectedRows[0].Cells["MAHS"] != null)
-                  key = int.Parse(m_dgvMain.SelectedRows[0].Cells["MAHS"].Value.ToString());
+                if (m_dgvMain.SelectedRows[0].Cells["MAHS"] != null)
+                    key = int.Parse(m_dgvMain.SelectedRows[0].Cells["MAHS"].Value.ToString());
                 if (DataBase.HocSinh.DeleteHocSinh(key) && key != 0)
                 {
                     DesignDataGridView(m_dgvMain, m_node);
@@ -264,7 +256,7 @@ namespace QuanLyHocSinh
                         item.Hide();
                         item.Show();
                         return;
-                    }                        
+                    }
                 }
 
                 frmThongTinHS frmTT = new frmThongTinHS(m_dgvMain.SelectedRows[0]);
@@ -277,7 +269,7 @@ namespace QuanLyHocSinh
         private void XemDiem()
         {
             if (m_dgvMain.DataSource == null)
-                MessageBox.Show("Chọn học sinh cần xem thông tin");
+                MessageBox.Show("Chọn học sinh cần sửa điểm");
             else
             {
                 if (m_ccbPhanQuyen.Text.ToString() == "GVCN")
@@ -291,7 +283,7 @@ namespace QuanLyHocSinh
                     frmXDM.Show();
                 }
             }
-            
+
         }
 
         private void SuaDiem()
@@ -321,9 +313,9 @@ namespace QuanLyHocSinh
             }
             catch
             {
- 
+
             }
-            
+
         }
 
         public static string Node
@@ -349,7 +341,7 @@ namespace QuanLyHocSinh
                 m_checkseach = false;
             }
             else//m_checkseach = false -> dang su dung tree view
-            {  
+            {
                 switch (tabpage)//tabpage se cho biet tabpage nao dang duoc chon
                 {
                     case 0://tabpage Ho So
@@ -404,7 +396,7 @@ namespace QuanLyHocSinh
                         else
                         {
                             dgv.DataSource = DataBase.Diem.LayDiemHocSinh_Mon(node, m_cbbBoMon.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
-                            if(dgv.DataSource == null) return;
+                            if (dgv.DataSource == null) return;
 
                             dgv.Columns["STT"].Width = 40;
                             dgv.Columns["MAHS"].Width = 50;
@@ -426,25 +418,25 @@ namespace QuanLyHocSinh
                             {
                                 case 0:
                                     InDanhSachLop();
-                                break;
+                                    break;
 
                                 case 1:
                                     InBangDiemChiTietTungHocky();
-                                break;
+                                    break;
 
                                 case 2:
-                                   InBangDiemCuaLop();
-                                break;
+                                    InBangDiemCuaLop();
+                                    break;
 
                                 case 3:
-                                   
-                                break;
+
+                                    break;
                                 case 4:
-                                   
-                                break;
+
+                                    break;
 
                                 default:
-                                break;
+                                    break;
                             }
                         }
                         break;
@@ -550,7 +542,7 @@ namespace QuanLyHocSinh
 
         private void m_cbbBaoCaonamhoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(typebaocao == 2)
+            if (typebaocao == 2)
                 m_dgvMain.DataSource = DataBase.BaoCao.InBangDiemCuaLop(FrmMain.m_phanquyen.ID, m_node, FrmMain.m_phanquyen.PhanQuyen, int.Parse(m_cbbBaoCaonamhoc.SelectedValue.ToString()));
             else if (typebaocao == 1)
             {
@@ -605,7 +597,8 @@ namespace QuanLyHocSinh
 
         private void m_dgvMain_DoubleClick(object sender, EventArgs e)
         {
-            this.XemThongTin();
+            if (m_tbHoSo.Focus())
+                this.XemThongTin();
         }
 
         private void m_dangXuatbtn_Click(object sender, EventArgs e)
@@ -880,8 +873,6 @@ namespace QuanLyHocSinh
             base.WndProc(ref m);
         }
 
-        #endregion
-
         private void m_tcMain_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             m_treeViewKhoi.SelectedNode = null;
@@ -892,6 +883,6 @@ namespace QuanLyHocSinh
             frmGiaoVien frm_giaovien = new frmGiaoVien();
             frm_giaovien.Show();
         }
-
+        #endregion
     }
 }

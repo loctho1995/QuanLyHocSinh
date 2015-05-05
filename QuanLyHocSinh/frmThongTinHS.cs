@@ -51,6 +51,22 @@ namespace QuanLyHocSinh
             m_lblNgheNghiepMe.Text = m_row.Cells["NGHENGHIEPME"].Value.ToString();
             if (DataBase.HocSinh.Image(int.Parse(m_row.Cells["MAHS"].Value.ToString())) != null)
                 m_ptbHS.Image = (Image)(new Bitmap(DataBase.HocSinh.Image(int.Parse(m_row.Cells["MAHS"].Value.ToString()))));
+            try
+            {
+                m_lblName.Text = m_row.Cells["HOTEN"].Value.ToString();
+                m_lblNgaysinh.Text = m_row.Cells["NGAYSINH"].Value.ToString();
+                m_lblGioitinh.Text = m_row.Cells["GIOITINH"].Value.ToString();
+                m_lblDiachi.Text = m_row.Cells["DIACHI"].Value.ToString();
+                m_lblEmail.Text = m_row.Cells["EMAIL"].Value.ToString();
+                m_lblLop.Text = m_row.Cells["MALOP"].Value.ToString();
+                if (DataBase.HocSinh.Image(int.Parse(m_row.Cells["MAHS"].Value.ToString())) != null)
+                    m_ptbHS.Image = (Image)(new Bitmap(DataBase.HocSinh.Image(int.Parse(m_row.Cells["MAHS"].Value.ToString()))));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
 
         private void m_btClose_Click(object sender, EventArgs e)

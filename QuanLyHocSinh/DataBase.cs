@@ -46,6 +46,7 @@ namespace QuanLyHocSinh
         public static void InitDataBase()
         {
             BaoCao = new BaoCao_BUS();
+            Diem = new Diem_BUS();
             GiaoVien = new GiaoVien_BUS();
             HocKy = new HocKy_BUS();
             HocSinh = new HocSinh_BUS();

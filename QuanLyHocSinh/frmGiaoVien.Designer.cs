@@ -339,7 +339,7 @@
             this.Controls.Add(this.m_dgvGV);
             this.MaximizeBox = false;
             this.Name = "frmGiaoVien";
-            this.Text = "frmGiaoVien";
+            this.Text = "Quản lý Giáo Viên";
             this.Load += new System.EventHandler(this.frmGiaoVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.m_dgvGV)).EndInit();
             this.groupBox1.ResumeLayout(false);
