@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SQL_QUANLYHOCSINH" Class="SQL_QUANLYHOCSINHDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=PC;Initial Catalog=SQL_QUANLYHOCSINH;Integrated Security=True" SettingsObjectName="DAO.Properties.Settings" SettingsPropertyName="SQL_QUANLYHOCSINHConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=HP;Initial Catalog=SQL_QUANLYHOCSINH;Integrated Security=True" SettingsObjectName="DAO.Properties.Settings" SettingsPropertyName="SQL_QUANLYHOCSINHConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.CAIDAT" Member="CAIDATs">
     <Type Name="CAIDAT">
       <Column Name="MAIN_BACKCOLOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />

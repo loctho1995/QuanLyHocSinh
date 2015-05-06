@@ -90,6 +90,8 @@
             this.m_btHoanTat.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
             this.m_btHoanTat.TextColor = System.Drawing.Color.White;
             this.m_btHoanTat.TextOrigin = new System.Drawing.Point(-15, 0);
+            this.m_btHoanTat.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btHoanTat.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             this.m_btHoanTat.Click += new System.EventHandler(this.m_btHoanTat_Click);
             // 
             // m_btClose
@@ -114,6 +116,8 @@
             this.m_btClose.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btClose.TextColor = System.Drawing.Color.White;
             this.m_btClose.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btClose.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btClose.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             this.m_btClose.Click += new System.EventHandler(this.m_btClose_Click);
             // 
             // m_lblManamhoc
@@ -484,6 +488,8 @@
             this.m_btminimize.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btminimize.TextColor = System.Drawing.Color.White;
             this.m_btminimize.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btminimize.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btminimize.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             this.m_btminimize.Click += new System.EventHandler(this.m_btminimize_Click);
             // 
             // m_btnChonhinh
@@ -509,6 +515,8 @@
             this.m_btnChonhinh.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
             this.m_btnChonhinh.TextColor = System.Drawing.Color.White;
             this.m_btnChonhinh.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btnChonhinh.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btnChonhinh.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             this.m_btnChonhinh.Click += new System.EventHandler(this.m_btnChonhinh_Click);
             // 
             // openFileDialog1
