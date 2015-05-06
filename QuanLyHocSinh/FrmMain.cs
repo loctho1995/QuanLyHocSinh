@@ -107,9 +107,9 @@ namespace QuanLyHocSinh
         private void LoadButtonsLocation()
         {
             m_btXemThongTin.Location = m_btXemDiem.Location = new Point(0, -1);
-            m_btSuaHS.Location = new Point(m_btXemThongTin.Location.X + 190, m_btXemThongTin.Location.Y);
-            m_btXoaHS.Location = new Point(m_btSuaHS.Location.X + 190, m_btXemThongTin.Location.Y);
-            m_btThemHS.Location = new Point(m_btXoaHS.Location.X + 190, m_btXemThongTin.Location.Y);
+            m_btSuaHS.Location = new Point(m_btXemThongTin.Location.X + 170, m_btXemThongTin.Location.Y);
+            m_btXoaHS.Location = new Point(m_btSuaHS.Location.X + 170, m_btXemThongTin.Location.Y);
+            m_btThemHS.Location = new Point(m_btXoaHS.Location.X + 170, m_btXemThongTin.Location.Y);
 
             m_btSuaDiem.Location = new Point(m_btXemDiem.Location.X + 160, m_btXemDiem.Location.Y);
         }
