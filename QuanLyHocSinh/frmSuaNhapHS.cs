@@ -34,7 +34,6 @@ namespace QuanLyHocSinh
             this.MaximumSize = this.Size;
             this.MinimumSize = this.Size;
             m_btClose.BackColor = Color.FromArgb(255, 101, 99);
-
             m_ccbLop.DataSource = DataBase.Lop.LayDuLieuLop(FrmMain.m_phanquyen.ID, FrmMain.m_phanquyen.PhanQuyen);
             m_ccbLop.ValueMember = "MALOP";
             m_ccbLop.DisplayMember = "TENLOP";

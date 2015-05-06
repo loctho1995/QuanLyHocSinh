@@ -670,7 +670,8 @@ namespace QuanLyHocSinh
                     break;
 
                 case "m_btThemHS":
-                    ThemHocSinh();
+                    if(DataBase.Lop.LayDuLieuLop(FrmMain.m_phanquyen.ID, FrmMain.m_phanquyen.PhanQuyen)!=null)
+                        ThemHocSinh();
                     break;
 
                 case "m_btSuaHS":
