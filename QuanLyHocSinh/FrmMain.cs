@@ -374,9 +374,14 @@ namespace QuanLyHocSinh
                         break;
 
                     case 1://tabpage Hoc tap
+                        dgv.DataSource = null;
+
                         if (m_ccbPhanQuyen.Text.ToString() == "GVCN")
                         {
-                            dgv.DataSource = DataBase.Diem.LayDiemHocSinh_LopChuNhiem(node, int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            if (node.Length == 2)
+                                dgv.DataSource = DataBase.Diem.LayDiemHocSinh_Khoi(node, int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            else if (CheckGVInLopBM(node))
+                                 dgv.DataSource = DataBase.Diem.LayDiemHocSinh_LopChuNhiem(node, int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
                             if (dgv.DataSource == null) return;
                             dgv.Columns["STT"].Width = 40;
                             dgv.Columns["MAHS"].Width = 50;
@@ -395,8 +400,11 @@ namespace QuanLyHocSinh
                         }
                         else
                         {
-                            dgv.DataSource = DataBase.Diem.LayDiemHocSinh_Mon(node, m_cbbBoMon.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
-                            if (dgv.DataSource == null) return;
+                            if (node.Length == 2)
+                                dgv.DataSource = DataBase.Diem.LayDiemHocSinh_Mon_Khoi(node, m_cbbBoMon.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            else if (CheckGVInLopBM(node))
+                                dgv.DataSource = DataBase.Diem.LayDiemHocSinh_Mon(node, m_cbbBoMon.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            if(dgv.DataSource == null) return;
 
                             dgv.Columns["STT"].Width = 40;
                             dgv.Columns["MAHS"].Width = 50;
@@ -597,8 +605,25 @@ namespace QuanLyHocSinh
 
         private void m_dgvMain_DoubleClick(object sender, EventArgs e)
         {
-            if (m_tbHoSo.Focus())
-                this.XemThongTin();
+            //if (m_tbHoSo.Focus())
+                //this.XemThongTin();
+
+            switch (tabpage)//tabpage se cho biet tabpage nao dang duoc chon
+                {
+                    case 0://tabpage Ho So
+                        this.XemThongTin();
+                        break;
+
+                    case 1://tabpage Hoc tap
+                        this.XemDiem();
+                        break;
+
+                    case 2://tabpage Bao Cao
+                        break;
+
+                    case 3://tabpage Tra Cuu
+                        break;
+                }
         }
 
         private void m_dangXuatbtn_Click(object sender, EventArgs e)
