@@ -377,13 +377,6 @@ namespace DAO
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ThemHocSinh")]
-		public int sp_ThemHocSinh([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> mahs, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string hoten, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(3)")] string gioitinh, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallDateTime")] System.Nullable<System.DateTime> ngaysinh, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string diachi, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string tongiao, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string hotencha, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string nghenghiepcha, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string hotenme, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string nghenghiepme, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string malop, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> manamhoc, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(2)")] string makhoilop, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(200)")] string image)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mahs, hoten, gioitinh, ngaysinh, diachi, email, tongiao, hotencha, nghenghiepcha, hotenme, nghenghiepme, malop, manamhoc, makhoilop, image);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ThongtinHocSinhtheoKhoi")]
 		public ISingleResult<sp_ThongtinHocSinhtheoKhoiResult> sp_ThongtinHocSinhtheoKhoi([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(2)")] string makhoi, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string magvcn, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> phanquyen)
 		{
@@ -409,6 +402,13 @@ namespace DAO
 		public int sp_UpdateDuLieuGV([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string magv, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string hoten, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallDateTime")] System.Nullable<System.DateTime> ngaysinh, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(3)")] string gioitinh, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(11)")] string sodt, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string pass, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(4)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> phanquyen)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), magv, hoten, ngaysinh, gioitinh, sodt, pass, email, phanquyen);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ThemHocSinh")]
+		public int sp_ThemHocSinh([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> mahs, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string hoten, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(3)")] string gioitinh, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallDateTime")] System.Nullable<System.DateTime> ngaysinh, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string diachi, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string tongiao, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string hotencha, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string nghenghiepcha, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string hotenme, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string nghenghiepme, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string malop, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> manamhoc, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(2)")] string makhoilop, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(200)")] string image)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mahs, hoten, gioitinh, ngaysinh, diachi, email, tongiao, hotencha, nghenghiepcha, hotenme, nghenghiepme, malop, manamhoc, makhoilop, image);
 			return ((int)(result.ReturnValue));
 		}
 	}

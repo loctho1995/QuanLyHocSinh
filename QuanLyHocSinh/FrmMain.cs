@@ -910,5 +910,16 @@ namespace QuanLyHocSinh
             frm_giaovien.Show();
         }
         #endregion
+
+        public static void ResetDGV()
+        {
+            //
+            FrmMain frm = new FrmMain();
+            frm.resetDGV();
+        }
+        public void resetDGV()
+        {
+            m_dgvMain.DataSource = DataBase.HocSinh.LayHocSinh_Lop(m_node, m_phanquyen.ID, m_phanquyen.PhanQuyen);
+        }
     }
 }
