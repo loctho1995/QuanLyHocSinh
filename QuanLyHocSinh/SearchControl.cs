@@ -245,14 +245,14 @@ namespace QuanLyHocSinh
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            m_bt.Location = new Point(this.HideSize.Width - m_bt.Width, 0);
+            m_bt.Location = new Point(0, 0);
             m_tb.Location = new Point(m_bt.Location.X + m_bt.Width + 5, this.Height / 2 - m_tb.Height / 2);
             m_bt.Height = this.Height;
 
-            LinearGradientBrush brush = new LinearGradientBrush(new System.Drawing.Point(0, 0), new System.Drawing.Point(this.HideSize.Width - m_bt.Width, 0),
-                                                                    ShadowColor, Color.FromArgb(180, 20, 20, 20));
+            //LinearGradientBrush brush = new LinearGradientBrush(new System.Drawing.Point(0, 0), new System.Drawing.Point(this.HideSize.Width - m_bt.Width, 0),
+            //                                                        ShadowColor, Color.FromArgb(180, 20, 20, 20));
             
-            e.Graphics.FillRectangle(brush, new Rectangle(0, 0, (this.HideSize.Width - m_bt.Width), this.Height));
+            //e.Graphics.FillRectangle(brush, new Rectangle(0, 0, (this.HideSize.Width - m_bt.Width), this.Height));
             
             base.OnPaint(e);
         }

@@ -23,11 +23,11 @@ namespace QuanLyHocSinh
         { get; set; }
         
         public frmThongTinHS(DataGridViewRow row)
-        {
+        {            
             InitializeComponent();
-            m_row = row;
+            this.InitGraphics();
 
-            this.BackColor = Color.FromArgb(102, 101, 101);
+            m_row = row;            
 
             this.MaximumSize = this.Size;
             this.MinimumSize = this.Size;

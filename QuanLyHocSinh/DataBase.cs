@@ -40,7 +40,10 @@ namespace QuanLyHocSinh
         public static bool IsLoaded
         { get; set; }
 
-        public static CaiDat_BUS CaiDat
+        public static CAIDAT CaiDat
+        { get; set; }
+
+        public static CaiDat_BUS CaiDatBus
         { get; set; }
 
         public static void InitDataBase()
@@ -54,8 +57,10 @@ namespace QuanLyHocSinh
             MonHoc = new MonHoc_BUS();
             NamHoc = new NamHoc_BUS();
             User = new User_BUS();
+            CaiDatBus = new CaiDat_BUS();
+            CaiDat = CaiDatBus.LoadDuLieuCaiDat();
+
             IsLoaded = true;
-            CaiDat = new CaiDat_BUS();
         }
     }
 }

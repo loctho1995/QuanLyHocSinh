@@ -40,14 +40,15 @@ namespace QuanLyHocSinh
 
         void InitPanel()
         {
+            this.MaximumSize = this.MinimumSize = this.Size;
             m_panel.BackColor = m_frmMain.BackColor;
 
             m_scMain.BackColor = m_frmMain.SearchControl.BackColor;
             m_scMain.ShadowColor = m_frmMain.SearchControl.ShadowColor;
             m_scMain.ButtonSearch.BackColor = m_frmMain.SearchControl.ButtonSearch.BackColor;
             m_scMain.LabelSearch.ForeColor = m_frmMain.SearchControl.LabelSearch.ForeColor;
-            m_scMain.LabelSearch.BackColor = Color.Transparent;
-            m_scMain.ButtonSearch.BackColor = Color.Transparent;
+            //m_scMain.LabelSearch.BackColor = Color.Transparent;
+            //m_scMain.ButtonSearch.BackColor = Color.Transparent;
 
             m_tbBaoCao.BackColor = m_tbHocTap.BackColor = m_tbHoSo.BackColor = m_frmMain.TabControl.TabPages[0].BackColor;
 
@@ -55,7 +56,9 @@ namespace QuanLyHocSinh
                 = m_btXemThongTin.BackColor = m_btXoaHS.BackColor = m_frmMain.TabButtonsColor;
 
             m_btclose.BackColor = m_btHide.BackColor = m_btmaxSize.BackColor = m_btdangXuat.BackColor
-                    = m_btCaiDat.BackColor = m_frmMain.TopButtonsColor;
+                  = m_btGiaoVien.BackColor = m_btCaiDat.BackColor = m_frmMain.TopButtonsColor;
+
+            
         }
 
         private void buttonFlat2_Click(object sender, EventArgs e)
@@ -134,19 +137,22 @@ namespace QuanLyHocSinh
 
         private void buttonFlat1_Click(object sender, EventArgs e)
         {
-            m_panel.BackColor = Color.FromArgb(62, 70, 73);
-            m_tbHoSo.BackColor = Color.FromArgb(35, 168, 111);
-            m_tbBaoCao.BackColor = Color.FromArgb(35, 168, 111);
-            m_tbHocTap.BackColor = Color.FromArgb(35, 168, 111);
+            m_panel.BackColor = Color.FromArgb(32, 36, 63);
+            m_tbHoSo.BackColor = Color.FromArgb(57, 66, 99);
+            m_tbBaoCao.BackColor = m_tbBaoCao.BackColor;
+            m_tbHocTap.BackColor = m_tbBaoCao.BackColor;
 
-            m_btclose.BackColor = Color.FromArgb(255, 101, 99);
+            m_btclose.BackColor = Color.FromArgb(54, 104, 175);
             m_btHide.BackColor = m_btclose.BackColor;
             m_btmaxSize.BackColor = m_btclose.BackColor;
+            m_btGiaoVien.BackColor = m_btclose.BackColor;
+            m_btCaiDat.BackColor = m_btclose.BackColor;                                                         
+            
 
             m_btBaoCao.BackColor = m_btSuaDiem.BackColor = m_btSuaHS.BackColor = m_btThemHS.BackColor
-                = m_btXemDiem.BackColor = m_btXemThongTin.BackColor = m_btXoaHS.BackColor = Color.FromArgb(44, 208, 136); 
+                = m_btXemDiem.BackColor = m_btXemThongTin.BackColor = m_btXoaHS.BackColor = Color.FromArgb(19, 167, 167); 
 
-            m_scMain.BackColor = Color.FromArgb(44, 208, 136);
+            m_scMain.BackColor = Color.FromArgb(237, 92, 75);
             m_scMain.ShadowColor = m_tbHoSo.BackColor;
             m_scMain.LabelSearch.ForeColor = Color.White;
         }
@@ -157,7 +163,6 @@ namespace QuanLyHocSinh
             m_frmMain.TopButtonsColor = m_btclose.BackColor;
             m_frmMain.TabButtonsColor = m_btBaoCao.BackColor;
 
-
             for (int i = 0; i < m_frmMain.TabControl.TabPages.Count; i++)
             {
                 m_frmMain.TabControl.TabPages[i].BackColor = m_tcMain.TabPages[0].BackColor;
@@ -167,13 +172,25 @@ namespace QuanLyHocSinh
             caidat.TOPBUTTONCOLOR = m_frmMain.TopButtonsColor.ToArgb().ToString();
             caidat.TABBUTTONCOLOR = m_frmMain.TabButtonsColor.ToArgb().ToString();
             caidat.SEACHCONTROL_BACKGOUND = m_frmMain.SearchControl.BackColor.ToArgb().ToString();
-            caidat.TABPANEL_COLOR = m_frmMain.TabControl.TabPages[0].BackColor.ToArgb().ToString();
-            DataBase.CaiDat.insertDuLieuCatDat(caidat);
+            caidat.TABPANEL_COLOR = m_tbHoSo.BackColor.ToArgb().ToString();
+
+            DataBase.CaiDatBus.insertDuLieuCatDat(caidat);
 
             m_frmMain.SearchControl.ShadowColor = m_tbHoSo.BackColor;
             m_frmMain.SearchControl.BackColor = m_scMain.BackColor;
             m_frmMain.SearchControl.LabelSearch.ForeColor = Color.White;
+
             this.Close();
+        }
+
+        private void buttonFlat3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonFlat4_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

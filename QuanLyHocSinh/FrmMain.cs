@@ -47,7 +47,7 @@ namespace QuanLyHocSinh
             set
             {
                 m_btclose.BackColor = m_btHide.BackColor = m_btmaxSize.BackColor = m_btdangXuat.BackColor
-                    = m_btCaiDat.BackColor = value;
+                    = m_btCaiDat.BackColor = m_btnGiaoVien.BackColor = value;
             }
         }
 
@@ -82,6 +82,7 @@ namespace QuanLyHocSinh
             m_lblID.Text = m_phanquyen.ID;
             m_lblName.Text = m_phanquyen.Username;
             m_lblLopCN.Text = m_phanquyen.LopCN;
+
             for (int i = 0; i < m_phanquyen.LopBM.Count(); i++)
                 m_lblLopBoMon.Text += m_phanquyen.LopBM[i];
             //m_btBaoCao.Enabled = false;
@@ -116,21 +117,21 @@ namespace QuanLyHocSinh
 
         private void LoadColorApplication()
         {
-            CAIDAT caidat = new CAIDAT();
-            caidat = DataBase.CaiDat.LoadDuLieuCaiDat();
-            this.BackColor = System.Drawing.Color.FromArgb(int.Parse(caidat.MAIN_BACKCOLOR));
-            this.TopButtonsColor = System.Drawing.Color.FromArgb(int.Parse(caidat.TOPBUTTONCOLOR));
-            this.TabButtonsColor = System.Drawing.Color.FromArgb(int.Parse(caidat.TABBUTTONCOLOR));
-            this.SearchControl.BackColor = System.Drawing.Color.FromArgb(int.Parse(caidat.SEACHCONTROL_BACKGOUND));
+            this.BackColor = System.Drawing.Color.FromArgb(int.Parse(DataBase.CaiDat.MAIN_BACKCOLOR));
+            this.TopButtonsColor = System.Drawing.Color.FromArgb(int.Parse(DataBase.CaiDat.TOPBUTTONCOLOR));
+            this.TabButtonsColor = System.Drawing.Color.FromArgb(int.Parse(DataBase.CaiDat.TABBUTTONCOLOR));
+            this.SearchControl.BackColor = System.Drawing.Color.FromArgb(int.Parse(DataBase.CaiDat.SEACHCONTROL_BACKGOUND));
 
             for (int i = 0; i < this.TabControl.TabPages.Count; i++)
             {
-                this.TabControl.TabPages[i].BackColor = System.Drawing.Color.FromArgb(int.Parse(caidat.TABPANEL_COLOR));
+                this.TabControl.TabPages[i].BackColor = System.Drawing.Color.FromArgb(int.Parse(DataBase.CaiDat.TABPANEL_COLOR));
             }
-
-            m_scMain.ShadowColor = m_tbHoSo.BackColor;
-            m_scMain.BackColor = m_btXemThongTin.BackColor; //m_tbHoSo.BackColor;
+            
+            m_scMain.ShadowColor = Color.Transparent;
             m_scMain.LabelSearch.ForeColor = Color.White;
+            m_scMain.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.SEACHCONTROL_BACKGOUND));
+            //m_scMain.BackColor = m_btXemThongTin.BackColor; //m_tbHoSo.BackColor;
+            
         }
         //ham bat su kien chuyen tabpage
 

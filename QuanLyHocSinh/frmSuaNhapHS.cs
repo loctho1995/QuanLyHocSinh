@@ -28,12 +28,10 @@ namespace QuanLyHocSinh
         public frmSuaNhapHS()
         {
             InitializeComponent();
-            
-            this.BackColor = Color.FromArgb(102, 101, 101);
+            initGP();
 
             this.MaximumSize = this.Size;
-            this.MinimumSize = this.Size;
-            m_btClose.BackColor = Color.FromArgb(255, 101, 99);
+            this.MinimumSize = this.Size;            
 
             m_ccbLop.DataSource = DataBase.Lop.LayDuLieuLop(FrmMain.m_phanquyen.ID);
             m_ccbLop.ValueMember = "MALOP";
@@ -45,13 +43,13 @@ namespace QuanLyHocSinh
             m_ccbManamhoc.Visible = true;
             m_lblManamhoc.Visible = true;
         }
+
         //sua
         public frmSuaNhapHS(DataGridViewRow row)
         {
             InitializeComponent();
-            
-            this.BackColor = Color.FromArgb(102, 101, 101);
-            this.m_btClose.BackColor = Color.FromArgb(255, 101, 99);
+            initGP();
+
             this.MaximumSize = this.Size;
             this.MinimumSize = this.Size;
 
@@ -77,12 +75,16 @@ namespace QuanLyHocSinh
             m_ccbLop.DataSource = ll;
             m_ccbLop.ValueMember = "MALOP";
             m_ccbLop.DisplayMember = "MALOP";
-            m_check = false;
+            m_check = false;            
+        }
+
+        private void initGP()
+        {
+            this.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.MAIN_BACKCOLOR));
         }
 
         private void m_btClose_Click(object sender, EventArgs e)
-        {
-            
+        {            
             this.Close();
         }
 
@@ -93,6 +95,17 @@ namespace QuanLyHocSinh
                 MessageBox.Show("Mã học sinh trống", "Thông báo");
                 return;
             }
+
+            //try
+            //{
+
+            //}
+            //catch (Exception)
+            //{
+                
+            //    throw;
+            //}
+
             hs.MAHS = int.Parse(m_txtMahs.Text);
             hs.DIACHI = m_tbDiaChi.Text;
             hs.EMAIL = m_tbEmail.Text;

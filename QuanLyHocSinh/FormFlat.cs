@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -75,20 +76,21 @@ namespace QuanLyHocSinh
         #endregion
 
         public FormFlat()
-        {
-            InitGraphics();
-            this.Invalidate();
+        {            
+            //InitGraphics();         
         }
 
         protected void InitGraphics()
         {
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.ResizeRedraw, true);
-            m_paperColor = Color.FromArgb(47, 204, 113);
+            
             m_creaseAboveHeight = m_creaseUnderHeight = 15;
             m_statusbarHeight = 30;
             m_creaseDepth = 10;
 
-            this.BackColor = Color.FromArgb(102, 101, 101);
+            m_paperColor = Color.FromArgb(int.Parse(DataBase.CaiDat.TABPANEL_COLOR));             
+            BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.MAIN_BACKCOLOR));
+
             //this.MaximumSize = this.Size;
             //this.MinimumSize = this.Size;
         }
@@ -197,6 +199,7 @@ namespace QuanLyHocSinh
 
             e.Graphics.FillPolygon(new SolidBrush(m_paperColor), polygonUnder);
             e.Graphics.FillPolygon(new SolidBrush(Color.FromArgb(30, Color.Black)), polygonUnder);
+
             base.OnPaint(e);
         }
     }
