@@ -268,26 +268,6 @@
     <Parameter Name="phanquyen" Type="System.Int32" DbType="Int" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.sp_demo" Method="sp_demo">
-    <ElementType Name="sp_demoResult">
-      <Column Name="MAHS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="GIOITINH" Type="System.String" DbType="Char(3)" CanBeNull="true" />
-      <Column Name="NGAYSINH" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
-      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="EMAIL" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="TONGIAO" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="HOTENCHAC" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="HOTENME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="NGHENGHIEPME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="NGHENGHIEPCHA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="IMAGEE" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_demo1" Method="sp_demo1">
-    <Parameter Name="hoten" Type="System.String" DbType="NVarChar(50)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.sp_Diem1HocSinhTheoBoMon" Method="sp_Diem1HocSinhTheoBoMon">
     <Parameter Name="mahs" Type="System.Int32" DbType="Int" />
     <Parameter Name="mamon" Type="System.String" DbType="VarChar(10)" />
@@ -539,5 +519,22 @@
     <Parameter Name="email" Type="System.String" DbType="VarChar(4)" />
     <Parameter Name="phanquyen" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_LayHocSinh" Method="sp_LayHocSinh">
+    <Parameter Name="mahs" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_LayHocSinhResult">
+      <Column Name="MAHS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GIOITINH" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="NGAYSINH" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="TONGIAO" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="HOTENCHAC" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="HOTENME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="NGHENGHIEPME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="NGHENGHIEPCHA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="IMAGEE" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

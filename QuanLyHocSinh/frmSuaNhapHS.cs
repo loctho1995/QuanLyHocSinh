@@ -81,7 +81,7 @@ namespace QuanLyHocSinh
 
         private void m_btClose_Click(object sender, EventArgs e)
         {
-            
+            FrmMain.ResetDGV();
             this.Close();
         }
 
@@ -160,6 +160,7 @@ namespace QuanLyHocSinh
                 m_ptbHS.Image = (Image)image;
             }
         }
+
 
     }
 }
