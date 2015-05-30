@@ -337,7 +337,23 @@ namespace QuanLyHocSinh
         {
             if (m_checkseach)//m_checkseach = true -> dang tim kiem hoc sinh
             {
-                dgv.DataSource = DataBase.HocSinh.TimKiemThongTinHocSinh(FrmMain.m_phanquyen.LopCN, FrmMain.m_phanquyen.PhanQuyen, node);//hs.TimKiemThongTinHocSinh(ma);
+                switch (tabpage)//tabpage se cho biet tabpage nao dang duoc chon
+                {
+                    case 0://tabpage Ho So
+                        dgv.DataSource = DataBase.HocSinh.TimKiemThongTinHocSinh(FrmMain.m_phanquyen.LopCN, FrmMain.m_phanquyen.PhanQuyen, node);//hs.TimKiemThongTinHocSinh(ma);
+                        break;
+
+                    case 1://tabpage Hoc tap
+                        
+                        break;
+
+                    case 2://tabpage Bao Cao
+                        break;
+
+                    case 3://tabpage Tra Cuu
+                        break;
+                }
+                
                 m_checkseach = false;
             }
             else//m_checkseach = false -> dang su dung tree view
