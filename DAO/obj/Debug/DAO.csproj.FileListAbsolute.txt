@@ -4,3 +4,18 @@ F:\Github\QuanLyHocSinh\DAO\bin\Debug\DAO.pdb
 F:\Github\QuanLyHocSinh\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
 F:\Github\QuanLyHocSinh\DAO\obj\Debug\DAO.dll
 F:\Github\QuanLyHocSinh\DAO\obj\Debug\DAO.pdb
+<<<<<<< HEAD
+=======
+E:\Visual Studio 2012\quan ly hoc sinh\QuanLyHocSinh\DAO\bin\Debug\DAO.dll.config
+E:\Visual Studio 2012\quan ly hoc sinh\QuanLyHocSinh\DAO\bin\Debug\DAO.dll
+E:\Visual Studio 2012\quan ly hoc sinh\QuanLyHocSinh\DAO\bin\Debug\DAO.pdb
+E:\Visual Studio 2012\quan ly hoc sinh\QuanLyHocSinh\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+E:\Visual Studio 2012\quan ly hoc sinh\QuanLyHocSinh\DAO\obj\Debug\DAO.dll
+E:\Visual Studio 2012\quan ly hoc sinh\QuanLyHocSinh\DAO\obj\Debug\DAO.pdb
+C:\Users\DELL\Documents\GitHub\QuanLyHocSinh\DAO\bin\Debug\DAO.dll.config
+C:\Users\DELL\Documents\GitHub\QuanLyHocSinh\DAO\bin\Debug\DAO.dll
+C:\Users\DELL\Documents\GitHub\QuanLyHocSinh\DAO\bin\Debug\DAO.pdb
+C:\Users\DELL\Documents\GitHub\QuanLyHocSinh\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+C:\Users\DELL\Documents\GitHub\QuanLyHocSinh\DAO\obj\Debug\DAO.dll
+C:\Users\DELL\Documents\GitHub\QuanLyHocSinh\DAO\obj\Debug\DAO.pdb
+>>>>>>> origin/master

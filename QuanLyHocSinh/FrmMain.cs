@@ -338,7 +338,23 @@ namespace QuanLyHocSinh
         {
             if (m_checkseach)//m_checkseach = true -> dang tim kiem hoc sinh
             {
-                dgv.DataSource = DataBase.HocSinh.TimKiemThongTinHocSinh(FrmMain.m_phanquyen.LopCN, FrmMain.m_phanquyen.PhanQuyen, node);//hs.TimKiemThongTinHocSinh(ma);
+                switch (tabpage)//tabpage se cho biet tabpage nao dang duoc chon
+                {
+                    case 0://tabpage Ho So
+                        dgv.DataSource = DataBase.HocSinh.TimKiemThongTinHocSinh(FrmMain.m_phanquyen.LopCN, FrmMain.m_phanquyen.PhanQuyen, node);//hs.TimKiemThongTinHocSinh(ma);
+                        break;
+
+                    case 1://tabpage Hoc tap
+                        
+                        break;
+
+                    case 2://tabpage Bao Cao
+                        break;
+
+                    case 3://tabpage Tra Cuu
+                        break;
+                }
+                
                 m_checkseach = false;
             }
             else//m_checkseach = false -> dang su dung tree view
@@ -375,9 +391,14 @@ namespace QuanLyHocSinh
                         break;
 
                     case 1://tabpage Hoc tap
+                        dgv.DataSource = null;
+
                         if (m_ccbPhanQuyen.Text.ToString() == "GVCN")
                         {
-                            dgv.DataSource = DataBase.Diem.LayDiemHocSinh_LopChuNhiem(node, int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            if (node.Length == 2)
+                                dgv.DataSource = DataBase.Diem.LayDiemHocSinh_Khoi(node, int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            else if (CheckGVInLopBM(node))
+                                 dgv.DataSource = DataBase.Diem.LayDiemHocSinh_LopChuNhiem(node, int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
                             if (dgv.DataSource == null) return;
                             dgv.Columns["STT"].Width = 40;
                             dgv.Columns["MAHS"].Width = 50;
@@ -396,8 +417,11 @@ namespace QuanLyHocSinh
                         }
                         else
                         {
-                            dgv.DataSource = DataBase.Diem.LayDiemHocSinh_Mon(node, m_cbbBoMon.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
-                            if (dgv.DataSource == null) return;
+                            if (node.Length == 2)
+                                dgv.DataSource = DataBase.Diem.LayDiemHocSinh_Mon_Khoi(node, m_cbbBoMon.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            else if (CheckGVInLopBM(node))
+                                dgv.DataSource = DataBase.Diem.LayDiemHocSinh_Mon(node, m_cbbBoMon.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                            if(dgv.DataSource == null) return;
 
                             dgv.Columns["STT"].Width = 40;
                             dgv.Columns["MAHS"].Width = 50;
@@ -598,8 +622,25 @@ namespace QuanLyHocSinh
 
         private void m_dgvMain_DoubleClick(object sender, EventArgs e)
         {
-            if (m_tbHoSo.Focus())
-                this.XemThongTin();
+            //if (m_tbHoSo.Focus())
+                //this.XemThongTin();
+
+            switch (tabpage)//tabpage se cho biet tabpage nao dang duoc chon
+                {
+                    case 0://tabpage Ho So
+                        this.XemThongTin();
+                        break;
+
+                    case 1://tabpage Hoc tap
+                        this.XemDiem();
+                        break;
+
+                    case 2://tabpage Bao Cao
+                        break;
+
+                    case 3://tabpage Tra Cuu
+                        break;
+                }
         }
 
         private void m_dangXuatbtn_Click(object sender, EventArgs e)
@@ -671,7 +712,8 @@ namespace QuanLyHocSinh
                     break;
 
                 case "m_btThemHS":
-                    ThemHocSinh();
+                    if(DataBase.Lop.LayDuLieuLop(FrmMain.m_phanquyen.ID, FrmMain.m_phanquyen.PhanQuyen)!=null)
+                        ThemHocSinh();
                     break;
 
                 case "m_btSuaHS":
@@ -885,5 +927,16 @@ namespace QuanLyHocSinh
             frm_giaovien.Show();
         }
         #endregion
+
+        public static void ResetDGV()
+        {
+            //
+            FrmMain frm = new FrmMain();
+            frm.resetDGV();
+        }
+        public void resetDGV()
+        {
+            m_dgvMain.DataSource = DataBase.HocSinh.LayHocSinh_Lop(m_node, m_phanquyen.ID, m_phanquyen.PhanQuyen);
+        }
     }
 }

@@ -37,17 +37,64 @@ namespace BUS
                 {
                     DataRow r = dt.NewRow();
                     r["STT"] = c++;
-                    r["MAHS"] = i.MAHS;
-                    r["HOTEN"] = i.HOTEN;
-                    r["DIEMTBHKI"] = i.DIEMTBHKI;
-                    r["DIEMTBHKII"] = i.DIEMTBHKII;
-                    r["DIEMTBCANAM"] = i.DIEMTBCANAM;
+
+                    if(i.MAHS != null)
+                        r["MAHS"] = i.MAHS;
+                    if (i.HOTEN != null)
+                        r["HOTEN"] = i.HOTEN;
+                    if (i.DIEMTBHKI != null)
+                        r["DIEMTBHKI"] = i.DIEMTBHKI;
+                    if (i.DIEMTBHKII != null)
+                        r["DIEMTBHKII"] = i.DIEMTBHKII;
+                    if (i.DIEMTBCANAM != null)
+                        r["DIEMTBCANAM"] = i.DIEMTBCANAM;
                     dt.Rows.Add(r);
                 }
                 catch
                 {
                     
                 }
+            }
+
+            if (dt.Rows.Count == 0)
+                return null;
+            return dt;
+
+        }
+
+        //Lay diem hoc sinh theo khoi
+        public DataTable LayDiemHocSinh_Khoi(string makhoi, int namhoc, string magvcn, int phanquyen)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("STT", typeof(int));
+            dt.Columns.Add("MAHS", typeof(int));
+            dt.Columns.Add("HOTEN", typeof(string));
+            dt.Columns.Add("DIEMTBHKI", typeof(float));
+            dt.Columns.Add("DIEMTBHKII", typeof(float));
+            dt.Columns.Add("DIEMTBCANAM", typeof(float));
+            dt.Columns.Add("MANAMHOC", typeof(int));
+
+            var hocsinh = SQLDataContext.SQLData.sp_DiemHocSinhTheoKhoi(makhoi, namhoc, magvcn, phanquyen);
+            int c = 1;
+
+            foreach (var i in hocsinh)
+            {
+                DataRow r = dt.NewRow();
+                r["STT"] = c++;
+
+                if (i.MAHS != null)
+                    r["MAHS"] = i.MAHS;
+                if (i.HOTEN != null)
+                    r["HOTEN"] = i.HOTEN;
+                if (i.DIEMTBHKI != null)
+                    r["DIEMTBHKI"] = i.DIEMTBHKI;
+                if (i.DIEMTBHKII != null)
+                    r["DIEMTBHKII"] = i.DIEMTBHKII;
+                if (i.DIEMTBCANAM != null)
+                    r["DIEMTBCANAM"] = i.DIEMTBCANAM;
+
+                dt.Rows.Add(r);
             }
 
             if (dt.Rows.Count == 0)
@@ -72,12 +119,19 @@ namespace BUS
             foreach (var i in diem)
             {
                 DataRow r = dt.NewRow();
-                r["MON"] = i.TENMONHOC;
-                r["DIEMMIENG"] = i.DIEMMIENG;
-                r["DIEM15P"] = i.DIEM15P;
-                r["DIEM1TIET"] = i.DIEM1TIET;
-                r["DIEMTHI"] = i.DIEMTHI;
-                r["DIEMTBMON"] = i.DIEMTBMON;
+
+                if (i.TENMONHOC != null)
+                    r["MON"] = i.TENMONHOC;
+                if (i.DIEMMIENG != null)
+                    r["DIEMMIENG"] = i.DIEMMIENG;
+                if (i.DIEM15P != null)
+                    r["DIEM15P"] = i.DIEM15P;
+                if (i.DIEM1TIET != null)
+                    r["DIEM1TIET"] = i.DIEM1TIET;
+                if (i.DIEMTHI != null)
+                    r["DIEMTHI"] = i.DIEMTHI;
+                if (i.DIEMTBMON != null)
+                    r["DIEMTBMON"] = i.DIEMTBMON;
 
                 dt.Rows.Add(r);
             }
@@ -87,7 +141,7 @@ namespace BUS
             return dt;
         }
 
-        //lay diem theo tung mon
+        //lay diem theo tung mon (lop)
         public DataTable LayDiemHocSinh_Mon(string malop, string mamon, int namhoc, string magv, int phanquyen)
         {
             DataTable dt = new DataTable();
@@ -105,10 +159,15 @@ namespace BUS
                 DataRow r = dt.NewRow();
 
                 r["STT"] = c++;
-                r["MAHS"] = i.MAHS;
-                r["HOTEN"] = i.HOTEN;
-                r["DIEMTBMONHKI"] = i.DIEMTBMONHKI;
-                r["DIEMTBMONHKII"] = i.DIEMTBMONHKII;
+
+                if (i.MAHS != null)
+                    r["MAHS"] = i.MAHS;
+                if (i.HOTEN != null)
+                    r["HOTEN"] = i.HOTEN;
+                if (i.DIEMTBMONHKI != null)
+                    r["DIEMTBMONHKI"] = i.DIEMTBMONHKI;
+                if (i.DIEMTBMONHKII != null)
+                    r["DIEMTBMONHKII"] = i.DIEMTBMONHKII;
 
                 dt.Rows.Add(r);
             }
@@ -118,6 +177,43 @@ namespace BUS
             return dt;
         }
 
+        //lay diem theo tung mon (khoi)
+        public DataTable LayDiemHocSinh_Mon_Khoi(string makhoi, string mamon, int namhoc, string magv, int phanquyen)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("STT");
+            dt.Columns.Add("MAHS");
+            dt.Columns.Add("HOTEN");
+            dt.Columns.Add("DIEMTBMONHKI");
+            dt.Columns.Add("DIEMTBMONHKII");
+
+            var diem = SQLDataContext.SQLData.sp_DiemHocSinhTheoKhoi_LopBoMon(makhoi, mamon, namhoc, magv, phanquyen);
+            int c = 1;
+
+            foreach (var i in diem)
+            {
+                DataRow r = dt.NewRow();
+
+                r["STT"] = c++;
+
+                if (i.MAHS != null)
+                    r["MAHS"] = i.MAHS;
+                if (i.HOTEN != null)
+                    r["HOTEN"] = i.HOTEN;
+                if (i.DIEMTBMONHKI != null)
+                    r["DIEMTBMONHKI"] = i.DIEMTBMONHKI;
+                if (i.DIEMTBMONHKII != null)
+                    r["DIEMTBMONHKII"] = i.DIEMTBMONHKII;
+
+                dt.Rows.Add(r);
+            }
+
+            if (dt.Rows.Count == 0)
+                return null;
+            return dt;
+        }
+
+        //Lay diem 1 hoc sinh theo mon
         public DataTable LayDiem1HocSinh_Mon(int mahs, string mamon, int namhoc, string magv, int phanquyen)
         {
             DataTable dt = new DataTable();
@@ -137,25 +233,28 @@ namespace BUS
             foreach (var i in diem)
             {
                 DataRow r = dt.NewRow();
-                
-                try
-                {
-                    r["D_MIENG_HKI"] = i.D_MIENGHKI;
-                    r["D_15P_HKI"] = i.D_15PHKI;
-                    r["D_1TIET_HKI"] = i.D_1TIETHKI;
-                    r["D_THI_HKI"] = i.D_THIHKI;
-                    r["D_TBMON_HKI"] = i.D_TBMONHKI;
 
-                    r["D_MIENG_HKII"] = i.D_MIENGHKII;
-                    r["D_15P_HKII"] = i.D_15PHKII;
-                    r["D_1TIET_HKII"] = i.D_1TIETHKII;
-                    r["D_THI_HKII"] = i.D_THIHKII;
-                    r["D_TBMON_HKII"] = i.D_TBMONHKII;
-                }
-                catch (Exception ex)
-                {
-                    
-                }
+                if (i.D_MIENGHKI != null)
+                r["D_MIENG_HKI"] = i.D_MIENGHKI;
+                if (i.D_15PHKI != null)
+                r["D_15P_HKI"] = i.D_15PHKI;
+                if (i.D_1TIETHKI != null)
+                r["D_1TIET_HKI"] = i.D_1TIETHKI;
+                if (i.D_THIHKI != null)
+                r["D_THI_HKI"] = i.D_THIHKI;
+                if (i.D_TBMONHKI != null)
+                r["D_TBMON_HKI"] = i.D_TBMONHKI;
+
+                if (i.D_MIENGHKII != null)
+                r["D_MIENG_HKII"] = i.D_MIENGHKII;
+                if (i.D_15PHKII != null)
+                r["D_15P_HKII"] = i.D_15PHKII;
+                if (i.D_1TIETHKII != null)
+                r["D_1TIET_HKII"] = i.D_1TIETHKII;
+                if (i.D_THIHKII != null)
+                r["D_THI_HKII"] = i.D_THIHKII;
+                if (i.D_TBMONHKII != null)
+                r["D_TBMON_HKII"] = i.D_TBMONHKII;
 
 
                 dt.Rows.Add(r);

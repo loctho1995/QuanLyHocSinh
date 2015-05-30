@@ -15,10 +15,22 @@ namespace BUS
                 SQLDataContext.CreateDataContext();
         }
 
-        public List<LOP> LayDuLieuLop(string magvcn)
+        public List<LOP> LayDuLieuLop(string magvcn, int phanquyen)
         {
             List<LOP> l = new List<LOP>();
-            return SQLDataContext.SQLData.LOPs.Where(a => a.MAGVCN == magvcn).ToList();
+            if (phanquyen == 0)
+            {
+                try
+                {
+                        string b = SQLDataContext.SQLData.LOPs.Where(a => a.MAGVCN == magvcn).FirstOrDefault().MAGVCN.ToString();
+                        return SQLDataContext.SQLData.LOPs.Where(a => a.MAGVCN == magvcn).ToList();
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            else return SQLDataContext.SQLData.LOPs.ToList();
         }
 
 

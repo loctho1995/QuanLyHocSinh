@@ -34,6 +34,8 @@ namespace QuanLyHocSinh
             this.MinimumSize = this.Size;            
 
             m_ccbLop.DataSource = DataBase.Lop.LayDuLieuLop(FrmMain.m_phanquyen.ID);
+            m_btClose.BackColor = Color.FromArgb(255, 101, 99);
+            m_ccbLop.DataSource = DataBase.Lop.LayDuLieuLop(FrmMain.m_phanquyen.ID, FrmMain.m_phanquyen.PhanQuyen);
             m_ccbLop.ValueMember = "MALOP";
             m_ccbLop.DisplayMember = "TENLOP";
             m_check = true;
@@ -85,6 +87,7 @@ namespace QuanLyHocSinh
 
         private void m_btClose_Click(object sender, EventArgs e)
         {            
+            FrmMain.ResetDGV();
             this.Close();
         }
 
@@ -174,6 +177,7 @@ namespace QuanLyHocSinh
                 m_ptbHS.Image = (Image)image;
             }
         }
+
 
     }
 }
