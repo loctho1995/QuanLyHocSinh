@@ -66,6 +66,7 @@
             this.m_lblLopCN = new System.Windows.Forms.Label();
             this.m_lblLopBoMon = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.m_btnDuLieu = new QuanLyHocSinh.ButtonFlat();
             this.m_btnGiaoVien = new QuanLyHocSinh.ButtonFlat();
             this.m_btCaiDat = new QuanLyHocSinh.ButtonFlat();
             this.m_btHide = new QuanLyHocSinh.ButtonFlat();
@@ -117,7 +118,7 @@
             this.m_treeViewKhoi.ImageIndex = 0;
             this.m_treeViewKhoi.ImageList = this.imageList1;
             this.m_treeViewKhoi.Location = new System.Drawing.Point(3, 153);
-            this.m_treeViewKhoi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_treeViewKhoi.Margin = new System.Windows.Forms.Padding(4);
             this.m_treeViewKhoi.Name = "m_treeViewKhoi";
             treeNode1.Name = "m_node10A1";
             treeNode1.Text = "Lớp 10A1";
@@ -180,9 +181,10 @@
             this.m_dgvMain.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.m_dgvMain.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.m_dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.m_dgvMain.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.m_dgvMain.GridColor = System.Drawing.Color.SandyBrown;
             this.m_dgvMain.Location = new System.Drawing.Point(255, 153);
-            this.m_dgvMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_dgvMain.Margin = new System.Windows.Forms.Padding(4);
             this.m_dgvMain.Name = "m_dgvMain";
             this.m_dgvMain.ReadOnly = true;
             this.m_dgvMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -275,6 +277,34 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Lớp BM:";
             // 
+            // m_btnDuLieu
+            // 
+            this.m_btnDuLieu.AlphaGlow = 40F;
+            this.m_btnDuLieu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.m_btnDuLieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(99)))));
+            this.m_btnDuLieu.ButtonImage = global::QuanLyHocSinh.Properties.Resources.iconsetting;
+            this.m_btnDuLieu.ButtonText = "Data";
+            this.m_btnDuLieu.DeltaAlphaGlow = 8F;
+            this.m_btnDuLieu.DeltaDistance = 2F;
+            this.m_btnDuLieu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_btnDuLieu.HaveEffects = false;
+            this.m_btnDuLieu.ImageOrigin = new System.Drawing.Point(35, 0);
+            this.m_btnDuLieu.ImageSize = new System.Drawing.Size(20, 20);
+            this.m_btnDuLieu.Location = new System.Drawing.Point(387, 2);
+            this.m_btnDuLieu.Margin = new System.Windows.Forms.Padding(5);
+            this.m_btnDuLieu.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
+            this.m_btnDuLieu.Name = "m_btnDuLieu";
+            this.m_btnDuLieu.SaveChanged = false;
+            this.m_btnDuLieu.ShadownDistance = 6;
+            this.m_btnDuLieu.Size = new System.Drawing.Size(135, 34);
+            this.m_btnDuLieu.TabIndex = 13;
+            this.m_btnDuLieu.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
+            this.m_btnDuLieu.TextColor = System.Drawing.Color.White;
+            this.m_btnDuLieu.TextOrigin = new System.Drawing.Point(-8, 0);
+            this.m_btnDuLieu.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btnDuLieu.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
+            this.m_btnDuLieu.Click += new System.EventHandler(this.m_btnDuLieu_Click);
+            // 
             // m_btnGiaoVien
             // 
             this.m_btnGiaoVien.AlphaGlow = 40F;
@@ -289,7 +319,7 @@
             this.m_btnGiaoVien.ImageOrigin = new System.Drawing.Point(35, 0);
             this.m_btnGiaoVien.ImageSize = new System.Drawing.Size(20, 20);
             this.m_btnGiaoVien.Location = new System.Drawing.Point(532, 2);
-            this.m_btnGiaoVien.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.m_btnGiaoVien.Margin = new System.Windows.Forms.Padding(5);
             this.m_btnGiaoVien.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btnGiaoVien.Name = "m_btnGiaoVien";
             this.m_btnGiaoVien.SaveChanged = false;
@@ -316,8 +346,8 @@
             this.m_btCaiDat.HaveEffects = false;
             this.m_btCaiDat.ImageOrigin = new System.Drawing.Point(35, 0);
             this.m_btCaiDat.ImageSize = new System.Drawing.Size(20, 20);
-            this.m_btCaiDat.Location = new System.Drawing.Point(508, 2);
-            this.m_btCaiDat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_btCaiDat.Location = new System.Drawing.Point(836, 2);
+            this.m_btCaiDat.Margin = new System.Windows.Forms.Padding(4);
             this.m_btCaiDat.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btCaiDat.Name = "m_btCaiDat";
             this.m_btCaiDat.SaveChanged = false;
@@ -399,7 +429,7 @@
             this.m_btdangXuat.ImageOrigin = new System.Drawing.Point(35, 0);
             this.m_btdangXuat.ImageSize = new System.Drawing.Size(20, 20);
             this.m_btdangXuat.Location = new System.Drawing.Point(676, 2);
-            this.m_btdangXuat.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.m_btdangXuat.Margin = new System.Windows.Forms.Padding(5);
             this.m_btdangXuat.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btdangXuat.Name = "m_btdangXuat";
             this.m_btdangXuat.SaveChanged = false;
@@ -445,14 +475,14 @@
             this.m_scMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.m_scMain.BackColor = System.Drawing.Color.GhostWhite;
             this.m_scMain.DeltaSpeed = 20;
-
             this.m_scMain.HideSize = new System.Drawing.Size(40, 80);
-            this.m_scMain.Location = new System.Drawing.Point(868, 44);
+            this.m_scMain.Location = new System.Drawing.Point(1171, 52);
+            this.m_scMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.m_scMain.Name = "m_scMain";
             this.m_scMain.Opacity = 1F;
             this.m_scMain.ShadowColor = System.Drawing.Color.Empty;
             this.m_scMain.ShowSize = new System.Drawing.Size(250, 80);
-            this.m_scMain.Size = new System.Drawing.Size(40, 80);
+            this.m_scMain.Size = new System.Drawing.Size(40, 100);
             this.m_scMain.Speed = 1;
             this.m_scMain.State = QuanLyHocSinh.SearchControl.States.Hide;
             this.m_scMain.TabIndex = 6;
@@ -465,10 +495,10 @@
             this.m_tcMain.Controls.Add(this.m_tbHocTap);
             this.m_tcMain.Controls.Add(this.m_tbBaoCao);
             this.m_tcMain.Location = new System.Drawing.Point(3, 30);
-            this.m_tcMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_tcMain.Margin = new System.Windows.Forms.Padding(4);
             this.m_tcMain.Name = "m_tcMain";
             this.m_tcMain.SelectedIndex = 0;
-            this.m_tcMain.Size = new System.Drawing.Size(1167, 122);
+            this.m_tcMain.Size = new System.Drawing.Size(1174, 122);
             this.m_tcMain.TabIndex = 4;
             this.m_tcMain.SelectedIndexChanged += new System.EventHandler(this.m_tcMain_SelectedIndexChanged_1);
             // 
@@ -479,10 +509,10 @@
             this.m_tbHoSo.Controls.Add(this.m_btXoaHS);
             this.m_tbHoSo.Controls.Add(this.m_btSuaHS);
             this.m_tbHoSo.Location = new System.Drawing.Point(0, 22);
-            this.m_tbHoSo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_tbHoSo.Margin = new System.Windows.Forms.Padding(4);
             this.m_tbHoSo.Name = "m_tbHoSo";
-            this.m_tbHoSo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.m_tbHoSo.Size = new System.Drawing.Size(1167, 101);
+            this.m_tbHoSo.Padding = new System.Windows.Forms.Padding(4);
+            this.m_tbHoSo.Size = new System.Drawing.Size(1174, 101);
             this.m_tbHoSo.TabIndex = 0;
             this.m_tbHoSo.Text = "Hồ Sơ";
             this.m_tbHoSo.UseVisualStyleBackColor = true;
@@ -527,7 +557,7 @@
             this.m_btThemHS.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btThemHS.ImageSize = new System.Drawing.Size(40, 40);
             this.m_btThemHS.Location = new System.Drawing.Point(648, 0);
-            this.m_btThemHS.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.m_btThemHS.Margin = new System.Windows.Forms.Padding(5);
             this.m_btThemHS.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btThemHS.Name = "m_btThemHS";
             this.m_btThemHS.SaveChanged = false;
@@ -554,7 +584,7 @@
             this.m_btXoaHS.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btXoaHS.ImageSize = new System.Drawing.Size(40, 40);
             this.m_btXoaHS.Location = new System.Drawing.Point(396, -1);
-            this.m_btXoaHS.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.m_btXoaHS.Margin = new System.Windows.Forms.Padding(5);
             this.m_btXoaHS.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btXoaHS.Name = "m_btXoaHS";
             this.m_btXoaHS.SaveChanged = false;
@@ -581,7 +611,7 @@
             this.m_btSuaHS.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btSuaHS.ImageSize = new System.Drawing.Size(40, 40);
             this.m_btSuaHS.Location = new System.Drawing.Point(189, 0);
-            this.m_btSuaHS.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.m_btSuaHS.Margin = new System.Windows.Forms.Padding(5);
             this.m_btSuaHS.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btSuaHS.Name = "m_btSuaHS";
             this.m_btSuaHS.SaveChanged = false;
@@ -606,10 +636,10 @@
             this.m_tbHocTap.Controls.Add(this.m_btXemDiem);
             this.m_tbHocTap.Controls.Add(this.m_btSuaDiem);
             this.m_tbHocTap.Location = new System.Drawing.Point(0, 22);
-            this.m_tbHocTap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_tbHocTap.Margin = new System.Windows.Forms.Padding(4);
             this.m_tbHocTap.Name = "m_tbHocTap";
-            this.m_tbHocTap.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.m_tbHocTap.Size = new System.Drawing.Size(1167, 101);
+            this.m_tbHocTap.Padding = new System.Windows.Forms.Padding(4);
+            this.m_tbHocTap.Size = new System.Drawing.Size(1174, 101);
             this.m_tbHocTap.TabIndex = 1;
             this.m_tbHocTap.Text = "Học Tập";
             this.m_tbHocTap.UseVisualStyleBackColor = true;
@@ -618,7 +648,7 @@
             // 
             this.m_cbbNamHoc.FormattingEnabled = true;
             this.m_cbbNamHoc.Location = new System.Drawing.Point(628, 49);
-            this.m_cbbNamHoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_cbbNamHoc.Margin = new System.Windows.Forms.Padding(4);
             this.m_cbbNamHoc.Name = "m_cbbNamHoc";
             this.m_cbbNamHoc.Size = new System.Drawing.Size(160, 24);
             this.m_cbbNamHoc.TabIndex = 13;
@@ -639,7 +669,7 @@
             // 
             this.m_cbbBoMon.FormattingEnabled = true;
             this.m_cbbBoMon.Location = new System.Drawing.Point(855, 15);
-            this.m_cbbBoMon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_cbbBoMon.Margin = new System.Windows.Forms.Padding(4);
             this.m_cbbBoMon.Name = "m_cbbBoMon";
             this.m_cbbBoMon.Size = new System.Drawing.Size(160, 24);
             this.m_cbbBoMon.TabIndex = 11;
@@ -660,7 +690,7 @@
             // 
             this.m_ccbPhanQuyen.FormattingEnabled = true;
             this.m_ccbPhanQuyen.Location = new System.Drawing.Point(628, 15);
-            this.m_ccbPhanQuyen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_ccbPhanQuyen.Margin = new System.Windows.Forms.Padding(4);
             this.m_ccbPhanQuyen.Name = "m_ccbPhanQuyen";
             this.m_ccbPhanQuyen.Size = new System.Drawing.Size(160, 24);
             this.m_ccbPhanQuyen.TabIndex = 9;
@@ -690,7 +720,7 @@
             this.m_btXemDiem.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btXemDiem.ImageSize = new System.Drawing.Size(60, 40);
             this.m_btXemDiem.Location = new System.Drawing.Point(0, 0);
-            this.m_btXemDiem.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.m_btXemDiem.Margin = new System.Windows.Forms.Padding(5);
             this.m_btXemDiem.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btXemDiem.Name = "m_btXemDiem";
             this.m_btXemDiem.SaveChanged = false;
@@ -717,7 +747,7 @@
             this.m_btSuaDiem.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btSuaDiem.ImageSize = new System.Drawing.Size(40, 40);
             this.m_btSuaDiem.Location = new System.Drawing.Point(228, 0);
-            this.m_btSuaDiem.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.m_btSuaDiem.Margin = new System.Windows.Forms.Padding(5);
             this.m_btSuaDiem.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btSuaDiem.Name = "m_btSuaDiem";
             this.m_btSuaDiem.SaveChanged = false;
@@ -743,9 +773,9 @@
             this.m_tbBaoCao.Controls.Add(this.m_cbbBaoCaomonhoc);
             this.m_tbBaoCao.Controls.Add(this.m_btBaoCao);
             this.m_tbBaoCao.Location = new System.Drawing.Point(0, 22);
-            this.m_tbBaoCao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_tbBaoCao.Margin = new System.Windows.Forms.Padding(4);
             this.m_tbBaoCao.Name = "m_tbBaoCao";
-            this.m_tbBaoCao.Size = new System.Drawing.Size(1167, 101);
+            this.m_tbBaoCao.Size = new System.Drawing.Size(1174, 101);
             this.m_tbBaoCao.TabIndex = 2;
             this.m_tbBaoCao.Text = "Báo Cáo";
             this.m_tbBaoCao.UseVisualStyleBackColor = true;
@@ -843,7 +873,7 @@
             this.m_btBaoCao.ImageOrigin = new System.Drawing.Point(0, -8);
             this.m_btBaoCao.ImageSize = new System.Drawing.Size(40, 40);
             this.m_btBaoCao.Location = new System.Drawing.Point(0, -1);
-            this.m_btBaoCao.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.m_btBaoCao.Margin = new System.Windows.Forms.Padding(5);
             this.m_btBaoCao.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btBaoCao.Name = "m_btBaoCao";
             this.m_btBaoCao.SaveChanged = false;
@@ -863,6 +893,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1213, 645);
+            this.Controls.Add(this.m_btnDuLieu);
             this.Controls.Add(this.m_btnGiaoVien);
             this.Controls.Add(this.m_btCaiDat);
             this.Controls.Add(this.m_btHide);
@@ -882,7 +913,7 @@
             this.Controls.Add(this.m_tcMain);
             this.Controls.Add(this.m_treeViewKhoi);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.m_dgwMain)).EndInit();
@@ -946,6 +977,7 @@
 
         private ButtonFlat m_btXemThongTin;
         private ButtonFlat m_btnGiaoVien;
+        private ButtonFlat m_btnDuLieu;
     }
 }
 

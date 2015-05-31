@@ -29,11 +29,10 @@ namespace QuanLyHocSinh
         {
             InitializeComponent();
             initGP();
-
             this.MaximumSize = this.Size;
-            this.MinimumSize = this.Size;            
+            this.MinimumSize = this.Size;
 
-            m_ccbLop.DataSource = DataBase.Lop.LayDuLieuLop(FrmMain.m_phanquyen.ID);
+            m_txtMahs.Text = (int.Parse(DataBase.HocSinh.MahsMax()) + 1).ToString();
             m_btClose.BackColor = Color.FromArgb(255, 101, 99);
             m_ccbLop.DataSource = DataBase.Lop.LayDuLieuLop(FrmMain.m_phanquyen.ID, FrmMain.m_phanquyen.PhanQuyen);
             m_ccbLop.ValueMember = "MALOP";
@@ -44,6 +43,9 @@ namespace QuanLyHocSinh
             m_ccbManamhoc.DisplayMember = "TENNAMHOC";
             m_ccbManamhoc.Visible = true;
             m_lblManamhoc.Visible = true;
+
+
+            
         }
 
         //sua

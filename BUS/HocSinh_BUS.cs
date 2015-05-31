@@ -13,8 +13,7 @@ using System.Data;
 namespace BUS
 {
     public class HocSinh_BUS
-    {
-        SQL_QUANLYHOCSINHDataContext DB = new SQL_QUANLYHOCSINHDataContext();        
+    {      
 
         public HocSinh_BUS()
         {
@@ -24,7 +23,7 @@ namespace BUS
 
         public List<HOCSINH> LayTatCa()
         {
-            return DB.HOCSINHs.ToList();
+            return SQLDataContext.SQLData.HOCSINHs.ToList();
         }
 
         public DataTable TimKiemThongTinHocSinh(string malop, int phanquyen, string hoten)
@@ -47,7 +46,7 @@ namespace BUS
             dt.Columns.Add("MALOP", typeof(string));
             dt.Columns.Add("MAKHOILOP", typeof(int));
 
-            var hocsinh = DB.sp_TiemKiemHocSinh(malop,phanquyen, hoten);
+            var hocsinh = SQLDataContext.SQLData.sp_TiemKiemHocSinh(malop,phanquyen, hoten);
             int c = 1;
 
             foreach (var i in hocsinh)
@@ -94,7 +93,7 @@ namespace BUS
             dt.Columns.Add("MALOP", typeof(string));
             dt.Columns.Add("MAKHOILOP", typeof(int));
 
-            var hocsinh = DB.sp_ThongtinHocSinhtheoKhoi(makhoilop, magvcn, phanquyen);
+            var hocsinh = SQLDataContext.SQLData.sp_ThongtinHocSinhtheoKhoi(makhoilop, magvcn, phanquyen);
             int c = 1;
 
             foreach (var i in hocsinh)
@@ -142,7 +141,7 @@ namespace BUS
             dt.Columns.Add("MALOP", typeof(string));
             dt.Columns.Add("MAKHOILOP", typeof(int));
 
-            var hocsinh = DB.sp_ThongtinHocSinhtheoLop(malop,magvcn,phanquyen);
+            var hocsinh = SQLDataContext.SQLData.sp_ThongtinHocSinhtheoLop(malop,magvcn,phanquyen);
             int c = 1;
 
             foreach (var i in hocsinh)
@@ -175,7 +174,7 @@ namespace BUS
         {
             try
             {
-                DB.sp_XoathongtinHocSinh(mahs);
+                SQLDataContext.SQLData.sp_XoathongtinHocSinh(mahs);
                 return true;
             }
             catch
@@ -189,7 +188,7 @@ namespace BUS
         {
             try
             {
-                DB.sp_SuaThongtinHocSinh(hs.MAHS, hs.HOTEN, hs.GIOITINH, hs.NGAYSINH, hs.DIACHI, hs.EMAIL, hs.TONGIAO, hs.HOTENCHAC, hs.NGHENGHIEPCHA, hs.HOTENME, hs.NGHENGHIEPME, pl.MALOP,hs.IMAGEE);
+                SQLDataContext.SQLData.sp_SuaThongtinHocSinh(hs.MAHS, hs.HOTEN, hs.GIOITINH, hs.NGAYSINH, hs.DIACHI, hs.EMAIL, hs.TONGIAO, hs.HOTENCHAC, hs.NGHENGHIEPCHA, hs.HOTENME, hs.NGHENGHIEPME, pl.MALOP,hs.IMAGEE);
                 return true;
             }
             catch
@@ -203,7 +202,7 @@ namespace BUS
             try
             {
                 
-                var a = DB.sp_ThemHocSinh(hs.MAHS, hs.HOTEN, hs.GIOITINH, hs.NGAYSINH, hs.DIACHI, hs.EMAIL, hs.TONGIAO, hs.HOTENCHAC, hs.NGHENGHIEPCHA, hs.HOTENME, hs.NGHENGHIEPME, pl.MALOP, pl.MANAMHOC, pl.MAKHOI,hs.IMAGEE);
+                var a = SQLDataContext.SQLData.sp_ThemHocSinh(hs.MAHS, hs.HOTEN, hs.GIOITINH, hs.NGAYSINH, hs.DIACHI, hs.EMAIL, hs.TONGIAO, hs.HOTENCHAC, hs.NGHENGHIEPCHA, hs.HOTENME, hs.NGHENGHIEPME, pl.MALOP, pl.MANAMHOC, pl.MAKHOI,hs.IMAGEE);
                 return int.Parse(a.ToString()) ;
             }
             catch
@@ -218,6 +217,20 @@ namespace BUS
                 string image = "";
                 SQLDataContext.SQLData.sp_LayImageHS(mahs, ref image);
                 return image;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public string MahsMax()
+        {
+            try
+            {
+                int? mahs = 0;
+                SQLDataContext.SQLData.sp_getMahsMax(ref mahs);
+                return mahs.ToString();
             }
             catch
             {

@@ -50,17 +50,19 @@
             this.m_btHide.HaveEffects = false;
             this.m_btHide.ImageOrigin = new System.Drawing.Point(0, 0);
             this.m_btHide.ImageSize = new System.Drawing.Size(20, 20);
-            this.m_btHide.Location = new System.Drawing.Point(659, 1);
-            this.m_btHide.Margin = new System.Windows.Forms.Padding(2);
+            this.m_btHide.Location = new System.Drawing.Point(879, 1);
+            this.m_btHide.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.m_btHide.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btHide.Name = "m_btHide";
             this.m_btHide.SaveChanged = false;
             this.m_btHide.ShadownDistance = 6;
-            this.m_btHide.Size = new System.Drawing.Size(28, 23);
+            this.m_btHide.Size = new System.Drawing.Size(37, 28);
             this.m_btHide.TabIndex = 15;
             this.m_btHide.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btHide.TextColor = System.Drawing.Color.White;
             this.m_btHide.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btHide.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btHide.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             this.m_btHide.Click += new System.EventHandler(this.m_btHide_Click);
             // 
             // m_btmaxSize
@@ -75,17 +77,19 @@
             this.m_btmaxSize.HaveEffects = false;
             this.m_btmaxSize.ImageOrigin = new System.Drawing.Point(0, 0);
             this.m_btmaxSize.ImageSize = new System.Drawing.Size(25, 20);
-            this.m_btmaxSize.Location = new System.Drawing.Point(691, 1);
-            this.m_btmaxSize.Margin = new System.Windows.Forms.Padding(2);
+            this.m_btmaxSize.Location = new System.Drawing.Point(921, 1);
+            this.m_btmaxSize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.m_btmaxSize.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btmaxSize.Name = "m_btmaxSize";
             this.m_btmaxSize.SaveChanged = false;
             this.m_btmaxSize.ShadownDistance = 6;
-            this.m_btmaxSize.Size = new System.Drawing.Size(28, 23);
+            this.m_btmaxSize.Size = new System.Drawing.Size(37, 28);
             this.m_btmaxSize.TabIndex = 14;
             this.m_btmaxSize.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btmaxSize.TextColor = System.Drawing.Color.White;
             this.m_btmaxSize.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btmaxSize.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btmaxSize.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             this.m_btmaxSize.Click += new System.EventHandler(this.m_btmaxSize_Click);
             // 
             // m_btclose
@@ -100,16 +104,19 @@
             this.m_btclose.HaveEffects = false;
             this.m_btclose.ImageOrigin = new System.Drawing.Point(0, 0);
             this.m_btclose.ImageSize = new System.Drawing.Size(30, 30);
-            this.m_btclose.Location = new System.Drawing.Point(723, 1);
+            this.m_btclose.Location = new System.Drawing.Point(964, 1);
+            this.m_btclose.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.m_btclose.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btclose.Name = "m_btclose";
             this.m_btclose.SaveChanged = false;
             this.m_btclose.ShadownDistance = 6;
-            this.m_btclose.Size = new System.Drawing.Size(28, 23);
+            this.m_btclose.Size = new System.Drawing.Size(37, 28);
             this.m_btclose.TabIndex = 13;
             this.m_btclose.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Bot;
             this.m_btclose.TextColor = System.Drawing.Color.White;
             this.m_btclose.TextOrigin = new System.Drawing.Point(0, 0);
+            this.m_btclose.TransparentBackColor = System.Drawing.Color.Empty;
+            this.m_btclose.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
             this.m_btclose.Click += new System.EventHandler(this.m_btclose_Click);
             // 
             // button2
@@ -125,27 +132,29 @@
             this.button2.HaveEffects = true;
             this.button2.ImageOrigin = new System.Drawing.Point(0, 0);
             this.button2.ImageSize = new System.Drawing.Size(50, 50);
-            this.button2.Location = new System.Drawing.Point(656, 411);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button2.Location = new System.Drawing.Point(875, 506);
+            this.button2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.button2.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.button2.Name = "button2";
             this.button2.SaveChanged = false;
             this.button2.ShadownDistance = 6;
-            this.button2.Size = new System.Drawing.Size(95, 28);
+            this.button2.Size = new System.Drawing.Size(127, 34);
             this.button2.TabIndex = 6;
             this.button2.TextAlignment = QuanLyHocSinh.ButtonFlat.BTTextAlignment.Center;
             this.button2.TextColor = System.Drawing.Color.White;
             this.button2.TextOrigin = new System.Drawing.Point(0, 0);
+            this.button2.TransparentBackColor = System.Drawing.Color.Empty;
+            this.button2.Type = QuanLyHocSinh.ButtonFlat.Types.FlatNormal;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // m_tableName
             // 
             this.m_tableName.BackColor = System.Drawing.Color.Transparent;
             this.m_tableName.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.m_tableName.ForeColor = System.Drawing.Color.White;
-            this.m_tableName.Location = new System.Drawing.Point(339, 34);
-            this.m_tableName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.m_tableName.Location = new System.Drawing.Point(452, 42);
             this.m_tableName.Name = "m_tableName";
-            this.m_tableName.Size = new System.Drawing.Size(267, 43);
+            this.m_tableName.Size = new System.Drawing.Size(356, 53);
             this.m_tableName.TabIndex = 5;
             this.m_tableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -154,10 +163,9 @@
             this.m_lableLop.BackColor = System.Drawing.Color.Transparent;
             this.m_lableLop.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.m_lableLop.ForeColor = System.Drawing.Color.White;
-            this.m_lableLop.Location = new System.Drawing.Point(40, 34);
-            this.m_lableLop.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.m_lableLop.Location = new System.Drawing.Point(53, 42);
             this.m_lableLop.Name = "m_lableLop";
-            this.m_lableLop.Size = new System.Drawing.Size(267, 43);
+            this.m_lableLop.Size = new System.Drawing.Size(356, 53);
             this.m_lableLop.TabIndex = 1;
             this.m_lableLop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -169,20 +177,20 @@
             this.m_dgvData.BackgroundColor = System.Drawing.Color.White;
             this.m_dgvData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.m_dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.m_dgvData.Location = new System.Drawing.Point(1, 79);
-            this.m_dgvData.Margin = new System.Windows.Forms.Padding(2);
+            this.m_dgvData.Location = new System.Drawing.Point(1, 97);
+            this.m_dgvData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.m_dgvData.Name = "m_dgvData";
             this.m_dgvData.ReadOnly = true;
             this.m_dgvData.RowTemplate.Height = 24;
-            this.m_dgvData.Size = new System.Drawing.Size(750, 325);
+            this.m_dgvData.Size = new System.Drawing.Size(1000, 400);
             this.m_dgvData.TabIndex = 2;
             // 
             // frmBaoCao
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(753, 483);
+            this.ClientSize = new System.Drawing.Size(1004, 594);
             this.Controls.Add(this.m_btHide);
             this.Controls.Add(this.m_btmaxSize);
             this.Controls.Add(this.m_btclose);
@@ -191,7 +199,7 @@
             this.Controls.Add(this.m_dgvData);
             this.Controls.Add(this.m_lableLop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmBaoCao";
             this.Text = "frmBaoCao";
             ((System.ComponentModel.ISupportInitialize)(this.m_dgvData)).EndInit();

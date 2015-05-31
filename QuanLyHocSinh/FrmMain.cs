@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
 using DAO;
+using QuanLyHocSinh.Data;
 
 namespace QuanLyHocSinh
 {
@@ -345,7 +346,12 @@ namespace QuanLyHocSinh
                         break;
 
                     case 1://tabpage Hoc tap
-                        
+                        if (m_ccbPhanQuyen.Text.ToString() == "GVCN")
+                        {
+                            dgv.DataSource = DataBase.Diem.TimThongTinDiem_LopChuNhiem(node, int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
+                        }
+                        else
+                            dgv.DataSource = DataBase.Diem.TimThongTinDiemHocSinh_Mon(node, m_cbbBoMon.SelectedValue.ToString(), int.Parse(m_cbbNamHoc.SelectedValue.ToString()), m_phanquyen.ID, m_phanquyen.PhanQuyen);
                         break;
 
                     case 2://tabpage Bao Cao
@@ -937,6 +943,12 @@ namespace QuanLyHocSinh
         public void resetDGV()
         {
             m_dgvMain.DataSource = DataBase.HocSinh.LayHocSinh_Lop(m_node, m_phanquyen.ID, m_phanquyen.PhanQuyen);
+        }
+
+        private void m_btnDuLieu_Click(object sender, EventArgs e)
+        {
+            frmData frm_data = new frmData();
+            frm_data.ShowDialog();
         }
     }
 }

@@ -68,6 +68,12 @@
       <DependentUpon>CustomTabControl.cs</DependentUpon>
     </Compile>
     <Compile Include="DataBase.cs" />
+    <Compile Include="Data\frmData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\frmData.Designer.cs">
+      <DependentUpon>frmData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -147,6 +153,9 @@
     </Compile>
     <EmbeddedResource Include="ButtonFlat.resx">
       <DependentUpon>ButtonFlat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\frmData.resx">
+      <DependentUpon>frmData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <Generator>ResXFileCodeGenerator</Generator>

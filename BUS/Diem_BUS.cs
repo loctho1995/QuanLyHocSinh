@@ -62,6 +62,56 @@ namespace BUS
 
         }
 
+        //Tim kiem thong tin diem hoc sinh theo lop chu nhiem
+        public DataTable TimThongTinDiem_LopChuNhiem(string ten, int namhoc, string magvcn, int phanquyen)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("STT", typeof(int));
+            dt.Columns.Add("MAHS", typeof(int));
+            dt.Columns.Add("HOTEN", typeof(string));
+            dt.Columns.Add("LOP", typeof(string));
+            dt.Columns.Add("DIEMTBHKI", typeof(float));
+            dt.Columns.Add("DIEMTBHKII", typeof(float));
+            dt.Columns.Add("DIEMTBCANAM", typeof(float));
+            dt.Columns.Add("MANAMHOC", typeof(int));
+
+            var hocsinh = SQLDataContext.SQLData.sp_TimKiemThongTinDiemHocSinhTheoLopChuNhiem(ten, namhoc, magvcn, phanquyen);
+            int c = 1;
+
+            foreach (var i in hocsinh)
+            {
+                try
+                {
+                    DataRow r = dt.NewRow();
+                    r["STT"] = c++;
+
+                    if (i.MAHS != null)
+                        r["MAHS"] = i.MAHS;
+                    if (i.HOTEN != null)
+                        r["HOTEN"] = i.HOTEN;
+                    if (i.HOTEN != null)
+                        r["LOP"] = i.MALOP;
+                    if (i.DIEMTBHKI != null)
+                        r["DIEMTBHKI"] = i.DIEMTBHKI;
+                    if (i.DIEMTBHKII != null)
+                        r["DIEMTBHKII"] = i.DIEMTBHKII;
+                    if (i.DIEMTBCANAM != null)
+                        r["DIEMTBCANAM"] = i.DIEMTBCANAM;
+                    dt.Rows.Add(r);
+                }
+                catch
+                {
+
+                }
+            }
+
+            if (dt.Rows.Count == 0)
+                return null;
+            return dt;
+
+        }
+
         //Lay diem hoc sinh theo khoi
         public DataTable LayDiemHocSinh_Khoi(string makhoi, int namhoc, string magvcn, int phanquyen)
         {
@@ -164,6 +214,45 @@ namespace BUS
                     r["MAHS"] = i.MAHS;
                 if (i.HOTEN != null)
                     r["HOTEN"] = i.HOTEN;
+                if (i.DIEMTBMONHKI != null)
+                    r["DIEMTBMONHKI"] = i.DIEMTBMONHKI;
+                if (i.DIEMTBMONHKII != null)
+                    r["DIEMTBMONHKII"] = i.DIEMTBMONHKII;
+
+                dt.Rows.Add(r);
+            }
+
+            if (dt.Rows.Count == 0)
+                return null;
+            return dt;
+        }
+
+        //Tim kiem thong tin diem hoc sinh theo lop bo mon
+        public DataTable TimThongTinDiemHocSinh_Mon(string ten, string mamon, int namhoc, string magv, int phanquyen)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("STT");
+            dt.Columns.Add("MAHS");
+            dt.Columns.Add("HOTEN");
+            dt.Columns.Add("LOP");
+            dt.Columns.Add("DIEMTBMONHKI");
+            dt.Columns.Add("DIEMTBMONHKII");
+
+            var diem = SQLDataContext.SQLData.sp_TimKiemThongTinDiemHocSinhTheoLopBoMon(ten, mamon, namhoc, magv, phanquyen);
+            int c = 1;
+
+            foreach (var i in diem)
+            {
+                DataRow r = dt.NewRow();
+
+                r["STT"] = c++;
+
+                if (i.MAHS != null)
+                    r["MAHS"] = i.MAHS;
+                if (i.HOTEN != null)
+                    r["HOTEN"] = i.HOTEN;
+                if (i.HOTEN != null)
+                    r["LOP"] = i.MALOP;
                 if (i.DIEMTBMONHKI != null)
                     r["DIEMTBMONHKI"] = i.DIEMTBMONHKI;
                 if (i.DIEMTBMONHKII != null)

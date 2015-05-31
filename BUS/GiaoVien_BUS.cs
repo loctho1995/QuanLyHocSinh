@@ -48,6 +48,9 @@ namespace BUS
             dt.Columns.Add("GIOITINH", typeof(string));
             dt.Columns.Add("NGAYSINH", typeof(string));
             dt.Columns.Add("SODT", typeof(string));
+            dt.Columns.Add("EMAIL", typeof(string));
+            dt.Columns.Add("PASSWORD", typeof(string));
+            dt.Columns.Add("PHANQUYEN", typeof(string));
 
             var giaovien = SQLDataContext.SQLData.sp_LoadDuLieuGV();
             int c = 1;
@@ -57,11 +60,14 @@ namespace BUS
                 DataRow r = dt.NewRow();
 
                 r["STT"] = c++;
-                r["MAGV"] = i.MAGV;
-                r["HOTEN"] = i.HOTEN;
-                r["GIOITINH"] = i.GIOITINH;
-                r["NGAYSINH"] = i.NGAYSINH;
-                r["SODT"] = i.SODT;
+                r["MAGV"] = i.magv;
+                r["HOTEN"] = i.hoten;
+                r["GIOITINH"] = i.gioitinh;
+                r["NGAYSINH"] = i.ngaysinh;
+                r["SODT"] = i.sodt;
+                r["EMAIL"] = i.email;
+                r["PASSWORD"] = i.password;
+                r["PHANQUYEN"] = i.phanquyen;
                 dt.Rows.Add(r);
             }
 

@@ -303,7 +303,7 @@ AS
 				@diemtoithieu float
 		SELECT @diemtoida = DIEMTOIDA, @diemtoithieu = DIEMTOITHIEU FROM QUIDINH
 		SELECT @mahs = MAHS, @malop = MALOP, @maloaidiem = MALOAIDIEM, @diem = DIEM, @manamhoc = MANAMHOC FROM inserted 
-		SELECT @diemtbtong = DIEM FROM DIEMTBHOCKY WHERE MAHS = @mahs AND MALOAIDIEM = 'LD0009' AND (@mahs IS NOT NULL)
+		SELECT @diemtbtong = DIEM FROM DIEMTBHOCKY WHER	E MAHS = @mahs AND MALOAIDIEM = 'LD0009' AND (@mahs IS NOT NULL)
 		SELECT @heso = HESO FROM LOAIDIEM WHERE MALOAIDIEM = @maloaidiem
 		BEGIN
 			if((@mahs IS NULL) OR (@malop IS NULL) OR (@maloaidiem IS NULL))
@@ -362,14 +362,15 @@ AS
 		SET TRAN ISOLATION LEVEL READ COMMITTED
 		IF(@phanquyen = 1) BEGIN
 			SELECT HS.MAHS, HS.HOTEN, HS.NGAYSINH, HS.GIOITINH, HS.DIACHI, HS.TONGIAO, HS.EMAIL, HS.HOTENCHAC,HS.NGHENGHIEPCHA, HS.HOTENME,HS.NGHENGHIEPME, PL.MAKHOI, PL.MALOP
-			FROM HOCSINH HS with (rowlock) JOIN PHANLOP PL with (rowlock) ON HS.MAHS = PL.MAHS
+			FROM HOCSINH HS with (xlock) JOIN PHANLOP PL with (xlock) ON HS.MAHS = PL.MAHS
 			WHERE PL.MALOP = @malop
 		END
 		ELSE BEGIN
 			SELECT HS.MAHS, HS.HOTEN, HS.NGAYSINH, HS.GIOITINH, HS.DIACHI, HS.TONGIAO, HS.EMAIL, HS.HOTENCHAC,HS.NGHENGHIEPCHA, HS.HOTENME,HS.NGHENGHIEPME, PL.MAKHOI, PL.MALOP
-			FROM HOCSINH HS with(rowlock) JOIN PHANLOP PL with(rowlock) ON HS.MAHS = PL.MAHS
-			WHERE PL.MALOP = @malop AND EXISTS(SELECT * FROM LOP WHERE MAGVCN = @magvcn AND PL.MALOP = MALOP)
+			FROM HOCSINH HS with(xlock) JOIN PHANLOP PL with(xlock) ON HS.MAHS = PL.MAHS
+			WHERE PL.MALOP = @malop AND EXISTS(SELECT * FROM GIANGDAY WHERE MAGV = @magvcn AND PL.MALOP = MALOP)
 		END
+		--waitfor delay '00:00:10'
 	COMMIT
 
 
@@ -481,18 +482,19 @@ AS
 		SET TRAN ISOLATION LEVEL Serializable
 		IF(@phanquyen = 1)BEGIN
 			SELECT HS.MAHS, HS.HOTEN,
-			(SELECT D1.DIEM FROM DIEMHOCKY1 D1 WITH(ROWLOCK) WHERE MALOAIDIEM = 'LD0007' AND MAMONHOC = @mamon AND MALOP = @malop AND MANAMHOC = @namhoc AND D1.MAHS = HS.MAHS) AS DIEMTBMONHKI,
-			(SELECT D2.DIEM FROM DIEMHOCKY2 D2 WITH(ROWLOCK) WHERE MALOAIDIEM = 'LD0008' AND MAMONHOC = @mamon AND MALOP = @malop AND MANAMHOC = @namhoc AND D2.MAHS = HS.MAHS) AS DIEMTBMONHKII
+			(SELECT D1.DIEM FROM DIEMHOCKY1 D1 WITH(xLOCK) WHERE MALOAIDIEM = 'LD0007' AND MAMONHOC = @mamon AND MALOP = @malop AND MANAMHOC = @namhoc AND D1.MAHS = HS.MAHS) AS DIEMTBMONHKI,
+			(SELECT D2.DIEM FROM DIEMHOCKY2 D2 WITH(xLOCK) WHERE MALOAIDIEM = 'LD0008' AND MAMONHOC = @mamon AND MALOP = @malop AND MANAMHOC = @namhoc AND D2.MAHS = HS.MAHS) AS DIEMTBMONHKII
 			FROM (HOCSINH HS JOIN PHANLOP PL ON HS.MAHS = PL.MAHS) JOIN GIANGDAY GD ON PL.MALOP = GD.MALOP
 			WHERE GD.MAMONHOC = @mamon AND GD.MALOP = @malop AND GD.MANAMHOC = @namhoc
 		END
 		ELSE BEGIN
 			SELECT HS.MAHS, HS.HOTEN,
-			(SELECT D1.DIEM FROM DIEMHOCKY1 D1 WITH(ROWLOCK) WHERE MALOAIDIEM = 'LD0007' AND MAMONHOC = @mamon AND MALOP = @malop AND MANAMHOC = @namhoc AND D1.MAHS = HS.MAHS) AS DIEMTBMONHKI,
-			(SELECT D2.DIEM FROM DIEMHOCKY2 D2 WITH(ROWLOCK) WHERE MALOAIDIEM = 'LD0008' AND MAMONHOC = @mamon AND MALOP = @malop AND MANAMHOC = @namhoc AND D2.MAHS = HS.MAHS) AS DIEMTBMONHKII
+			(SELECT D1.DIEM FROM DIEMHOCKY1 D1 WITH(xLOCK) WHERE MALOAIDIEM = 'LD0007' AND MAMONHOC = @mamon AND MALOP = @malop AND MANAMHOC = @namhoc AND D1.MAHS = HS.MAHS) AS DIEMTBMONHKI,
+			(SELECT D2.DIEM FROM DIEMHOCKY2 D2 WITH(xLOCK) WHERE MALOAIDIEM = 'LD0008' AND MAMONHOC = @mamon AND MALOP = @malop AND MANAMHOC = @namhoc AND D2.MAHS = HS.MAHS) AS DIEMTBMONHKII
 			FROM (HOCSINH HS JOIN PHANLOP PL ON HS.MAHS = PL.MAHS) JOIN GIANGDAY GD ON PL.MALOP = GD.MALOP
 			WHERE GD.MAGV = @magv AND GD.MAMONHOC = @mamon AND GD.MALOP = @malop AND GD.MANAMHOC = @namhoc
 		END
+		--waitfor delay '00:00:10'
 	COMMIT
 
 
@@ -536,6 +538,7 @@ AS
 
 
 --sửa điểm học sinh
+exec sp_SuaDiem 1,'10a1','mh0001',2014,1,1,1,1,1,1,1,1
 DROP PROC sp_SuaDiem
 CREATE PROC sp_SuaDiem(
 	@mahs int, 
@@ -547,60 +550,61 @@ CREATE PROC sp_SuaDiem(
 	) 
 AS 
 	BEGIN  TRAN
-		SELECT * FROM DIEMHOCKY1 WHERE MAHS = @mahs AND MALOP = @malop AND MAMONHOC = @mamon AND MANAMHOC = @namhoc
+		SELECT * FROM DIEMHOCKY1 with(xlock) WHERE MAHS = @mahs AND MALOP = @malop AND MAMONHOC = @mamon AND MANAMHOC = @namhoc
 		IF(@@ROWCOUNT=0)
 			ROLLBACK TRANSACTION
 		
-		UPDATE DIEMHOCKY1
+		UPDATE DIEMHOCKY1 with(xlock)
 		SET DIEM = @d_mieng_hkI
 		WHERE MAHS = @mahs AND MALOP = @malop AND MAMONHOC = @mamon AND MANAMHOC = @namhoc AND MALOAIDIEM = 'LD0001'
 		IF(@@ERROR<>0)
 			ROLLBACK TRANSACTION
 
-		UPDATE DIEMHOCKY1
+		UPDATE DIEMHOCKY1 with(xlock)
 		SET DIEM = @d_15p_hkI
 		WHERE MAHS = @mahs AND MALOP = @malop AND MAMONHOC = @mamon AND MANAMHOC = @namhoc AND MALOAIDIEM = 'LD0002'
 		IF(@@ERROR<>0)
 			ROLLBACK TRANSACTION
 		
-		UPDATE DIEMHOCKY1
+		UPDATE DIEMHOCKY1 with(xlock)
 		SET DIEM = @d_1tiet_hkI
 		WHERE MAHS = @mahs AND MALOP = @malop AND MAMONHOC = @mamon AND MANAMHOC = @namhoc AND MALOAIDIEM = 'LD0003'
 		IF(@@ERROR<>0)
 			ROLLBACK TRANSACTION
 
-		UPDATE DIEMHOCKY1
+		UPDATE DIEMHOCKY1 with(xlock)
 		SET DIEM = @d_thi_hkI
 		WHERE MAHS = @mahs AND MALOP = @malop AND MAMONHOC = @mamon AND MANAMHOC = @namhoc AND MALOAIDIEM = 'LD0004'
 		IF(@@ERROR<>0)
 			ROLLBACK TRANSACTION
 		
-		UPDATE DIEMHOCKY2
+		UPDATE DIEMHOCKY2 with(xlock)
 		SET DIEM = @d_mieng_hkII
 		WHERE MAHS = @mahs AND MALOP = @malop AND MAMONHOC = @mamon AND MANAMHOC = @namhoc AND MALOAIDIEM = 'LD0001'
 		IF(@@ERROR<>0)
 			ROLLBACK TRANSACTION
 		
-		UPDATE DIEMHOCKY2
+		UPDATE DIEMHOCKY2 with(xlock)
 		SET DIEM = @d_15p_hkII
 		WHERE MAHS = @mahs AND MALOP = @malop AND MAMONHOC = @mamon AND MANAMHOC = @namhoc AND MALOAIDIEM = 'LD0002'
 		IF(@@ERROR<>0)
 			ROLLBACK TRANSACTION
 		
-		UPDATE DIEMHOCKY2
+		UPDATE DIEMHOCKY2 with(xlock)
 		SET DIEM = @d_1tiet_hkII
 		WHERE MAHS = @mahs AND MALOP = @malop AND MAMONHOC = @mamon AND MANAMHOC = @namhoc AND MALOAIDIEM = 'LD0003'
 		IF(@@ERROR<>0)
 			ROLLBACK TRANSACTION
 		
-		UPDATE DIEMHOCKY2
+		UPDATE DIEMHOCKY2 with(xlock)
 		SET DIEM = @d_thi_hkII
 		WHERE MAHS = @mahs AND MALOP = @malop AND MAMONHOC = @mamon AND MANAMHOC = @namhoc AND MALOAIDIEM = 'LD0004'
 		IF(@@ERROR<>0)
 			ROLLBACK TRANSACTION
-		
+		--waitfor delay '00:00:10'
 	COMMIT
 
+	
 --xoá một học sinh
 CREATE PROC sp_XoathongtinHocSinh(@mahs int)
 AS
@@ -650,21 +654,22 @@ CREATE PROC sp_SuaThongtinHocSinh(
 	) 
 AS 
 	BEGIN
-		IF(NOT EXISTS (SELECT * FROM HOCSINH WHERE MAHS = @mahs))
+		IF(NOT EXISTS (SELECT * FROM HOCSINH with (xlock) WHERE MAHS = @mahs))
 			PRINT N'Học sinh không tồn tại'
 		ELSE
 		BEGIN TRAN
-			UPDATE HOCSINH
+			UPDATE HOCSINH with (xlock)
 			SET HOTEN = @hoten, GIOITINH = @gioitinh, NGAYSINH = @ngaysinh, DIACHI = @diachi, EMAIL = @email, TONGIAO = @tongiao, HOTENCHAC = @hotencha,
 				HOTENME = @hotenme, NGHENGHIEPME = @nghenghiepme, NGHENGHIEPCHA = @nghenghiepcha, IMAGEE = @image
 			WHERE MAHS = @mahs
 			IF(@@ERROR<>0)
 				ROLLBACK TRANSACTION
-			UPDATE PHANLOP
+			UPDATE PHANLOP with (xlock)
 			SET MALOP = @malop
 			WHERE MAHS = @mahs	
 				IF(@@ERROR<>0)
 				ROLLBACK TRANSACTION
+			--waitfor delay '00:00:10'
 		commit
 	END
 
@@ -786,9 +791,10 @@ AS
 CREATE PROC sp_LayGVBoMon(@magv char(5))
 AS
 	BEGIN
-		SELECT MALOP FROM MONHOC MH JOIN GIANGDAY GD ON MH.MAMONHOC = GD.MAMONHOC WHERE MH.MAGV = 'gv001'
+		SELECT MALOP FROM MONHOC MH JOIN GIANGDAY GD ON MH.MAMONHOC = GD.MAMONHOC WHERE GD.MAGV = @magv
 	END
 
+	DROP PROC sp_LayGVBoMon
 
 -- lay dia chi hinh anh cua hoc sinh tren mayss
 create proc sp_LayImageHS(@mahs int , @image varchar(200) out)
@@ -835,33 +841,29 @@ create proc sp_InsertDuLieuGV(@magv char(5),@hoten nvarchar(20),@ngaysinh smalld
 as
 	begin tran
 		if ((exists (select * from giaovien where magv= @magv))) begin
-			if not exists (select * from users where id = @magv) begin
-				insert into users values(@magv,@pass,@email,@phanquyen)
+			if (exists (select * from users where id = @magv)) begin
+				update users
+				set password = @pass, email = @email, phanquyen = @phanquyen
+				where id = @magv
 				if(@@ERROR<>0)
 					rollback tran
 				end
 			end
 		else begin
-			if(@type=0) begin
-				insert into giaovien values(@magv,@hoten,@ngaysinh, @gioitinh,@sodt)
-				if(@@ERROR<>0)
-					rollback tran
-				end
-			else begin
 				insert into giaovien values(@magv,@hoten,@ngaysinh, @gioitinh,@sodt)
 				if(@@ERROR<>0)
 					rollback tran
 				insert into users values(@magv,@pass,@email,@phanquyen)
 				if(@@ERROR<>0)
 					rollback tran
-			end
 		end
 	commit
 
+drop proc sp_LoadDuLieuGV
 create proc sp_LoadDuLieuGV
 as
 	begin
-		select * from giaovien
+		select magv, hoten, ngaysinh, gioitinh, sodt,email, password, phanquyen from giaovien, users where magv = id
 	end
 
 	drop proc sp_UpdateDuLieuGV
@@ -878,10 +880,61 @@ as
 			if(@@ERROR<>0)
 				rollback tran
 			
-			update users
-			set PASSWORD = @pass, EMAIL = @email, PHANQUYEN = @phanquyen
-			where ID = @magv
-			if(@@ERROR<>0)
-				rollback tran
+			if(not exists (select * from users where id = @magv and password ='123456')) begin
+				update users
+				set PASSWORD = @pass, EMAIL = @email, PHANQUYEN = @phanquyen
+				where ID = @magv
+				if(@@ERROR<>0)
+					rollback tran
+			end
 	commit
 
+create proc sp_LayHocSinh(@mahs int)
+as
+	begin
+		select * from hocsinh
+	end
+
+
+
+	--backup database
+drop proc sp_BackupData
+create proc sp_BackupData(@path varchar(100))
+as
+	begin
+		backup database sql_quanlyhocsinh
+		to disk = @path
+	end
+
+	--restore database
+	drop proc sp_Restore
+
+	USE master
+	exec sp_Restore 'e:/quanlyhocsinh.bak'
+
+create proc sp_Restore(@path varchar(100))
+as
+	begin
+		restore database SQL_QUANLYHOCSINH
+		from disk = @path
+		with replace
+	end
+
+
+exec demorestore
+create proc demorestore
+as
+	begin
+	print 'demo restore'
+	end
+
+	drop proc sp_getMahsMax
+create proc sp_getMahsMax(@mahs int out)
+as
+	begin tran
+		select top(1) @mahs = mahs from hocsinh with (xlock) order by mahs desc
+	commit
+
+	declare @demo int
+	exec sp_getMahsMax @demo out
+	print @demo

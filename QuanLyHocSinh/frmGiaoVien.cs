@@ -121,6 +121,7 @@ namespace QuanLyHocSinh
 
         private void m_dgvGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            m_btnTaoTK.Enabled = true;
             if (m_dgvGV.SelectedRows[0] != null)
             {
                 DeleteTextBox();
@@ -139,6 +140,18 @@ namespace QuanLyHocSinh
                     m_txtSoDT.Text = row.Cells["SODT"].Value.ToString();
                 if (row.Cells["NGAYSINH"].Value!=null)
                     m_dtpNgaysinh.Text = row.Cells["NGAYSINH"].Value.ToString();
+                if (row.Cells["EMAIL"].Value != null)
+                    m_txtEmail.Text = row.Cells["EMAIL"].Value.ToString();
+                if (row.Cells["PASSWORD"].Value != null)
+                    m_txtPass.Text = row.Cells["PASSWORD"].Value.ToString();
+
+                if (row.Cells["PHANQUYEN"].Value != null)
+                {
+                    if (row.Cells["PHANQUYEN"].Value.ToString() == "0")
+                        m_cbbPhanquyen.SelectedIndex = 0;
+                    else
+                        m_cbbPhanquyen.SelectedIndex = 1;
+                }
             }
         }
 
@@ -153,6 +166,7 @@ namespace QuanLyHocSinh
 
         private void m_btnThem_Click(object sender, EventArgs e)
         {
+            m_btnTaoTK.Enabled = false;
             m_btnLuu.Enabled = true;
             DeleteTextBox();
         }
@@ -171,6 +185,7 @@ namespace QuanLyHocSinh
 
         private void m_btnLuu_Click(object sender, EventArgs e)
         {
+            m_btnTaoTK.Enabled = false;
             InsertDuLieu();
         }
         private void InsertDuLieu()
@@ -201,6 +216,7 @@ namespace QuanLyHocSinh
         }
         private void m_btnXoa_Click(object sender, EventArgs e)
         {
+            m_btnTaoTK.Enabled = false;
             if (m_txtMaGV.Text == "")
             {
                 MessageBox.Show("Thông tin trống", "Thông báo!");
@@ -219,6 +235,7 @@ namespace QuanLyHocSinh
 
         private void m_btnSua_Click(object sender, EventArgs e)
         {
+            m_btnTaoTK.Enabled = false;
             if (m_txtMaGV.Text == "")
             {
                 MessageBox.Show("Thông tin trống", "Thông báo!");
@@ -233,7 +250,7 @@ namespace QuanLyHocSinh
             user = new USER();
             user.PASSWORD = m_txtPass.Text;
             user.EMAIL = m_txtEmail.Text;
-            if (m_cbbPhanquyen.SelectedItem.ToString() != "")
+            if (m_cbbPhanquyen.SelectedItem!=null)
                 user.PHANQUYEN = int.Parse(m_cbbPhanquyen.SelectedItem.ToString());
             if (DataBase.GiaoVien.UpdateDuLieuGV(giaovien, user))
             {
