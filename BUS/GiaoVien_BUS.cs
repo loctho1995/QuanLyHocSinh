@@ -89,11 +89,7 @@ namespace BUS
         {
             try
             {
-                var giaovien = from gv in SQLDataContext.SQLData.GIAOVIENs
-                               where gv.MAGV == magv
-                               select gv;
-                SQLDataContext.SQLData.GIAOVIENs.DeleteAllOnSubmit(giaovien);
-                SQLDataContext.SQLData.SubmitChanges();
+                SQLDataContext.SQLData.sp_DeleteDuLieuGv(magv);
                 return true;
             }
             catch

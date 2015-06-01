@@ -216,12 +216,14 @@ namespace QuanLyHocSinh
         }
         private void m_btnXoa_Click(object sender, EventArgs e)
         {
-            m_btnTaoTK.Enabled = false;
             if (m_txtMaGV.Text == "")
             {
                 MessageBox.Show("Thông tin trống", "Thông báo!");
                 return;
             }
+            if (MessageBox.Show("Bạn có muốn xóa không ?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                return;
+            m_btnTaoTK.Enabled = false;
             giaovien = new GIAOVIEN();
             giaovien.MAGV = m_txtMaGV.Text;
             if (DataBase.GiaoVien.DeleteDuLieuGV(giaovien.MAGV))

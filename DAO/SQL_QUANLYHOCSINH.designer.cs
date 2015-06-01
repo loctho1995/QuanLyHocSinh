@@ -468,6 +468,20 @@ namespace DAO
 			mahs = ((System.Nullable<int>)(result.GetParameterValue(0)));
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DeleteAutoHS")]
+		public int sp_DeleteAutoHS([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> mahs)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mahs);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DeleteDuLieuGv")]
+		public int sp_DeleteDuLieuGv([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(5)")] string magv)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), magv);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CAIDAT")]

@@ -32,7 +32,7 @@ namespace QuanLyHocSinh
             this.MaximumSize = this.Size;
             this.MinimumSize = this.Size;
 
-            m_txtMahs.Text = (int.Parse(DataBase.HocSinh.MahsMax()) + 1).ToString();
+            m_txtMahs.Text = DataBase.HocSinh.MahsMax();
             m_btClose.BackColor = Color.FromArgb(255, 101, 99);
             m_ccbLop.DataSource = DataBase.Lop.LayDuLieuLop(FrmMain.m_phanquyen.ID, FrmMain.m_phanquyen.PhanQuyen);
             m_ccbLop.ValueMember = "MALOP";
@@ -88,7 +88,9 @@ namespace QuanLyHocSinh
         }
 
         private void m_btClose_Click(object sender, EventArgs e)
-        {            
+        {
+            if(m_txtMahs.Text!="")
+                    DataBase.HocSinh.DeleteAutoMahs(int.Parse(m_txtMahs.Text));
             FrmMain.ResetDGV();
             this.Close();
         }

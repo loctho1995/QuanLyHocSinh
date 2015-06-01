@@ -600,4 +600,12 @@
     <Parameter Name="mahs" Type="System.Int32" DbType="Int" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.sp_DeleteAutoHS" Method="sp_DeleteAutoHS">
+    <Parameter Name="mahs" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_DeleteDuLieuGv" Method="sp_DeleteDuLieuGv">
+    <Parameter Name="magv" Type="System.String" DbType="Char(5)" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

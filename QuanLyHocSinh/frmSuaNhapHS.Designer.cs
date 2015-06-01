@@ -80,7 +80,7 @@
             this.m_btHoanTat.ImageOrigin = new System.Drawing.Point(35, 0);
             this.m_btHoanTat.ImageSize = new System.Drawing.Size(30, 30);
             this.m_btHoanTat.Location = new System.Drawing.Point(987, 364);
-            this.m_btHoanTat.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.m_btHoanTat.Margin = new System.Windows.Forms.Padding(5);
             this.m_btHoanTat.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btHoanTat.Name = "m_btHoanTat";
             this.m_btHoanTat.SaveChanged = false;
@@ -106,7 +106,7 @@
             this.m_btClose.ImageOrigin = new System.Drawing.Point(0, 0);
             this.m_btClose.ImageSize = new System.Drawing.Size(25, 25);
             this.m_btClose.Location = new System.Drawing.Point(1161, 2);
-            this.m_btClose.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.m_btClose.Margin = new System.Windows.Forms.Padding(5);
             this.m_btClose.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btClose.Name = "m_btClose";
             this.m_btClose.SaveChanged = false;
@@ -164,7 +164,7 @@
             // m_tbHotenme
             // 
             this.m_tbHotenme.Location = new System.Drawing.Point(933, 240);
-            this.m_tbHotenme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_tbHotenme.Margin = new System.Windows.Forms.Padding(4);
             this.m_tbHotenme.Multiline = true;
             this.m_tbHotenme.Name = "m_tbHotenme";
             this.m_tbHotenme.Size = new System.Drawing.Size(207, 24);
@@ -173,7 +173,7 @@
             // m_tbNghenghiepme
             // 
             this.m_tbNghenghiepme.Location = new System.Drawing.Point(933, 286);
-            this.m_tbNghenghiepme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_tbNghenghiepme.Margin = new System.Windows.Forms.Padding(4);
             this.m_tbNghenghiepme.Multiline = true;
             this.m_tbNghenghiepme.Name = "m_tbNghenghiepme";
             this.m_tbNghenghiepme.Size = new System.Drawing.Size(207, 24);
@@ -182,7 +182,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(933, 240);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(207, 24);
@@ -217,7 +217,7 @@
             // m_tbNghenghiepcha
             // 
             this.m_tbNghenghiepcha.Location = new System.Drawing.Point(933, 196);
-            this.m_tbNghenghiepcha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_tbNghenghiepcha.Margin = new System.Windows.Forms.Padding(4);
             this.m_tbNghenghiepcha.Multiline = true;
             this.m_tbNghenghiepcha.Name = "m_tbNghenghiepcha";
             this.m_tbNghenghiepcha.Size = new System.Drawing.Size(207, 24);
@@ -226,7 +226,7 @@
             // m_tbHotencha
             // 
             this.m_tbHotencha.Location = new System.Drawing.Point(933, 150);
-            this.m_tbHotencha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_tbHotencha.Margin = new System.Windows.Forms.Padding(4);
             this.m_tbHotencha.Multiline = true;
             this.m_tbHotencha.Name = "m_tbHotencha";
             this.m_tbHotencha.Size = new System.Drawing.Size(207, 24);
@@ -274,7 +274,7 @@
             // m_tbTonGiao
             // 
             this.m_tbTonGiao.Location = new System.Drawing.Point(384, 334);
-            this.m_tbTonGiao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_tbTonGiao.Margin = new System.Windows.Forms.Padding(4);
             this.m_tbTonGiao.Multiline = true;
             this.m_tbTonGiao.Name = "m_tbTonGiao";
             this.m_tbTonGiao.Size = new System.Drawing.Size(207, 24);
@@ -296,7 +296,7 @@
             // m_tbEmail
             // 
             this.m_tbEmail.Location = new System.Drawing.Point(933, 331);
-            this.m_tbEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_tbEmail.Margin = new System.Windows.Forms.Padding(4);
             this.m_tbEmail.Multiline = true;
             this.m_tbEmail.Name = "m_tbEmail";
             this.m_tbEmail.Size = new System.Drawing.Size(207, 24);
@@ -306,7 +306,7 @@
             // m_tbDiaChi
             // 
             this.m_tbDiaChi.Location = new System.Drawing.Point(384, 288);
-            this.m_tbDiaChi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_tbDiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.m_tbDiaChi.Multiline = true;
             this.m_tbDiaChi.Name = "m_tbDiaChi";
             this.m_tbDiaChi.Size = new System.Drawing.Size(207, 24);
@@ -315,7 +315,7 @@
             // m_tbGioiTinh
             // 
             this.m_tbGioiTinh.Location = new System.Drawing.Point(384, 245);
-            this.m_tbGioiTinh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_tbGioiTinh.Margin = new System.Windows.Forms.Padding(4);
             this.m_tbGioiTinh.Multiline = true;
             this.m_tbGioiTinh.Name = "m_tbGioiTinh";
             this.m_tbGioiTinh.Size = new System.Drawing.Size(207, 24);
@@ -324,7 +324,7 @@
             // m_txtMahs
             // 
             this.m_txtMahs.Location = new System.Drawing.Point(384, 100);
-            this.m_txtMahs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_txtMahs.Margin = new System.Windows.Forms.Padding(4);
             this.m_txtMahs.Multiline = true;
             this.m_txtMahs.Name = "m_txtMahs";
             this.m_txtMahs.ReadOnly = true;
@@ -334,7 +334,7 @@
             // m_tbHoVaTen
             // 
             this.m_tbHoVaTen.Location = new System.Drawing.Point(384, 143);
-            this.m_tbHoVaTen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_tbHoVaTen.Margin = new System.Windows.Forms.Padding(4);
             this.m_tbHoVaTen.Multiline = true;
             this.m_tbHoVaTen.Name = "m_tbHoVaTen";
             this.m_tbHoVaTen.Size = new System.Drawing.Size(207, 24);
@@ -460,7 +460,7 @@
             this.m_ptbHS.BackColor = System.Drawing.Color.Transparent;
             this.m_ptbHS.Image = global::QuanLyHocSinh.Properties.Resources.Hacker;
             this.m_ptbHS.Location = new System.Drawing.Point(16, 100);
-            this.m_ptbHS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_ptbHS.Margin = new System.Windows.Forms.Padding(4);
             this.m_ptbHS.Name = "m_ptbHS";
             this.m_ptbHS.Size = new System.Drawing.Size(160, 197);
             this.m_ptbHS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -479,7 +479,7 @@
             this.m_btminimize.ImageOrigin = new System.Drawing.Point(0, 0);
             this.m_btminimize.ImageSize = new System.Drawing.Size(25, 25);
             this.m_btminimize.Location = new System.Drawing.Point(1096, 2);
-            this.m_btminimize.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.m_btminimize.Margin = new System.Windows.Forms.Padding(5);
             this.m_btminimize.MouseState = QuanLyHocSinh.ButtonFlat.MouseStates.Leave;
             this.m_btminimize.Name = "m_btminimize";
             this.m_btminimize.SaveChanged = false;
@@ -567,7 +567,7 @@
             this.Controls.Add(this.m_ptbHS);
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmSuaNhapHS";
             this.Text = "frmSuaNhapHS";
             ((System.ComponentModel.ISupportInitialize)(this.m_ptbHS)).EndInit();

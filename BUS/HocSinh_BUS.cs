@@ -237,5 +237,16 @@ namespace BUS
                 return null;
             }
         }
+
+        public void DeleteAutoMahs(int mahs)
+        {
+            try
+            {
+                SQLDataContext.SQLData.sp_DeleteAutoHS(mahs);
+                return;
+            }
+            catch{
+            }
+        }
     }
 }
