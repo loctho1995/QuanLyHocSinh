@@ -103,7 +103,7 @@
             this.m_btLuu.DeltaAlphaGlow = 2F;
             this.m_btLuu.DeltaDistance = 2F;
             this.m_btLuu.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btLuu.HaveEffects = true;
+            this.m_btLuu.HaveEffects = false;
             this.m_btLuu.ImageOrigin = new System.Drawing.Point(20, 0);
             this.m_btLuu.ImageSize = new System.Drawing.Size(30, 30);
             this.m_btLuu.Location = new System.Drawing.Point(620, 360);
@@ -130,7 +130,7 @@
             this.m_btSua.DeltaAlphaGlow = 2F;
             this.m_btSua.DeltaDistance = 2F;
             this.m_btSua.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_btSua.HaveEffects = true;
+            this.m_btSua.HaveEffects = false;
             this.m_btSua.ImageOrigin = new System.Drawing.Point(30, 0);
             this.m_btSua.ImageSize = new System.Drawing.Size(30, 30);
             this.m_btSua.Location = new System.Drawing.Point(491, 360);

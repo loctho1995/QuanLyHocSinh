@@ -26,7 +26,7 @@ namespace BUS
             return SQLDataContext.SQLData.HOCSINHs.ToList();
         }
 
-        public DataTable TimKiemThongTinHocSinh(string malop, int phanquyen, string hoten)
+        public DataTable TimKiemThongTinHocSinh(string hoten, string magv, int phanquyen)
         {
             DataTable dt = new DataTable();
             //dt.Clear();
@@ -46,7 +46,7 @@ namespace BUS
             dt.Columns.Add("MALOP", typeof(string));
             dt.Columns.Add("MAKHOILOP", typeof(int));
 
-            var hocsinh = SQLDataContext.SQLData.sp_TiemKiemHocSinh(malop,phanquyen, hoten);
+            var hocsinh = SQLDataContext.SQLData.sp_TiemKiemHocSinh(hoten, magv, phanquyen);
             int c = 1;
 
             foreach (var i in hocsinh)

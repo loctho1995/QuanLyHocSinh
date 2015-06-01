@@ -342,7 +342,7 @@ namespace QuanLyHocSinh
                 switch (tabpage)//tabpage se cho biet tabpage nao dang duoc chon
                 {
                     case 0://tabpage Ho So
-                        dgv.DataSource = DataBase.HocSinh.TimKiemThongTinHocSinh(FrmMain.m_phanquyen.LopCN, FrmMain.m_phanquyen.PhanQuyen, node);//hs.TimKiemThongTinHocSinh(ma);
+                        dgv.DataSource = DataBase.HocSinh.TimKiemThongTinHocSinh(node, FrmMain.m_phanquyen.ID, FrmMain.m_phanquyen.PhanQuyen);//hs.TimKiemThongTinHocSinh(ma);
                         break;
 
                     case 1://tabpage Hoc tap

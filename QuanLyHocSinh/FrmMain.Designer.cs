@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Lớp 10A1");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Lớp 10A2");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Lớp10A3");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Lớp10A4");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Lớp 10A3");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Lớp 10A4");
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Khối 10", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
@@ -125,9 +125,9 @@
             treeNode2.Name = "m_node10A2";
             treeNode2.Text = "Lớp 10A2";
             treeNode3.Name = "m_node10A3";
-            treeNode3.Text = "Lớp10A3";
+            treeNode3.Text = "Lớp 10A3";
             treeNode4.Name = "m_node10A4";
-            treeNode4.Text = "Lớp10A4";
+            treeNode4.Text = "Lớp 10A4";
             treeNode5.ImageIndex = 2;
             treeNode5.Name = "m_nodeKhoi10";
             treeNode5.Text = "Khối 10";
