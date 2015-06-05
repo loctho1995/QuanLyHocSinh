@@ -65,6 +65,11 @@ namespace QuanLyHocSinh
             //this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.CacheText, true);
             this.DoubleBuffered = true;
             InitializeComponent();
+            if(FrmMain.m_phanquyen.PhanQuyen==0)
+            {
+                this.m_btnDuLieu.Enabled = false;
+                this.m_btnGiaoVien.Enabled = false;
+            }
 
             if (!DataBase.IsLoaded)
                 DataBase.InitDataBase();

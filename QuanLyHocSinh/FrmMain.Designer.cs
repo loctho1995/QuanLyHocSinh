@@ -910,8 +910,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.m_scMain);
             this.Controls.Add(this.m_dgvMain);
-            this.Controls.Add(this.m_tcMain);
             this.Controls.Add(this.m_treeViewKhoi);
+            this.Controls.Add(this.m_tcMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";

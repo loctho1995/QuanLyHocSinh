@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
+using QuanLyHocSinh.Data;
 namespace QuanLyHocSinh
 {
     public partial class frmDangNhap : Form
@@ -122,6 +123,12 @@ namespace QuanLyHocSinh
         private void m_btminimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmData frm = new frmData();
+            frm.Show();
         }
     }
 }
