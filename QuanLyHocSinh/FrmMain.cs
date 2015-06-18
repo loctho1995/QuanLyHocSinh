@@ -48,7 +48,7 @@ namespace QuanLyHocSinh
             set
             {
                 m_btclose.BackColor = m_btHide.BackColor = m_btmaxSize.BackColor = m_btdangXuat.BackColor
-                    = m_btCaiDat.BackColor = m_btnGiaoVien.BackColor = value;
+                    = m_btCaiDat.BackColor = m_btnGiaoVien.BackColor = m_btnDuLieu.BackColor= value;
             }
         }
 

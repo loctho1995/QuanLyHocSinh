@@ -31,6 +31,8 @@ namespace QuanLyHocSinh
 
             this.MaximumSize = this.Size;
             this.MinimumSize = this.Size;
+
+            m_btchinhSua.BackColor = m_btClose.BackColor = m_btminimize.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.TOPBUTTONCOLOR));
         }
 
         //cho phép resize góc dưới bên phải

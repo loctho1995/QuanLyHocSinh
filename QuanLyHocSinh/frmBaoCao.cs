@@ -20,12 +20,14 @@ namespace QuanLyHocSinh
         public frmBaoCao(DataGridView data, string Lop, string TableName)
         {
             InitializeComponent();
-            this.BackColor = Color.FromArgb(102, 101, 101);
 
             this.m_dgvData.DataSource = data.DataSource;
             this.AllowFormResize = true;
             m_lableLop.Text = Lop;
             m_tableName.Text = TableName;
+
+            m_btclose.BackColor = m_btHide.BackColor = m_btmaxSize.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.TOPBUTTONCOLOR));
+            button2.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.TABBUTTONCOLOR));
         }
 
         private void button1_Click(object sender, EventArgs e)

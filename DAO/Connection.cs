@@ -20,7 +20,7 @@ namespace DAO
         {
             try
             {
-                conn = new SqlConnection("Data Source=HP;Initial Catalog=SQL_QUANLYTHUVIEN;Integrated Security=True");
+                conn = new SqlConnection("Data Source=localhost;Initial Catalog=SQL_QUANLYHOCSINH;Integrated Security=True");
             }
             catch
             {

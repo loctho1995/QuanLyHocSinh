@@ -19,6 +19,9 @@ namespace QuanLyHocSinh
         public frmGiaoVien()
         {
             InitializeComponent();
+
+            this.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.MAIN_BACKCOLOR));
+            this.m_btclose.BackColor = m_btHide.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.TOPBUTTONCOLOR));
         }
         
         private const int cGrip = 5;      // Grip size, khoảng range để xác định cho việc resize form xem thêm ở WndPrc

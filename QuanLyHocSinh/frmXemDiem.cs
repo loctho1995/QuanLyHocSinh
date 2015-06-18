@@ -24,16 +24,13 @@ namespace QuanLyHocSinh
         public frmXemDiem(DataGridViewRow row)
         {
             InitializeComponent();
+            
             m_row = row;
-            this.BackColor = Color.FromArgb(102, 101, 101);
 
             this.MaximumSize = this.Size;
             this.MinimumSize = this.Size;
-        }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            m_btClose.BackColor = m_btminimize.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.TOPBUTTONCOLOR));
         }
 
         private void frmXemDiem_Load(object sender, EventArgs e)
@@ -43,6 +40,7 @@ namespace QuanLyHocSinh
 
             m_lbMaHS.Text = m_row.Cells["MAHS"].Value.ToString();
             m_lbTenHS.Text = m_row.Cells["HOTEN"].Value.ToString();
+
             //foreach (var i in hs.LayNamHoc())
             //{
             //    m_cbbNamHoc.Items.Add(i.MANAMHOC);

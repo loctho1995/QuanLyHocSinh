@@ -77,7 +77,7 @@ namespace QuanLyHocSinh
 
         public FormFlat()
         {            
-            //InitGraphics();         
+            InitGraphics();         
         }
 
         protected void InitGraphics()
@@ -88,8 +88,11 @@ namespace QuanLyHocSinh
             m_statusbarHeight = 30;
             m_creaseDepth = 10;
 
-            m_paperColor = Color.FromArgb(int.Parse(DataBase.CaiDat.TABPANEL_COLOR));             
-            BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.MAIN_BACKCOLOR));
+            if(DataBase.IsLoaded)
+            {
+                m_paperColor = Color.FromArgb(int.Parse(DataBase.CaiDat.TABPANEL_COLOR));
+                BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.MAIN_BACKCOLOR));
+            }
 
             //this.MaximumSize = this.Size;
             //this.MinimumSize = this.Size;

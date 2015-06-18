@@ -148,19 +148,30 @@ namespace QuanLyHocSinh
             m_bt.BackColor = Color.Transparent;
             m_bt.MouseClick += (o, e) =>
                 {
-                    if(m_state == States.Show)
+                    if (m_state == States.Show)
                     {
                         m_btClick = true;
                         m_mouseState = MouseStates.Leave;
                         m_timer.Start();
                     }
+                    else
+                    {
+                        if (e.X < this.Location.X || e.X > this.Location.X + this.Width || e.Y < this.Location.Y
+                            || e.Y > this.Location.Y + this.Height)
+                        {
+                            //khi vào control, cho chạy timmer lúc này sẽ kéo dài control ra
+                            m_mouseState = MouseStates.Hover;
+                            m_timer.Start();
+                        }
+                    }    
                 };
+
             m_bt.SizeChanged += (o, e) =>
                 {
                     m_bt.Location = new Point(this.HideSize.Width - m_bt.Width, 0);
                 };
            
-            #endregion
+                        #endregion
 
             #region -TextBox Search-
             m_tb = new TextBox();
@@ -220,27 +231,27 @@ namespace QuanLyHocSinh
 
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.ContainerControl | ControlStyles.AllPaintingInWmPaint, true);
             #endregion
-        }
+        }        
 
         #region - EVENTS - 
         private void m_MouseMove(object sender, MouseEventArgs e)
         {
-            if (m_btClick)
-                return;
+            //if (m_btClick)
+            //    return;
 
-            if (e.X < this.Location.X || e.X > this.Location.X + this.Width || e.Y < this.Location.Y
-                || e.Y > this.Location.Y + this.Height)
-            {
-                //khi vào control, cho chạy timmer lúc này sẽ kéo dài control ra
-                m_mouseState = MouseStates.Hover;
-                m_timer.Start();
-            }
-            else
-            {
-                //ngược lại với trên
-                //m_mouseState = MouseStates.Leave;
-                //m_timer.Start();
-            }
+            //if (e.X < this.Location.X || e.X > this.Location.X + this.Width || e.Y < this.Location.Y
+            //    || e.Y > this.Location.Y + this.Height)
+            //{
+            //    //khi vào control, cho chạy timmer lúc này sẽ kéo dài control ra
+            //    m_mouseState = MouseStates.Hover;
+            //    m_timer.Start();
+            //}
+            //else
+            //{
+            //    //ngược lại với trên
+            //    //m_mouseState = MouseStates.Leave;
+            //    //m_timer.Start();
+            //}
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -263,7 +274,7 @@ namespace QuanLyHocSinh
                 return;
 
             //kiểm tra nếu rê chuột vào trong vùng thì lúc này thực hiện Show/Hide
-            if (e.X < this.Location.X || e.X > this.Location.X + this.Width || e.Y < this.Location.Y 
+            if (e.X < this.Location.X || e.X > this.Location.X + this.Width || e.Y < this.Location.Y
                 || e.Y > this.Location.Y + this.Height)
             {
                 m_mouseState = MouseStates.Hover;

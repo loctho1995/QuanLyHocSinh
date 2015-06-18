@@ -25,6 +25,10 @@ namespace QuanLyHocSinh
             {
                 DataBase.InitDataBase();
             }
+
+            m_btminimize.BackColor = m_btClose.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.TOPBUTTONCOLOR));
+            this.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.MAIN_BACKCOLOR));
+            this.m_dangNhapBtn.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.TABBUTTONCOLOR));
         }
 
         protected override void WndProc(ref Message m)

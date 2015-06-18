@@ -33,7 +33,6 @@ namespace QuanLyHocSinh
             this.MinimumSize = this.Size;
 
             m_txtMahs.Text = DataBase.HocSinh.MahsMax();
-            m_btClose.BackColor = Color.FromArgb(255, 101, 99);
             m_ccbLop.DataSource = DataBase.Lop.LayDuLieuLop(FrmMain.m_phanquyen.ID, FrmMain.m_phanquyen.PhanQuyen);
             m_ccbLop.ValueMember = "MALOP";
             m_ccbLop.DisplayMember = "TENLOP";
@@ -43,9 +42,6 @@ namespace QuanLyHocSinh
             m_ccbManamhoc.DisplayMember = "TENNAMHOC";
             m_ccbManamhoc.Visible = true;
             m_lblManamhoc.Visible = true;
-
-
-            
         }
 
         //sua
@@ -85,6 +81,7 @@ namespace QuanLyHocSinh
         private void initGP()
         {
             this.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.MAIN_BACKCOLOR));
+            m_btClose.BackColor = m_btHoanTat.BackColor = m_btminimize.BackColor = m_btnChonhinh.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.TOPBUTTONCOLOR));
         }
 
         private void m_btClose_Click(object sender, EventArgs e)

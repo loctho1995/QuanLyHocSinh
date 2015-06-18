@@ -25,6 +25,8 @@ namespace QuanLyHocSinh
 
             this.MinimumSize = this.Size;
             this.MaximumSize = this.Size;
+
+            InitButton();
         }
 
         public frmXemSuaDiem_Mon(DataGridViewRow row, bool sua)
@@ -48,6 +50,14 @@ namespace QuanLyHocSinh
             m_cbbNamHoc.DataSource = DataBase.NamHoc.LayNamHoc();
             m_cbbNamHoc.DisplayMember = "TENNAMHOC";
             m_cbbNamHoc.ValueMember = "MANAMHOC";
+
+            InitButton();
+        }
+
+        private void InitButton()
+        {
+            m_btminimize.BackColor = m_btClose.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.TOPBUTTONCOLOR));
+            m_btSua.BackColor = m_btLuu.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.TABBUTTONCOLOR));
         }
 
         private void frmXemSuaDiem_Mon_Load(object sender, EventArgs e)

@@ -30,6 +30,8 @@ namespace QuanLyHocSinh
 
             m_frmMain = frmMain;
 
+            buttonFlat3.BackColor = buttonFlat4.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.TOPBUTTONCOLOR));
+
             InitPanel();
         }
 

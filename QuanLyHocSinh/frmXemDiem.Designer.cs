@@ -190,7 +190,6 @@
             this.m_dgvMain.ReadOnly = true;
             this.m_dgvMain.Size = new System.Drawing.Size(644, 257);
             this.m_dgvMain.TabIndex = 42;
-            this.m_dgvMain.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label15
             // 
@@ -231,7 +230,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            //this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(683, 501);
             this.Controls.Add(this.m_btminimize);
             this.Controls.Add(this.m_btClose);
