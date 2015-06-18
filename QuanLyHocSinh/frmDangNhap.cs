@@ -37,9 +37,7 @@ namespace QuanLyHocSinh
                     if ((int)m.Result == 0x1)
                         m.Result = (IntPtr)0x2;
                     return;
-
             }
-
             base.WndProc(ref m);
         }
 
@@ -60,10 +58,10 @@ namespace QuanLyHocSinh
             }
             else
             {
-                MessageBox.Show("Wrong hole Mother Fucker!!!");
+                MessageBox.Show("");
             }
         }
-        //
+
         private bool Check()
         {
             int x = DataBase.User.DangNhap(m_tbID.Text, m_tbPass.Text, ref name, ref malop, ref phanquyen);

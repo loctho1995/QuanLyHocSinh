@@ -18,7 +18,14 @@ namespace DAO
         //connect to sql server
         public Connection()
         {
-            conn = new SqlConnection("Data Source=HP;Initial Catalog=SQL_QUANLYHOCSINH;Integrated Security=True");
+            try
+            {
+                conn = new SqlConnection("Data Source=HP;Initial Catalog=SQL_QUANLYTHUVIEN;Integrated Security=True");
+            }
+            catch
+            {
+                
+            }
         }
 
         //open connect
@@ -37,7 +44,6 @@ namespace DAO
             openConnection();
             try
             {
-
                 SqlCommand cm = new SqlCommand(query, conn);
                 cm.ExecuteNonQuery();
                 conn.Close();
