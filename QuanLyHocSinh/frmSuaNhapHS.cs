@@ -53,19 +53,19 @@ namespace QuanLyHocSinh
             this.MaximumSize = this.Size;
             this.MinimumSize = this.Size;
 
-            m_txtMahs.Text = row.Cells["MAHS"].Value.ToString();
-            m_tbDiaChi.Text = row.Cells["DIACHI"].Value.ToString();
-            m_tbEmail.Text = row.Cells["EMAIL"].Value.ToString();
-            m_tbGioiTinh.Text = row.Cells["GIOITINH"].Value.ToString();
-            m_tbHoVaTen.Text = row.Cells["HOTEN"].Value.ToString();
-            m_ccbLop.ValueMember = row.Cells["MALOP"].Value.ToString();
-            m_ccbLop.DisplayMember = row.Cells["MALOP"].Value.ToString();
-            m_dtpNgaysinh.Value =  DateTime.Parse(row.Cells["NGAYSINH"].Value.ToString());
-            m_tbTonGiao.Text = row.Cells["TONGIAO"].Value.ToString();
-            m_tbHotencha.Text = row.Cells["HOTENCHA"].Value.ToString();
-            m_tbHotenme.Text = row.Cells["NGHENGHIEPCHA"].Value.ToString();
-            m_tbNghenghiepcha.Text = row.Cells["HOTENME"].Value.ToString();
-            m_tbNghenghiepme.Text = row.Cells["NGHENGHIEPME"].Value.ToString();
+            m_txtMahs.Text = row.Cells["MAHS"].Value.ToString().Trim();
+            m_tbDiaChi.Text = row.Cells["DIACHI"].Value.ToString().Trim();
+            m_tbEmail.Text = row.Cells["EMAIL"].Value.ToString().Trim();
+            m_tbGioiTinh.Text = row.Cells["GIOITINH"].Value.ToString().Trim();
+            m_tbHoVaTen.Text = row.Cells["HOTEN"].Value.ToString().Trim();
+            m_ccbLop.ValueMember = row.Cells["MALOP"].Value.ToString().Trim();
+            m_ccbLop.DisplayMember = row.Cells["MALOP"].Value.ToString().Trim();
+            m_dtpNgaysinh.Value = DateTime.Parse(row.Cells["NGAYSINH"].Value.ToString());
+            m_tbTonGiao.Text = row.Cells["TONGIAO"].Value.ToString().Trim();
+            m_tbHotencha.Text = row.Cells["HOTENCHA"].Value.ToString().Trim();
+            m_tbHotenme.Text = row.Cells["NGHENGHIEPCHA"].Value.ToString().Trim();
+            m_tbNghenghiepcha.Text = row.Cells["HOTENME"].Value.ToString().Trim();
+            m_tbNghenghiepme.Text = row.Cells["NGHENGHIEPME"].Value.ToString().Trim();
             if (DataBase.HocSinh.Image(int.Parse(m_txtMahs.Text)) != null)
                 m_ptbHS.Image = (Image)(new Bitmap(DataBase.HocSinh.Image(int.Parse(m_txtMahs.Text))));
 
@@ -100,15 +100,52 @@ namespace QuanLyHocSinh
                 return;
             }
 
-            //try
-            //{
+            if(m_tbDiaChi.Text == "")
+            {
+                MessageBox.Show("Địa chỉ trống", "Thông báo");
+                return;
+            }
 
-            //}
-            //catch (Exception)
-            //{
-                
-            //    throw;
-            //}
+            if(m_tbGioiTinh.Text == "")
+            {
+                MessageBox.Show("Giới tính trống", "Thông báo");
+                return;
+            }
+
+            if (m_tbHotencha.Text == "")
+            {
+                MessageBox.Show("Họ tên cha trống", "Thông báo");
+                return;
+            }
+
+            if(m_tbHotenme.Text == "")
+            {
+                MessageBox.Show("Họ tên mẹ trống", "Thông báo");
+                return;
+            }
+
+            if(m_tbHoVaTen.Text == "")
+            {
+                MessageBox.Show("Họ và tên trống", "Thông báo");
+            }
+
+            if(m_tbNghenghiepcha.Text == "")
+            {
+                MessageBox.Show("Nghề nghiệp của cha trống", "Thông báo");
+                return;
+            }
+
+            if(m_tbNghenghiepme.Text == "")
+            {
+                MessageBox.Show("Nghề nghiệp của mẹ trống", "Thông báo");
+                return;
+            }
+
+            if(m_tbTonGiao.Text == "")
+            {
+                MessageBox.Show("Tôn giáo trống", "Thông báo");
+                return;
+            }
 
             hs.MAHS = int.Parse(m_txtMahs.Text);
             hs.DIACHI = m_tbDiaChi.Text;
@@ -130,6 +167,7 @@ namespace QuanLyHocSinh
                 pl.MAKHOI = pl.MALOP.Substring(0, 2);
                 hs_bus.ThemHocSinh(hs,pl);
                 MessageBox.Show("Thanh cong");
+                this.Close();
             }
             else if (hs_bus.UpdateHocSinh(hs, pl)&&m_check ==false)
             {
@@ -179,6 +217,29 @@ namespace QuanLyHocSinh
             }
         }
 
+        private void m_tb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox obj = (TextBox)sender;
+            //MessageBox.Show(((int)e.KeyChar).ToString());
+            if (char.IsLetter(e.KeyChar)|| e.KeyChar == ' ' | (int)e.KeyChar == 8)
+                e.Handled = false;
+            else
+            {
+                if(obj.Name == "m_tbDiaChi")
+                {
+                    e.Handled = false;
+                    return;
+                }
+
+                e.Handled = true;                  
+            }
+                
+        }
+
+        private void m_ccbManamhoc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
 
     }
 }

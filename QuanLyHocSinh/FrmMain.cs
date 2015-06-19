@@ -65,6 +65,21 @@ namespace QuanLyHocSinh
             //this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.CacheText, true);
             this.DoubleBuffered = true;
             InitializeComponent();
+
+            this.SizeChanged += (o, e) =>
+                {
+                    if (this.WindowState == FormWindowState.Maximized)
+                    {
+                        //this.WindowState = FormWindowState.Maximized;
+                        m_btmaxSize.ButtonImage = QuanLyHocSinh.Properties.Resources.iconminsize;
+                    }
+                    else
+                    {
+                        //this.WindowState = FormWindowState.Normal;
+                        m_btmaxSize.ButtonImage = QuanLyHocSinh.Properties.Resources.iconmaxsize;
+                    }
+                };
+
             if(FrmMain.m_phanquyen.PhanQuyen==0)
             {
                 this.m_btnDuLieu.Enabled = false;
@@ -85,12 +100,19 @@ namespace QuanLyHocSinh
             m_scMain.TextBoxSearch.TextChanged += TextBoxSearch_TextChanged;
             m_treeViewKhoi.ExpandAll();
             m_dgvMain.BorderStyle = BorderStyle.None;
-            m_lblID.Text = m_phanquyen.ID;
-            m_lblName.Text = m_phanquyen.Username;
-            m_lblLopCN.Text = m_phanquyen.LopCN;
+
+            m_statusBar.ID = m_phanquyen.ID;
+            m_statusBar.HoVaTen = m_phanquyen.Username;
+            m_statusBar.LopCN = m_phanquyen.LopCN;
+
+            //m_lblID.Text = m_phanquyen.ID;
+            //m_lblName.Text = m_phanquyen.Username;
+            //m_lblLopCN.Text = m_phanquyen.LopCN;
 
             for (int i = 0; i < m_phanquyen.LopBM.Count(); i++)
-                m_lblLopBoMon.Text += m_phanquyen.LopBM[i];
+                m_statusBar.LopBM += m_phanquyen.LopBM[i];
+    
+            //m_lblLopBoMon.Text += m_phanquyen.LopBM[i];
             //m_btBaoCao.Enabled = false;
 
             m_tcMain.SelectedIndexChanged += m_tcMain_SelectedIndexChanged;//them su kien chuyen tabpage trong tabcontrol
@@ -263,7 +285,7 @@ namespace QuanLyHocSinh
                         item.Hide();
                         item.Show();
                         return;
-                    }
+                    }                                                           
                 }
 
                 frmThongTinHS frmTT = new frmThongTinHS(m_dgvMain.SelectedRows[0]);
@@ -513,6 +535,13 @@ namespace QuanLyHocSinh
         #endregion
 
         #region - EVENTS -
+
+        protected override void OnSizeChanged(EventArgs e)
+        {
+
+            base.OnSizeChanged(e);
+        }
+
         void m_tcMain_SelectedIndexChanged(object sender, EventArgs e)
         {
             //cac cau lenh dung de xac dinh tabpage nao dang duoc chon de gan cho bien static tab gia tri tuong ung
@@ -659,8 +688,6 @@ namespace QuanLyHocSinh
             if (MessageBox.Show("Dang Xuat?", "Thong Bao", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
                 this.Hide();
-                m_lblID.Text = null;
-                m_lblName.Text = null;
                 frmDangNhap frmdangNhap = new frmDangNhap();
                 frmdangNhap.ShowDialog();
                 this.Close();

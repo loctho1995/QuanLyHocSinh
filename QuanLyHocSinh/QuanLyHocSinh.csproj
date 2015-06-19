@@ -157,6 +157,12 @@
     <Compile Include="SearchControl.Designer.cs">
       <DependentUpon>SearchControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="StatusBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StatusBar.Designer.cs">
+      <DependentUpon>StatusBar.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ButtonFlat.resx">
       <DependentUpon>ButtonFlat.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +216,9 @@
     </Compile>
     <EmbeddedResource Include="SearchControl.resx">
       <DependentUpon>SearchControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatusBar.resx">
+      <DependentUpon>StatusBar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">

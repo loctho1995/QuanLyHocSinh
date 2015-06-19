@@ -58,14 +58,7 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.m_dgwMain = new System.Windows.Forms.DataGridView();
             this.m_dgvMain = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.m_lblID = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.m_lblName = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.m_lblLopCN = new System.Windows.Forms.Label();
-            this.m_lblLopBoMon = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.m_statusBar = new QuanLyHocSinh.StatusBar();
             this.m_btnDuLieu = new QuanLyHocSinh.ButtonFlat();
             this.m_btnGiaoVien = new QuanLyHocSinh.ButtonFlat();
             this.m_btCaiDat = new QuanLyHocSinh.ButtonFlat();
@@ -190,98 +183,18 @@
             this.m_dgvMain.TabIndex = 5;
             this.m_dgvMain.DoubleClick += new System.EventHandler(this.m_dgvMain_DoubleClick);
             // 
-            // label1
+            // m_statusBar
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(9, 505);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "ID:";
-            // 
-            // m_lblID
-            // 
-            this.m_lblID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.m_lblID.AutoSize = true;
-            this.m_lblID.ForeColor = System.Drawing.Color.Snow;
-            this.m_lblID.Location = new System.Drawing.Point(32, 505);
-            this.m_lblID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.m_lblID.Name = "m_lblID";
-            this.m_lblID.Size = new System.Drawing.Size(0, 13);
-            this.m_lblID.TabIndex = 8;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Snow;
-            this.label3.Location = new System.Drawing.Point(95, 505);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Họ tên:";
-            // 
-            // m_lblName
-            // 
-            this.m_lblName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.m_lblName.AutoSize = true;
-            this.m_lblName.ForeColor = System.Drawing.Color.Snow;
-            this.m_lblName.Location = new System.Drawing.Point(138, 505);
-            this.m_lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.m_lblName.Name = "m_lblName";
-            this.m_lblName.Size = new System.Drawing.Size(0, 13);
-            this.m_lblName.TabIndex = 8;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Snow;
-            this.label2.Location = new System.Drawing.Point(276, 505);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Lớp CN:";
-            // 
-            // m_lblLopCN
-            // 
-            this.m_lblLopCN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.m_lblLopCN.AutoSize = true;
-            this.m_lblLopCN.ForeColor = System.Drawing.Color.Snow;
-            this.m_lblLopCN.Location = new System.Drawing.Point(325, 505);
-            this.m_lblLopCN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.m_lblLopCN.Name = "m_lblLopCN";
-            this.m_lblLopCN.Size = new System.Drawing.Size(21, 13);
-            this.m_lblLopCN.TabIndex = 8;
-            this.m_lblLopCN.Text = "lớp";
-            // 
-            // m_lblLopBoMon
-            // 
-            this.m_lblLopBoMon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.m_lblLopBoMon.AutoSize = true;
-            this.m_lblLopBoMon.ForeColor = System.Drawing.Color.Snow;
-            this.m_lblLopBoMon.Location = new System.Drawing.Point(425, 505);
-            this.m_lblLopBoMon.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.m_lblLopBoMon.Name = "m_lblLopBoMon";
-            this.m_lblLopBoMon.Size = new System.Drawing.Size(0, 13);
-            this.m_lblLopBoMon.TabIndex = 8;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Snow;
-            this.label4.Location = new System.Drawing.Point(381, 505);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Lớp BM:";
+            this.m_statusBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.m_statusBar.ForeColor = System.Drawing.Color.White;
+            this.m_statusBar.HoVaTen = "Họ và Tên: ";
+            this.m_statusBar.ID = "ID: ";
+            this.m_statusBar.Location = new System.Drawing.Point(2, 501);
+            this.m_statusBar.LopBM = "Lớp BM: ";
+            this.m_statusBar.LopCN = "Lớp CN: ";
+            this.m_statusBar.Name = "m_statusBar";
+            this.m_statusBar.Size = new System.Drawing.Size(896, 27);
+            this.m_statusBar.TabIndex = 16;
             // 
             // m_btnDuLieu
             // 
@@ -892,6 +805,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(910, 524);
+            this.Controls.Add(this.m_statusBar);
             this.Controls.Add(this.m_btnDuLieu);
             this.Controls.Add(this.m_btnGiaoVien);
             this.Controls.Add(this.m_btCaiDat);
@@ -899,14 +813,6 @@
             this.Controls.Add(this.m_btmaxSize);
             this.Controls.Add(this.m_btdangXuat);
             this.Controls.Add(this.m_btclose);
-            this.Controls.Add(this.m_lblName);
-            this.Controls.Add(this.m_lblLopBoMon);
-            this.Controls.Add(this.m_lblLopCN);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.m_lblID);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.m_scMain);
             this.Controls.Add(this.m_dgvMain);
             this.Controls.Add(this.m_treeViewKhoi);
@@ -923,7 +829,6 @@
             this.m_tbBaoCao.ResumeLayout(false);
             this.m_tbBaoCao.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -934,14 +839,6 @@
         private System.Windows.Forms.DataGridView m_dgwMain;
         private System.Windows.Forms.DataGridView m_dgvMain;
         private SearchControl m_scMain;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label m_lblID;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label m_lblName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label m_lblLopCN;
-        private System.Windows.Forms.Label m_lblLopBoMon;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage m_tbBaoCao;
         //private System.Windows.Forms.Button m_btBaoCao;
         private System.Windows.Forms.ComboBox m_ccbPhanQuyen;
@@ -976,6 +873,7 @@
         private ButtonFlat m_btXemThongTin;
         private ButtonFlat m_btnGiaoVien;
         private ButtonFlat m_btnDuLieu;
+        private StatusBar m_statusBar;
     }
 }
 

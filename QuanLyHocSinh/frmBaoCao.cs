@@ -11,6 +11,7 @@ using System.Reflection;
 using System.IO;
 using System.Data;
 using BUS;
+using System.Drawing.Printing;
 
 namespace QuanLyHocSinh
 {
@@ -27,7 +28,7 @@ namespace QuanLyHocSinh
             m_tableName.Text = TableName;
 
             m_btclose.BackColor = m_btHide.BackColor = m_btmaxSize.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.TOPBUTTONCOLOR));
-            button2.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.TABBUTTONCOLOR));
+            button2.BackColor = Print.BackColor = m_btnPreview.BackColor = Color.FromArgb(int.Parse(DataBase.CaiDat.TABBUTTONCOLOR));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -114,6 +115,51 @@ namespace QuanLyHocSinh
         {
             WindowState = FormWindowState.Minimized;
             (sender as ButtonFlat).SaveChanged = true;
+        }
+
+        private void Print_Click(object sender, EventArgs e)
+        {
+            PrintDialog printDialog = new PrintDialog();
+
+            PrintDocument printDocument = new PrintDocument();
+
+            printDialog.Document = printDocument;
+
+            printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(CreateTable);
+
+
+
+
+
+            DialogResult result = printDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                printDocument.Print();
+
+            }
+
+
+
+        }
+        public void CreateTable(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Bitmap bm = new Bitmap(this.m_dgvData.Width, this.m_dgvData.Height);
+            m_dgvData.DrawToBitmap(bm, new Rectangle(0, 0, this.m_dgvData.Width, this.m_dgvData.Height));
+            e.Graphics.DrawImage(bm, 0, 0);
+        }
+
+        private void Preview_Click(object sender, EventArgs e)
+        {
+            PrintDocument printDocument = new PrintDocument();
+
+            printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(CreateTable);
+
+            PrintPreviewDialog preview = new PrintPreviewDialog();
+
+            preview.Document = printDocument;
+
+            preview.Show();
         }
 
 
