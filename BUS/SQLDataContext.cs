@@ -19,6 +19,12 @@ namespace BUS
         public static bool IsLoaded
         { get; set; }
 
+        public static void CreateDataContext(string connectionString)
+        {
+            m_db = new SQL_QUANLYHOCSINHDataContext(connectionString);
+            IsLoaded = true;
+        }
+
         public static void CreateDataContext()
         {
             m_db = new SQL_QUANLYHOCSINHDataContext();

@@ -74,8 +74,8 @@ namespace DAO
     partial void DeletePHANLOP(PHANLOP instance);
     #endregion
 		
-		public SQL_QUANLYHOCSINHDataContext() : 
-				base(global::DAO.Properties.Settings.Default.sql_quanlyhocsinhConnectionString5, mappingSource)
+		public SQL_QUANLYHOCSINHDataContext() :
+        base(global::DAO.Properties.Settings.Default.SQL_QUANLYHOCSINHConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

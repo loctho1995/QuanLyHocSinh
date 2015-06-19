@@ -14,13 +14,13 @@ namespace DAO
     public class Connection
     {
         private SqlConnection conn;
-
+        
         //connect to sql server
         public Connection()
-        {
+        {         
             try
             {
-                conn = new SqlConnection("Data Source=localhost;Initial Catalog=SQL_QUANLYHOCSINH;Integrated Security=True");
+                conn = new SqlConnection("Data Source=Localhost;Initial Catalog=SQL_QUANLYHOCSINH;Integrated Security=True");
             }
             catch
             {

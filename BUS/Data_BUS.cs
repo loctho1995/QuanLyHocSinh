@@ -13,7 +13,7 @@ namespace BUS
         public Data_BUS()
         {
             conn = new Connection();
-            if (SQLDataContext.IsLoaded)
+            if (!SQLDataContext.IsLoaded)
                 SQLDataContext.CreateDataContext();
         }
 
