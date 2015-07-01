@@ -225,7 +225,7 @@ namespace QuanLyHocSinh
                 e.Handled = false;
             else
             {
-                if(obj.Name == "m_tbDiaChi")
+                if(obj.Name == "m_tbDiaChi" || obj.Name == "m_tbEmail")
                 {
                     e.Handled = false;
                     return;

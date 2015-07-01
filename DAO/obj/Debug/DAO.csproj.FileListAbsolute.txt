@@ -9,3 +9,4 @@ F:\Github\QuanLyHocSinh\DAO\bin\Debug\DAO.dll
 F:\Github\QuanLyHocSinh\DAO\bin\Debug\DAO.pdb
 F:\Github\QuanLyHocSinh\DAO\obj\Debug\DAO.dll
 F:\Github\QuanLyHocSinh\DAO\obj\Debug\DAO.pdb
+F:\Github\QuanLyHocSinh\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache

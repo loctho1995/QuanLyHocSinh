@@ -1055,7 +1055,6 @@
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
 		<row><td>AppDataFolder</td><td>ISX_DEFAULTCOMPONENT2</td></row>
-		<row><td>DATABASEDIR</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT</td></row>
 	</table>
 
@@ -1893,6 +1892,7 @@
 		<col def="S72">ISComponentSubFolder_</col>
 		<row><td>bus.primary_output</td><td>BUS.Primary_output</td><td>BUS.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;BUS&gt;|Built</td><td>3</td><td/></row>
 		<row><td>dao.primary_output</td><td>DAO.Primary_output</td><td>DAO.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;DAO&gt;|Built</td><td>3</td><td/></row>
+		<row><td>quanlyhocsinh.bak</td><td>ISX_DEFAULTCOMPONENT1</td><td>QUANLY~1.BAK|quanlyhocsinh.bak</td><td>0</td><td/><td/><td/><td>1</td><td>G:\quanlyhocsinh.bak</td><td>1</td><td/></row>
 		<row><td>quanlyhocsinh.primary_output</td><td>QuanLyHocSinh.Primary_output</td><td>QuanLyHocSinh.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;QuanLyHocSinh&gt;|Built</td><td>3</td><td/></row>
 	</table>
 

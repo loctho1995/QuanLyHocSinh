@@ -13,7 +13,7 @@ namespace QuanLyHocSinh
     public partial class StatusBar : UserControl
     {
         Label m_lbID, m_lbName, m_lbLopCN, m_lbLopBM;
-        String m_id, m_name, m_lopCN, m_lopBM;
+        string m_id, m_name, m_lopCN, m_lopBM;
 
         public String ID
         {
@@ -24,19 +24,19 @@ namespace QuanLyHocSinh
         public String HoVaTen
         {
             get { return m_name; }
-            set { m_name = value; ReloadPosition(); }
+            set { m_name = value; ReloadPosition();}
         }
 
         public String LopCN
         {
             get { return m_lopCN; }
-            set { m_lopCN += value; ReloadPosition(); }
+            set { m_lopCN = value; ReloadPosition(); }
         }
 
         public String LopBM
         {
             get { return m_lopBM; }
-            set { m_lopBM += value; ReloadPosition(); }
+            set { m_lopBM = value; ReloadPosition(); }
         }
 
         protected override void OnFontChanged(EventArgs e)
@@ -65,6 +65,11 @@ namespace QuanLyHocSinh
             m_lbLopCN.Text = "Lớp CN: ";
             m_lbName.Text = "Họ và Tên: ";
 
+            m_lbID.AutoSize = true;
+            m_lbLopBM.AutoSize = true;
+            m_lbLopCN.AutoSize = true;
+            m_lbName.AutoSize = true;
+
             this.Controls.Add(m_lbID);
             this.Controls.Add(m_lbName);
             this.Controls.Add(m_lbLopCN);
@@ -75,6 +80,7 @@ namespace QuanLyHocSinh
 
         private void ReloadPosition()
         {
+            int distance = 20;
             if(m_lbID != null)
             {
                 m_lbID.Location = new Point(0, this.Height / 2 - m_lbID.Height / 2);
@@ -84,21 +90,20 @@ namespace QuanLyHocSinh
 
             if (m_lbName != null)
             {
-                m_lbName.Location = new Point(m_lbID.Location.X + m_lbID.Width + 10, m_lbID.Location.Y);
+                m_lbName.Location = new Point(m_lbID.Location.X + m_lbID.Width + distance, m_lbID.Location.Y);
                 m_lbName.Text = "Họ và tên: " + m_name;
-            }
-               
+            }                
 
             if (m_lbLopCN != null)
             {
-                m_lbLopCN.Location = new Point(m_lbName.Location.X + m_lbName.Width + 10, m_lbID.Location.Y);
-                m_lbLopCN.Text = m_lopCN;
+                m_lbLopCN.Location = new Point(m_lbName.Location.X + m_lbName.Width + distance, m_lbID.Location.Y);
+                m_lbLopCN.Text = "Lớp CN: " + m_lopCN;
             }
                 
 
             if (m_lbLopBM != null)
             {
-                m_lbLopBM.Location = new Point(m_lbLopCN.Location.X + m_lbLopCN.Width + 10, m_lbID.Location.Y);
+                m_lbLopBM.Location = new Point(m_lbLopCN.Location.X + m_lbLopCN.Width + distance, m_lbID.Location.Y);
                 m_lbLopBM.Text = m_lopBM;
             }                         
                 

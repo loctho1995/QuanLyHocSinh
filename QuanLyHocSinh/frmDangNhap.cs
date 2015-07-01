@@ -62,7 +62,7 @@ namespace QuanLyHocSinh
             }
             else
             {
-                MessageBox.Show("");
+                MessageBox.Show("Tên đăng nhập và mật khẩu không chính xác!!!");
             }
         }
 
